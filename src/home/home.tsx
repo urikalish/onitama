@@ -74,10 +74,12 @@ export function Home() {
             {/*</Box>*/}
             <Typography variant="h4">About Onitama</Typography>
             <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
-                Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato.
-                It is thematically based on the different fighting styles of Japanese martial arts.
+                Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting styles
+                of Japanese martial arts.
             </Typography>
-            <Typography variant="h4" sx={{ marginTop: '2rem' }}>Movement Cards</Typography>
+            <Typography variant="h4" sx={{ marginTop: '2rem' }}>
+                Movement Cards
+            </Typography>
             <FormGroup>
                 <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} disabled />} label="Base deck" />
                 <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path" />
