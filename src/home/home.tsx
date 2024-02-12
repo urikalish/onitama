@@ -4,15 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 export function Home() {
     const [baseDeck, setBaseDeck] = useState(true);
-    const [pathDeck, setPathDeck] = useState(false);
+    const [pathDeck, setPathDeck] = useState(true);
     const [windDeck, setWindDeck] = useState(false);
-    const [promoDeck, setPromoDeck] = useState(false);
     const [canSubmit, setCanSubmit] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        setCanSubmit(baseDeck || pathDeck || windDeck || promoDeck);
-    }, [baseDeck, pathDeck, windDeck, promoDeck]);
+        setCanSubmit(baseDeck || pathDeck || windDeck);
+    }, [baseDeck, pathDeck, windDeck]);
 
     const handleChangeBaseDeck = useCallback((event: any) => {
         setBaseDeck(event.target.checked);
@@ -26,10 +25,6 @@ export function Home() {
         setWindDeck(event.target.checked);
     }, []);
 
-    const handleChangePromoDeck = useCallback((event: any) => {
-        setPromoDeck(event.target.checked);
-    }, []);
-
     const handleClickStart = useCallback(() => {
         const decks = [];
         if (baseDeck) {
@@ -40,14 +35,12 @@ export function Home() {
         }
         if (windDeck) {
             decks.push('wind');
-        }
-        if (promoDeck) {
             decks.push('promo');
         }
         if (decks.length > 0) {
             navigate(`/game?decks=${decks.join(',')}`);
         }
-    }, [baseDeck, pathDeck, windDeck, promoDeck]);
+    }, [baseDeck, pathDeck, windDeck]);
 
     return (
         <Box className="home" sx={{ padding: '2rem' }}>
@@ -82,9 +75,8 @@ export function Home() {
             </Typography>
             <FormGroup>
                 <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} disabled />} label="Base deck" />
-                <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path" />
-                <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind" />
-                <FormControlLabel control={<Checkbox checked={promoDeck} onChange={handleChangePromoDeck} />} label="Promo cards" />
+                <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
+                <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
             </FormGroup>
             <Button disabled={!canSubmit} onClick={handleClickStart} variant="outlined" sx={{ marginTop: '2rem', width: '12rem' }}>
                 <Typography>Start Game</Typography>
