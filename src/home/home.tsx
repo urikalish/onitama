@@ -3,25 +3,54 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export function Home() {
-    const [twoPlayers, setTwoPlayers] = useState(true);
+    const [baseDeck, setBaseDeck] = useState(true);
+    const [pathDeck, setPathDeck] = useState(false);
+    const [windDeck, setWindDeck] = useState(false);
+    const [promoDeck, setPromoDeck] = useState(false);
     const [canSubmit, setCanSubmit] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        setCanSubmit(true);
-    }, [twoPlayers]);
+        setCanSubmit(baseDeck || pathDeck || windDeck || promoDeck);
+    }, [baseDeck, pathDeck, windDeck, promoDeck]);
 
-    const handleChangeTwoPlayers = useCallback((event: any) => {
-        setTwoPlayers(event.target.checked);
+    const handleChangeBaseDeck = useCallback((event: any) => {
+        setBaseDeck(event.target.checked);
+    }, []);
+
+    const handleChangePathDeck = useCallback((event: any) => {
+        setPathDeck(event.target.checked);
+    }, []);
+
+    const handleChangeWindDeck = useCallback((event: any) => {
+        setWindDeck(event.target.checked);
+    }, []);
+
+    const handleChangePromoDeck = useCallback((event: any) => {
+        setPromoDeck(event.target.checked);
     }, []);
 
     const handleClickStart = useCallback(() => {
-        navigate(`/game?players=${twoPlayers ? '2' : '1'}`);
-    }, [twoPlayers]);
+        const decks = [];
+        if (baseDeck) {
+            decks.push('base');
+        }
+        if (pathDeck) {
+            decks.push('path');
+        }
+        if (windDeck) {
+            decks.push('wind');
+        }
+        if (promoDeck) {
+            decks.push('promo');
+        }
+        if (decks.length > 0) {
+            navigate(`/game?decks=${decks.join(',')}`);
+        }
+    }, [baseDeck, pathDeck, windDeck, promoDeck]);
 
     return (
         <Box className="home" sx={{ padding: '2rem' }}>
-            <Typography variant="h4">Onitama Game</Typography>
             {/*<Box>*/}
             {/*    <NavLink to="/tags?mode=air" className="link">*/}
             {/*        <Button variant="outlined" sx={{ width: '12rem' }}>*/}
@@ -43,14 +72,17 @@ export function Home() {
             {/*        </Button>*/}
             {/*    </NavLink>*/}
             {/*</Box>*/}
-            <Typography variant="body2" sx={{ color: 'var(--color--gray--medium)', marginTop: '1rem' }}>
-                Assert your martial prowess by harnessing the power of various animal spirits.
+            <Typography variant="h4">About Onitama</Typography>
+            <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
+                Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato.
+                It is thematically based on the different fighting styles of Japanese martial arts.
             </Typography>
-            <Typography variant="body2" sx={{ color: 'var(--color--gray--medium)', marginTop: '1rem' }}>
-                Designer: Shimpei Sato
-            </Typography>
-            <FormGroup sx={{ marginTop: '2rem' }}>
-                <FormControlLabel control={<Checkbox checked={twoPlayers} onChange={handleChangeTwoPlayers} />} label="2 Players" />
+            <Typography variant="h4" sx={{ marginTop: '2rem' }}>Movement Cards</Typography>
+            <FormGroup>
+                <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} disabled />} label="Base deck" />
+                <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path" />
+                <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind" />
+                <FormControlLabel control={<Checkbox checked={promoDeck} onChange={handleChangePromoDeck} />} label="Promo cards" />
             </FormGroup>
             <Button disabled={!canSubmit} onClick={handleClickStart} variant="outlined" sx={{ marginTop: '2rem', width: '12rem' }}>
                 <Typography>Start Game</Typography>
