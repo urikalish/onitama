@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Bear",
+    "moves": [-1, -1, 0, -1, 1, 1],
+    "start": "blue",
+    "deck": "path"
+  },
+  {
+    "name": "Boar",
+    "moves": [0, -1, -1, 0, 1, 0],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Cat",
+    "moves": [0,-1,-1,0,2,0,0,2],
+    "start": "red",
+    "deck": "promo"
+  },
+  {
+    "name": "Centipede",
+    "moves": [0,-1,-1,0,2,2],
+    "start": "red",
+    "deck": "promo"
+  },
+  {
+    "name": "Cobra",
+    "moves": [1, -1, -1, 0, 1, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Crab",
+    "moves": [0, -1, -2, 0, 2, 0],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Crane",
+    "moves": [0, -1, -1, 1, 1, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Dog",
+    "moves": [-1, -1, -1, 0, -1, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Dragon",
+    "moves": [-2, -1, 2, -1, -1, 1, 1, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Eel",
+    "moves": [-1, -1, 1, 0, -1, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Elephant",
+    "moves": [-1, -1, 1, -1, -1, 0, 1, 0],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Fox",
+    "moves": [1, -1, 1, 0, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Frog",
+    "moves": [-1, -1, -2, 0, 1, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Giraffe",
+    "moves": [-2, -1, 2, -1, 0, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Goat",
+    "moves": [1,-1,-1,0,0,1],
+    "start": "red",
+    "deck": "wind"
+  },
+  {
+    "name": "Goose",
+    "moves": [-1, -1, -1, 0, 1, 0, 1, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Hornet",
+    "moves": [0,-1,1,0,-2,2],
+    "start": "blue",
+    "deck": "promo"
+  },
+  {
+    "name": "Horse",
+    "moves": [0, -1, -1, 0, 0, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Iguana",
+    "moves": [-2, -1, 0, -1, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Kirin",
+    "moves": [-1, -2, 1, -2, 0, 2],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Lobster",
+    "moves": [-1,-1,1,-1,-1,2,1,2],
+    "start": "red",
+    "deck": "promo"
+  },
+  {
+    "name": "Mantis",
+    "moves": [-1, -1, 1, -1, 0, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Monkey",
+    "moves": [-1, -1, 1, -1, -1, 1, 1, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Mouse",
+    "moves": [0, -1, 1, 0, -1, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Otter",
+    "moves": [-1, -1, 2, 0, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Ox",
+    "moves": [0, -1, 1, 0, 0, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Panda",
+    "moves": [0, -1, 1, -1, -1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Phoenix",
+    "moves": [-1, -1, 1, -1, -2, 0, 2, 0],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Rabbit",
+    "moves": [1, -1, 2, 0, -1, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Rat",
+    "moves": [0, -1, -1, 0, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Rooster",
+    "moves": [1, -1, -1, 0, 1, 0, -1, 1],
+    "start": "red",
+    "deck": "base"
+  },
+  {
+    "name": "Sable",
+    "moves": [1, -1, -2, 0, -1, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Sea Snake",
+    "moves": [0, -1, 2, 0, -1, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Serow",
+    "moves": [0,-1,-2,0,1,0,0,2],
+    "start": "blue",
+    "deck": "promo"
+  },
+  {
+    "name": "Sheep",
+    "moves": [-1,-1,1,0,0,1],
+    "start": "blue",
+    "deck": "Way of the Wind"
+  },
+  {
+    "name": "Steer",
+    "moves": [-1,0,1,0,-1,1,1,1],
+    "start": "blue",
+    "deck": "promo"
+  },
+  {
+    "name": "Tanuki",
+    "moves": [0, -1, 2, -1, -1, 1],
+    "start": "blue",
+    "deck": "Path"
+  },
+  {
+    "name": "Tiger",
+    "moves": [0, -2, 0, 1],
+    "start": "blue",
+    "deck": "base"
+  },
+  {
+    "name": "Turtle",
+    "moves": [-2, 0, 2, 0, -1, 1, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  },
+  {
+    "name": "Viper",
+    "moves": [0, -1, -2, 0, 1, 1],
+    "start": "red",
+    "deck": "Path"
+  }
+]
