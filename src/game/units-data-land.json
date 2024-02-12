@@ -1,0 +1,2262 @@
+[
+    {
+        "cat": ["זרוע היבשה", "אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "זרוע היבשה",
+        "tag": "land/IDF_GOC_Army_Headquarters_From_2020_28Alternative29.png"
+    },
+    {
+        "cat": ["זרוע היבשה", "אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "זרוע היבשה, עד מרץ 2020",
+        "tag": "land/D796D7A8D795D7A2-D794D799D791D7A9D794-D797D793D7A9.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "זרוע היבשה, עד 2016",
+        "tag": "land/Mazi_IDF_Symbol.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "מפקדת חיילות השדה (מפח\"ש), לימים זרוע היבשה",
+        "tag": "land/Mafhash-tag.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "מרכז למפקדות ומטה מבצעי",
+        "tag": "land/Pikud-Shlita-School-Zroa-Yabasha.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "בית הספר לקצינים של צה\"ל (בה\"ד 1)",
+        "tag": "land/Bahad_1_Symbol.SVG.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "המרכז הלאומי לאימונים ביבשה (מל\"י) צאלים",
+        "tag": "land/Mali_500_Tag.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "המרכז לאימוני מפקדות (מרא\"ם)",
+        "tag": "land/Headquarters_Training_Center_in_Julis.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "יחט\"ל עד 2006. לימים החטיבה הטכנולוגית ליבשה (חט\"ל)",
+        "tag": "land/Yahtal.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "חטיבת התקיפה הרב-זרועית",
+        "tag": "land/Multi-Armed_Assault_Brigade_Tag.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "עוצבת הבזק",
+        "tag": "land/99th_Ha27Bazak_Division_Tag_28cropped29.png"
+    },
+    {
+        "cat": ["זרוע היבשה"],
+        "name": "יחידת רפאים (כפופה לעוצבת הבזק)",
+        "tag": "land/D7AAD792_D799D797D799D793D7AA_D7A8D7A4D790D799D79D.png"
+    },
+    {
+        "cat": ["חיל הרגלים"],
+        "name": "חיל הרגלים",
+        "tag": "land/Infantry_Corps_28new29.png"
+    },
+    {
+        "cat": ["חיל הרגלים"],
+        "name": "חיל הרגלים, גרסה שנייה",
+        "tag": "land/Infantry_Corps_28old29.png"
+    },
+    {
+        "cat": ["חיל הרגלים"],
+        "name": "חיל הרגלים, גרסה ראשונה",
+        "tag": "land/Infantry_Corps_28oldest29.png"
+    },
+    {
+        "cat": ["חיל הרגלים"],
+        "name": "גדוד חרב, עד 2015 (סגור)",
+        "tag": "land/Logo_gdud_herev.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת גולני",
+        "tag": "land/Golani_tree_color.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת הצנחנים, החל משנת 2001",
+        "tag": "land/35th_Brigade_IDF.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת הצנחנים בין השנים 1956–2001",
+        "tag": "land/IDF_35th_Brigade_Old_Tag.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת הנח\"ל",
+        "tag": "land/Nahal_Brigade.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת כפיר",
+        "tag": "land/Logo_hativa_900.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת גבעתי",
+        "tag": "land/D7AAD792_D797D798D799D791D7AA_D792D791D7A2D7AAD799.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים"],
+        "name": "חטיבת עוז",
+        "tag": "land/Komando.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת נשר (חטיבה 226)",
+        "tag": "land/Hativa_nesher.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת חוד החנית (חטיבה 55)",
+        "tag": "land/IDF_Brigade_55_Tag.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת שועלי מרום (חטיבה 646)",
+        "tag": "land/Hativa-646_New_Logo.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת שועלי מרום, עד ינואר 2021",
+        "tag": "land/Logo-hativa-646.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת חצי האש",
+        "tag": "land/Logo_hativa_551.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת עודד (חטיבה 9)",
+        "tag": "land/OdedBrigade.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת כרמלי",
+        "tag": "land/Brigade_carmeli.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת אלון",
+        "tag": "land/Logo_hativa_228.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת ירושלים",
+        "tag": "land/JerusalemBrigade.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת עציוני (חטיבה 6)",
+        "tag": "land/Etzioni-hativa-6_-NewBrigada.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת עציוני, בין 1958–2010 (חטיבה 408)",
+        "tag": "land/Brigade408.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת עציוני, בין 1955–1958 (חטיבה 14)",
+        "tag": "land/Etzioni-hativa-6_-1955-1958.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת עציוני במלחמת העצמאות (חטיבה 6)",
+        "tag": "land/Etzioni.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת הנגב",
+        "tag": "land/NegevBrigade.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "חטיבת אלכסנדרוני",
+        "tag": "land/Alexandroni.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים"],
+        "name": "עוצבת השרון (חטיבה 5)",
+        "tag": "land/Hativa_5.png"
+    },
+    {
+        "cat": ["חטיבות חיל הרגלים במילואים", "חטיבות שריון שפורקו"],
+        "name": "חטיבת יפתח",
+        "tag": "land/YiftachBrigade.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "חטיבת ביסלמ\"ח (בית הספר למ\"כים)",
+        "tag": "land/Bislamah_newest.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "חטיבת ביסלמ\"ח (תג ישן)",
+        "tag": "land/Bislamah.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "ביסל\"ח",
+        "tag": "land/Infantry_professions_school_28old29.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "ביסלמ\"כ",
+        "tag": "land/Infantry_commanders_school_28oldest29.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים", "פיקוד הצפון"],
+        "name": "בית הספר ללוחמה נגד גרילה",
+        "tag": "land/Bap_Elikim.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "בה\"ד 8",
+        "tag": "land/Bahad_8_Wingate_Tag.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "מתקן אדם ומרום",
+        "tag": "land/MitkanAdam.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "מרום, עד 2015",
+        "tag": "land/Marhom.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "בסיס מתקן אדם (תג ישן)",
+        "tag": "land/Mitkan_Adam.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "בית ספר לצניחה, לפני שהפך ליחידת מרה\"ם",
+        "tag": "land/Beit_Sefer_LeZniha.png"
+    },
+    {
+        "cat": ["בסיסי הכשרה של חיל הרגלים"],
+        "name": "מאר\"ה (מרכז ארגון הטסה) בשנות החמישים",
+        "tag": "land/Maralogo.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חיל השריון",
+        "tag": "land/D7AAD792_D797D799D79C_D794D7A9D7A8D799D795D79F.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת סער מגולן (חטיבה 7)",
+        "tag": "land/7thArmoredBrigade.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת ברק (חטיבה 188)",
+        "tag": "land/Hativa188.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת עקבות הברזל (חטיבה 401)",
+        "tag": "land/D7AAD792_D799D797D799D793D794_401.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת בני-אור (חטיבה 460)",
+        "tag": "land/D7AAD792_D797D798D799D791D794_460.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "בית הספר לשריון (גדוד 195, גדוד מגן)",
+        "tag": "land/Gdud-magen_195.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חטיבת קרייתי",
+        "tag": "land/Kiryati.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חטיבת הזקן (חטיבה 8)",
+        "tag": "land/Logo_hativa_8.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חטיבת הראל",
+        "tag": "land/HarelBrigade.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חטיבת המחץ (חטיבה 14)",
+        "tag": "land/Brigade_14_sign.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת ראם (חטיבה 179)",
+        "tag": "land/Logo-hativa-37.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "חטיבת אגרוף הברזל",
+        "tag": "land/Logo_hativa_514.png"
+    },
+    {
+        "cat": ["חיל השריון"],
+        "name": "עוצבת יפתח",
+        "tag": "land/Logo-hativa-434.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת אגרוף ורומח (חטיבה 27)",
+        "tag": "land/D7AAD792_D797D798D799D791D794_27.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת הבזקה (חטיבה 130) ועוצבת הסוס הדוהר",
+        "tag": "land/Logo-hativa-217.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת כוכב האור (חטיבה 189)",
+        "tag": "land/Uzvat_Kohav_haOr_189.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת יש\"י (חטיבה 211)",
+        "tag": "land/Hativa211.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת מרכבות האש",
+        "tag": "land/Logo_hativa_263.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבה 265",
+        "tag": "land/Hativa_265_tag.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת ירושלים (חטיבה 274)",
+        "tag": "land/274hativa.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת קרני האש (חטיבה 278)",
+        "tag": "land/Uzvat-Karnei-aEsh-Hativa_278.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבה 320",
+        "tag": "land/Hativa_320_.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת אורנים (חטיבה 330)",
+        "tag": "land/Uzvat_Oranim_Hativa_330.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת קלע (חטיבה 395)",
+        "tag": "land/Uzvat-Kela-hativa-395.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת הצבאים (חטיבה 399)",
+        "tag": "land/Uzvat_Zabaim_Hativa_213.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבת הצליחה (חטיבה 421)",
+        "tag": "land/D7AAD792_D797D798D799D791D794_421.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת בני חיל (חטיבה 454)",
+        "tag": "land/Uzvat_bnei_hail_shirion.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת כפיר (חטיבה 500)",
+        "tag": "land/D7AAD792_D797D798D799D791D794_500.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבת עציון גבר",
+        "tag": "land/Hativa_Ezion_Gever_550.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת נתיבי האש (חטיבה 600)",
+        "tag": "land/Logo_hativa_600.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת חץ (חטיבה 640)",
+        "tag": "land/Uzvat_Hetz_Hativa_640_Tag.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת בני רשף (חטיבה 656)",
+        "tag": "land/Uzvat_Bnei_Reshef_Hativa_656.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת מרכבות הברזל",
+        "tag": "land/Merkavot.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבת עשת (חטיבה 130)",
+        "tag": "land/Brigade130.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת לביא (חטיבה 820)",
+        "tag": "land/Uzvat_Lavi_Hativa_820.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבת מרכבות הפלדה (חטיבה 847)",
+        "tag": "land/847ugda.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת אדירים (חטיבה 889)",
+        "tag": "land/Hativa889.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת כוכבי האש (חטיבה 896)",
+        "tag": "land/Uzvat_Kohavei_haEsh_Hativa_896.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "עוצבת השחר (חטיבה 943)",
+        "tag": "land/Uzvatat_Shahar_Hativa_943.png"
+    },
+    {
+        "cat": ["חטיבות שריון שפורקו"],
+        "name": "חטיבה 292",
+        "tag": "land/IDF_292th_Armored_Brigade.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדה 440 (עוצבת חלמיש)",
+        "tag": "land/Ugda440logo.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדת להבות האש",
+        "tag": "land/Uzvat-Lahavot_aEsh.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדת אתגר",
+        "tag": "land/Etgar_division.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדת להב",
+        "tag": "land/Uzvat-Lahav-Ugda-370.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדה 366 (עוצבת נתיב האש)",
+        "tag": "land/Logo-ugda-366.png"
+    },
+    {
+        "cat": ["אוגדות שריון שפורקו"],
+        "name": "אוגדת עמוד האש",
+        "tag": "land/Logo-ugda-143.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "חיל ההנדסה הקרבית",
+        "tag": "land/D7AAD792_D797D799D79C_D794D794D7A0D793D7A1D794.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "בית הספר להנדסה צבאית (בהל\"ץ)",
+        "tag": "land/Bahalatz_14_Tag.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "יחידת יהל\"ם",
+        "tag": "land/Yahalom.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "גדוד 601 \"אסף\" (עד 1973 גדוד סער 606)",
+        "tag": "land/Gdud601logo.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "גדוד 603 \"להב\"",
+        "tag": "land/Gdud603logo.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "גדוד 605 המח\"ץ",
+        "tag": "land/Gdud605logo.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "מפקדת הנדסה פיקוד המרכז",
+        "tag": "land/Handasa_pkmz.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "מפקדת הנדסה פיקוד הצפון",
+        "tag": "land/Handasa_pzn.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "מפקדת הנדסה פיקוד הדרום",
+        "tag": "land/IDF_Combat_Engineering_Corps_at_Southern_Command.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "מפקדת הנדסה פיקוד הדרום, עד סוף 2019",
+        "tag": "land/Handasa_pdm.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "גדוד הנדסה מילואים 8173",
+        "tag": "land/Gdud-8173.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "יחידת יפת\"ח (הועברה לחט\"ל זרוע היבשה)",
+        "tag": "land/Iftah.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "אגד הצליחה 626 (פורק)",
+        "tag": "land/Maarah_aZtliha.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "מרכז אב\"כ (הועבר לפיקוד העורף)",
+        "tag": "land/WMD_center.png"
+    },
+    {
+        "cat": ["חיל ההנדסה הקרבית"],
+        "name": "גדס\"כ 76, עד 2015",
+        "tag": "land/Gadsah.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חיל התותחנים מסוף 2022",
+        "tag": "land/Hatamnew.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חיל התותחנים עד סוף 2022",
+        "tag": "land/D7AAD792_D797D799D79C_D794D7AAD795D7AAD797D7A0D799D79D.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חטיבת האש 282",
+        "tag": "land/Hativat_Haesh_282.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חטיבת האש 282, עד 2017",
+        "tag": "land/Golan-Artillery-Tag.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חטיבת האש 282, עד 2009",
+        "tag": "land/Golan_art_old.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "יחידת מיתר, עד 2017",
+        "tag": "land/Meitartag.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "יחידת מיתר, עד 2009",
+        "tag": "land/Meitarold.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "חטיבת האש 215",
+        "tag": "land/Utzbat_Amud_Haesh_Eged_215_Tag.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "יחידת רוכב שמיים",
+        "tag": "land/Gdud_Rohev_Shamaim_Tag.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת קלע דוד",
+        "tag": "land/Kela_david.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת שלהבת האש (שבטה)",
+        "tag": "land/Bislat_new.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת שלהבת האש, לפני האיחוד עם ביסל\"ת",
+        "tag": "land/Sinai_artileri.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "ביסל\"ת (תג ישן)",
+        "tag": "land/Shivta.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת כידון",
+        "tag": "land/Kidon209.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת התבור (אגד 454)",
+        "tag": "land/Tavor.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת התקומה",
+        "tag": "land/Logo-otvat-hatkuma.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "עוצבת אדירים",
+        "tag": "land/Adirimlogo.png"
+    },
+    {
+        "cat": ["חיל התותחנים"],
+        "name": "יחידת זיק 5252",
+        "tag": "land/Yahidat_Zik_Tothanim_Tag.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת אשדות, עד 2004",
+        "tag": "land/Tagashdot.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת עידן, עד 2004",
+        "tag": "land/Yehuda_artilleri.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת לוז",
+        "tag": "land/91_artileri.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת שחם, עד 2014",
+        "tag": "land/Shehem.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת שלהבת, עד 2016",
+        "tag": "land/D7A1D79ED79C_D790D792D793_632_D790D799D79BD795D7AAD799.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת כדור האש, עד 2016",
+        "tag": "land/Logo_gdud_hatam_98.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "גדוד 332 (חלק מעוצבת כדור האש)",
+        "tag": "land/Gdud-332_heavy_mortars.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "גרסה שניה של סמל גדוד 332 (חלק מעוצבת כדור האש)",
+        "tag": "land/Gdud-332-7038_heavy_mortars.version-2_tag.png.jpg"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת הרעם, עד 2016",
+        "tag": "land/Raam219logo.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת הרעם (תג ישן)",
+        "tag": "land/Uzvat_haRaam_219_Old_tag.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "עוצבת צור",
+        "tag": "land/Eged_286_Uzvat_Zur.png"
+    },
+    {
+        "cat": ["יחידות תותחנים שפורקו"],
+        "name": "גדוד 9275 \"המנתץ\"",
+        "tag": "land/IDF_9275th_Artillery_Battalion.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "חיל הגנת הגבולות",
+        "tag": "land/IDF_Border_Defense_Force_Insignia.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "חיל האיסוף הקרבי (אוחד עם חיל הגנת הגבולות), גרסה שנייה",
+        "tag": "land/D790D799D7A1D795D7A3_D7A7D7A8D791D799.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "חיל האיסוף הקרבי, גרסה ראשונה",
+        "tag": "land/Mekamshar_Tag_till_2009.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "בית הספר להגנת הגבולות",
+        "tag": "land/Border_Protection_School_tag.jpg"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "ביסל\"ק (בית הספר לאיסוף קרבי), היום בית הספר להגנת הגבולות, בין השנים 2021-2009",
+        "tag": "land/Bislak.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "ביסלמ\"ש (בית הספר למודיעין שדה), היום בית הספר להגנת הגבולות, עד 2009",
+        "tag": "land/Bislamash.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד שחף",
+        "tag": "land/Shahaf.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד עיט",
+        "tag": "land/Gdud_Ait.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד ניצן",
+        "tag": "land/Nizan_temp.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד איתם",
+        "tag": "land/Eitam.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד נשר",
+        "tag": "land/Gdud_Nesher_414_New_Tag.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד נשר (תג ישן)",
+        "tag": "land/Eit_temp.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "גדוד נשר (תג ישן)",
+        "tag": "land/Gdud_Nesher_Heil_aModiin_2001.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות", "פיקוד המרכז"],
+        "name": "התג של חטיבת הבקעה בו משתמשים הגדודים אריות הירדן ולביאי הבקעה",
+        "tag": "land/Logo-hativat-417.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות", "עוצבת אדום"],
+        "name": "התג של חטיבת יואב בו השתמש גדוד ברדלס",
+        "tag": "land/Eilatnew.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "התג הקודם של גדוד קרקל המורכב מהסמל של חטיבת שגיא וסמל גדוד קרקל.",
+        "tag": "land/Logo_caracal.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות", "עוצבת אדום"],
+        "name": "התג של חטיבת פארן בו משתמשים הגדודים קרקל וברדלס",
+        "tag": "land/Logo_hativa_Faran.png"
+    },
+    {
+        "cat": ["חיל הגנת הגבולות"],
+        "name": "יחידת הגששים",
+        "tag": "land/Gashashim_Unit_Saeret_Gmalim_IDF_1970.png"
+    },
+    {
+        "cat": ["אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "אט\"ל, עד 2016",
+        "tag": "land/Atal_-_logo.png"
+    },
+    {
+        "cat": ["אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "אט\"ל, עד 2006",
+        "tag": "land/Atal_logo_old.png"
+    },
+    {
+        "cat": ["אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "מרכז הספקה אחוד, החל מיולי 2020",
+        "tag": "land/IDF_Marhas.png"
+    },
+    {
+        "cat": ["אגף הטכנולוגיה והלוגיסטיקה"],
+        "name": "מגל",
+        "tag": "land/Magal_Bahad_4_Tag.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "חיל הטכנולוגיה והאחזקה",
+        "tag": "land/Logo_himush_from_2015.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "אגד הטנ\"א הארצי",
+        "tag": "land/Eged_Arzi_HaTana.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "אטנא\"ם פקמ\"ז",
+        "tag": "land/Yahsham650.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "אטנא\"ם פצ\"ן",
+        "tag": "land/Yahsham651.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "אטנא\"ם פד\"מ",
+        "tag": "land/Yahsham653.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מרת\"ח (מרכז התחמושת והטילים)",
+        "tag": "land/Martah.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מצל\"ח",
+        "tag": "land/Mazlah.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מצל\"ח, עד 2007",
+        "tag": "land/Mazlah_Old.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מרכז לאו\"מ",
+        "tag": "land/Merkaz_leom.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א (מרכז השיקום והאחזקה)",
+        "tag": "land/Masha.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א 7100 ראשון",
+        "tag": "land/Masha_7100.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א 7100 שני",
+        "tag": "land/Masha_7100_old_variant.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א 7200 ראשון",
+        "tag": "land/Masha_7200.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א 7100 שני",
+        "tag": "land/Masha_7200_old_variant.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "מש\"א 7300",
+        "tag": "land/Masha_7300_kesher.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "חיל החימוש, עד 2016 (סגור)",
+        "tag": "land/Logo_himush.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ 638",
+        "tag": "land/Yahsam_638.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ 652",
+        "tag": "land/Yahsam_652_Zrifin_till-1981.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ דרום",
+        "tag": "land/Yahsam_Darom_old.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ ערבה",
+        "tag": "land/Yahsam_Arava.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ שמשון",
+        "tag": "land/Yahsam_651_Shimshon_Old.png"
+    },
+    {
+        "cat": ["חיל הטכנולוגיה והאחזקה"],
+        "name": "יחש\"מ צנובר",
+        "tag": "land/Yahsam_Znubar.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "חיל הרפואה",
+        "tag": "land/Logo_mekarpar.png"
+    },
+    {
+        "cat": ["חיל הרפואה", "תגי צה\"ל ב-1948-1949"],
+        "name": "חיל הרפואה (תג ישן)",
+        "tag": "land/RefuaArtboard_1.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "המרכז לשירותי רפואה (משר\"פ), החל מנובמבר 2018",
+        "tag": "land/MashRap-since-October-2018-IDF.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "מרכז לשירותי רפואה (תג ישן)",
+        "tag": "land/Harap.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "בה\"ד 10",
+        "tag": "land/Bahad10logo.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "רפואה פצ\"ן",
+        "tag": "land/Refua_pzn.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "רפואה פקמ\"ז",
+        "tag": "land/Refua_pkmz.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "חיל הרפואה בפיקוד דרום, החל מ-2019",
+        "tag": "land/IDF_Medical_Corps_at_Southern_Command.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "רפואה פד\"מ, תג ישן",
+        "tag": "land/Refua_pdm.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "מרכז שיקום",
+        "tag": "land/Shikum.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "מצר\"פ",
+        "tag": "land/Mazrap.png"
+    },
+    {
+        "cat": ["חיל הרפואה"],
+        "name": "מצר\"פ (תג ישן)",
+        "tag": "land/Mazrap_old.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "חיל הלוגיסטיקה",
+        "tag": "land/Logistics_Corps_IDF_Tag.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז הדלק",
+        "tag": "land/Delek.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מערך המזון",
+        "tag": "land/Maarah-amazon.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מערך המזון, עד 2018",
+        "tag": "land/Mazon.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ציוד, בין השנים 2016–2020 (סגור)",
+        "tag": "land/Merkaz-Ahud.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ציוד, בין השנים 1995–2016",
+        "tag": "land/Ziudlogo.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ציוד, בין השנים 1966–1995",
+        "tag": "land/Merkaz_ziud_old.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ההובלה",
+        "tag": "land/Logo_hovala_new.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ההובלה, בין השנים 2003–2015",
+        "tag": "land/Logo_hovala.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז ההובלה, בין השנים 1974–2003",
+        "tag": "land/MerkazTovala_old.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5001",
+        "tag": "land/Almar_5001.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5002",
+        "tag": "land/Almar_5002.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5003",
+        "tag": "land/Almar_5003.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5004",
+        "tag": "land/Almar_5004.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5005",
+        "tag": "land/Almar_5005.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5006",
+        "tag": "land/Almar_5006.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "אלמ\"ר 5003 (תג ישן)",
+        "tag": "land/5003_old.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז הספקה פצ\"ן",
+        "tag": "land/Bsis_ziud_1.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז הספקה פד\"ם",
+        "tag": "land/Bsis_ziud_2.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז הספקה פקמ\"ז",
+        "tag": "land/Merkaz_Haspaka.png"
+    },
+    {
+        "cat": ["חיל הלוגיסטיקה"],
+        "name": "מרכז הבינוי",
+        "tag": "land/Merkaz_Binui.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 91 של עוצבת הגליל",
+        "tag": "land/91_log.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 319 של עוצבת המפץ",
+        "tag": "land/319_log.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 143 של עוצבת עמוד האש",
+        "tag": "land/143_log.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 36 של עוצבת געש",
+        "tag": "land/IDF_36th_Division27s_Logistics_Regiment_New_Tag.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "תג אלאו\"ג 36 הקודם של עוצבת געש",
+        "tag": "land/36_logistika.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג של עוצבת אתגר",
+        "tag": "land/Etgar_log.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 98 של עוצבת האש",
+        "tag": "land/Logo_alog_98.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 340 של עוצבת עידן",
+        "tag": "land/340_logistika.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 162 של עוצבת הפלדה",
+        "tag": "land/162_log.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 380 של עוצבת להבות האש",
+        "tag": "land/Div_380_-_logistics.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 252 של עוצבת סיני",
+        "tag": "land/Div_252_-_logistics.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג 210 של עוצבת נתיב האש (אוגדת הבשן של היום)",
+        "tag": "land/Div_210_-_logistics.png"
+    },
+    {
+        "cat": ["אגדים לוגיסטיים אוגדתיים"],
+        "name": "אלאו\"ג של עוצבת להב",
+        "tag": "land/Ugdat_Lahav_Eged_Tahzuka.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "אגף כוח האדם",
+        "tag": "land/Logo-aka.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "מופ\"ת",
+        "tag": "land/Payment_and_retirement_control_from_2017.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "מופ\"ת (תג ישן)",
+        "tag": "land/Payment_and_retirement_control.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "מת\"ש (מנהל תשלומים) שהפכה למופ\"ת",
+        "tag": "land/Payment_control.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "קריית ההדרכה",
+        "tag": "land/Hadraha.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "מיטב",
+        "tag": "land/Meitav.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "בקו\"מ",
+        "tag": "land/Bakum_Tel_haShomer.png"
+    },
+    {
+        "cat": ["אגף כוח האדם"],
+        "name": "מנה\"ג",
+        "tag": "land/MinhalGius_Tel_haShomer.png"
+    },
+    {
+        "cat": ["חיל משאבי האנוש"],
+        "name": "חיל משאבי האנוש",
+        "tag": "land/Tag-shalishut-new.png"
+    },
+    {
+        "cat": ["חיל משאבי האנוש"],
+        "name": "תג חיל השלישות (תג ישן)",
+        "tag": "land/D7AAD792_D797D799D79C_D794D7A9D79CD799D7A9D795D7AA.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מפקדת חיל המשטרה הצבאית",
+        "tag": "land/Mz_main.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מ\"צ פרמ\"ז",
+        "tag": "land/Mz_pkmz.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מ\"צ פצ\"ן",
+        "tag": "land/Mz_pzn.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מ\"צ פד\"מ",
+        "tag": "land/MishtaraPadam.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מ\"צ פד\"מ (תג ישן)",
+        "tag": "land/Mz_pdm.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מ\"צ מטכ\"ל",
+        "tag": "land/MZ_matkal.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "בה\"ד 13",
+        "tag": "land/Mz_bhd_13.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "גדוד מעברים",
+        "tag": "land/MZ_GdudMaavarim.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "גדוד ארז",
+        "tag": "land/Mz_erez.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "גדוד תעוז",
+        "tag": "land/Mz_taoz.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מצ\"ח",
+        "tag": "land/Mezah.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "כלא 4, 6, 400",
+        "tag": "land/Mz_kele.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "כלא מגידו",
+        "tag": "land/Mz_megido.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "מחנה עופר",
+        "tag": "land/Mz_ofer.png"
+    },
+    {
+        "cat": ["חיל המשטרה הצבאית"],
+        "name": "כלא קציעות",
+        "tag": "land/Kele_kziot.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "חיל החינוך והנוער",
+        "tag": "land/D7AAD792_D797D799D79C_D797D799D7A0D795D79A.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "חיל החינוך והנוער (תג ישן)",
+        "tag": "land/Hinuh.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "מקא\"מ",
+        "tag": "land/Makam.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "גדנ\"ע",
+        "tag": "land/Gadna.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "מורות חיילות",
+        "tag": "land/Soldier_teachers.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "נח\"ל",
+        "tag": "land/Nahalyouth.png"
+    },
+    {
+        "cat": ["חיל החינוך והנוער"],
+        "name": "מחו\"ה אלון",
+        "tag": "land/D79ED797D795D794_D790D79CD795D79F.png"
+    },
+    {
+        "cat": ["החיל הכללי"],
+        "name": "החיל הכללי",
+        "tag": "land/IDF_General_Corps.png"
+    },
+    {
+        "cat": ["החיל הכללי"],
+        "name": "שירות חובה במשטרה",
+        "tag": "land/IDF_Military_Service_in_the_Israeli_Police.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "אגף התקשוב וההגנה בסב\"ר",
+        "tag": "land/Computer_Service_Directorate.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "אגף התקשוב, עד מאי 2017",
+        "tag": "land/C4I.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "חיל הקשר בין השנים 2008–2018",
+        "tag": "land/IDF_Communications_Corps.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "חיל הקשר בין השנים 1979–2005",
+        "tag": "land/Kesher_Tag_Old.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "יחידות התקשוב בפיקוד המרכז",
+        "tag": "land/PakmazTikshuvLogo.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "יחידות התקשוב בפיקוד הדרום",
+        "tag": "land/PadmazTikshuvLogo.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "יחידות התקשוב בפיקוד הצפון",
+        "tag": "land/PazanTikshuvLogo.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "יחידות התקשוב בפיקוד העורף",
+        "tag": "land/PakarTikshuvLogo.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "לוט\"ם (הסמל אינו משמש כתג יחידה)",
+        "tag": "land/LotemEmblem.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "לוט\"ם, עד ספטמבר 2020",
+        "tag": "land/Lotem.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "ממר\"ם",
+        "tag": "land/Mamram.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "בסמ\"ח",
+        "tag": "land/Basmah.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "חטיבת המחשוב ובסמ\"ח (שהייתה כפופה לה), בין השנים 1994–1999",
+        "tag": "land/IDF_Computing_Division.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "בה\"ד 7",
+        "tag": "land/Bahad7_logo.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "בה\"ד 7 (תג ישן)",
+        "tag": "land/Bsis_adraha_Kesher_Old.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "ממכ\"א (מרכז מיכון כוח האדם), לימים אוחד למצפ\"ן",
+        "tag": "land/Lotem_MaMKA.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "מענ\"א/ממט\"ל (מרכז מחשוב טכנולוגי לוגיסטי), לימים אוחד למצפ\"ן",
+        "tag": "land/Mamtal.png"
+    },
+    {
+        "cat": ["אגף התקשוב וההגנה בסב\"ר"],
+        "name": "מא\"ם (מיכון אג\"ם ומפקדות), לימים אוחד למצפ\"ן",
+        "tag": "land/Lotem_MaM.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב פיקודי \"רעם\" של פיקוד הדרום",
+        "tag": "land/Padam_kesher.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"בשור\" של אוגדת עזה",
+        "tag": "land/Habasor.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "תג של גדוד תקשוב אוגדתי \"מרום\" של עוצבת אדום",
+        "tag": "land/IDF_Teleprocessing_80th_Battalion.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "התג הישן של גדוד תקשוב אוגדתי \"מרום\", עד סוף 2019",
+        "tag": "land/80kesher.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"אפיק\" של עוצבת הפלדה",
+        "tag": "land/162signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי של עוצבת סיני (חיילי הגדוד נעים עם תג האוגדה)",
+        "tag": "land/Sinai_signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב פיקודי \"איילים\" של פיקוד הצפון",
+        "tag": "land/Pazan_signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"נופים\" של עוצבת הגליל",
+        "tag": "land/91signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"שניר\" של אוגדת הבשן",
+        "tag": "land/Sneer210.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"שיאון\" של עוצבת געש",
+        "tag": "land/36signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי של עוצבת המפץ (חיילי הגדוד נעים עם תג האוגדה)",
+        "tag": "land/319signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב פיקודי \"שגב\" של פיקוד המרכז",
+        "tag": "land/Pakmaz_signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב פיקודי \"שגב\" של פיקוד המרכז (תג ישן)",
+        "tag": "land/Pakmaz_signal_old.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"אופק\" של אוגדת איו\"ש",
+        "tag": "land/Ayosh_signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב אוגדתי \"לפיד\" של עוצבת האש",
+        "tag": "land/98signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד תקשוב פיקודי של פיקוד העורף",
+        "tag": "land/Pakar_signal.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד \"צמרת\" - גדוד קשר מטכ\"ל השייך למרכז חושן",
+        "tag": "land/383zameret.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד \"איתנים\" - גדוד קשר ארצי נייח השייך למרכז חושן",
+        "tag": "land/Signal858.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד \"אמירים\" - גדוד קשר ארצי נייד השייך למרכז חושן",
+        "tag": "land/376th_Signal_Batallion_Amirim.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד \"פסגות\" -גדוד ל\"א (לוחמה אלקטרונית)",
+        "tag": "land/EWcenter.png"
+    },
+    {
+        "cat": ["גדודי תקשוב"],
+        "name": "גדוד קשר 371",
+        "tag": "land/Kesher371_Even_Yakara.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "אגף המודיעין",
+        "tag": "land/AmanLogo.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "אגף המודיעין (תג ישן)",
+        "tag": "land/AmanOldLogo.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד הצפון",
+        "tag": "land/ModiinZafonNew.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד הדרום",
+        "tag": "land/HamanDarom.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד המרכז",
+        "tag": "land/ModiinMerkazNew.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד העורף",
+        "tag": "land/Modiin_pakar.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד העומק",
+        "tag": "land/Modiin_Depth_IDF.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד הצפון, עד 2002",
+        "tag": "land/ModiinZafonOld.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד הדרום, עד 2002",
+        "tag": "land/ModiinDaromOld.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד המרכז, עד 2002",
+        "tag": "land/ModiinMerkazOld.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "מחלקת המודיעין בפיקוד הדרום, עד 2019",
+        "tag": "land/ModiinDaromNew.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "גדוד התקשוב של חיל המודיעין",
+        "tag": "land/Gdud_kesher_Modiin_old_4.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "גדוד התקשוב של חיל המודיעין, גרסה שלישית",
+        "tag": "land/Gdud_kesher_Modiin_old_3.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "גדוד התקשוב של חיל המודיעין, גרסה שנייה",
+        "tag": "land/Gdud_kesher_Modiin_old_2.png"
+    },
+    {
+        "cat": ["אגף המודיעין"],
+        "name": "גדוד התקשוב של חיל המודיעין, גרסה ראשונה",
+        "tag": "land/Gdud_kesher_Modiin_old_1.png"
+    },
+    {
+        "cat": ["אגף המבצעים"],
+        "name": "אגף המבצעים",
+        "tag": "land/IDF_Operations_Directorate_28Alternative29.png"
+    },
+    {
+        "cat": ["אגף המבצעים"],
+        "name": "דובר צה\"ל",
+        "tag": "land/D7AAD792_D793D795D791D7A8_D7A6D794D79C.png"
+    },
+    {
+        "cat": ["אגף המבצעים"],
+        "name": "דובר צה\"ל (תג ישן)",
+        "tag": "land/Dover_IDF_Old.png"
+    },
+    {
+        "cat": ["אגף אסטרטגיה ומעגל שלישי"],
+        "name": "החטיבה לקשרי חוץ (תג ישן)",
+        "tag": "land/Liaison.png"
+    },
+    {
+        "cat": ["אגף אסטרטגיה ומעגל שלישי"],
+        "name": "חטיבת תבל (החטיבה לקשרי חוץ)",
+        "tag": "land/International_Cooperation_Division.png"
+    },
+    {
+        "cat": ["פיקוד הצפון"],
+        "name": "פיקוד הצפון",
+        "tag": "land/PazanLogo.png"
+    },
+    {
+        "cat": ["פיקוד הצפון"],
+        "name": "סיירת אגוז, עד 1974 (סגורה)",
+        "tag": "land/Egoz_unit_1956-1974.png"
+    },
+    {
+        "cat": ["פיקוד הצפון"],
+        "name": "יחידת הקישור ללבנון, עד 2000 (סגורה)",
+        "tag": "land/Levanon_ugda1.png"
+    },
+    {
+        "cat": ["פיקוד הצפון"],
+        "name": "אוגדה 85, עד 1992 (סגורה)",
+        "tag": "land/UgdaMerhavit-85_haAmakim_.png"
+    },
+    {
+        "cat": ["פיקוד הצפון"],
+        "name": "חטיבת העמקים, עד 2003 (סגורה)",
+        "tag": "land/Hativat_haAmakim28Zemah29_228.png"
+    },
+    {
+        "cat": ["פיקוד המרכז"],
+        "name": "פיקוד המרכז",
+        "tag": "land/PakmazLogo.png"
+    },
+    {
+        "cat": ["פיקוד המרכז"],
+        "name": "בא\"פ לכיש",
+        "tag": "land/Lahish.png"
+    },
+    {
+        "cat": ["פיקוד המרכז"],
+        "name": "עוצבת עידן, עד 2020 (סגורה)",
+        "tag": "land/Logo-ugda-340.png"
+    },
+    {
+        "cat": ["פיקוד המרכז"],
+        "name": "אוגדת יהודה, עד 2004 (סגורה)",
+        "tag": "land/Mashlat720.png"
+    },
+    {
+        "cat": ["פיקוד הדרום"],
+        "name": "פיקוד הדרום",
+        "tag": "land/PadamLogoFrom2019.png"
+    },
+    {
+        "cat": ["פיקוד הדרום"],
+        "name": "פיקוד דרום, עד 2019",
+        "tag": "land/PadamLogo.png"
+    },
+    {
+        "cat": ["פיקוד הדרום"],
+        "name": "בא\"פ דרום (בסיס צאלים)",
+        "tag": "land/Zeelim.png"
+    },
+    {
+        "cat": ["פיקוד הדרום"],
+        "name": "סיירת שקד (סגורה)",
+        "tag": "land/Saeret_Shaked.png"
+    },
+    {
+        "cat": ["פיקוד הדרום"],
+        "name": "סיירת שקד, גרסה נוספת",
+        "tag": "land/Shaqed_new.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "פיקוד העורף",
+        "tag": "land/OrefPikudLogo.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "פיקוד העורף, תג קודם",
+        "tag": "land/IDF_Home_Front_Command_Colored_Tag.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "בה\"ד 16",
+        "tag": "land/Bahad16.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז הצפון",
+        "tag": "land/MahozZafon.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז ירושלים והמרכז",
+        "tag": "land/MahozJerusalemMerkazFrom2016.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז הדרום",
+        "tag": "land/MahozDarom.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז דן",
+        "tag": "land/MahozDan.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז חיפה",
+        "tag": "land/MahozHeifa.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז המרכז",
+        "tag": "land/MahozMerkaz.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז המרכז (תג ישן)",
+        "tag": "land/OrefMahozMerkaz-till-1998.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "מחוז ירושלים",
+        "tag": "land/MahozJerusalem.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "חטיבת החילוץ",
+        "tag": "land/NefaSdira_60.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "גדוד שחר",
+        "tag": "land/Shahar498.png"
+    },
+    {
+        "cat": ["פיקוד העורף"],
+        "name": "גדוד קדם",
+        "tag": "land/Kedem489.png"
+    },
+    {
+        "cat": ["אוגדת הבשן"],
+        "name": "אוגדת הבשן",
+        "tag": "land/D7AAD792_D7A2D795D7A6D791D7AA_D794D791D7A9D79F.png"
+    },
+    {
+        "cat": ["אוגדת הבשן"],
+        "name": "עוצבת הגולן",
+        "tag": "land/Logo-hativat-474-_aGolan.png"
+    },
+    {
+        "cat": ["אוגדת הבשן"],
+        "name": "תג עוצבת הגולן בתקופת האיחוד",
+        "tag": "land/Logo-hatmar-474.png"
+    },
+    {
+        "cat": ["אוגדת הבשן"],
+        "name": "חטיבת החרמון 810",
+        "tag": "land/HermonBrigade.png"
+    },
+    {
+        "cat": ["עוצבת הגליל"],
+        "name": "עוצבת הגליל",
+        "tag": "land/Logo-ugda-91.png"
+    },
+    {
+        "cat": ["עוצבת הגליל"],
+        "name": "עוצבת ברעם",
+        "tag": "land/Logo-hativat-300.png"
+    },
+    {
+        "cat": ["עוצבת הגליל"],
+        "name": "עוצבת ברעם, עד שנת 2015",
+        "tag": "land/Logo-hativat-300_Old.png"
+    },
+    {
+        "cat": ["עוצבת הגליל"],
+        "name": "עוצבת חירם",
+        "tag": "land/Logo-hativa-769.png"
+    },
+    {
+        "cat": ["עוצבת געש"],
+        "name": "עוצבת געש",
+        "tag": "land/Logo-ugda-36.png"
+    },
+    {
+        "cat": ["עוצבת המפץ"],
+        "name": "עוצבת המפץ",
+        "tag": "land/Logo-ugda-319.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "אוגדת אזור יהודה ושומרון",
+        "tag": "land/Logo_ugdat_eyosh.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת מנשה",
+        "tag": "land/431px-YoSH_h-Menashe.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת אפרים",
+        "tag": "land/421px-YoSH_h-Efraim_2.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת שומרון",
+        "tag": "land/442px-YoSH_h-Shomron.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת בנימין",
+        "tag": "land/443px-YoSH_h-Beniamin.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת יהודה",
+        "tag": "land/434px-YoSH_h-Yehuda.png"
+    },
+    {
+        "cat": ["אוגדת אזור יהודה ושומרון"],
+        "name": "חטיבת עציון",
+        "tag": "land/426px-YoSH_h-Etzion.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד לביא",
+        "tag": "land/Lavitag.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד נחשון",
+        "tag": "land/Nahshontag.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "סיירת חרוב",
+        "tag": "land/Haruvtag.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד דוכיפת",
+        "tag": "land/Duhifat.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד שמשון",
+        "tag": "land/Shimshon.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד נצח יהודה",
+        "tag": "land/Nezah_yehuda2.png"
+    },
+    {
+        "cat": ["גדודים שאוגדו לחטיבת כפיר"],
+        "name": "גדוד נצח יהודה, גרסה ראשונה",
+        "tag": "land/Nezah_yehuda1.png"
+    },
+    {
+        "cat": ["עוצבת האש"],
+        "name": "עוצבת האש (אוגדה 98)",
+        "tag": "land/Utsbat_ha27Esh_-_Ugda_98.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "אוגדת שועלי האש (אוגדת עזה)",
+        "tag": "land/Logo-ugdat-gaza_new.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "אוגדת עזה, עד 2015",
+        "tag": "land/Logo-ugdat-gaza.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "אזור רצועת עזה (אזר\"ע), שנות השבעים",
+        "tag": "land/AzRA-Ezor-Rezuat-Aza.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "חטיבת הגפן",
+        "tag": "land/Logo-hativat-gefen.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "חטיבת קטיף",
+        "tag": "land/Logo-hativat-katif.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "החטיבה המרכזית (אוחדה ב-1995 עם חטיבת קטיף)",
+        "tag": "land/Logo-hativa-mrkazit-aza.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "גדוד מעברים ארז",
+        "tag": "land/Logo-maavarim-erez.png"
+    },
+    {
+        "cat": ["אוגדת עזה"],
+        "name": "גדוד הסיור המדברי",
+        "tag": "land/Gadsar_bedui.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "עוצבת אדום, החל מסוף 2019",
+        "tag": "land/Edom_80th_Division.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "עוצבת אדום, גרסה שלישית",
+        "tag": "land/Uzvat_edom.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "עוצבת אדום, גרסה שנייה",
+        "tag": "land/80_old.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "עוצבת אדום, גרסה ראשונה",
+        "tag": "land/80th_Division_Edom.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "חטיבת שגיא, עד 2018",
+        "tag": "land/Logo_hativa_512.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "חטיבת יואב",
+        "tag": "land/HativatYoavFrom2016.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "חטמ\"ר אילת, עד 2003",
+        "tag": "land/Eilatfish.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "חטיבת הערבה (406), עד 2016",
+        "tag": "land/AravaBrigade.png"
+    },
+    {
+        "cat": ["עוצבת אדום"],
+        "name": "חטיבת הערבה (תג ישן)",
+        "tag": "land/Arava_Territorial_Brigade_416_28270_today29_old_tag.png"
+    },
+    {
+        "cat": ["עוצבת סיני"],
+        "name": "עוצבת סיני, סמל מ-2023",
+        "tag": "land/Sinai_252nd_Division.png"
+    },
+    {
+        "cat": ["עוצבת סיני"],
+        "name": "עוצבת סיני, הסמל הישן עד 2023",
+        "tag": "land/Logo-ugda-252.png"
+    },
+    {
+        "cat": ["עוצבת הפלדה"],
+        "name": "עוצבת הפלדה",
+        "tag": "land/Logo-ugda-162.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "מחנה רבין (הקריה)",
+        "tag": "land/Matkal.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "מפקדת העומק",
+        "tag": "land/Logo_omek_black.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "מתאם פעולות הממשלה בשטחים",
+        "tag": "land/Matpash.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "המכללה הבין-זרועית לפיקוד ולמטה",
+        "tag": "land/Pum_logo.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "הפרקליטות הצבאית",
+        "tag": "land/D7AAD792_D79ED7A4D7A6D7A8.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "הסנגוריה הצבאית",
+        "tag": "land/MilitaryAdvocats.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "בית המשפט הצבאי",
+        "tag": "land/Military_Court_Yehuda_and_Shomron_IDF.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "נציבות קבילות החיילים (כפוף למשרד הביטחון)",
+        "tag": "land/Logo_kvilut.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "בה\"ד 12",
+        "tag": "land/Baad-12-Officer_school.png"
+    },
+    {
+        "cat": ["גופים נוספים"],
+        "name": "בה\"ד 12 (תג ישן)",
+        "tag": "land/Bahad_12_Old_Tag.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "שוחרי קד\"צ של חיל הים",
+        "tag": "land/Kadatz_Heil_HaYam.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "המכללה הטכנולוגית של חיל האוויר",
+        "tag": "land/Kadatz_Heil_Avir.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "המכללה הטכנולוגית של חיל האוויר (תג ישן)",
+        "tag": "land/IAF_Technological_College_OLD_tag.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "המכללה הטכנולוגית של חיל החימוש (נסגר)",
+        "tag": "land/Kadatz_Heil_Himush.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "שוחרי קד\"צ של חיל הלוגיסטיקה",
+        "tag": "land/Kadatz_Heil_Logistika.png"
+    },
+    {
+        "cat": ["שוחרים"],
+        "name": "שוחרי הפנימייה הצבאית לפיקוד (התג הישן, לא בשימוש)",
+        "tag": "land/MilitarySchool_HaifaOrEzionTag.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "מפקדת הג\"א",
+        "tag": "land/Tag_of_the_Israeli_Civil_Defense_Corps_Comander_until_1992.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז הגליל",
+        "tag": "land/CivilDef_Northern_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז חיפה",
+        "tag": "land/CivilDef_Haifa_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז השרון",
+        "tag": "land/CivilDef_HaSharon_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז דן",
+        "tag": "land/CivilDef_Dan_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז אילון",
+        "tag": "land/CivilDef_Ayalon_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז ירושלים",
+        "tag": "land/CivilDef_Jerusalem_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז לכיש",
+        "tag": "land/CivilDef_Lahish_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז הדרום",
+        "tag": "land/CivilDef_Southern_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א עורף מרכז",
+        "tag": "land/Hagana_Ezrahit_Merkaz_Oref_Historic_tag.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז העמק",
+        "tag": "land/CivilDef_Valley_District.png"
+    },
+    {
+        "cat": ["הג\"א"],
+        "name": "הג\"א מחוז לוד",
+        "tag": "land/CivilDef_Lod_District.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל ההנדסה הקרבית ב-1948",
+        "tag": "land/Heil_Andasa_First_Tag_1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל האוויר ב-1948",
+        "tag": "land/IDF_Original_Historic_tag.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל המדע",
+        "tag": "land/Iftah_old.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "יחידת הצנחנים ב-1948",
+        "tag": "land/IDF_Paratroopers_Historic_tag.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "יחידת המרגמות הכבדות ב-1948",
+        "tag": "land/IDF_Heavy_Mortars_Historic_tag.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל התובלה",
+        "tag": "land/Heil_Tovala_Historic_tag.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "גדנ\"ע",
+        "tag": "land/Gadna_Historic_tag.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל הקשר",
+        "tag": "land/IDF_Heil_haKesher-194828alternative29.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל נשים",
+        "tag": "land/IDF_Heil_Nashim-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "משטרה צבאית",
+        "tag": "land/IDF_Mishtara-Zvait-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות דואר",
+        "tag": "land/IDF_shirut_doar-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות מפות וצלומים",
+        "tag": "land/IDF_shirut_mapot_ve_Zilumim-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות תרבות",
+        "tag": "land/IDF_shirut_tarbut-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות ציוד",
+        "tag": "land/IDF_shirut_Ziud-1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "גדוד 421 נ\"ט",
+        "tag": "land/IDF_Gdud-421-NunTet.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל המשמר",
+        "tag": "land/Heil_Mishmar_IDF.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות בעלי חיים",
+        "tag": "land/IDF_Shirut_Ba27alei_Haim.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "חיל הטכנאים",
+        "tag": "land/IDF_Technician_Corps_1948.png"
+    },
+    {
+        "cat": ["תגי צה\"ל ב-1948-1949"],
+        "name": "שירות דת",
+        "tag": "land/Shirut_Dat.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "חטיבה מרחבית 275 (חטמ\"ר בלוזה / חטמ\"ר התעלה)",
+        "tag": "land/Hatmar_Beluza_haTaala_Sinai_275.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "חטיבה מרחבית אל־עריש",
+        "tag": "land/Hatmar_el_Arish.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "אגד תחזוקה אבו־רודייס",
+        "tag": "land/IDF_Abou_Redis_Maintenance_unit.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "מפקדת כוחות סיני",
+        "tag": "land/IDF_Sinai_Forces_Command.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "חטיבה מרחבית 655",
+        "tag": "land/IDF_655th_Brigade.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "מפקדת אד\"ס (אזור דרום סיני)",
+        "tag": "land/IDF_South_Sinai_Region_Command.png"
+    },
+    {
+        "cat": ["תגי יחידות צה\"ל היסטוריות בסיני"],
+        "name": "פיקוד מרש\"ל",
+        "tag": "land/IDF_Pikud_Marshal.png"
+    }
+]

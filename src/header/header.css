@@ -1,0 +1,12 @@
+.header--link.header--link {
+    color: #fff;
+    transition: 200ms ease-in-out;
+}
+.header--link.header--link:hover,
+.header--link.header--link:focus-visible {
+    color: var(--link--color);
+}
+.header--link.active {
+    color: var(--link--color);
+    pointer-events: none;
+}

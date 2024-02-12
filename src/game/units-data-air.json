@@ -1,0 +1,1187 @@
+[
+    {
+        "cat": ["תגי יחידות"],
+        "name": "מפקדת חיל האוויר",
+        "tag": "air/IAF_Headquarters.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "להק מבצעי אוויר",
+        "tag": "air/Lahak_mivtzaei_avir.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "יחידת השליטה והמבצעים",
+        "tag": "air/Yasham_krav_333_IAF.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "תג היחידות הכללי",
+        "tag": "air/IAF_generic_shoulder_tag.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "היחידה לשיתוף פעולה",
+        "tag": "air/YAHSHTAP.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "תובלת סער למסוקים (תג ישן)",
+        "tag": "air/TALSAM.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "יחידת המשל\"קים (מוצבי שליטה קדמיים), שפעלה בין 1975 ל-1984",
+        "tag": "air/Front_control_stations_unit_symbol.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "יחידת רפואה אווירית",
+        "tag": "air/Air_medical_unit.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "יחידת שט\"ל – שירות טכנולוגי למודיעין",
+        "tag": "air/SHATAL.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "י\"ק 502 (יחידת קשר) - מוזגה לתוך יחידה 108",
+        "tag": "air/IAF_502nd_Tactical_Communication_Unit.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "מיח\"ה 517 – מפקדת יחידות הבקרה האווירית ומערך הבקרה",
+        "tag": "air/IAF_Air_Control_Command_517.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "בית הספר לפיקוד ומנהיגות",
+        "tag": "air/D79CD795D792D795_D791D799D7A1D79CD7A4D795D79ED797D790.jpg"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "בית הספר לפיקוד ומנהיגות (תג ישן)",
+        "tag": "air/D7A1D79ED79C_D794D79ED79BD795D79F.jpg"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "המכון ללימודי המשך (לימים בית הספר לפיקוד ומנהיגות)",
+        "tag": "air/Talpjot.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "המכון להכשרת הסגל (לימים בית הספר לפיקוד ומנהיגות)",
+        "tag": "air/Tag_Talpiet_old.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "תג פיקוד הנ\"מ, עת היה בחיל התותחנים, בין 1951–1971",
+        "tag": "air/IAF_Anti_aircraft_1951-1971.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "מערך הנ\"מ, לאחר העברתו אל חיל האוויר, בשנים 1971–2011",
+        "tag": "air/IAF_Anti_aircraft_1971-2011.png"
+    },
+    {
+        "cat": ["תגי יחידות"],
+        "name": "מערך ההגנה האווירית, מאז 2011",
+        "tag": "air/Tag_Hagana_Avirit_2011.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידת האחזקה האווירית 22 (בר\"ת: יא\"א 22)",
+        "tag": "air/IAF_Air_Maintenance_Unit_22_28202029.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יא\"א 22, עד 2020",
+        "tag": "air/IAF_air_maintenance_unit_22_281997E28093202029.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יא\"א 22, עד 1997 (שימש כפאטצ')",
+        "tag": "air/22old.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידת אופק",
+        "tag": "air/OfekUnit.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידת אופק, עד 2019",
+        "tag": "air/OfekUnitOldTill2019.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידה 180 (מוזגה לתוך אופק)",
+        "tag": "air/Unit_180_Tag.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידת ממד\"ס (מוזגה לתוך אופק) – מערכות מבצעיות הנדסיות",
+        "tag": "air/Mamdas.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "יחידה 108 (במצ\"א 108 – בית מלאכה לציוד אלקטרוני)",
+        "tag": "air/Bamza_108.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "לה\"ב – לוגיסטיקה, הנדסה ובקרה",
+        "tag": "air/LaHaV.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "בס\"א 18 (מוזגה לתוך לה\"ב) – בסיס אספקה אווירית",
+        "tag": "air/IAF_Basa18_logo.png"
+    },
+    {
+        "cat": ["להק ציוד"],
+        "name": "מלפ\"ט (בעבר הייתה כפופה ללהק ציוד) – מרכז לפרסומים טכניים",
+        "tag": "air/Malpat_Tag.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 1 - רמת דוד",
+        "tag": "air/Kanaf_1_ramat-david.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 2 - שדות האלה",
+        "tag": "air/Kanaf_2_Emblem.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 4 - חצור",
+        "tag": "air/Kanaf_4_Hatsor_insignia_since_2019.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 4 מתחילת עידן הסילון עד יולי 2019",
+        "tag": "air/Kanaf_4_Hatsor.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 4 עת שימש ככנף הפצצה עד שנת 1956",
+        "tag": "air/Kanaf_4_Hatsor_-_till_1956.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 6 - חצרים",
+        "tag": "air/Bacha_6_Hatserim.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 7 (בבסיס פלמחים)",
+        "tag": "air/Kanaf_7_Tag.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 8 - תל נוף",
+        "tag": "air/IAF_Bacha_8_Tel_Nof_AFB_Emblem.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 8 - תל נוף סמלו הראשון של הבסיס בשנות החמישים",
+        "tag": "air/Tel_Nof_Old.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר", "בסיסים שנסגרו"],
+        "name": "בח\"א 10 - עובדה",
+        "tag": "air/Bacha_10_Ovda.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 21 - חיפה",
+        "tag": "air/Bacha_21_Heifa.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "כנף 25 - רמון",
+        "tag": "air/Kanaf_25_ramon.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 28 - נבטים",
+        "tag": "air/Bacha_28_Nevatim.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 28 - נבטים סמלו הקודם של הבסיס בהיותו במעמד \"כנף\" עד שנת 2009",
+        "tag": "air/NevatimOLD.png"
+    },
+    {
+        "cat": ["בסיסי חיל האוויר"],
+        "name": "בח\"א 30 - פלמחים",
+        "tag": "air/Bacha_30_Palmachim.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "בח\"א 3 - רפידים",
+        "tag": "air/Bacha_3_Refidim.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "בח\"א 5 - אל עריש",
+        "tag": "air/Bacha_5_El-Arish.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "כנף 15 - שדה דב",
+        "tag": "air/Kanaf_15_sde_dov.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "בח\"א 27 - לוד",
+        "tag": "air/Bacha_27_lod.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "בח\"א 29 - שדה אופיר",
+        "tag": "air/Bacha_29_Ofir.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "סמל בסיס מפקדת יטנ\"מ 137 \"מתכים\" שהיה צמוד לקמ\"ג (1966-1976)",
+        "tag": "air/Yatnam_137_-_Matakhim_IAF_Base.png"
+    },
+    {
+        "cat": ["בסיסים שנסגרו"],
+        "name": "בח\"א 501 - חפץ חיים",
+        "tag": "air/IAF_Base_501_Hafez_Haim_till_1987_.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "הפטישים (69)",
+        "tag": "air/IAF_Squadron_69.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 69 (פאטצ' ישן)",
+        "tag": "air/IAF_Squadron_69_old.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "הקרב הראשונה (101)",
+        "tag": "air/IAF_Squadron_101_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 101 (פאטצ' ישן)",
+        "tag": "air/IAF_Squadron_101.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "הנמר המעופף (102)",
+        "tag": "air/IAF_Squadron_102_Insignia_-_Since_2016.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 102, עד 2015",
+        "tag": "air/IAF_Squadron_102_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אחת מגרסאות טייסת 102",
+        "tag": "air/IAF_Squadron_102.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 102, בשנת 1997",
+        "tag": "air/IAF_Squadron_102_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "העקרב (105)",
+        "tag": "air/IAF_Squadron_105.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 105 בתקופת המטוסים ספיטפייר ו P-51 מוסטנג",
+        "tag": "air/IAF_Squadron_105_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "חוד החנית (106)",
+        "tag": "air/IAF_Squadron_106.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אבירי הזנב הכתום (107)",
+        "tag": "air/IAF_Squadron_107.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 107 בתקופת המטוס \"F-4 פנטום II\" (\"קורנס\")",
+        "tag": "air/IAF_Squadron_107_1.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 107 בתקופת ה\"אוראגן\"",
+        "tag": "air/IAF_Squadron_107_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 107 בתקופת המטוסים: \"מטאור\", \"אוראגן\"",
+        "tag": "air/IAF_Squadron_107_4.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 107 בתקופת \"טייסת הספיטפיירים השלישית\", גרסה ראשונה",
+        "tag": "air/107squadron1.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "העמק (109)",
+        "tag": "air/IAF_Squadron_109.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 109 בתקופת המטוסים \"מיסטר\" ו־ סקייהוק, עד להגעת ה\"כפיר\".",
+        "tag": "air/IAF_Squadron_109_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 109, גרסה שנייה, בתקופת המטוסים \"מוסקיטו\" ו־ \"הרווארד\"",
+        "tag": "air/IAF_Squadron_109_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 109, גרסה ראשונה, בתקופת ה\"מוסקיטו\"",
+        "tag": "air/IAF_Squadron_109_4.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אבירי הצפון (110)",
+        "tag": "air/IAF_Squadron_110.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 110 מתקופת מטוס המוסקיטו",
+        "tag": "air/IAF_Squadron_110_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "גרסה נוספת של טייסת 110 מתקופת המוסקיטו",
+        "tag": "air/IAF_Squadron_110_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב", "מסוקים"],
+        "name": "הדרקון המעופף/האדומה (115)",
+        "tag": "air/IAF_Squadron_115.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 115, הפאטצ' הקודם",
+        "tag": "air/IAF_Squadron_115_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אחת מגרסאות (ב) פאטצ' טייסת 115",
+        "tag": "air/IAF_Squadron_115_second_variant.jpg"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אחת מגרסאות (א) פאטצ' טייסת 115",
+        "tag": "air/IAF_Squadron_115_3.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אריות הדרום (116)",
+        "tag": "air/IAF_Squadron_116_Adir.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 116 בעידן מטוסי ה-F-16, עד 2020",
+        "tag": "air/IAF_Squadron_116.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 116 טרם עידן מטוסי ה-F-16",
+        "tag": "air/IAF_Squadron_116_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "הסילון הראשונה (117), עד לקבלת מטוסי אדיר ביולי 2021 שונה סמל זה",
+        "tag": "air/IAF_Squadron_117_2.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 117 (פאטצ' ישן)",
+        "tag": "air/IAF_Squadron_117.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "העטלף (119)",
+        "tag": "air/IAF_Squadron_119.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "אבירי הזנב הכפול (133)",
+        "tag": "air/IAF_Squadron_133.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "נשר הזהב (140)",
+        "tag": "air/IAF_Squadron_140_from_2016.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 140, עד 2016",
+        "tag": "air/IAF_Squadron_140.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 144, עד שנות ה-90",
+        "tag": "air/D798D799D799D7A1D7AA_144_old.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "טייסת 144, עד 2005 (תקופת נץ)",
+        "tag": "air/IAF_Squadron_144.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "עוף החול (144),משנת 2022",
+        "tag": "air/IAF_Squadron_144_from_2022_symbol.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "האיל הנוגח (147)",
+        "tag": "air/IAF_Squadron_147.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "התוכי המנפץ (149)",
+        "tag": "air/IAF_Squadron_149.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "האחת (201)",
+        "tag": "air/Tayest201_original.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "הנגב (253)",
+        "tag": "air/253_squadron_IAF.png"
+    },
+    {
+        "cat": ["מטוסי קרב"],
+        "name": "מרכז המדינה (254), סגורה",
+        "tag": "air/IAF_Squadron_254.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, טייסת 110",
+        "tag": "air/IAF_Squadron_110_1.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, מערך מטוס ה\"אדיר\"",
+        "tag": "air/F-35I_Adir_array_insignia.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "הצרעה (113)",
+        "tag": "air/IAF_Squadron_113.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "מובילי הלילה (114)",
+        "tag": "air/IAF_114th_Squadron_Insignia.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "דורסי הלילה (118)",
+        "tag": "air/118Tayeset.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "ציפורי המדבר (123)",
+        "tag": "air/IAF_Squadron_123.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 123 בתקופת המסוק \"בל-212\" (\"אנפה\")",
+        "tag": "air/IAF_Squadron_123_1.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 123 בתקופת המסוקים \"בל-212\" ו- \"בל-205\"",
+        "tag": "air/IAF_Squadron_123_2.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 123 בתקופת המסוקים \"בל-205\" ו- \"בל-47\"",
+        "tag": "air/IAF_Squadron_123_3.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 123 בתקופת המסוק \"בל-47\"",
+        "tag": "air/IAF_Squadron_123_4.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "החרב המתהפכת (124)",
+        "tag": "air/IAF_Squadron_124.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "המסוקים הקלים (125)",
+        "tag": "air/IAF_Squadron_125.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "המסק\"ר הראשונה (160)",
+        "tag": "air/IAF_Squadron_160_new_logo.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 160 (פאטצ' ישן ב)",
+        "tag": "air/IAF_Squadron_160.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 160 (פאטצ' ישן א)",
+        "tag": "air/160squadron1.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "סמל טייסת 190 החדש, כנראה משנת 2022",
+        "tag": "air/IAF_Squadron_190_3.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 190, לאחר המעבר למסוק ה\"פתן\", כנראה עד שנת 2022",
+        "tag": "air/IAF_Squadron_190.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "טייסת 190 בתקופת מסוק ה\"להטוט\" 1980-1994",
+        "tag": "air/IAF_Squadron_190_2.png"
+    },
+    {
+        "cat": ["מסוקים"],
+        "name": "מגיני המערב (193)",
+        "tag": "air/IAF_Squadron_193.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "מערך ה\"ינשוף המשופר\"",
+        "tag": "air/Yanshuf_meshupar_UH-60.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "מערך \"יסעור 2000\"",
+        "tag": "air/CH_53_yasur_2000.jpg"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "מערך \"יסעור 2025\"",
+        "tag": "air/CH_53_yasur_2025.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף טייסת 190",
+        "tag": "air/IAF_SQD_190_MagicTouch.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, העטלף מסמל את מסוק טייסת 193, יורוקופטר AS-565 פנתר, \"עטלף\"",
+        "tag": "air/IAF_Squadron_193_2.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "הטייסת הראשונה (100)",
+        "tag": "air/IAF_Squadron_100_logo_Since_2019.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "טייסת 100, עד 2018",
+        "tag": "air/IAF_Squadron_100_logo_till_end_of_2018.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "טייסת 100 (פאטצ' ישן)",
+        "tag": "air/100old.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "הפילים (103)",
+        "tag": "air/IAF_Squadron_103.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "ענקי המדבר (120)",
+        "tag": "air/IAF_Squadron_120.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין", "סמלים נוספים"],
+        "name": "גף סיורי־ים בזמן שהיה מסונף לטייסת 120",
+        "tag": "air/Maritime_patrol.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "הנחשון (122)",
+        "tag": "air/IAF_Squadron_122_2.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "הנחשון (122) עד 2021",
+        "tag": "air/IAF_Squadron_122.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "אבירי הציפור הצהובה (131)",
+        "tag": "air/IAF_Squadron_131.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "מלכי האוויר (135)",
+        "tag": "air/IAF_Squadron_135.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "ההוקאיי (192), עד 1994",
+        "tag": "air/IAF_Squadron_192.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "טייסת הכיבוי (249)",
+        "tag": "air/Aerial_FF_squadron.png"
+    },
+    {
+        "cat": ["תובלה, כיבוי, בקרה ומודיעין"],
+        "name": "טייסת הכיבוי, עד 2016",
+        "tag": "air/IAF_Squadron_249.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף של טייסת 100",
+        "tag": "air/IAF_Squadron_100_shoulder_sleeve_insignia.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "סמל/פאטצ' כתף ישן של מערך מטוסי ה\"צופית\"",
+        "tag": "air/Beechcraft_Super_King_Air_crew.jpg"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, מערך מטוסי ה\"קרנף\"",
+        "tag": "air/Lockheed_C-130_Hercules_crew.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, מערך ה\"נחשון\"",
+        "tag": "air/IAF_Sqd.122_GulfStream_Array.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, טייסת 120",
+        "tag": "air/IAF_Squadron_120_shoulder_patch.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "הנחש השחור (161)",
+        "tag": "air/IAF_Squadron_161.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "ציפורי האש (166)",
+        "tag": "air/IAF_Squadron_166_New_Logo.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "ציפורי האש, עד 2021",
+        "tag": "air/IAF_Squadron_166.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "המל\"טים הראשונה (200)",
+        "tag": "air/200squadron.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "הנשר הלבן (210)",
+        "tag": "air/IAF_Squadron_210.png"
+    },
+    {
+        "cat": ["כלי טיס מאוישים מרחוק"],
+        "name": "הברון האדום (ללא מספר)",
+        "tag": "air/Red_Baron_Squadron_Tag.png"
+    },
+    {
+        "cat": ["סמל כתף"],
+        "name": "פאטצ' כתף, מערך מטוס ה\"איתן\"",
+        "tag": "air/IAF_Eithan_Badge.png"
+    },
+    {
+        "cat": ["ניסוי"],
+        "name": "טייסת מרכז ניסויי טיסה (5601, בר\"ת מנ\"ט)",
+        "tag": "air/IAF_Squadron_5601_from_2016.png"
+    },
+    {
+        "cat": ["ניסוי"],
+        "name": "טייסת מנ\"ט, עד 2016",
+        "tag": "air/IAF_Squadron_5601.png"
+    },
+    {
+        "cat": ["טייסות הדרכה ואימון"],
+        "name": "טייסת מאמני כטב\"ם ומסוקים (320)",
+        "tag": "air/IAF_Squadron_UAV_Chopper_Sim.png"
+    },
+    {
+        "cat": ["טייסות הדרכה ואימון"],
+        "name": "טייסת מאמני קרב (420)",
+        "tag": "air/IAF_Squadron_Fighter_aircraft_Simulator.png"
+    },
+    {
+        "cat": ["כנף 1"],
+        "name": "טייסת תעופה",
+        "tag": "air/Kanaf1_Ramat_David_Teufa_Squadron.png"
+    },
+    {
+        "cat": ["כנף 1"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Kanaf1_Ramat_David_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "טייסת תעופה",
+        "tag": "air/D7AAD7A2D795D7A4D794_D79BD7A0D7A3_4.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "טייסת תעופה - סמל הישן",
+        "tag": "air/Kanaf4_Hazor_Teufa_Squadron_old_logo.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/D7A1D79ED79C_D7AAD797D796D795D7A7D794_D797D793D7A9_D79BD7A0D7A3_4.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "טייסת תחזוקה - סמל הישן",
+        "tag": "air/Kanaf4_Hazor_Maintenance_Squadron_old_logo.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "טייסת מנהלה",
+        "tag": "air/D798D799D799D7A1D7AA_D79ED7A0D794D79CD794-_D79BD7A0D7A3_4.png"
+    },
+    {
+        "cat": ["כנף 4"],
+        "name": "יחידת בינוי 304",
+        "tag": "air/D799D797D799D793D7AA_D791D799D7A0D795D799_304.png"
+    },
+    {
+        "cat": ["בח״א 6"],
+        "name": "טייסת תעופה",
+        "tag": "air/Kanaf6_Hatzerim_Teufa_Squadron.png"
+    },
+    {
+        "cat": ["בח״א 6"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Kanaf6_Hatzerim_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 8"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Air_Force_Base_8_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 8"],
+        "name": "טייסת תעופה",
+        "tag": "air/BAHA8_Tel_Nof_Teufa_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 8"],
+        "name": "טייסת מנהלה",
+        "tag": "air/BAHA8_Tel_Nof_Minhala_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 8"],
+        "name": "יחידת בינוי 301",
+        "tag": "air/BAHA8_Tel_Nof_Construction_Unit_301.png"
+    },
+    {
+        "cat": ["בח\"א 10"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Baha_10_uvda_tahzuka.png"
+    },
+    {
+        "cat": ["בח\"א 10"],
+        "name": "טייסת תעופה",
+        "tag": "air/BAHA10_Uvda_Teufa_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 10"],
+        "name": "יחידת בינוי",
+        "tag": "air/BAHA10_Uvda_Construction_Unit.png"
+    },
+    {
+        "cat": ["כנף 15"],
+        "name": "טייסת מנהלה",
+        "tag": "air/Kanaf_15_admin._Sqd.png"
+    },
+    {
+        "cat": ["כנף 15"],
+        "name": "טייסת תעופה",
+        "tag": "air/Kanaf_15_Aviation_Sqd_Logo.png"
+    },
+    {
+        "cat": ["כנף 15"],
+        "name": "טייסת תחזוקה אווירית בשנות ה-2000",
+        "tag": "air/Kanaf_15_Mainten._Sqd_Logo.png"
+    },
+    {
+        "cat": ["כנף 15"],
+        "name": "טייסת תחזוקה (פאטצ' ישן)",
+        "tag": "air/Kanaf_15_Mainten._Sqd_Old_Logo.png"
+    },
+    {
+        "cat": ["כנף 15"],
+        "name": "יחידת בינוי",
+        "tag": "air/Kanaf_15_Construction_Unit.png"
+    },
+    {
+        "cat": ["בח\"א 21"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/BAHA21_Tehni_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 21"],
+        "name": "טייסת מנהלה",
+        "tag": "air/IAF_BAHA21_Admin._Sqd.png"
+    },
+    {
+        "cat": ["בח\"א 21"],
+        "name": "טייסת תעופה",
+        "tag": "air/IAF_BAHA21_Teufa_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 21"],
+        "name": "טייסת הדרכה",
+        "tag": "air/IAF_BAHA21_Instruction_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 21"],
+        "name": "יחידת בינוי 321",
+        "tag": "air/IAF_BAHA21_Construction_unit_321.png"
+    },
+    {
+        "cat": ["כנף 25"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Baha_6_hazerim_tahzuka.png"
+    },
+    {
+        "cat": ["בח\"א 27"],
+        "name": "טייסת מנהלה",
+        "tag": "air/Bacha_27_admin._Sqd2.png"
+    },
+    {
+        "cat": ["בח\"א 27"],
+        "name": "טייסת תחזוקה אווירית",
+        "tag": "air/Bacha_27_Mainten._Sqd.png"
+    },
+    {
+        "cat": ["בח\"א 27"],
+        "name": "טייסת תעופה",
+        "tag": "air/Bacha_27_Aviation_Sqd.png"
+    },
+    {
+        "cat": ["בח\"א 27"],
+        "name": "יחידת הבינוי",
+        "tag": "air/Bacha_27_Construction_Unit.png"
+    },
+    {
+        "cat": ["בח\"א 28"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/IAF_BAHA28_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["בח\"א 28"],
+        "name": "טייסת תחזוקה עד 2008",
+        "tag": "air/IAF_Kanaf28_Maintenance_Squadron_till_2008.png"
+    },
+    {
+        "cat": ["בח\"א 28"],
+        "name": "טייסת מנהלה",
+        "tag": "air/IAF_BAHA28_Admin._Sqd.png"
+    },
+    {
+        "cat": ["בח\"א 28"],
+        "name": "יחידת הבינוי 328",
+        "tag": "air/Navatim_IAF_base_construction_unit_328.png"
+    },
+    {
+        "cat": ["בח\"א 30"],
+        "name": "טייסת תחזוקה עד תחילת 2021",
+        "tag": "air/Oldtahkzookasymbol.jpg"
+    },
+    {
+        "cat": ["בח\"א 30"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Newtahzookasymbol.jpg"
+    },
+    {
+        "cat": ["מערך ההגנה האווירית"],
+        "name": "טייסת תחזוקה",
+        "tag": "air/Israeli_Air_Defense_Command_Maintenance_Squadron.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידת העמסה 757",
+        "tag": "air/Haamasa757.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "י\"ק 533",
+        "tag": "air/Y.k.533.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "אס\"מ 5708 – איסוף וסימון מטרות",
+        "tag": "air/ASAM_2.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידת מעוף רחב",
+        "tag": "air/Unit_Maof_Rehav_IAF_symbol.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יה\"ק 5700 – יחידת הנחתה קדמית",
+        "tag": "air/YAHAK_5700_Insignia_-_since_2017.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יה\"ק 5700 (סמל ישן)",
+        "tag": "air/Yahak_5700.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "מקרפ\"ח 5710 – מפקדת קצין רפואה חילי",
+        "tag": "air/IAF_Medical_High_Command_Officer_headquarters.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "שלדג 5101",
+        "tag": "air/Shaldag_Unit.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "תצ\"מ 5707, גרסה ראשונה – יחידת תצפיות מודיעיניות",
+        "tag": "air/TATSAM_5707_1.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידה 555 (יחידת עורבי השחקים)",
+        "tag": "air/IAF_Sky_Crows_unit.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידה 555 (יחידת עורבי השחקים), סמל כתף",
+        "tag": "air/Orvey-Shakim-unit-IAF.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "היחידה הטקטית לחילוץ מיוחד (669) (669)",
+        "tag": "air/IAF_669_Unit.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "הצוות האווירובטי של חיל האוויר הישראלי",
+        "tag": "air/Aerobatic_Team_symbol.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "י\"ק 502",
+        "tag": "air/Unrecognized_6.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידת ניסוי טילים",
+        "tag": "air/151_squdron_28experimental_missiles_unit29.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידת הקישור והלוגיסטיקה",
+        "tag": "air/Yahkal.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "סמל מא\"ש (מרכז אספקה ושינוע) ההיסטורי",
+        "tag": "air/Supply_and_transportation_center_unit_shoulder_patch.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "סמל יקת\"א 8832 (יחידת קישור תעשיות אזרחיות), מוזגה לתוך יחק\"ל",
+        "tag": "air/Yakta.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "מחלקת חימוש והגנ\"א (מערך ההגנה האווירית) בלהק ציוד",
+        "tag": "air/MahleketHimushAviri_ve_Hagna.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "מתנ\"מ 5656 (מרכז תחזוקה לנשק ומערכות)",
+        "tag": "air/Matnam_5656.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "יחידת האספקה בהיטס 609",
+        "tag": "air/IAF_Airborne_supply_unit_609.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "להק המודיעין, עד 2023",
+        "tag": "air/Israel_Airforce_Intelligence_logo.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "להק המודיעין, אחרי 2023",
+        "tag": "air/IsraelAirforceIntelligencelogo2023.png"
+    },
+    {
+        "cat": ["סמלים נוספים"],
+        "name": "סמל להק השתתפות ומסוקים",
+        "tag": "air/IAF_Air_Support_and_Helicopter_Division_28Lahak29_Logo.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "יב\"א 506 (יב\"א – יחידת בקרה אווירית)",
+        "tag": "air/IAF_aerial_regional_control_unit_506.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "יב\"א 509",
+        "tag": "air/IAF_aerial_regional_control_unit_509.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "י\"ב 528 (יחידת בקרה)",
+        "tag": "air/IAF_Ground_Control_unit_528.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "פאטצ' כתף - מרתון מערך הבקרה והפיקוח",
+        "tag": "air/IAF_Control_Units_marathon._III_28crop29.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "י\"ג 503 (יחידת גילוי)",
+        "tag": "air/IAF_Y.G.503.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "י\"ג 511",
+        "tag": "air/IAF_Detection_Unit_511_patch.png"
+    },
+    {
+        "cat": ["מערך הבקרה"],
+        "name": "גף בקרה ומבצעים בינ\"ט 151 – יחידת ניסוי טילים",
+        "tag": "air/151_missiles_testing_control_operations.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום מטוסים",
+        "tag": "air/Aerial_Maintenance_Unit_Aircraft_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום שפיצים",
+        "tag": "air/Aerial_Maintenance_Unit_Spikes_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום ייצור",
+        "tag": "air/Aerial_Maintenance_Unit_Manufaturing_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום הנדסה",
+        "tag": "air/Aerial_Maintenance_Unit_Engineering_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום חומרים",
+        "tag": "air/SemelHomarim22.jpg"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום חומרים, עד 2022",
+        "tag": "air/Aerial_Maintenance_Unit_Materials_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "פאטצ' כתף תחום תפ\"י",
+        "tag": "air/Aerial_Maintenance_Unit_Production_Planning_26_Control_Field.png"
+    },
+    {
+        "cat": ["יחידות משנה ביחידת האחזקה האווירית 22"],
+        "name": "תחום מנהלה",
+        "tag": "air/Aerial_Maintenance_Unit_Management_Field.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר לטיסה (ביס\"ט 12)",
+        "tag": "air/IAF_flying_school.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר למפעילי כטמ\"ם",
+        "tag": "air/UAV_Operator_School_symbol.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר למפעילי כטמ\"ם (סמל הקודם)",
+        "tag": "air/UAV_Operators_School.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר לבקרה אווירית ופיקוח טיסה",
+        "tag": "air/Dispatcher_and_air_controllers_school.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "ביסל\"א/ביסנ\"מ 883 – בית הספר להגנה אווירית",
+        "tag": "air/Bisnam_883.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר למקצועות הטכניים",
+        "tag": "air/BislatLogo.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר לקצינים של חיל האוויר",
+        "tag": "air/Bislak-new.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "סמל בית הספר לקציני אחזקה, מנהלה ועתודה של חיל האוויר, עד 2004",
+        "tag": "air/Israel_Air_Force_Officer_School_In_Techni_base_Old_Logo.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית הספר למקצועות התעופה",
+        "tag": "air/Bismat.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "יחידת ביסל\"ח 314",
+        "tag": "air/D7A1D79ED79C_D791D799D7A1D79CD797.png"
+    },
+    {
+        "cat": ["יחידות ובסיסי הדרכה"],
+        "name": "בית ספר לכא\"מ",
+        "tag": "air/IAF_Wing_7_school_open_ceremony_1_28cropped29.jpg"
+    }
+]

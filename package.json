@@ -1,0 +1,51 @@
+{
+    "name": "idf",
+    "version": "1.0.0",
+    "author": "Uri Kalish",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:urikalish/onitama.git"
+    },
+    "pre-commit": "lint",
+    "scripts": {
+        "format": "prettier  --log-level warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+        "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+        "netlify-redirects": "copyfiles _redirects dist",
+        "build": "tsc && vite build && yarn netlify-redirects",
+        "full": "yarn format && yarn lint && yarn build",
+        "dev": "vite",
+        "serve": "vite preview",
+        "type-check": "tsc"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.1",
+        "@emotion/styled": "^11.11.0",
+        "@mui/icons-material": "^5.14.18",
+        "@mui/material": "^5.14.18",
+        "copyfiles": "^2.4.1",
+        "eslint-plugin-prettier": "^5.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.19.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.15",
+        "@types/react-dom": "^18.2.7",
+        "@typescript-eslint/eslint-plugin": "^6.11.0",
+        "@typescript-eslint/parser": "^6.11.0",
+        "@vitejs/plugin-react": "^4.0.3",
+        "eslint": "^8.53.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-jsx-a11y": "^6.8.0",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.3",
+        "eslint-plugin-simple-import-sort": "^10.0.0",
+        "pre-commit": "^1.2.2",
+        "prettier": "^3.1.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5"
+    }
+}

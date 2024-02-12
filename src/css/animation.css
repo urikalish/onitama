@@ -1,0 +1,44 @@
+@keyframes fade-in-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-ex-animation {
+    0% {
+        opacity: 0;
+        filter: grayscale(1);
+    }
+    50% {
+        opacity: 0;
+        filter: grayscale(1);
+    }
+    100% {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+}
+
+@keyframes red-flash-animation {
+    from {
+        background-color: hsl(0, 100%, 50%);
+    }
+    to {
+        background-color: hsl(0, 0%, 7%);
+    }
+}
+
+.fade-in {
+    animation: fade-in-animation 1s ease-in-out forwards;
+}
+
+.fade-in--filter--slow {
+    animation: fade-in-ex-animation 2s ease-in-out forwards;
+}
+
+.red-flash {
+    animation: red-flash-animation 100ms linear forwards;
+}
