@@ -5,7 +5,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // import { NavLink } from 'react-router-dom';
-import onitamaLogoTextImage from '../../public/img/onitama-logo-text.png';
+import onitamaLogoTextImage from './onitama-logo-text.png';
 
 export function Header() {
     // const midNavItems = [
