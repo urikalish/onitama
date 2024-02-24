@@ -2,14 +2,16 @@ import { Position } from './position';
 
 export enum MoveType {
     NA = 'NA',
-    MOVE_S = 'move_s',
-    MOVE_M = 'move_m',
+    MOVE_S = 'move-s',
+    MOVE_M = 'move-m',
     CAPTURE = 'capture',
-    CAPTURED_S = 'captured_s',
-    CAPTURED_M = 'captured_m',
+    CAPTURED_S = 'captured-s',
+    CAPTURED_M = 'captured-m',
     WIN = 'win',
-    WIN_STONE = 'win_stone',
-    WIN_STREAM = 'win_stream',
+    WIN_BLUE = 'win-blue',
+    WIN_RED = 'win-red',
+    WIN_STONE = 'win-stone',
+    WIN_STREAM = 'win-stream',
 }
 
 export function createMoveInstance(

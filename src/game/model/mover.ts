@@ -96,6 +96,7 @@ export class Mover {
             moveTypes.add(pieceType === PieceType.STUDENT ? MoveType.MOVE_S : MoveType.MOVE_M);
             if (pieceType === PieceType.MASTER && squareTempleOfArmyIndex(to) === enemyIndex) {
                 moveTypes.add(MoveType.WIN);
+                moveTypes.add(myIndex === 0 ? MoveType.WIN_BLUE : MoveType.WIN_RED);
                 moveTypes.add(MoveType.WIN_STREAM);
             }
             if (this.isEmpty(p, to)) {
@@ -115,6 +116,7 @@ export class Mover {
                 } else {
                     moveTypes.add(MoveType.CAPTURED_M);
                     moveTypes.add(MoveType.WIN);
+                    moveTypes.add(myIndex === 0 ? MoveType.WIN_BLUE : MoveType.WIN_RED);
                     moveTypes.add(MoveType.WIN_STONE);
                 }
                 np = createNextPosition(p);

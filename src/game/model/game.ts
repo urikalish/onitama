@@ -1,22 +1,20 @@
+import { flipIndex } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
 import { Color } from './color';
 import { Fen } from './fen';
 import { Move, MoveType } from './move';
 import { Mover } from './mover';
-import { Piece, PieceType } from './piece';
+import { PieceType } from './piece';
 import { Player, PlayerType } from './player';
 import { assureTwoMasters, Position } from './position';
 
 export enum GameResult {
     WIN = 'win',
-    WIN_BY_BLUE = 'win-by-blue',
-    WIN_BY_RED = 'win-by-red',
-    WIN_BY_STONE = 'win-by-stone',
-    WIN_BY_STREAM = 'win-by-stream',
-    DRAW = 'draw',
-    THREEFOLD_REPETITION = 'threefold-repetition',
-    FIFTY_MOVES = 'fifty-moves',
+    WIN_BLUE = 'win-blue',
+    WIN_RED = 'win-red',
+    WIN_STONE = 'win-stone',
+    WIN_STREAM = 'win-stream',
     INVALID_POSITION = 'invalid-position',
 }
 
@@ -31,16 +29,16 @@ export class Game {
     mover = new Mover();
     results: Set<GameResult> = new Set();
     resultStr = '';
-    botWorker: Worker = new Worker('js/bot-worker.min.js');
+    // botWorker: Worker = new Worker('js/bot-worker.min.js');
     // botWorker: Worker = new Worker('js/bot-worker.js');
-    onBotWorkerProgress: ((number, string) => void) | null = null;
+    onBotWorkerProgress: any | null = null;
 
     constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, fenStr: string) {
         this.players = [new Player(0, player0Type, player0Name), new Player(1, player1Type, player1Name)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
         this.applyFen(fenStr);
-        this.botWorker.onmessage = this.handleBotWorkerMessage.bind(this);
+        // this.botWorker.onmessage = this.handleBotWorkerMessage.bind(this);
     }
 
     startGame(startTime: number) {
@@ -80,68 +78,28 @@ export class Game {
         return this.results.size > 0;
     }
 
-    endGame(gameResults: GameResult[], resultStr: string) {
-        gameResults.forEach((gameResult) => {
-            this.results.add(gameResult);
-        });
-        this.resultStr = resultStr;
-    }
-
     checkForGameEnded() {
-        //no possible moves
-        if (this.possibleMoves.length === 0) {
-            const m = this.getCurMove();
-            if (!m) {
-                return;
-            }
-            if (m.types.has(MoveType.CHECKMATE)) {
-                //checkmate
-                if (m.armyIndex === 0) {
-                    this.endGame([GameResult.WIN, GameResult.WIN_BY_BLUE, GameResult.CHECKMATE], '1-0 (checkmate by white)');
-                    return;
-                } else {
-                    this.endGame([GameResult.WIN, GameResult.WIN_BY_RED, GameResult.CHECKMATE], '0-1 (checkmate by black)');
-                    return;
-                }
-            }
-            //stalemate
-            this.endGame([GameResult.DRAW, GameResult.STALEMATE], '½-½ (stalemate)');
+        const m = this.getCurMove();
+        if (!m) {
             return;
         }
-
-        //fifty moves
-        const p = this.getCurPosition();
-        if (p && p.halfMoveClock === 100) {
-            this.endGame([GameResult.DRAW, GameResult.FIFTY_MOVES], '½-½ (fifty moves)');
+        if (!m.types.has(MoveType.WIN)) {
             return;
         }
-
-        //threefold repetition
-        if (this.positions.length >= 8) {
-            const ps = {};
-            for (let i = this.positions.length - 1; i >= 0; i--) {
-                const str = Fen.getFenStr(this.positions[i], true, true, true, false, false);
-                if (!ps[str]) {
-                    ps[str] = 1;
-                } else {
-                    ps[str]++;
-                    if (ps[str] === 3) {
-                        this.endGame([GameResult.DRAW, GameResult.THREEFOLD_REPETITION], '½-½ (threefold repetition)');
-                        return;
-                    }
-                }
-            }
+        this.results.add(GameResult.WIN);
+        if (m.types.has(MoveType.WIN_BLUE)) {
+            this.results.add(GameResult.WIN_BLUE);
+            this.resultStr = 'Blue wins by';
+        } else if (m.types.has(MoveType.WIN_RED)) {
+            this.results.add(GameResult.WIN_RED);
+            this.resultStr = 'Red wins by';
         }
-
-        //insufficient material
-        if (
-            this.board.onlyKingsLeft() ||
-            this.board.onlyOnePieceLeft(PieceType.BISHOP) ||
-            this.board.onlyOnePieceLeft(PieceType.KNIGHT) ||
-            this.board.onlyTwoSameColorBishopsLeft()
-        ) {
-            this.endGame([GameResult.DRAW, GameResult.INSUFFICIENT_MATERIAL], '½-½ (insufficient material)');
-            return;
+        if (m.types.has(MoveType.WIN_STONE)) {
+            this.results.add(GameResult.WIN_STONE);
+            this.resultStr = ' the way of the stone';
+        } else if (m.types.has(MoveType.WIN_STREAM)) {
+            this.results.add(GameResult.WIN_STREAM);
+            this.resultStr = ' the way of the stream';
         }
     }
 
@@ -157,8 +115,7 @@ export class Game {
             this.results.add(GameResult.INVALID_POSITION);
             alert('Missing some masters...');
         }
-        Position.prohibitCastingBasedOnPiecePosition(p);
-        for (let i = 0; i < 64; i++) {
+        for (let i = 0; i < 25; i++) {
             const char = p.pieceData[i];
             if (!char) {
                 continue;
@@ -171,14 +128,6 @@ export class Game {
         this.pushPosition(p);
     }
 
-    isInCheck() {
-        const p = this.getCurPosition();
-        if (!p) {
-            return false;
-        }
-        return this.mover.isSquareAttacked(p, this.board.getKingIndex(p.armyIndex), Army.flipArmyIndex(p.armyIndex));
-    }
-
     move(m: Move | undefined): Move | null {
         if (!m) {
             return null;
@@ -188,29 +137,12 @@ export class Game {
         if (!piece) {
             return null;
         }
-        const targetPieceName = m.captureIndex === -1 ? '' : this.board.squares[m.captureIndex].piece?.name || '';
-        if (targetPieceName) {
+        if (m.types.has(MoveType.CAPTURE)) {
+            const targetPieceName = this.board.squares[m.to].piece?.name || '';
             this.board.clearSquareByPieceName(targetPieceName);
-            this.armies[Army.flipArmyIndex(m.armyIndex)].removePiece(targetPieceName);
+            this.armies[flipIndex(m.armyIndex)].removePiece(targetPieceName);
         }
         this.board.movePiece(piece, m.from, m.to);
-        if (m.types.has(MoveType.PROMOTION)) {
-            if (m.types.has(MoveType.PROMOTION_TO_Q)) {
-                Piece.promote(piece, PieceType.QUEEN);
-            } else if (m.types.has(MoveType.PROMOTION_TO_R)) {
-                Piece.promote(piece, PieceType.ROOK);
-            } else if (m.types.has(MoveType.PROMOTION_TO_B)) {
-                Piece.promote(piece, PieceType.BISHOP);
-            } else if (m.types.has(MoveType.PROMOTION_TO_N)) {
-                Piece.promote(piece, PieceType.KNIGHT);
-            }
-        }
-        if (m.additionalMove) {
-            const additionalMovePiece = this.board.squares[m.additionalMove.from].piece;
-            if (additionalMovePiece) {
-                this.board.movePiece(additionalMovePiece, m.additionalMove.from, m.additionalMove.to);
-            }
-        }
         this.pushMove(m);
         this.pushPosition(m.newPosition);
         return m;
@@ -232,10 +164,10 @@ export class Game {
         if (!p || !botName) {
             return null;
         }
-        this.botWorker.postMessage({ botName, position: this.getCurPosition(), moveNames: this.getMoveNames() });
+        // this.botWorker.postMessage({ botName, position: this.getCurPosition(), moveNames: this.getMoveNames() });
     }
 
-    handleBotWorkerMessage(e: object) {
+    handleBotWorkerMessage(e: any) {
         if (this.onBotWorkerProgress) {
             this.onBotWorkerProgress(e['data']['progress'], e['data']['moveName']);
         }

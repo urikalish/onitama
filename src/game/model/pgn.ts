@@ -10,12 +10,10 @@ export class Pgn {
         const dateStr = `${date.toLocaleDateString('en-US', { year: 'numeric' })}.${monthStr}.${dayStr}`;
         let resultStr = '*';
         if (game.results.size > 0) {
-            if (game.results.has(GameResult.WIN_BY_BLUE)) {
-                resultStr = `Blue 1 - 0 Red`;
-            } else if (game.results.has(GameResult.WIN_BY_RED)) {
-                resultStr = `Blue 0 - 1 Red`;
-            } else {
-                resultStr = `Blue 1/2 - 1/2 Red`;
+            if (game.results.has(GameResult.WIN_BLUE)) {
+                resultStr = '1-0';
+            } else if (game.results.has(GameResult.WIN_RED)) {
+                resultStr = '0-1';
             }
         }
         return (
