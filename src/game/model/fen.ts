@@ -1,5 +1,5 @@
-import {createPositionInstance, Position} from './position';
-import { Square } from './square';
+import { Hand } from './hand';
+import { createPositionInstance, Position } from './position';
 
 export class Fen {
     // S3s/S3s/M3m/S3s/S3s c1/c2/c3 c4/c5 0 1;
@@ -17,18 +17,11 @@ export class Fen {
                 }
             }
         });
-
-        return createPositionInstance(pd, parts[1] === 'w' ? 0 : 1, , Number(parts[3]), Number(parts[4]));
+        const hands = [new Hand(0, parts[1].split(`/`)), new Hand(1, parts[2].split(`/`))];
+        return createPositionInstance(pd, hands, Number(parts[3]), Number(parts[4]));
     }
 
-    static getFenStr(
-        p: Position | null,
-        includeActivePlayer = true,
-        includeCastlingOptions = true,
-        includeEpTargetIndex = true,
-        includeHalfMoveClock = true,
-        includeFullMoveNum = true,
-    ): string {
+    static getFenStr(p: Position | null, includeHands = true, includeHalfMoveClock = true, includeFullMoveNum = true): string {
         if (!p) {
             return '';
         }
@@ -55,34 +48,16 @@ export class Fen {
                 pd.push(String(emptySquaresCount));
             }
         }
-        let castlingOptions = '';
-        if (p.castlingOptions[0][0]) {
-            castlingOptions += 'K';
-        }
-        if (p.castlingOptions[0][1]) {
-            castlingOptions += 'Q';
-        }
-        if (p.castlingOptions[1][0]) {
-            castlingOptions += 'k';
-        }
-        if (p.castlingOptions[1][1]) {
-            castlingOptions += 'q';
-        }
         parts[0] = pd.join('');
-        if (includeActivePlayer) {
-            parts[1] = ['w', 'b'][p.armyIndex];
-        }
-        if (includeCastlingOptions) {
-            parts[2] = castlingOptions || '-';
-        }
-        if (includeEpTargetIndex) {
-            parts[3] = p.epTargetIndex === -1 ? '-' : Square.getNameByIndex(p.epTargetIndex);
+        if (includeHands) {
+            parts[1] = p.hands[0].getCardNames().join('/');
+            parts[2] = p.hands[1].getCardNames().join('/');
         }
         if (includeHalfMoveClock) {
-            parts[4] = String(p.halfMoveClock);
+            parts[3] = String(p.halfMoveClock);
         }
         if (includeFullMoveNum) {
-            parts[5] = String(p.fullMoveNum);
+            parts[4] = String(p.fullMoveNum);
         }
         return parts.join(' ');
     }

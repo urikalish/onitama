@@ -1,36 +1,38 @@
 import { Card, CardState, createCardInstance } from './card';
 
-export function passCard(cardName: string) {}
+export function passAndActivate(cardName: string, fromHand: Hand, toHand: Hand) {
+    const card = fromHand.removeCard(cardName);
+    card.playerIndex = toHand.playerIndex;
+    card.state = CardState.WAITING;
+    toHand.addCard(card);
+    fromHand.cards[1].state = CardState.USABLE;
+}
 
 export class Hand {
     playerIndex: number;
     cards: Card[];
 
-    constructor(playerIndex: number) {
+    constructor(playerIndex: number, cardNames: string[]) {
         this.playerIndex = playerIndex;
         this.cards = [];
+        for (let i = 0; i < cardNames.length; i++) {
+            this.cards.push(createCardInstance(cardNames[i], playerIndex, i < 2 ? CardState.USABLE : CardState.WAITING));
+        }
     }
 
-    getCard(name): Card | null {
-        return this.cards.find((c) => c.name === name) || null;
+    removeCard(name: string): Card {
+        const index = this.cards.findIndex((c) => c.name === name);
+        const card = this.cards[index];
+        this.cards.splice(index, 1);
+        return card;
     }
 
-    createAndAddCard(cardName: string, cardState: CardState): Card {
-        const card = createCardInstance(cardName, this.playerIndex, cardState);
+    addCard(card: Card): Card {
         this.cards.push(card);
         return card;
     }
 
-    removeCard(name: string): boolean {
-        const index = this.cards.findIndex((c) => c.name === name);
-        if (index === -1) {
-            return false;
-        }
-        this.cards.splice(index, 1);
-        return true;
-    }
-
-    emptyHand() {
-        this.cards = [];
+    getCardNames(): string[] {
+        return this.cards.map((c) => c.name);
     }
 }

@@ -2,33 +2,35 @@ import { shuffleArray } from '../../services/utils';
 import allCardsData from '../data/cards-data.json';
 import { Color } from './color';
 
+const allCards: Card[] = allCardsData.map((cd) => new Card(cd.name, cd.moves, cd.start, cd.deck));
+
 export enum CardState {
     USABLE = 'usable',
     WAITING = 'waiting',
 }
 
-export function createCardInstance(cardName: string, playerIndex: number, state: CardState) {
-    const cardData = allCardsData.filter((c) => c.name === cardName);
-    const card = new Card(cardData.name, cardData.moves, cardData.start, cardData.deck);
-    card.playerIndex = playerIndex;
-    card.state = state;
-    return card;
-}
-
-export function getFiveRandomCardNames(decs: string[]): string[] {
-    const relevantCardsNames = allCardsData
-        .filter((cd) => {
-            return decs.includes(cd.deck);
+export function getRandomCardsNames(decs: string[], numberOfCards: number = 5): string[] {
+    const relevantCardsNames = allCards
+        .filter((c) => {
+            return decs.includes(c.deck);
         })
-        .map((cd) => cd.name);
+        .map((c) => c.name);
     const shuffledCardNames: string[] = shuffleArray(relevantCardsNames);
-    shuffledCardNames.length = 5;
+    shuffledCardNames.length = numberOfCards;
     return shuffledCardNames;
 }
 
 export function getStartingColor(cardName: string): Color {
-    const cardData = allCardsData.filter((c) => c.name === cardName);
-    return cardData.start === 'blue' ? Color.BLUE : Color.RED;
+    const card = allCards.find((c) => c.name === cardName)!;
+    return card.start === 'blue' ? Color.BLUE : Color.RED;
+}
+
+export function createCardInstance(cardName: string, playerIndex: number, state: CardState): Card {
+    const card = allCards.find((c) => c.name === cardName)!;
+    const newCard: Card = new Card(card.name, card.moves, card.start, card.deck);
+    newCard.playerIndex = playerIndex;
+    newCard.state = state;
+    return newCard;
 }
 
 export class Card {
