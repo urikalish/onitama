@@ -21,7 +21,7 @@ export class Fen {
         return createPositionInstance(pd, hands, Number(parts[3]), Number(parts[4]));
     }
 
-    static getFenStr(p: Position | null, includeHands = true, includeHalfMoveClock = true, includeFullMoveNum = true): string {
+    static getFenStr(p: Position | null, includeHands = true, includeHalfMoveClock = true, includeHalfMoveNum = true): string {
         if (!p) {
             return '';
         }
@@ -56,8 +56,8 @@ export class Fen {
         if (includeHalfMoveClock) {
             parts[3] = String(p.halfMoveClock);
         }
-        if (includeFullMoveNum) {
-            parts[4] = String(p.fullMoveNum);
+        if (includeHalfMoveNum) {
+            parts[4] = String(p.halfMoveNum);
         }
         return parts.join(' ');
     }

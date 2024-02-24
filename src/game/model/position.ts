@@ -1,18 +1,20 @@
+import { flipIndex } from '../../services/utils';
 import { Hand } from './hand';
 import { PieceType, PieceTypeCased } from './piece';
 
-export function createPositionInstance(pieceData: string[], hands: Hand[], halfMoveClock: number, fullMoveNum: number): Position {
+export function createPositionInstance(pieceData: string[], hands: Hand[], halfMoveClock: number, halfMoveNum: number): Position {
     const p: Position = new Position();
     p.pieceData = pieceData;
     p.hands = hands;
     p.armyIndex = hands[0].cards.length > hands[1].cards.length ? 0 : 1;
     p.halfMoveClock = halfMoveClock;
-    p.fullMoveNum = fullMoveNum;
+    p.halfMoveNum = halfMoveNum;
     return p;
 }
 
 export function createNextPosition(p: Position): Position {
-    return createPositionInstance([...p.pieceData], p.hands, p.halfMoveClock + 1, p.armyIndex === 0 ? p.fullMoveNum : p.fullMoveNum + 1);
+    const hands = [new Hand(p.armyIndex, p.hands[p.armyIndex].getCardNames()), new Hand(flipIndex(p.armyIndex), p.hands[flipIndex(p.armyIndex)].getCardNames())];
+    return createPositionInstance([...p.pieceData], hands, p.halfMoveClock + 1, p.halfMoveNum + 1);
 }
 
 export function assureTwoMasters(p: Position): boolean {
@@ -49,5 +51,5 @@ export class Position {
     hands: Hand[] = [];
     armyIndex = 0;
     halfMoveClock = 0;
-    fullMoveNum = 1;
+    halfMoveNum = 1;
 }

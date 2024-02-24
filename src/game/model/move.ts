@@ -1,7 +1,7 @@
 import { Position } from './position';
 
 export enum MoveType {
-    NA = '-',
+    NA = 'NA',
     MOVE_S = 'move_s',
     MOVE_M = 'move_m',
     CAPTURE = 'capture',
@@ -13,10 +13,9 @@ export enum MoveType {
 }
 
 export function createMoveInstance(
-    fullMoveNum: number,
+    halfMoveNum: number,
     armyIndex: number,
     cardName: string,
-    cardOptionIndex: number,
     from: number,
     to: number,
     types: Set<MoveType>,
@@ -25,10 +24,9 @@ export function createMoveInstance(
     newPosition: Position,
 ) {
     const m: Move = new Move();
-    m.fullMoveNum = fullMoveNum;
+    m.halfMoveNum = halfMoveNum;
     m.armyIndex = armyIndex;
     m.cardName = cardName;
-    m.cardOptionIndex = cardOptionIndex;
     m.from = from;
     m.to = to;
     m.types = types;
@@ -40,10 +38,9 @@ export function createMoveInstance(
 
 export class Move {
     types: Set<MoveType> = new Set();
-    fullMoveNum = 1;
+    halfMoveNum = 1;
     armyIndex = 0;
-    cardName: string;
-    cardOptionIndex: number;
+    cardName: string = '';
     from = -1;
     to = -1;
     name = '';

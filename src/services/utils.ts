@@ -8,3 +8,7 @@ export function shuffleArray(array: any[]) {
     }
     return array;
 }
+
+export function flipIndex(armyIndex: number): number {
+    return Math.abs(armyIndex - 1);
+}

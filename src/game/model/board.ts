@@ -1,6 +1,16 @@
 import { Piece } from './piece';
 import { Square } from './square';
 
+export function squareTempleOfArmyIndex(i: number) {
+    if (i === 10) {
+        return 0;
+    }
+    if (i === 14) {
+        return 1;
+    }
+    return -1;
+}
+
 export class Board {
     squares: Square[];
 

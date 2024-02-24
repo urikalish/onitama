@@ -2,10 +2,6 @@ import { Color } from './color';
 import { Piece, PieceType } from './piece';
 import { PlayerType } from './player';
 
-export function flipArmyIndex(armyIndex: number): number {
-    return Math.abs(armyIndex - 1);
-}
-
 export class Army {
     index: number;
     color: Color;
