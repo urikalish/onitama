@@ -1,6 +1,7 @@
 import { flipIndex } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
+import { getRandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
 import { Fen } from './fen';
 import { Move, MoveType } from './move';
@@ -31,13 +32,26 @@ export class Game {
     resultStr = '';
     // botWorker: Worker = new Worker('js/bot-worker.min.js');
     // botWorker: Worker = new Worker('js/bot-worker.js');
-    onBotWorkerProgress: any | null = null;
+    // onBotWorkerProgress: any | null = null;
 
-    constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, fenStr: string) {
+    constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, fenStr: string, decks: string[]) {
         this.players = [new Player(0, player0Type, player0Name), new Player(1, player1Type, player1Name)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
-        this.applyFen(fenStr);
+        if (fenStr) {
+            this.applyFen(fenStr);
+        } else {
+            const cardNames = getRandomCardsNames(decks, 5);
+            const cardNames0: string[] = [cardNames[0], cardNames[1]];
+            const cardNames1: string[] = [cardNames[2], cardNames[3]];
+            const startingColor = getStartingColor(cardNames[4]);
+            if (startingColor === Color.BLUE) {
+                cardNames0.push(cardNames[4]);
+            } else {
+                cardNames1.push(cardNames[4]);
+            }
+            this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
+        }
         // this.botWorker.onmessage = this.handleBotWorkerMessage.bind(this);
     }
 
@@ -148,28 +162,28 @@ export class Game {
         return m;
     }
 
-    isBotTurn() {
-        const p = this.getCurPosition();
-        return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.BOT;
-    }
-
-    isHumanTurn() {
-        const p = this.getCurPosition();
-        return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
-    }
-
-    goComputeBotWorkerMove() {
-        const p = this.getCurPosition();
-        const botName = this.getCurPlayer()?.name || '';
-        if (!p || !botName) {
-            return null;
-        }
-        // this.botWorker.postMessage({ botName, position: this.getCurPosition(), moveNames: this.getMoveNames() });
-    }
-
-    handleBotWorkerMessage(e: any) {
-        if (this.onBotWorkerProgress) {
-            this.onBotWorkerProgress(e['data']['progress'], e['data']['moveName']);
-        }
-    }
+    // isBotTurn() {
+    //     const p = this.getCurPosition();
+    //     return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.BOT;
+    // }
+    //
+    // isHumanTurn() {
+    //     const p = this.getCurPosition();
+    //     return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
+    // }
+    //
+    // goComputeBotWorkerMove() {
+    //     const p = this.getCurPosition();
+    //     const botName = this.getCurPlayer()?.name || '';
+    //     if (!p || !botName) {
+    //         return null;
+    //     }
+    //     this.botWorker.postMessage({ botName, position: this.getCurPosition(), moveNames: this.getMoveNames() });
+    // }
+    //
+    // handleBotWorkerMessage(e: any) {
+    //     if (this.onBotWorkerProgress) {
+    //         this.onBotWorkerProgress(e['data']['progress'], e['data']['moveName']);
+    //     }
+    // }
 }

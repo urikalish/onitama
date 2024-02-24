@@ -4,10 +4,10 @@ import { Color } from './color';
 
 const allCards: Card[] = allCardsData.map((cd) => new Card(cd.name, cd.moves, cd.start, cd.deck));
 
-export function getRandomCardsNames(decs: string[], numberOfCards: number = 5): string[] {
+export function getRandomCardsNames(decks: string[], numberOfCards: number = 5): string[] {
     const relevantCardsNames = allCards
         .filter((c) => {
-            return decs.includes(c.deck);
+            return decks.includes(c.deck);
         })
         .map((c) => c.name);
     const shuffledCardNames: string[] = shuffleArray(relevantCardsNames);
