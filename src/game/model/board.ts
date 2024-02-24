@@ -31,10 +31,12 @@ export class Board {
         this.placePiece(piece, to);
     }
 
-    clearSquareByPieceName(pieceName: string) {
+    clearSquareByPieceName(pieceName: string): boolean {
         const index = this.squares.findIndex((s) => s.piece?.name === pieceName);
-        if (index > -1) {
-            this.clearPiece(index);
+        if (index === -1) {
+            return false;
         }
+        this.clearPiece(index);
+        return true;
     }
 }

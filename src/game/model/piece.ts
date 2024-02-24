@@ -12,15 +12,6 @@ export enum PieceTypeCased {
     RED_MASTER = 'm',
 }
 
-export function getStandardPieceWorth(pieceType: PieceType): number {
-    switch (pieceType) {
-        case PieceType.STUDENT: {
-            return 1;
-        }
-    }
-    return 0;
-}
-
 export class Piece {
     armyIndex: number;
     color: Color;

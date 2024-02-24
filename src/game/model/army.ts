@@ -2,7 +2,7 @@ import { Color } from './color';
 import { Piece, PieceType } from './piece';
 import { PlayerType } from './player';
 
-export function flipArmyIndex(armyIndex) {
+export function flipArmyIndex(armyIndex): number {
     return Math.abs(armyIndex - 1);
 }
 
@@ -25,15 +25,16 @@ export class Army {
         return piece;
     }
 
-    getPiece(name: string) {
-        return this.pieces.find((p) => p.name === name);
+    getPiece(name: string): Piece | null {
+        return this.pieces.find((p) => p.name === name) || null;
     }
 
-    removePiece(pieceName: string) {
+    removePiece(pieceName: string): boolean {
         const index = this.pieces.findIndex((p) => p.name === pieceName);
         if (index === -1) {
-            return;
+            return false;
         }
         this.pieces.splice(index, 1);
+        return true;
     }
 }

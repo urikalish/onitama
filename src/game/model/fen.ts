@@ -1,8 +1,8 @@
-import { Position } from './position';
+import {createPositionInstance, Position} from './position';
 import { Square } from './square';
 
 export class Fen {
-    static default = `S3s/S3s/M3m/S3s/S3s c1/c2/c3 c4/c5 0 1`;
+    // S3s/S3s/M3m/S3s/S3s c1/c2/c3 c4/c5 0 1;
 
     static parseFenStr(fenStr): Position {
         const parts = fenStr.split(' ');
@@ -18,7 +18,7 @@ export class Fen {
             }
         });
 
-        return Position.createInstance(pd, parts[1] === 'w' ? 0 : 1, , Number(parts[3]), Number(parts[4]));
+        return createPositionInstance(pd, parts[1] === 'w' ? 0 : 1, , Number(parts[3]), Number(parts[4]));
     }
 
     static getFenStr(
@@ -28,7 +28,7 @@ export class Fen {
         includeEpTargetIndex = true,
         includeHalfMoveClock = true,
         includeFullMoveNum = true,
-    ) {
+    ): string {
         if (!p) {
             return '';
         }
