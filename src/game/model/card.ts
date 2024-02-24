@@ -4,11 +4,6 @@ import { Color } from './color';
 
 const allCards: Card[] = allCardsData.map((cd) => new Card(cd.name, cd.moves, cd.start, cd.deck));
 
-export enum CardState {
-    USABLE = 'usable',
-    WAITING = 'waiting',
-}
-
 export function getRandomCardsNames(decs: string[], numberOfCards: number = 5): string[] {
     const relevantCardsNames = allCards
         .filter((c) => {
@@ -25,12 +20,27 @@ export function getStartingColor(cardName: string): Color {
     return card.start === 'blue' ? Color.BLUE : Color.RED;
 }
 
-export function createCardInstance(cardName: string, playerIndex: number, state: CardState): Card {
+export function getCardMoves(cardName: string): number[] {
     const card = allCards.find((c) => c.name === cardName)!;
-    const newCard: Card = new Card(card.name, card.moves, card.start, card.deck);
-    newCard.playerIndex = playerIndex;
-    newCard.state = state;
-    return newCard;
+    return card.moves;
+}
+
+export function passCard(cardData: string[], cardName: string): string[] {
+    const cardNames0 = cardData[0].split(',');
+    const cardNames1 = cardData[1].split(',');
+    let index;
+    index = cardNames0.indexOf(cardName);
+    if (index > -1) {
+        cardNames0.splice(index, 1);
+        cardNames1.push(cardName);
+    } else {
+        index = cardNames1.indexOf(cardName);
+        if (index > -1) {
+            cardNames1.splice(index, 1);
+            cardNames0.push(cardName);
+        }
+    }
+    return [cardNames0.join(','), cardNames1.join(',')];
 }
 
 export class Card {
@@ -38,8 +48,6 @@ export class Card {
     moves: number[];
     start: string;
     deck: string;
-    playerIndex: number = -1;
-    state: CardState = CardState.WAITING;
 
     constructor(name: string, moves: number[], start: string, deck: string) {
         this.name = name;

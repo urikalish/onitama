@@ -12,8 +12,8 @@ export enum GameResult {
     WIN = 'win',
     WIN_BY_BLUE = 'win-by-blue',
     WIN_BY_RED = 'win-by-red',
-    WIN_BY_WAY_OF_THE_STONE = 'win-by-way-of-the-stone',
-    WIN_BY_WAY_OF_THE_STREAM = 'win-by-way-of-the-stream',
+    WIN_BY_STONE = 'win-by-stone',
+    WIN_BY_STREAM = 'win-by-stream',
     DRAW = 'draw',
     THREEFOLD_REPETITION = 'threefold-repetition',
     FIFTY_MOVES = 'fifty-moves',
@@ -155,7 +155,7 @@ export class Game {
         const p = Fen.parseFenStr(fenStr);
         if (!assureTwoMasters(p)) {
             this.results.add(GameResult.INVALID_POSITION);
-            alert('Missing some kings...');
+            alert('Missing some masters...');
         }
         Position.prohibitCastingBasedOnPiecePosition(p);
         for (let i = 0; i < 64; i++) {

@@ -1,8 +1,7 @@
-import { Hand } from './hand';
 import { createPositionInstance, Position } from './position';
 
 export class Fen {
-    // S3s/S3s/M3m/S3s/S3s c1/c2/c3 c4/c5 0 1;
+    // S3s/S3s/M3m/S3s/S3s c1,c2,c3 c4,c5 1;
 
     static parseFenStr(fenStr: string): Position {
         const parts = fenStr.split(' ');
@@ -17,11 +16,13 @@ export class Fen {
                 }
             }
         });
-        const hands = [new Hand(0, parts[1].split(`/`)), new Hand(1, parts[2].split(`/`))];
-        return createPositionInstance(pd, hands, Number(parts[3]), Number(parts[4]));
+        const hands0Data: string[] = parts[1].split(',');
+        const hands1Data: string[] = parts[2].split(',');
+        const armyIndex = hands0Data.length > hands1Data.length ? 0 : 1;
+        return createPositionInstance(armyIndex, pd, [parts[1], parts[2]], Number(parts[3]));
     }
 
-    static getFenStr(p: Position | null, includeHands = true, includeHalfMoveClock = true, includeHalfMoveNum = true): string {
+    static getFenStr(p: Position | null, includeHands = true, includeMoveNum = true): string {
         if (!p) {
             return '';
         }
@@ -50,14 +51,11 @@ export class Fen {
         }
         parts[0] = pd.join('');
         if (includeHands) {
-            parts[1] = p.hands[0].getCardNames().join('/');
-            parts[2] = p.hands[1].getCardNames().join('/');
+            parts[1] = p.handsData[0];
+            parts[2] = p.handsData[1];
         }
-        if (includeHalfMoveClock) {
-            parts[3] = String(p.halfMoveClock);
-        }
-        if (includeHalfMoveNum) {
-            parts[4] = String(p.halfMoveNum);
+        if (includeMoveNum) {
+            parts[3] = String(p.moveNum);
         }
         return parts.join(' ');
     }

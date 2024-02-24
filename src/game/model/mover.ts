@@ -1,7 +1,6 @@
 import { flipIndex } from '../../services/utils';
 import { squareTempleOfArmyIndex } from './board';
-import { Card } from './card';
-import { passAndActivate } from './hand';
+import { getCardMoves, passCard } from './card';
 import { createMoveInstance, Move, MoveType } from './move';
 import { PieceType } from './piece';
 import { createNextPosition, Position } from './position';
@@ -73,7 +72,7 @@ export class Mover {
 
     //endregion
 
-    getPieceMoves(p: Position, i: number, card: Card): Move[] {
+    getPieceMoves(p: Position, i: number, cardName: string): Move[] {
         const moves: Move[] = [];
         let np, to, toX, toY, toFile, toRank;
         const [x, y] = this.getXAndY(i);
@@ -82,9 +81,10 @@ export class Mover {
         const casedPieceType = this.getCasedPieceType(p, pieceType);
         const myIndex = p.armyIndex;
         const enemyIndex = flipIndex(myIndex);
+        const cardMoves = getCardMoves(cardName);
 
-        for (let m = 0; m < card.moves.length; m += 2) {
-            const [dx, dy] = this.rotateMove(card.moves[m], card.moves[m + 1], myIndex);
+        for (let m = 0; m < cardMoves.length; m += 2) {
+            const [dx, dy] = this.rotateMove(cardMoves[m], cardMoves[m + 1], myIndex);
             toX = x + dx;
             toY = y + dy;
             to = this.getIndex(toX, toY);
@@ -103,13 +103,9 @@ export class Mover {
                 np = createNextPosition(p);
                 np.pieceData[i] = '';
                 np.pieceData[to] = casedPieceType;
-                passAndActivate(card.name, np.hands[myIndex], np.hands[enemyIndex]);
-                if (pieceType === PieceType.MASTER && squareTempleOfArmyIndex(to) === enemyIndex) {
-                    moveTypes.add(MoveType.WIN);
-                    moveTypes.add(MoveType.WIN_STREAM);
-                }
+                passCard(np.handsData, cardName);
                 moves.push(
-                    createMoveInstance(p.halfMoveNum, p.armyIndex, card.name, i, to, moveTypes, `${casedPieceType}.${card.name}.${fromFile}${fromRank}>${toFile}${toRank}`, p, np),
+                    createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${casedPieceType}.${cardName}.${fromFile}${fromRank}>${toFile}${toRank}`, p, np),
                 );
             } else {
                 //piece capture
@@ -123,10 +119,10 @@ export class Mover {
                 }
                 np = createNextPosition(p);
                 np.pieceData[i] = '';
-                np.pieceData[to] = this.getCasedPieceType(p, pieceType);
-                np.halfMoveClock = 0;
+                np.pieceData[to] = casedPieceType;
+                passCard(np.handsData, cardName);
                 moves.push(
-                    createMoveInstance(p.halfMoveNum, p.armyIndex, card.name, i, to, moveTypes, `${casedPieceType}.${card.name}.${fromFile}${fromRank}x${toFile}${toRank}`, p, np),
+                    createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${casedPieceType}.${cardName}.${fromFile}${fromRank}x${toFile}${toRank}`, p, np),
                 );
             }
         }
@@ -135,14 +131,15 @@ export class Mover {
 
     getAllPossibleMoves(p: Position): Move[] {
         const moves: Move[] = [];
-        const enemyArmyIndex = flipIndex(p.armyIndex);
+        const myIndex = p.armyIndex;
+        const enemyIndex = flipIndex(myIndex);
         for (let i = 0; i < p.pieceData.length; i++) {
-            if (!p.pieceData[i] || (p.pieceData && this.belongsToArmy(p.pieceData, i, enemyArmyIndex))) {
+            if (!p.pieceData[i] || (p.pieceData && this.belongsToArmy(p.pieceData, i, enemyIndex))) {
                 continue;
             }
             for (let c = 0; c < 2; c++) {
-                const card = p.hands[p.armyIndex].cards[c];
-                moves.push(...this.getPieceMoves(p, i, card));
+                const cardName = p.handsData[p.armyIndex].split(',')[c];
+                moves.push(...this.getPieceMoves(p, i, cardName));
             }
         }
         return moves;

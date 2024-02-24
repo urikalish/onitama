@@ -13,7 +13,7 @@ export enum MoveType {
 }
 
 export function createMoveInstance(
-    halfMoveNum: number,
+    moveNum: number,
     armyIndex: number,
     cardName: string,
     from: number,
@@ -24,7 +24,7 @@ export function createMoveInstance(
     newPosition: Position,
 ) {
     const m: Move = new Move();
-    m.halfMoveNum = halfMoveNum;
+    m.moveNum = moveNum;
     m.armyIndex = armyIndex;
     m.cardName = cardName;
     m.from = from;
@@ -38,7 +38,7 @@ export function createMoveInstance(
 
 export class Move {
     types: Set<MoveType> = new Set();
-    halfMoveNum = 1;
+    moveNum = 1;
     armyIndex = 0;
     cardName: string = '';
     from = -1;
