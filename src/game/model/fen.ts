@@ -4,11 +4,11 @@ import { createPositionInstance, Position } from './position';
 export class Fen {
     // S3s/S3s/M3m/S3s/S3s c1/c2/c3 c4/c5 0 1;
 
-    static parseFenStr(fenStr): Position {
+    static parseFenStr(fenStr: string): Position {
         const parts = fenStr.split(' ');
         const pd: string[] = [];
         const rows = parts[0].split(`/`);
-        rows.forEach((row) => {
+        rows.forEach((row: string) => {
             for (let i = 0; i < row.length; i++) {
                 if (['1', '2', '3', '4', '5'].includes(row[i])) {
                     pd.push(...new Array(Number(row[i])).fill(''));

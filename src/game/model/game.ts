@@ -1,11 +1,12 @@
 import { Army } from './army';
 import { Board } from './board';
+import { Color } from './color';
 import { Fen } from './fen';
 import { Move, MoveType } from './move';
 import { Mover } from './mover';
-import { Piece, PieceColor, PieceType } from './piece';
+import { Piece, PieceType } from './piece';
 import { Player, PlayerType } from './player';
-import { Position } from './position';
+import { assureTwoMasters, Position } from './position';
 
 export enum GameResult {
     WIN = 'win',
@@ -152,7 +153,7 @@ export class Game {
 
     applyFen(fenStr: string) {
         const p = Fen.parseFenStr(fenStr);
-        if (!Position.assureTwoKings(p)) {
+        if (!assureTwoMasters(p)) {
             this.results.add(GameResult.INVALID_POSITION);
             alert('Missing some kings...');
         }
@@ -162,8 +163,8 @@ export class Game {
             if (!char) {
                 continue;
             }
-            const color = char === char.toUpperCase() ? PieceColor.WHITE : PieceColor.BLACK;
-            const armyIndex = color === PieceColor.WHITE ? 0 : 1;
+            const color = char === char.toUpperCase() ? Color.BLUE : Color.RED;
+            const armyIndex = color === Color.BLUE ? 0 : 1;
             const piece = this.armies[armyIndex].createAndAddPiece(char.toLowerCase() as PieceType);
             this.board.placePiece(piece, i);
         }
