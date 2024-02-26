@@ -2,8 +2,6 @@ import { shuffleArray } from '../../services/utils';
 import allCardsData from '../data/cards-data.json';
 import { Color } from './color';
 
-const allCards: Card[] = allCardsData.map((cd) => new Card(cd.name, cd.moves, cd.start, cd.deck));
-
 export function getRandomCardsNames(decks: string[], numberOfCards: number = 5): string[] {
     const relevantCardsNames = allCards
         .filter((c) => {
@@ -56,3 +54,5 @@ export class Card {
         this.deck = deck;
     }
 }
+
+const allCards: Card[] = allCardsData.map((cd) => new Card(cd.name, cd.moves, cd.start, cd.deck));

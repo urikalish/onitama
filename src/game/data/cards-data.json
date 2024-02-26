@@ -192,7 +192,7 @@
         "deck": "path"
     },
     {
-        "name": "Sea Snake",
+        "name": "Sea_Snake",
         "moves": [0, -1, 2, 0, -1, 1],
         "start": "blue",
         "deck": "path"

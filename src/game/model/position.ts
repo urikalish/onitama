@@ -11,7 +11,7 @@ export function createPositionInstance(armyIndex: number, pieceData: string[], h
 }
 
 export function createNextPosition(p: Position): Position {
-    return createPositionInstance(flipIndex(p.armyIndex), [...p.pieceData], p.handsData, p.moveNum + 1);
+    return createPositionInstance(flipIndex(p.armyIndex), [...p.pieceData], [...p.handsData], p.moveNum + 1);
 }
 
 export function assureTwoMasters(p: Position): boolean {
