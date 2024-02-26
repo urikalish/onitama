@@ -6,8 +6,10 @@
     --color--gray--dark: #666;
     --color--gray--darker: #444;
     --color--gray--darkest: #222;
-    --color--blue--light: #0be;
-    --color--green--dark: #452;
+
+    --color--red: hsl(0, 50%, 25%);
+    --color--blue: hsl(220, 50%, 30%);
+
     --color--sand--light: #fd9;
 
     --link--color: var(--color--sand--light);

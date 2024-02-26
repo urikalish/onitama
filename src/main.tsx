@@ -7,7 +7,7 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { ErrorPage } from './error-page/error-page';
-import { GameUI } from './game/game-ui';
+import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
 import { Root } from './root/root';
 import { myTheme } from './theme/my-theme';
