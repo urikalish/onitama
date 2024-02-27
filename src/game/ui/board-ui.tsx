@@ -49,7 +49,7 @@ export function BoardUI({ b }: BoardUIProps) {
             const pieceElm = document.createElement('div');
             pieceElm.setAttribute('data-name', square.piece.name);
             pieceElm.classList.add('piece');
-            pieceElm.classList.add(square.piece.armyIndex === 0 ? 'piece-blue' : 'piece-red', square.piece.typeCased);
+            pieceElm.classList.add(square.piece.armyIndex === 0 ? 'piece-blue' : 'piece-red', square.piece.type);
             //pieceElm.addEventListener('click', onClickPiece);
             (boardPiecesRef.current as HTMLElement).appendChild(pieceElm);
         }
@@ -73,8 +73,6 @@ export function BoardUI({ b }: BoardUIProps) {
             pieceElmsToHandle.splice(pieceElmIndex, 1);
             pieceElm.dataset.squareIndex = String(index);
             pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
-            pieceElm.className = '';
-            pieceElm.classList.add('piece', piece.armyIndex === 0 ? 'piece-blue' : 'piece-red', piece.typeCased);
             // if (index === this.selectedIndex) {
             //     pieceElm.classList.add('clickable');
             // }
