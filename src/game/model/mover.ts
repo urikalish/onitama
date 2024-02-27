@@ -56,17 +56,13 @@ export class Mover {
         return MoveType.NA;
     }
     rotateMove(dx: number, dy: number, armyIndex: number): [number, number] {
-        if (armyIndex === 0) {
-            if (dx < 0 && dy < 0) return [-dy, dx];
-            if (dx > 0 && dy < 0) return [dy, -dx];
-            if (dx > 0 && dy > 0) return [-dy, dx];
-            if (dx < 0 && dy > 0) return [dy, -dx];
-        } else {
-            if (dx < 0 && dy < 0) return [dy, -dx];
-            if (dx > 0 && dy < 0) return [-dy, dx];
-            if (dx > 0 && dy > 0) return [dy, -dx];
-            if (dx < 0 && dy > 0) return [-dy, dx];
-        }
+        const s = armyIndex === 0 ? 1 : -1;
+        if (dx < 0 && dy < 0) return [-dy * s, dx * s];
+        if (dx > 0 && dy < 0) return [-dy * s, -dx * s];
+        if (dx > 0 && dy > 0) return [-dy * s, dx * s];
+        if (dx < 0 && dy > 0) return [-dy * s, -dx * s];
+        if (dx === 0) return [-dy * s, 0];
+        if (dy === 0) return [0, dx * s];
         return [0, 0];
     }
 
