@@ -21,33 +21,25 @@
 
 .card {
     margin-top: 1rem;
-    width: 120px;
+    width: calc(2 * var(--square-size));
     height: 4rem;
-    padding: 0.5rem;
     border-radius: 0.5rem;
+    background-color: #222;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color--gray--dark);
+    pointer-events: none;
     user-select: none;
 }
 
-.card--usable {
-    background-color: #222;
-    opacity: 1;
-}
-
-.card--waiting {
-    background-color: #222;
-    color: #444;
-}
-
 .card--blue {
-    color: var(--color--blue);
 }
 
 .card--red {
-    color: var(--color--red);
 }
 
-.card--waiting {
-    background-color: #222;
-    color: #444;
-    pointer-events: none;
+.card--usable {
+    color: var(--color--gray--lighter);
+    pointer-events: auto;
+    cursor: pointer;
 }

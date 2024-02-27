@@ -4,32 +4,33 @@ import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 type HandsUIProps = {
-    hd: string[];
+    handsData: string[];
+    activePlayerIndex: number;
 };
 
-export function HandsUi({ hd }: HandsUIProps) {
+export function HandsUi({ handsData, activePlayerIndex }: HandsUIProps) {
     const [cardsBlue, setCardsBlue] = useState<string[]>([]);
     const [cardsRed, setCardsRed] = useState<string[]>([]);
 
     useEffect(() => {
-        if (!hd) {
+        if (!handsData) {
             return;
         }
-        setCardsBlue(hd[0].split(','));
-        setCardsRed(hd[1].split(','));
-    }, [hd]);
+        setCardsBlue(handsData[0].split(','));
+        setCardsRed(handsData[1].split(','));
+    }, [handsData]);
 
     return (
-        hd && (
+        handsData && (
             <Box className="hands">
                 <Box className="hand hand--blue">
-                    {cardsBlue[0] && <Box className="card card--blue card--usable">{cardsBlue[0]}</Box>}
-                    {cardsBlue[1] && <Box className="card card--blue card--usable">{cardsBlue[1]}</Box>}
+                    {cardsBlue[0] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{cardsBlue[0]}</Box>}
+                    {cardsBlue[1] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{cardsBlue[1]}</Box>}
                     {cardsBlue[2] && <Box className="card card--blue card--waiting">{cardsBlue[2]}</Box>}
                 </Box>
                 <Box className="hand hand--red">
-                    {cardsRed[0] && <Box className="card card--red card--usable">{cardsRed[0]}</Box>}
-                    {cardsRed[1] && <Box className="card card--red card--usable">{cardsRed[1]}</Box>}
+                    {cardsRed[0] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{cardsRed[0]}</Box>}
+                    {cardsRed[1] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{cardsRed[1]}</Box>}
                     {cardsRed[2] && <Box className="card card--red card--waiting">{cardsRed[2]}</Box>}
                 </Box>
             </Box>
