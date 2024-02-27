@@ -29,7 +29,12 @@ export function BoardUI({ b }: BoardUIProps) {
             } else if (squareTempleOfArmy === 1) {
                 squareElm.classList.add('temple', 'temple--red');
             }
-            squareElm.classList.add('empty');
+            const square = b.squares[index];
+            if (square.piece) {
+                squareElm.classList.add('occupied');
+            } else {
+                squareElm.classList.add('empty');
+            }
             boardSquaresRef.current!.appendChild(squareElm);
         }
     }
@@ -55,48 +60,35 @@ export function BoardUI({ b }: BoardUIProps) {
         initPieces();
     }, []);
 
-    // useEffect(() => {
-    //     const pieceElmsToHandle = Array.from(document.querySelectorAll(`.board-pieces > .piece`));
-    //     for (let index = 0; index < 25; index++) {
-    //         const square = b.squares[index];
-    //         const piece = square.piece;
-    //         if (!piece) {
-    //             continue;
-    //         }
-    //         let pieceElm, pieceElmIndex;
-    //         pieceElmIndex = pieceElmsToHandle.findIndex(elm => elm.dataset.name === piece.name);
-    //         if (pieceElmIndex > -1) {
-    //             pieceElm = pieceElmsToHandle[pieceElmIndex];
-    //             pieceElmsToHandle.splice(pieceElmIndex, 1);
-    //         } else {
-    //             //check name changed due to promotion
-    //             pieceElmIndex = pieceElmsToHandle.findIndex(elm => elm.dataset.name.substring(1) === piece.name.substring(1));
-    //             if (pieceElmIndex > -1) {
-    //                 pieceElm = pieceElmsToHandle[pieceElmIndex];
-    //                 pieceElm.setAttribute('data-name', piece.name);
-    //                 pieceElmsToHandle.splice(pieceElmIndex, 1);
-    //             } else {
-    //                 continue;
-    //             }
-    //         }
-    //         pieceElm.dataset.squareIndex = String(index);
-    //         pieceElm.style.transform = `translate(${uiIndex % 8}00%, ${Math.trunc(uiIndex / 8)}00%)`;
-    //         pieceElm.className = '';
-    //         pieceElm.classList.add('piece', piece.armyIndex === 0 ? 'white' : 'black', piece.typeCased);
-    //         if (index === this.selectedIndex) {
-    //             pieceElm.classList.add('clickable');
-    //         }
-    //         if (this.game.possibleMoves.find(m => m.from === index)) {
-    //             pieceElm.classList.add('clickable');
-    //         }
-    //         if (this.selectedIndex !== -1 && this.game.possibleMoves.find(m => m.from === this.selectedIndex && m.to === index)) {
-    //             pieceElm.classList.add('clickable');
-    //         }
-    //     }
-    //     pieceElmsToHandle.forEach(elm => {
-    //         elm.remove();
-    //     });
-    // }, [b]);
+    useEffect(() => {
+        const pieceElmsToHandle: HTMLElement[] = Array.from(document.querySelectorAll(`.board-pieces > .piece`));
+        for (let index = 0; index < 25; index++) {
+            const square = b.squares[index];
+            const piece = square.piece;
+            if (!piece) {
+                continue;
+            }
+            const pieceElmIndex = pieceElmsToHandle.findIndex((elm) => elm.dataset.name === piece.name);
+            const pieceElm = pieceElmsToHandle[pieceElmIndex];
+            pieceElmsToHandle.splice(pieceElmIndex, 1);
+            pieceElm.dataset.squareIndex = String(index);
+            pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
+            pieceElm.className = '';
+            pieceElm.classList.add('piece', piece.armyIndex === 0 ? 'piece-blue' : 'piece-red', piece.typeCased);
+            // if (index === this.selectedIndex) {
+            //     pieceElm.classList.add('clickable');
+            // }
+            // if (this.game.possibleMoves.find(m => m.from === index)) {
+            //     pieceElm.classList.add('clickable');
+            // }
+            // if (this.selectedIndex !== -1 && this.game.possibleMoves.find(m => m.from === this.selectedIndex && m.to === index)) {
+            //     pieceElm.classList.add('clickable');
+            // }
+        }
+        pieceElmsToHandle.forEach((elm) => {
+            elm.remove();
+        });
+    }, [b]);
 
     return (
         b && (
