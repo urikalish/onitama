@@ -3,36 +3,34 @@ import './hands.css';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 
+function fixName(name: string) {
+    return name.replaceAll('_', ' ');
+}
+
 type HandsUIProps = {
     handsData: string[];
     activePlayerIndex: number;
 };
 
 export function HandsUi({ handsData, activePlayerIndex }: HandsUIProps) {
-    const [cardsBlue, setCardsBlue] = useState<string[]>([]);
-    const [cardsRed, setCardsRed] = useState<string[]>([]);
+    const [cards, setCards] = useState<string[][]>([]);
 
     useEffect(() => {
-        if (!handsData) {
-            return;
-        }
-        setCardsBlue(handsData[0].split(','));
-        setCardsRed(handsData[1].split(','));
+        setCards([handsData[0].split(','), handsData[1].split(',')]);
     }, [handsData]);
 
     return (
         handsData && (
             <Box className="hands">
-                <Box className="hand hand--blue">
-                    {cardsBlue[0] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{cardsBlue[0]}</Box>}
-                    {cardsBlue[1] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{cardsBlue[1]}</Box>}
-                    {cardsBlue[2] && <Box className="card card--blue card--waiting">{cardsBlue[2]}</Box>}
-                </Box>
-                <Box className="hand hand--red">
-                    {cardsRed[0] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{cardsRed[0]}</Box>}
-                    {cardsRed[1] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{cardsRed[1]}</Box>}
-                    {cardsRed[2] && <Box className="card card--red card--waiting">{cardsRed[2]}</Box>}
-                </Box>
+                {
+                    [[0,'blue'],[1,'red']].map(h => (
+                        <Box key={h[0]} className={`hand hand--${h[1]}`}>
+                            {cards[h[0]] && cards[h[0]][0] && <Box className={`card card--${h[1]} ${activePlayerIndex === h[0] ? 'card--usable' : ''}`}>{fixName(cards[h[0]][0])}</Box>}
+                            {cards[h[0]] && cards[h[0]][1] && <Box className={`card card--${h[1]} ${activePlayerIndex === h[0] ? 'card--usable' : ''}`}>{fixName(cards[h[0]][1])}</Box>}
+                            {cards[h[0]] && cards[h[0]][2] && <Box className={`card card--${h[1]}`}>{fixName(cards[h[0]][2])}</Box>}
+                        </Box>
+                    ))
+                }
             </Box>
         )
     );
