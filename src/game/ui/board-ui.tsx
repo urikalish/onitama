@@ -7,10 +7,10 @@ import { Board, squareTempleOfArmyIndex } from '../model/board';
 import { getSquareNameByIndex } from '../model/square';
 
 type BoardUIProps = {
-    b: Board;
+    board: Board;
 };
 
-export function BoardUI({ b }: BoardUIProps) {
+export function BoardUI({ board }: BoardUIProps) {
     const boardRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export function BoardUI({ b }: BoardUIProps) {
                 (boardRef.current as HTMLElement).replaceChildren();
             }
         };
-    }, [b]);
+    }, [board]);
 
-    return b && <Box ref={boardRef} className="board"></Box>;
+    return board && <Box ref={boardRef} className="board"></Box>;
 }
