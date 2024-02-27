@@ -22,15 +22,16 @@ export function HandsUi({ handsData, activePlayerIndex }: HandsUIProps) {
     return (
         handsData && (
             <Box className="hands">
-                {
-                    [[0,'blue'],[1,'red']].map(h => (
-                        <Box key={h[0]} className={`hand hand--${h[1]}`}>
-                            {cards[h[0]] && cards[h[0]][0] && <Box className={`card card--${h[1]} ${activePlayerIndex === h[0] ? 'card--usable' : ''}`}>{fixName(cards[h[0]][0])}</Box>}
-                            {cards[h[0]] && cards[h[0]][1] && <Box className={`card card--${h[1]} ${activePlayerIndex === h[0] ? 'card--usable' : ''}`}>{fixName(cards[h[0]][1])}</Box>}
-                            {cards[h[0]] && cards[h[0]][2] && <Box className={`card card--${h[1]}`}>{fixName(cards[h[0]][2])}</Box>}
-                        </Box>
-                    ))
-                }
+                <Box className="hand hand--blue">
+                    {cards[0] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{fixName(cards[0][0])}</Box>}
+                    {cards[0] && <Box className={`card card--blue ${activePlayerIndex === 0 ? 'card--usable' : ''}`}>{fixName(cards[0][1])}</Box>}
+                    {cards[0] && cards[0][2] && <Box className="card card--blue card--waiting">{fixName(cards[0][2])}</Box>}
+                </Box>
+                <Box className="hand hand--red">
+                    {cards[1] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{fixName(cards[1][0])}</Box>}
+                    {cards[1] && <Box className={`card card--red ${activePlayerIndex === 1 ? 'card--usable' : ''}`}>{fixName(cards[1][1])}</Box>}
+                    {cards[1] && cards[1][2] && <Box className="card card--red card--waiting">{fixName(cards[1][2])}</Box>}
+                </Box>
             </Box>
         )
     );
