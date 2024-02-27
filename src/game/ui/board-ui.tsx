@@ -4,16 +4,17 @@ import { Box } from '@mui/material';
 import React, { useEffect, useRef } from 'react';
 
 import { Board, squareTempleOfArmyIndex } from '../model/board';
+import { Move } from '../model/move';
 import { Position } from '../model/position';
 import { getSquareNameByIndex } from '../model/square';
 
 type BoardUIProps = {
     p: Position;
     b: Board;
-    selectedCard: string;
+    possibleMoves: Move[];
 };
 
-export function BoardUI({ b, selectedCard }: BoardUIProps) {
+export function BoardUI({ b, possibleMoves }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
 
@@ -50,7 +51,7 @@ export function BoardUI({ b, selectedCard }: BoardUIProps) {
             const pieceElm = document.createElement('div');
             pieceElm.setAttribute('data-name', square.piece.name);
             pieceElm.classList.add('piece');
-            pieceElm.classList.add(square.piece.armyIndex === 0 ? 'piece-blue' : 'piece-red', square.piece.type);
+            pieceElm.classList.add(square.piece.armyIndex === 0 ? 'blue' : 'red', square.piece.type);
             //pieceElm.addEventListener('click', onClickPiece);
             (boardPiecesRef.current as HTMLElement).appendChild(pieceElm);
         }
@@ -89,13 +90,16 @@ export function BoardUI({ b, selectedCard }: BoardUIProps) {
         });
     }, [b]);
 
-    function handleCardSelectionChanged(selectedCard: string) {
-        console.log(selectedCard);
-    }
-
     useEffect(() => {
-        handleCardSelectionChanged(selectedCard);
-    }, [selectedCard]);
+        const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.board-squares > .square`));
+        squareElms.forEach((squareElm) => {
+            squareElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
+        });
+        const pieceElms: HTMLElement[] = Array.from(document.querySelectorAll(`.board-pieces > .piece`));
+        pieceElms.forEach((pieceElm) => {
+            pieceElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
+        });
+    }, [possibleMoves]);
 
     return (
         b && (
