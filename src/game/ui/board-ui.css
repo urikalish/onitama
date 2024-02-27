@@ -3,8 +3,8 @@
     grid-template-columns: repeat(5, 20%);
     grid-template-rows: repeat(5, 20%);
     border: 1px solid green;
-    width: 400px;
-    height: 400px;
+    width: var(--board-size);
+    height: var(--board-size);
 }
 
 .square {

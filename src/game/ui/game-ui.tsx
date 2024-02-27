@@ -1,3 +1,5 @@
+import './game-ui.css';
+
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -5,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 import { Game } from '../model/game';
 import { PlayerType } from '../model/player';
 import { BoardUI } from './board-ui';
-import {HandsUi} from "./hands-ui";
+import { HandsUi } from './hands-ui';
 
 export function GameUI() {
     const [g, setG] = useState<Game | null>(null);
@@ -20,11 +22,13 @@ export function GameUI() {
     console.log(g?.getCurPosition()?.handsData);
 
     return (
-        g && (
-            <Box>
-                <BoardUI b={g.board} />
-                <HandsUi hd={g.getCurPosition()!.handsData} />
-            </Box>
-        )
+        <Box className="game">
+            {g && (
+                <Box className="main">
+                    <BoardUI b={g.board} />
+                    <HandsUi hd={g.getCurPosition()!.handsData} />
+                </Box>
+            )}
+        </Box>
     );
 }

@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
+    margin-top: 1rem;
 }
 
 .hand--blue {
@@ -23,9 +24,9 @@
 }
 
 .card--blue {
-    color: blue;
+    color: var(--color--blue);
 }
 
 .card--red {
-    color: red;
+    color: var(--color--red);
 }

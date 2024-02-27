@@ -14,9 +14,9 @@ a:visited {
 }
 
 :root {
-    --w: 1dvw;
-    --h: 1dvh;
-    height: calc(100 * var(--h));
+    --vw: vw;
+    --vh: vh;
+    height: calc(100 * var(--vh));
     margin: 0;
     padding: 0;
 }
