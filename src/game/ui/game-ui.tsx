@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { Game } from '../model/game';
 import { PlayerType } from '../model/player';
 import { BoardUI } from './board-ui';
+import {HandsUi} from "./hands-ui";
 
 export function GameUI() {
     const [g, setG] = useState<Game | null>(null);
@@ -16,12 +17,13 @@ export function GameUI() {
         setG(new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', decks, ''));
     }, []);
 
+    console.log(g?.getCurPosition()?.handsData);
+
     return (
         g && (
             <Box>
                 <BoardUI b={g.board} />
-                <Box>{g.getCurPosition()?.handsData[0]}</Box>
-                <Box>{g.getCurPosition()?.handsData[1]}</Box>
+                <HandsUi hd={g.getCurPosition()!.handsData} />
             </Box>
         )
     );

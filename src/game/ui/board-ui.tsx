@@ -33,7 +33,7 @@ export function BoardUI({ b }: BoardUIProps) {
                 (boardRef.current as HTMLElement).replaceChildren();
             }
         };
-    }, []);
+    }, [b]);
 
-    return b && <Box ref={boardRef} className="board" />;
+    return b && <Box ref={boardRef} className="board"></Box>;
 }
