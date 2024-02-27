@@ -1,9 +1,14 @@
 .board {
+    position: relative;
+    width: var(--board-size);
+    height: var(--board-size);
+}
+
+.board-squares {
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 20%);
     grid-template-rows: repeat(5, 20%);
-    width: var(--board-size);
-    height: var(--board-size);
 }
 
 .square {

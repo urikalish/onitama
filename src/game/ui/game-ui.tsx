@@ -19,13 +19,11 @@ export function GameUI() {
         setG(new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', decks, ''));
     }, []);
 
-    console.log(g?.getCurPosition()?.handsData);
-
     return (
         <Box className="game">
             {g && (
                 <Box className="main">
-                    <BoardUI board={g.board} />
+                    <BoardUI p={g.getCurPosition()} b={g.board} />
                     <HandsUi p={g.getCurPosition()} />
                 </Box>
             )}
