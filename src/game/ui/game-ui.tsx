@@ -26,7 +26,7 @@ export function GameUI() {
             {g && (
                 <Box className="main">
                     <BoardUI board={g.board} />
-                    <HandsUi handsData={g.getCurPosition()?.handsData} activePlayerIndex={g.getCurPosition()?.armyIndex} />
+                    <HandsUi handsData={g.getCurPosition().handsData} activePlayerIndex={g.getCurPosition().armyIndex} />
                 </Box>
             )}
         </Box>

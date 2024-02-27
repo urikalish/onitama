@@ -59,8 +59,8 @@ export class Game {
         this.startTime = startTime;
     }
 
-    getCurPosition(): Position | null {
-        return this.positions.length ? this.positions[this.positions.length - 1] : null;
+    getCurPosition(): Position {
+        return this.positions[this.positions.length - 1];
     }
 
     getCurMove(): Move | null {

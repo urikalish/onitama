@@ -21,7 +21,6 @@ export function Header() {
 
     return (
         <AppBar
-            className="header fade-in"
             color="primary"
             position="static"
             sx={{ userSelect: 'none', backgroundImage: 'linear-gradient(90deg, var(--color--sand--light), var(--color--gray--darkest))' }}
