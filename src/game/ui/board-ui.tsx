@@ -10,9 +10,10 @@ import { getSquareNameByIndex } from '../model/square';
 type BoardUIProps = {
     p: Position;
     b: Board;
+    selectedCard: string;
 };
 
-export function BoardUI({ b }: BoardUIProps) {
+export function BoardUI({ b, selectedCard }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
 
@@ -87,6 +88,14 @@ export function BoardUI({ b }: BoardUIProps) {
             elm.remove();
         });
     }, [b]);
+
+    function handleCardSelectionChanged(selectedCard: string) {
+        console.log(selectedCard);
+    }
+
+    useEffect(() => {
+        handleCardSelectionChanged(selectedCard);
+    }, [selectedCard]);
 
     return (
         b && (

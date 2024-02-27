@@ -3,6 +3,7 @@ import './hands.css';
 import { Box } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 
+import { Move } from '../model/move';
 import { Position } from '../model/position';
 
 function fixName(name: string) {
@@ -11,14 +12,16 @@ function fixName(name: string) {
 
 type HandsUIProps = {
     p: Position;
+    possibleMoves: Move[];
+    onSelectCard: (cardName: string) => void;
 };
 
-export function HandsUi({ p }: HandsUIProps) {
+export function HandsUi({ p, possibleMoves, onSelectCard }: HandsUIProps) {
     const [cards, setCards] = useState<string[][]>([]);
     const [selected, setSelected] = useState<string>('');
 
-    function isSelectable(playerIndex: number): boolean {
-        return playerIndex === p.armyIndex;
+    function isSelectable(cardName: string): boolean {
+        return !!possibleMoves.find((m) => m.cardName === cardName);
     }
 
     useEffect(() => {
@@ -26,7 +29,9 @@ export function HandsUi({ p }: HandsUIProps) {
     }, [p.handsData]);
 
     const handleCardClick = useCallback((event: any) => {
-        setSelected(event.target.dataset.name);
+        const selectedCardName: string = event.target.dataset.name;
+        setSelected(selectedCardName);
+        onSelectCard(selectedCardName);
     }, []);
 
     return (
@@ -35,7 +40,7 @@ export function HandsUi({ p }: HandsUIProps) {
                 {cards[0] && (
                     <Box
                         data-name={cards[0][0]}
-                        className={`card card--blue ${isSelectable(0) ? 'card--selectable' : ''} ${selected === cards[0][0] ? 'card--selected' : ''}`}
+                        className={`card card--blue ${isSelectable(cards[0][0]) ? 'card--selectable' : ''} ${selected === cards[0][0] ? 'card--selected' : ''}`}
                         onClick={handleCardClick}
                     >
                         {fixName(cards[0][0])}
@@ -44,7 +49,7 @@ export function HandsUi({ p }: HandsUIProps) {
                 {cards[0] && (
                     <Box
                         data-name={cards[0][1]}
-                        className={`card card--blue ${isSelectable(0) ? 'card--selectable' : ''} ${selected === cards[0][1] ? 'card--selected' : ''}`}
+                        className={`card card--blue ${isSelectable(cards[0][1]) ? 'card--selectable' : ''} ${selected === cards[0][1] ? 'card--selected' : ''}`}
                         onClick={handleCardClick}
                     >
                         {fixName(cards[0][1])}
@@ -60,7 +65,7 @@ export function HandsUi({ p }: HandsUIProps) {
                 {cards[1] && (
                     <Box
                         data-name={cards[1][0]}
-                        className={`card card--red ${isSelectable(1) ? 'card--selectable' : ''} ${selected === cards[1][0] ? 'card--selected' : ''}`}
+                        className={`card card--red ${isSelectable(cards[1][0]) ? 'card--selectable' : ''} ${selected === cards[1][0] ? 'card--selected' : ''}`}
                         onClick={handleCardClick}
                     >
                         {fixName(cards[1][0])}
@@ -69,7 +74,7 @@ export function HandsUi({ p }: HandsUIProps) {
                 {cards[1] && (
                     <Box
                         data-name={cards[1][1]}
-                        className={`card card--red ${isSelectable(1) ? 'card--selectable' : ''} ${selected === cards[1][1] ? 'card--selected' : ''}`}
+                        className={`card card--red ${isSelectable(cards[1][1]) ? 'card--selectable' : ''} ${selected === cards[1][1] ? 'card--selected' : ''}`}
                         onClick={handleCardClick}
                     >
                         {fixName(cards[1][1])}
