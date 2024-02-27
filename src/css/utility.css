@@ -3,7 +3,7 @@
 }
 
 .full-screen-height {
-    height: calc(100 * var(--h, 100dvh));
+    height: calc(100 * var(--vh));
 }
 
 .grid {
