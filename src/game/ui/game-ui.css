@@ -10,6 +10,5 @@
     display: grid;
     place-content: start;
     width: var(--main-width);
-    padding: 2rem;
-    background: #333;
+    padding: 1rem;
 }

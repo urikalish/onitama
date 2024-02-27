@@ -28,4 +28,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow: hidden;
+    background: #111 !important;
+    color: #fff !important;
 }
