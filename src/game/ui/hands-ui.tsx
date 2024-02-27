@@ -1,4 +1,4 @@
-import './hands-ui.css';
+import './hands.css';
 
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
