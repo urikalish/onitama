@@ -1,26 +1,41 @@
 .hands {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    margin-top: 1rem;
+    grid-template-rows: auto;
+}
+
+.hand {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 }
 
 .hand--blue {
+    justify-content: start;
 }
 
 .hand--red {
+    align-items: end;
 }
 
 .card {
-    height: 30px;
+    margin-top: 1rem;
+    width: 150px;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    user-select: none;
 }
 
 .card--usable {
+    background-color: #222;
     opacity: 1;
 }
 
 .card--waiting {
-    opacity: 0.5;
+    background-color: #222;
+    color: #444;
 }
 
 .card--blue {
@@ -29,4 +44,10 @@
 
 .card--red {
     color: var(--color--red);
+}
+
+.card--waiting {
+    background-color: #222;
+    color: #444;
+    pointer-events: none;
 }

@@ -11,5 +11,5 @@
     display: grid;
     place-content: start;
     width: var(--main-width);
-    padding: var(--main-padding);
+    padding: var(--main-padding) var(--main-padding) 0 var(--main-padding);
 }
