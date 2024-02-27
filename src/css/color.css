@@ -7,8 +7,9 @@
     --color--gray--darker: #444;
     --color--gray--darkest: #222;
 
-    --color--red: hsl(0, 50%, 30%);
-    --color--blue: hsl(220, 50%, 30%);
+    --color--red: hsl(0, 50%, 35%);
+    --color--blue: hsl(220, 50%, 35%);
+    --color--green: hsl(120, 50%, 25%);
 
     --color--sand--light: #fd9;
 
