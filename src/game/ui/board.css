@@ -14,6 +14,7 @@
 
 .square {
     border: 2px solid var(--color--gray--darker);
+    pointer-events: none;
 }
 
 .square.temple--blue {
@@ -24,8 +25,14 @@
     background-color: var(--color--red);
 }
 
-.square.selectable {
+.square.selectable-source {
     border: 2px solid var(--color--green);
+}
+
+.square.selectable-target {
+    border: 2px solid var(--color--red);
+    cursor: crosshair;
+    pointer-events: auto;
 }
 
 .pieces > .piece {

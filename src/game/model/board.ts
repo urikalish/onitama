@@ -49,4 +49,8 @@ export class Board {
         this.clearPiece(index);
         return true;
     }
+
+    getSquareIndexByPieceName(pieceName: string): number {
+        return this.squares.findIndex((s) => s.piece?.name === pieceName);
+    }
 }
