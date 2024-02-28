@@ -44,27 +44,6 @@ export function Home() {
 
     return (
         <Box className="home" sx={{ padding: '2rem' }}>
-            {/*<Box>*/}
-            {/*    <NavLink to="/tags?mode=air" className="link">*/}
-            {/*        <Button variant="outlined" sx={{ width: '12rem' }}>*/}
-            {/*            <Typography>חידון תגי זרוע האוויר</Typography>*/}
-            {/*        </Button>*/}
-            {/*    </NavLink>*/}
-            {/*</Box>*/}
-            {/*<Box sx={{ marginTop: '1rem' }}>*/}
-            {/*    <NavLink to="/tags?mode=land" className="link">*/}
-            {/*        <Button variant="outlined" sx={{ width: '12rem' }}>*/}
-            {/*            <Typography>חידון תגי זרוע היבשה</Typography>*/}
-            {/*        </Button>*/}
-            {/*    </NavLink>*/}
-            {/*</Box>*/}
-            {/*<Box sx={{ marginTop: '1rem' }}>*/}
-            {/*    <NavLink to="/tags?mode=all" className="link">*/}
-            {/*        <Button variant="outlined" sx={{ width: '12rem' }}>*/}
-            {/*            <Typography>חידון תגי אוויר ויבשה</Typography>*/}
-            {/*        </Button>*/}
-            {/*    </NavLink>*/}
-            {/*</Box>*/}
             <Typography variant="h4">About Onitama</Typography>
             <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
                 Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting styles

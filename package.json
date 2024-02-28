@@ -7,7 +7,7 @@
         "type": "git",
         "url": "git@github.com:urikalish/onitama.git"
     },
-    "pre-commit": "lint",
+    "pre-commit": "full",
     "scripts": {
         "format": "prettier  --log-level warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
         "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
