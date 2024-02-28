@@ -39,8 +39,8 @@ export function GameUI() {
 
     const handleSelectMove = useCallback(
         (from: number, to: number) => {
-            const move = possibleMoves.filter((m) => m.from === from && m.to === to);
-            alert(move[0]!.name);
+            const move = possibleMoves.find((m) => m.from === from && m.to === to);
+            alert(move!.name);
         },
         [g, possibleMoves],
     );
