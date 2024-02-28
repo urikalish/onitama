@@ -86,6 +86,7 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
             pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
             pieceElm.classList.toggle('selectable-source', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
             pieceElm.classList.toggle('selected', piece.name === selectedPieceName);
+            pieceElm.classList.toggle('selectable-target', !!possibleMoves.find((m) => m.to === Number(pieceElm.dataset.squareIndex)));
         }
         pieceElmsToHandle.forEach((elm) => {
             elm.remove();
