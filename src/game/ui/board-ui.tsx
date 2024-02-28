@@ -91,11 +91,11 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
     }, [b]);
 
     useEffect(() => {
-        const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.board-squares > .square`));
+        const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
         squareElms.forEach((squareElm) => {
             squareElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
         });
-        const pieceElms: HTMLElement[] = Array.from(document.querySelectorAll(`.board-pieces > .piece`));
+        const pieceElms: HTMLElement[] = Array.from(document.querySelectorAll(`.pieces > .piece`));
         pieceElms.forEach((pieceElm) => {
             pieceElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
         });
