@@ -8,11 +8,11 @@ import { Move } from '../model/move';
 
 type BoardUIProps = {
     b: Board;
-    possibleMoves: Move[];
+    cardPossibleMoves: Move[];
     onSelectMove: (from: number, to: number) => void;
 };
 
-export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
+export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
 
@@ -22,8 +22,8 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
         const selectedPieceSquareIndex = selectedPieceName ? b.getSquareIndexByPieceName(selectedPieceName) : -1;
         const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
         squareElms.forEach((squareElm) => {
-            squareElm.classList.toggle('selectable-source', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
-            squareElm.classList.toggle('selectable-target', !!possibleMoves.find((m) => m.from === selectedPieceSquareIndex && m.to === Number(squareElm.dataset.index)));
+            squareElm.classList.toggle('selectable-source', !!cardPossibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
+            squareElm.classList.toggle('selectable-target', !!cardPossibleMoves.find((m) => m.from === selectedPieceSquareIndex && m.to === Number(squareElm.dataset.index)));
         });
     }
 
@@ -40,9 +40,9 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
             pieceElmsToHandle.splice(pieceElmIndex, 1);
             pieceElm.dataset.squareIndex = String(index);
             pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
-            pieceElm.classList.toggle('selectable-source', !!possibleMoves.find((m) => m.from === square.index));
+            pieceElm.classList.toggle('selectable-source', !!cardPossibleMoves.find((m) => m.from === square.index));
             pieceElm.classList.toggle('selected', piece.name === selectedPieceName);
-            pieceElm.classList.toggle('selectable-target', !!possibleMoves.find((m) => m.to === square.index));
+            pieceElm.classList.toggle('selectable-target', !!cardPossibleMoves.find((m) => m.to === square.index));
         }
         pieceElmsToHandle.forEach((elm) => {
             elm.remove();
@@ -53,7 +53,7 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
         handleSquares();
         handlePieces();
         setSelectedPieceName('');
-    }, [possibleMoves]);
+    }, [cardPossibleMoves]);
 
     useEffect(() => {
         handleSquares();

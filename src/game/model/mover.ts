@@ -90,7 +90,7 @@ export class Mover {
                 np = createNextPosition(p);
                 np.pieceData[i] = '';
                 np.pieceData[to] = casedPieceType;
-                passCard(np.handsData, cardName);
+                np.handsData = passCard(np.handsData, cardName);
                 moves.push(
                     createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}>${toFile}${toRank}`, p, np),
                 );
@@ -108,7 +108,7 @@ export class Mover {
                 np = createNextPosition(p);
                 np.pieceData[i] = '';
                 np.pieceData[to] = casedPieceType;
-                passCard(np.handsData, cardName);
+                np.handsData = passCard(np.handsData, cardName);
                 moves.push(
                     createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}x${toFile}${toRank}`, p, np),
                 );
