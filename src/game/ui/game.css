@@ -1,6 +1,6 @@
 .game {
     --main-width: min(calc(100 * var(--vw)), 500px);
-    --board-size: calc(var(--main-width) - 8rem);
+    --board-size: calc(var(--main-width) - 6rem);
     --square-size: calc(var(--board-size) / 5);
     display: grid;
     justify-content: center;
@@ -11,5 +11,5 @@
     display: grid;
     place-content: start;
     width: var(--main-width);
-    padding: 1rem 4rem 0 4rem;
+    padding: 1rem 3rem 0 3rem;
 }
