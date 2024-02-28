@@ -41,7 +41,7 @@ export function GameUI() {
         <Box className="game">
             {g && (
                 <Box className="main">
-                    <BoardUI b={g.board} possibleMoves={possibleMoves} selectedCardName={selectedCardName} />
+                    <BoardUI b={g.board} possibleMoves={possibleMoves} />
                     <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} selectedCardName={selectedCardName} onSelectCard={handleSelectCard} />
                 </Box>
             )}

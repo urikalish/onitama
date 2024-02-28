@@ -10,10 +10,9 @@ import { getSquareNameByIndex } from '../model/square';
 type BoardUIProps = {
     b: Board;
     possibleMoves: Move[];
-    selectedCardName: string;
 };
 
-export function BoardUI({ b, possibleMoves, selectedCardName }: BoardUIProps) {
+export function BoardUI({ b, possibleMoves }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
 
@@ -108,13 +107,13 @@ export function BoardUI({ b, possibleMoves, selectedCardName }: BoardUIProps) {
     }, []);
 
     useEffect(() => {
-        handleSquares();
-        handlePieces();
-    }, [b, possibleMoves, selectedPieceName]);
+        setSelectedPieceName('');
+    }, [possibleMoves]);
 
     useEffect(() => {
-        setSelectedPieceName('');
-    }, [selectedCardName]);
+        handleSquares();
+        handlePieces();
+    }, [possibleMoves, selectedPieceName]);
 
     return (
         b && (
