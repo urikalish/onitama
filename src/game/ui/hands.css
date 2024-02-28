@@ -1,10 +1,10 @@
 .hands {
-    margin: 1rem 1rem 0 1rem;
+    margin: 1rem;
     width: calc(var(--main-width) - 2rem);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .hand {
@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    gap: 0.25rem;
+    gap: 0.5rem;
 }
 
 .hand--blue {

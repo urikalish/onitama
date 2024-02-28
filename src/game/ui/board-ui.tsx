@@ -68,8 +68,7 @@ export function BoardUI({ b, possibleMoves, selectedCardName, selectedPieceName,
         const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
         squareElms.forEach((squareElm) => {
             squareElm.classList.toggle('selectable-source', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
-            squareElm.classList.toggle('selectable-target', !!possibleMoves.find((m) =>
-                    m.from === selectedPieceSquareIndex && m.to === Number(squareElm.dataset.index)));
+            squareElm.classList.toggle('selectable-target', !!possibleMoves.find((m) => m.from === selectedPieceSquareIndex && m.to === Number(squareElm.dataset.index)));
         });
     }
 
