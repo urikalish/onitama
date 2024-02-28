@@ -1,13 +1,15 @@
 .card {
     position: relative;
-    margin-top: 0.5rem;
-    width: calc(2.5 * var(--square-size) - 0.25rem);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
     height: 68px;
     border: 2px solid #222;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     background-color: #222;
     padding: 0 3px;
-    font-size: 0.75rem;
     color: var(--color--gray--dark);
     pointer-events: none;
     user-select: none;
@@ -17,6 +19,7 @@
 }
 
 .card.red {
+    flex-flow: row-reverse;
 }
 
 .card.selectable {
@@ -30,10 +33,13 @@
     background-color: var(--color--green);
 }
 
+.card-name {
+    align-self: start;
+    margin: 4px;
+    font-size: 1rem;
+}
+
 .card-grid {
-    position: absolute;
-    top: 4px;
-    right: 4px;
     width: 56px;
     height: 56px;
     display: grid;

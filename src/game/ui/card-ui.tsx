@@ -59,7 +59,7 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
 
     return (
         <Box data-name={name} className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`} onClick={handleSelectCard}>
-            {fixName(name)}
+            <Box className="card-name">{fixName(name)}</Box>
             <Box ref={cardGridRef} className="card-grid" />
         </Box>
     );

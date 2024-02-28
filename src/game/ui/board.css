@@ -1,5 +1,6 @@
 .board {
     position: relative;
+    margin: 1rem 3rem 0 3rem;
     width: var(--board-size);
     height: var(--board-size);
 }
