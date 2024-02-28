@@ -1,8 +1,8 @@
 .card {
     position: relative;
     margin-top: 0.5rem;
-    width: calc(2.25 * var(--square-size));
-    height: 62px;
+    width: calc(2.5 * var(--square-size) - 0.25rem);
+    height: 68px;
     border: 2px solid #222;
     border-radius: 0.5rem;
     background-color: #222;
@@ -34,11 +34,11 @@
     position: absolute;
     top: 4px;
     right: 4px;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .card.blue > .card-grid {
@@ -50,8 +50,6 @@
 }
 
 .card-grid-square {
-    width: 10px;
-    height: 10px;
     background-color: #333;
     border: 1px solid #222;
 }
