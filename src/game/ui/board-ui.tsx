@@ -1,7 +1,7 @@
 import './board.css';
 
 import { Box } from '@mui/material';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Board, squareTempleOfArmyIndex } from '../model/board';
 import { Move } from '../model/move';
@@ -11,13 +11,13 @@ type BoardUIProps = {
     b: Board;
     possibleMoves: Move[];
     selectedCardName: string;
-    selectedPieceName: string;
-    onSelectPiece: (pieceName: string) => void;
 };
 
-export function BoardUI({ b, possibleMoves, selectedCardName, selectedPieceName, onSelectPiece }: BoardUIProps) {
+export function BoardUI({ b, possibleMoves, selectedCardName }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
+
+    const [selectedPieceName, setSelectedPieceName] = useState<string>('');
 
     function initSquares() {
         (boardSquaresRef.current as HTMLElement).replaceChildren();
@@ -104,13 +104,17 @@ export function BoardUI({ b, possibleMoves, selectedCardName, selectedPieceName,
     }
 
     const handleClickPiece = useCallback((event: any) => {
-        onSelectPiece(event.target.dataset.name);
+        setSelectedPieceName(event.target.dataset.name);
     }, []);
 
     useEffect(() => {
         handleSquares();
         handlePieces();
-    }, [b, possibleMoves, selectedCardName, selectedPieceName]);
+    }, [b, possibleMoves, selectedPieceName]);
+
+    useEffect(() => {
+        setSelectedPieceName('');
+    }, [selectedCardName]);
 
     return (
         b && (
