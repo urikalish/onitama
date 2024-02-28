@@ -1,20 +1,21 @@
 import './board.css';
 
 import { Box } from '@mui/material';
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import { Board, squareTempleOfArmyIndex } from '../model/board';
 import { Move } from '../model/move';
-import { Position } from '../model/position';
 import { getSquareNameByIndex } from '../model/square';
 
 type BoardUIProps = {
-    p: Position;
     b: Board;
     possibleMoves: Move[];
+    selectedCardName: string;
+    selectedPieceName: string;
+    onSelectPiece: (pieceName: string) => void;
 };
 
-export function BoardUI({ b, possibleMoves }: BoardUIProps) {
+export function BoardUI({ b, possibleMoves, selectedCardName, selectedPieceName, onSelectPiece }: BoardUIProps) {
     const boardSquaresRef = useRef<HTMLElement | null>(null);
     const boardPiecesRef = useRef<HTMLElement | null>(null);
 
@@ -52,7 +53,7 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
             pieceElm.setAttribute('data-name', square.piece.name);
             pieceElm.classList.add('piece');
             pieceElm.classList.add(square.piece.armyIndex === 0 ? 'blue' : 'red', square.piece.type);
-            //pieceElm.addEventListener('click', onClickPiece);
+            pieceElm.addEventListener('click', handleClickPiece);
             (boardPiecesRef.current as HTMLElement).appendChild(pieceElm);
         }
     }
@@ -62,7 +63,14 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
         initPieces();
     }, []);
 
-    useEffect(() => {
+    function handleSquares() {
+        const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
+        squareElms.forEach((squareElm) => {
+            squareElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
+        });
+    }
+
+    function handlePieces() {
         const pieceElmsToHandle: HTMLElement[] = Array.from(document.querySelectorAll(`.pieces > .piece`));
         for (let index = 0; index < 25; index++) {
             const square = b.squares[index];
@@ -75,6 +83,9 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
             pieceElmsToHandle.splice(pieceElmIndex, 1);
             pieceElm.dataset.squareIndex = String(index);
             pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
+            pieceElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
+            pieceElm.classList.toggle('selected', piece.name === selectedPieceName);
+
             // if (index === this.selectedIndex) {
             //     pieceElm.classList.add('clickable');
             // }
@@ -88,18 +99,16 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
         pieceElmsToHandle.forEach((elm) => {
             elm.remove();
         });
-    }, [b]);
+    }
+
+    const handleClickPiece = useCallback((event: any) => {
+        onSelectPiece(event.target.dataset.name);
+    }, []);
 
     useEffect(() => {
-        const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
-        squareElms.forEach((squareElm) => {
-            squareElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(squareElm.dataset.index)));
-        });
-        const pieceElms: HTMLElement[] = Array.from(document.querySelectorAll(`.pieces > .piece`));
-        pieceElms.forEach((pieceElm) => {
-            pieceElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
-        });
-    }, [possibleMoves]);
+        handleSquares();
+        handlePieces();
+    }, [b, possibleMoves, selectedCardName, selectedPieceName]);
 
     return (
         b && (

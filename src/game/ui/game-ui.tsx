@@ -12,7 +12,8 @@ import { HandsUi } from './hands-ui';
 
 export function GameUI() {
     const [g, setG] = useState<Game | null>(null);
-    const [selectedCard, setSelectedCard] = useState<string>('');
+    const [selectedCardName, setSelectedCardName] = useState<string>('');
+    const [selectedPieceName, setSelectedPieceName] = useState<string>('');
     const [possibleMoves, setPossibleMoves] = useState<Move[]>([]);
 
     const location = useLocation();
@@ -31,18 +32,32 @@ export function GameUI() {
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
-            setSelectedCard(cardName);
+            setSelectedCardName(cardName);
+            setSelectedPieceName('');
             setPossibleMoves((g?.possibleMoves || []).filter((m) => m.cardName === cardName));
         },
         [g],
+    );
+
+    const handleSelectPiece = useCallback(
+        (pieceName: string) => {
+            setSelectedPieceName(pieceName);
+        },
+        [g, selectedCardName],
     );
 
     return (
         <Box className="game">
             {g && (
                 <Box className="main">
-                    <BoardUI p={g.getCurPosition()} b={g.board} possibleMoves={possibleMoves} />
-                    <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} selectedCard={selectedCard} onSelectCard={handleSelectCard} />
+                    <BoardUI
+                        b={g.board}
+                        possibleMoves={possibleMoves}
+                        selectedCardName={selectedCardName}
+                        selectedPieceName={selectedPieceName}
+                        onSelectPiece={handleSelectPiece}
+                    />
+                    <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} selectedCardName={selectedCardName} onSelectCard={handleSelectCard} />
                 </Box>
             )}
         </Box>

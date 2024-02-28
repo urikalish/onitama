@@ -14,7 +14,6 @@
 
 .square {
     border: 2px solid var(--color--gray--darker);
-    border-radius: 8px;
 }
 
 .square.temple--blue {
@@ -58,4 +57,7 @@
 .piece.selectable {
     cursor: pointer;
     pointer-events: auto;
+}
+.piece.selected {
+    background-color: var(--color--green);
 }
