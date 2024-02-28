@@ -1,8 +1,9 @@
 import './card.css';
 
 import { Box } from '@mui/material';
-import {useCallback, useEffect, useRef} from 'react';
-import {getCardMoves} from "../model/card";
+import { useCallback, useEffect, useRef } from 'react';
+
+import { getCardMoves } from '../model/card';
 
 function fixName(name: string) {
     return name.replaceAll('_', ' ');
@@ -17,7 +18,6 @@ type CardUIProps = {
 };
 
 export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard }: CardUIProps) {
-
     const cardGridRef = useRef<HTMLElement | null>(null);
 
     function drawCardGrid() {
@@ -37,7 +37,7 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
                 squareElm.classList.add('source');
             }
             for (let m = 0; m < cardMoves.length; m += 2) {
-                if (cardMoves[m] === dx && cardMoves[m+1] === dy) {
+                if (cardMoves[m] === dx && cardMoves[m + 1] === dy) {
                     squareElm.classList.add('destination');
                     break;
                 }
@@ -58,11 +58,7 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
     }, []);
 
     return (
-        <Box
-            data-name={name}
-            className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`}
-            onClick={handleSelectCard}
-        >
+        <Box data-name={name} className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`} onClick={handleSelectCard}>
             {fixName(name)}
             <Box ref={cardGridRef} className="card-grid" />
         </Box>
