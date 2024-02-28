@@ -20,7 +20,7 @@ export function GameUI() {
     function initGame() {
         const queryParams = new URLSearchParams(location.search);
         const decks = (queryParams.get('decks') || 'base').split(',');
-        const game = new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', decks, '');
+        const game = new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', decks);
         game.startGame(Date.now());
         setG(game);
     }
@@ -37,11 +37,19 @@ export function GameUI() {
         [g],
     );
 
+    const handleSelectMove = useCallback(
+        (from: number, to: number) => {
+            const move = possibleMoves.filter((m) => m.from === from && m.to === to);
+            alert(move[0]!.name);
+        },
+        [g, possibleMoves],
+    );
+
     return (
         <Box className="game">
             {g && (
                 <Box className="main">
-                    <BoardUI b={g.board} possibleMoves={possibleMoves} />
+                    <BoardUI b={g.board} possibleMoves={possibleMoves} onSelectMove={handleSelectMove} />
                     <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} selectedCardName={selectedCardName} onSelectCard={handleSelectCard} />
                 </Box>
             )}
