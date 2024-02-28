@@ -16,7 +16,7 @@ export class Army {
     }
 
     createAndAddPiece(pieceType: PieceType): Piece {
-        const piece = new Piece(this.index, pieceType);
+        const piece = new Piece(this.index, pieceType, this.pieces.length);
         this.pieces.push(piece);
         return piece;
     }

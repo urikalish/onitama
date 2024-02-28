@@ -18,22 +18,6 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
 
     const [selectedPieceName, setSelectedPieceName] = useState<string>('');
 
-    function initPieces() {
-        (boardPiecesRef.current as HTMLElement).replaceChildren();
-        for (let index = 0; index < 25; index++) {
-            const square = b.squares[index];
-            if (!square.piece) {
-                continue;
-            }
-            const pieceElm = document.createElement('div');
-            pieceElm.setAttribute('data-name', square.piece.name);
-            pieceElm.classList.add('piece');
-            pieceElm.classList.add(square.piece.armyIndex === 0 ? 'blue' : 'red', square.piece.type);
-            pieceElm.addEventListener('click', handleClickPiece);
-            boardPiecesRef.current!.appendChild(pieceElm);
-        }
-    }
-
     function handleSquares() {
         const selectedPieceSquareIndex = selectedPieceName ? b.getSquareIndexByPieceName(selectedPieceName) : -1;
         const squareElms: HTMLElement[] = Array.from(document.querySelectorAll(`.squares > .square`));
@@ -65,31 +49,29 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
         });
     }
 
-    const handleClickSquare = useCallback(
-        (event: any) => {
-            const from = b.getSquareIndexByPieceName(selectedPieceName);
-            const to = Number(event.target.dataset.index);
-            onSelectMove(from, to);
-        },
-        [selectedPieceName],
-    );
-
-    function handleClickPiece(event: any) {
-        setSelectedPieceName(event.target.dataset.name);
-    }
-
     useEffect(() => {
-        initPieces();
-    }, []);
-
-    useEffect(() => {
+        handleSquares();
+        handlePieces();
         setSelectedPieceName('');
     }, [possibleMoves]);
 
     useEffect(() => {
         handleSquares();
         handlePieces();
-    }, [possibleMoves, selectedPieceName]);
+    }, [selectedPieceName]);
+
+    const handleClickPiece = useCallback((event: any) => {
+        setSelectedPieceName(event.target.dataset.name);
+    }, []);
+
+    const handleClickSquare = useCallback(
+        (event: any) => {
+            const from = b.getSquareIndexByPieceName(selectedPieceName);
+            const to = Number(event.target.dataset.index);
+            onSelectMove(from, to);
+        },
+        [selectedPieceName, onSelectMove],
+    );
 
     return (
         b && (
@@ -121,7 +103,20 @@ export function BoardUI({ b, possibleMoves, onSelectMove }: BoardUIProps) {
                     <Box data-index="23" data-name="d1" className="square" onClick={handleClickSquare} />
                     <Box data-index="24" data-name="e1" className="square" onClick={handleClickSquare} />
                 </Box>
-                <Box ref={boardPiecesRef} className="pieces" />
+                <Box ref={boardPiecesRef} className="pieces">
+                    <div className="pieces MuiBox-root css-0">
+                        <Box data-name="s0.0" className="piece blue s" onClick={handleClickPiece} />
+                        <Box data-name="s1.0" className="piece red s" onClick={handleClickPiece} />
+                        <Box data-name="s0.1" className="piece blue s" onClick={handleClickPiece} />
+                        <Box data-name="s1.1" className="piece red s" onClick={handleClickPiece} />
+                        <Box data-name="m0.2" className="piece blue m" onClick={handleClickPiece} />
+                        <Box data-name="m1.2" className="piece red m" onClick={handleClickPiece} />
+                        <Box data-name="s0.3" className="piece blue s" onClick={handleClickPiece} />
+                        <Box data-name="s1.3" className="piece red s" onClick={handleClickPiece} />
+                        <Box data-name="s0.4" className="piece blue s" onClick={handleClickPiece} />
+                        <Box data-name="s1.4" className="piece red s" onClick={handleClickPiece} />
+                    </div>
+                </Box>
             </Box>
         )
     );

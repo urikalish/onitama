@@ -19,14 +19,11 @@ export class Piece {
     typeCased: PieceTypeCased;
     name: string;
 
-    constructor(armyIndex: number, pieceType: PieceType) {
+    constructor(armyIndex: number, pieceType: PieceType, indexInArmy: number) {
         this.armyIndex = armyIndex;
         this.color = armyIndex === 0 ? Color.BLUE : Color.RED;
         this.type = pieceType;
         this.typeCased = armyIndex === 0 ? (pieceType.toUpperCase() as PieceTypeCased) : (pieceType.toLowerCase() as PieceTypeCased);
-        const min = 111111;
-        const max = 999999;
-        const rnd = Math.floor(Math.random() * (max - min + 1)) + min;
-        this.name = `${this.typeCased}.${rnd}`;
+        this.name = `${this.type}${armyIndex}.${indexInArmy}`;
     }
 }
