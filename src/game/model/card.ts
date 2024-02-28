@@ -24,14 +24,7 @@ export function getCardMoves(cardName: string): number[] {
 }
 
 export function rotateCardMove(dx: number, dy: number, armyIndex: number): [number, number] {
-    const s = armyIndex === 0 ? 1 : -1;
-    if (dx < 0 && dy < 0) return [-dy * s, dx * s];
-    if (dx > 0 && dy < 0) return [-dy * s, -dx * s];
-    if (dx > 0 && dy > 0) return [-dy * s, dx * s];
-    if (dx < 0 && dy > 0) return [-dy * s, -dx * s];
-    if (dx === 0) return [-dy * s, 0];
-    if (dy === 0) return [0, dx * s];
-    return [0, 0];
+    return armyIndex === 0 ? [-dy, dx] : [dy, -dx];
 }
 
 export function passCard(cardData: string[], cardName: string): string[] {
