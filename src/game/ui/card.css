@@ -14,21 +14,17 @@
     pointer-events: none;
     user-select: none;
 }
-
 .card.blue {
 }
-
 .card.red {
     flex-flow: row-reverse;
 }
-
 .card.selectable {
     color: var(--color--gray--lighter);
     border: 2px solid var(--color--green);
     pointer-events: auto;
     cursor: pointer;
 }
-
 .card.selected {
     background-color: var(--color--green);
 }
@@ -46,28 +42,22 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
-
 .card.blue > .card-grid {
     transform: rotate(90deg);
 }
-
 .card.red > .card-grid {
     transform: rotate(-90deg);
 }
-
 .card-grid-square {
     background-color: #333;
     border: 1px solid #222;
 }
-
 .card.blue .card-grid-square.source {
     background-color: var(--color--blue);
 }
-
 .card.red .card-grid-square.source {
     background-color: var(--color--red);
 }
-
 .card-grid-square.destination {
     background-color: var(--color--gray--medium);
 }

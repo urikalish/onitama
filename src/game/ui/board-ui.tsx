@@ -84,18 +84,8 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
             pieceElmsToHandle.splice(pieceElmIndex, 1);
             pieceElm.dataset.squareIndex = String(index);
             pieceElm.style.transform = `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)`;
-            pieceElm.classList.toggle('selectable', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
+            pieceElm.classList.toggle('selectable-source', !!possibleMoves.find((m) => m.from === Number(pieceElm.dataset.squareIndex)));
             pieceElm.classList.toggle('selected', piece.name === selectedPieceName);
-
-            // if (index === this.selectedIndex) {
-            //     pieceElm.classList.add('clickable');
-            // }
-            // if (this.game.possibleMoves.find(m => m.from === index)) {
-            //     pieceElm.classList.add('clickable');
-            // }
-            // if (this.selectedIndex !== -1 && this.game.possibleMoves.find(m => m.from === this.selectedIndex && m.to === index)) {
-            //     pieceElm.classList.add('clickable');
-            // }
         }
         pieceElmsToHandle.forEach((elm) => {
             elm.remove();
