@@ -12,6 +12,7 @@ import { HandsUi } from './hands-ui';
 
 export function GameUI() {
     const [g, setG] = useState<Game | null>(null);
+    const [selectedCard, setSelectedCard] = useState<string>('');
     const [possibleMoves, setPossibleMoves] = useState<Move[]>([]);
 
     const location = useLocation();
@@ -30,6 +31,7 @@ export function GameUI() {
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
+            setSelectedCard(cardName);
             setPossibleMoves((g?.possibleMoves || []).filter((m) => m.cardName === cardName));
         },
         [g],
@@ -40,7 +42,7 @@ export function GameUI() {
             {g && (
                 <Box className="main">
                     <BoardUI p={g.getCurPosition()} b={g.board} possibleMoves={possibleMoves} />
-                    <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} onSelectCard={handleSelectCard} />
+                    <HandsUi p={g.getCurPosition()} possibleMoves={g.possibleMoves} selectedCard={selectedCard} onSelectCard={handleSelectCard} />
                 </Box>
             )}
         </Box>
