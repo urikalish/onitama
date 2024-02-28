@@ -23,6 +23,17 @@ export function getCardMoves(cardName: string): number[] {
     return card.moves;
 }
 
+export function rotateCardMove(dx: number, dy: number, armyIndex: number): [number, number] {
+    const s = armyIndex === 0 ? 1 : -1;
+    if (dx < 0 && dy < 0) return [-dy * s, dx * s];
+    if (dx > 0 && dy < 0) return [-dy * s, -dx * s];
+    if (dx > 0 && dy > 0) return [-dy * s, dx * s];
+    if (dx < 0 && dy > 0) return [-dy * s, -dx * s];
+    if (dx === 0) return [-dy * s, 0];
+    if (dy === 0) return [0, dx * s];
+    return [0, 0];
+}
+
 export function passCard(cardData: string[], cardName: string): string[] {
     const cardNames0 = cardData[0].split(',');
     const cardNames1 = cardData[1].split(',');

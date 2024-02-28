@@ -1,6 +1,6 @@
 import { flipIndex } from '../../services/utils';
 import { squareTempleOfArmyIndex } from './board';
-import { getCardMoves, passCard } from './card';
+import { getCardMoves, passCard, rotateCardMove } from './card';
 import { createMoveInstance, Move, MoveType } from './move';
 import { PieceType } from './piece';
 import { createNextPosition, Position } from './position';
@@ -55,16 +55,6 @@ export class Mover {
         if (p.pieceData[i].toLowerCase() === PieceType.MASTER) return MoveType.CAPTURED_M;
         return MoveType.NA;
     }
-    rotateMove(dx: number, dy: number, armyIndex: number): [number, number] {
-        const s = armyIndex === 0 ? 1 : -1;
-        if (dx < 0 && dy < 0) return [-dy * s, dx * s];
-        if (dx > 0 && dy < 0) return [-dy * s, -dx * s];
-        if (dx > 0 && dy > 0) return [-dy * s, dx * s];
-        if (dx < 0 && dy > 0) return [-dy * s, -dx * s];
-        if (dx === 0) return [-dy * s, 0];
-        if (dy === 0) return [0, dx * s];
-        return [0, 0];
-    }
 
     //endregion
 
@@ -80,7 +70,7 @@ export class Mover {
         const cardMoves = getCardMoves(cardName);
 
         for (let m = 0; m < cardMoves.length; m += 2) {
-            const [dx, dy] = this.rotateMove(cardMoves[m], cardMoves[m + 1], myIndex);
+            const [dx, dy] = rotateCardMove(cardMoves[m], cardMoves[m + 1], myIndex);
             toX = x + dx;
             toY = y + dy;
             to = this.getIndex(toX, toY);

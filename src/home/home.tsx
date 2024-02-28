@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function Home() {
     const [baseDeck, setBaseDeck] = useState(true);
-    const [pathDeck, setPathDeck] = useState(true);
+    const [pathDeck, setPathDeck] = useState(false);
     const [windDeck, setWindDeck] = useState(false);
     const [canSubmit, setCanSubmit] = useState(true);
     const navigate = useNavigate();
