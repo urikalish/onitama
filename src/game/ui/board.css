@@ -4,7 +4,7 @@
     height: var(--board-size);
 }
 
-.board-squares {
+.squares {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 20%);
@@ -27,7 +27,7 @@
     background-color: var(--color--green);
 }
 
-.board-pieces > .piece {
+.pieces > .piece {
     position: absolute;
     width: 20%;
     height: 20%;

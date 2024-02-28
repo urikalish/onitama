@@ -63,7 +63,7 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
     }, []);
 
     useEffect(() => {
-        const pieceElmsToHandle: HTMLElement[] = Array.from(document.querySelectorAll(`.board-pieces > .piece`));
+        const pieceElmsToHandle: HTMLElement[] = Array.from(document.querySelectorAll(`.pieces > .piece`));
         for (let index = 0; index < 25; index++) {
             const square = b.squares[index];
             const piece = square.piece;
@@ -104,8 +104,8 @@ export function BoardUI({ b, possibleMoves }: BoardUIProps) {
     return (
         b && (
             <Box className="board">
-                <Box ref={boardSquaresRef} className="board-squares" />
-                <Box ref={boardPiecesRef} className="board-pieces" />
+                <Box ref={boardSquaresRef} className="squares" />
+                <Box ref={boardPiecesRef} className="pieces" />
             </Box>
         )
     );
