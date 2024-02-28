@@ -6,8 +6,8 @@
     border: 2px solid #222;
     border-radius: 0.5rem;
     background-color: #222;
-    padding: 2px 6px;
-    font-size: 0.875rem;
+    padding: 0 3px;
+    font-size: 0.75rem;
     color: var(--color--gray--dark);
     pointer-events: none;
     user-select: none;
