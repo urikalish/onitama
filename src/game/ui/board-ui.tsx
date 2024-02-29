@@ -20,7 +20,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
     }, [cardPossibleMoves]);
 
     const handleClickPiece = useCallback((event: any) => {
-        setSelectedSourceIndex(event.target.dataset.squareIndex);
+        setSelectedSourceIndex(Number(event.target.dataset.squareIndex));
     }, []);
 
     const handleClickSquare = useCallback(
@@ -66,7 +66,6 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                         ),
                 )}
             </Box>
-            <Box>{selectedSourceIndex}</Box>
         </Box>
     );
 }
