@@ -2,7 +2,7 @@ import './game.css';
 
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Game } from '../model/game';
 import { Move } from '../model/move';
@@ -18,6 +18,7 @@ export function GameUI() {
     const [cardPossibleMoves, setCardPossibleMoves] = useState<Move[]>([]);
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
@@ -57,7 +58,8 @@ export function GameUI() {
             if (g!.isGameEnded()) {
                 setTimeout(() => {
                     alert(g!.resultStr);
-                }, 1000);
+                    navigate('/');
+                }, 3000);
             }
         },
         [g, cardPossibleMoves],

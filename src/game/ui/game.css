@@ -17,4 +17,6 @@
 .game-cover {
     position: absolute;
     inset: 0;
+    display: grid;
+    place-content: center;
 }
