@@ -3,7 +3,7 @@ import './board.css';
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { Board } from '../model/board';
+import {Board, squareTempleOfArmyIndex} from '../model/board';
 import { Move } from '../model/move';
 
 type BoardUIProps = {
@@ -44,9 +44,9 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                         key={s.name}
                         data-index={index}
                         data-name={s.name}
-                        className={`square ${index === 10 ? 'temple temple--blue' : ''}${index === 14 ? 'temple temple--red' : ''} ${
-                            cardPossibleMoves.find((m) => m.from === s.index) ? 'selectable-source' : ''
-                        }${cardPossibleMoves.find((m) => m.to === s.index && m.from === selectedSourceIndex) ? 'selectable-target' : ''} ${
+                        className={`square ${squareTempleOfArmyIndex(index) === 0 ? 'temple temple--blue' : ''}${squareTempleOfArmyIndex(index) === 1 ? 'temple temple--red' : ''} ${
+                            cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''
+                        }${cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''} ${
                             index === selectedSourceIndex ? 'selected' : ''
                         }`}
                         onClick={handleClickSquare}
@@ -61,8 +61,8 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                                 key={s.piece.name}
                                 data-name={s.piece.name}
                                 data-square-index={index}
-                                className={`piece ${s.piece.color} ${s.piece.type} ${cardPossibleMoves.find((m) => m.from === s.index) ? 'selectable-source' : ''}${
-                                    cardPossibleMoves.find((m) => m.to === s.index && m.from === selectedSourceIndex) ? 'selectable-target' : ''
+                                className={`piece ${s.piece.color} ${s.piece.type} ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
+                                    cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''
                                 } ${index === selectedSourceIndex ? 'selected' : ''}`}
                                 style={{ transform: `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)` }}
                                 onClick={handleClickPiece}
