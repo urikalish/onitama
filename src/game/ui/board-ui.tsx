@@ -19,9 +19,17 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
         setSelectedSourceIndex(-1);
     }, [cardPossibleMoves]);
 
-    const handleClickPiece = useCallback((event: any) => {
-        setSelectedSourceIndex(Number(event.target.dataset.squareIndex));
-    }, []);
+    const handleClickPiece = useCallback(
+        (event: any) => {
+            const index = Number(event.target.dataset.squareIndex);
+            if (cardPossibleMoves.find((m) => m.from === index)) {
+                setSelectedSourceIndex(index);
+            } else if (cardPossibleMoves.find((m) => m.to === index)) {
+                onSelectMove(selectedSourceIndex, index);
+            }
+        },
+        [selectedSourceIndex, onSelectMove],
+    );
 
     const handleClickSquare = useCallback(
         (event: any) => {
