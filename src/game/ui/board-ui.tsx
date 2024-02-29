@@ -47,7 +47,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                         className={`square ${squareTempleOfArmyIndex(index) === 0 ? 'temple temple--blue' : ''}${
                             squareTempleOfArmyIndex(index) === 1 ? 'temple temple--red' : ''
                         } ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
-                            cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''
+                            cardPossibleMoves.find((m) => m.from === selectedSourceIndex && m.to === index) ? 'selectable-target' : ''
                         } ${index === selectedSourceIndex ? 'selected' : ''}`}
                         onClick={handleClickSquare}
                     />
@@ -62,7 +62,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                                 data-name={s.piece.name}
                                 data-square-index={index}
                                 className={`piece ${s.piece.color} ${s.piece.type} ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
-                                    cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''
+                                    cardPossibleMoves.find((m) => m.from === selectedSourceIndex && m.to === index) ? 'selectable-target' : ''
                                 } ${index === selectedSourceIndex ? 'selected' : ''}`}
                                 style={{ transform: `translate(${index % 5}00%, ${Math.trunc(index / 5)}00%)` }}
                                 onClick={handleClickPiece}
