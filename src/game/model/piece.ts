@@ -24,6 +24,6 @@ export class Piece {
         this.color = armyIndex === 0 ? Color.BLUE : Color.RED;
         this.type = pieceType;
         this.typeCased = armyIndex === 0 ? (pieceType.toUpperCase() as PieceTypeCased) : (pieceType.toLowerCase() as PieceTypeCased);
-        this.name = `${this.type}${armyIndex}.${indexInArmy}`;
+        this.name = `${this.type}${armyIndex}${indexInArmy}`;
     }
 }
