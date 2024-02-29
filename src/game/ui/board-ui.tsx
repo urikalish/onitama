@@ -19,10 +19,6 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
         setSelectedSourceIndex(-1);
     }, [cardPossibleMoves]);
 
-    useEffect(() => {
-        setSelectedSourceIndex(selectedSourceIndex);
-    }, [selectedSourceIndex]);
-
     const handleClickPiece = useCallback((event: any) => {
         setSelectedSourceIndex(event.target.dataset.squareIndex);
     }, []);
