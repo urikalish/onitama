@@ -48,14 +48,14 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
 
     useEffect(() => {
         drawCardGrid();
-    }, [name, armyIndex, cardGridRef.current]);
+    }, [name, armyIndex]);
 
     const handleSelectCard = useCallback(() => {
         if (!isSelectable || !onSelectCard) {
             return;
         }
         onSelectCard(name);
-    }, []);
+    }, [isSelectable, onSelectCard]);
 
     return (
         <Box data-name={name} className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`} onClick={handleSelectCard}>

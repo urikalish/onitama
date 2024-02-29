@@ -15,14 +15,8 @@ type HandsUIProps = {
 
 export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
     const [cards, setCards] = useState<string[][]>([]);
+    const [selectableCardNames, setSelectableCardNames] = useState<Set<string>>(new Set());
     const [selectedCardName, setSelectedCardName] = useState<string>('');
-
-    const isSelectable = useCallback(
-        (cardName: string) => {
-            return !!allPossibleMoves.find((m) => m.cardName === cardName);
-        },
-        [allPossibleMoves],
-    );
 
     useEffect(() => {
         if (!p) {
@@ -30,6 +24,14 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
         }
         setCards([p.handsData[0].split(','), p.handsData[1].split(',')]);
     }, [p]);
+
+    useEffect(() => {
+        const cns: Set<string> = new Set();
+        allPossibleMoves.forEach((m) => {
+            cns.add(m.cardName);
+        });
+        setSelectableCardNames(cns);
+    }, [allPossibleMoves]);
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
@@ -46,7 +48,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                     <CardUI
                         name={cards[0][0]}
                         armyIndex={0}
-                        isSelectable={isSelectable(cards[0][0])}
+                        isSelectable={selectableCardNames.has(cards[0][0])}
                         isSelected={selectedCardName === cards[0][0]}
                         onSelectCard={handleSelectCard}
                     />
@@ -55,7 +57,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                     <CardUI
                         name={cards[0][1]}
                         armyIndex={0}
-                        isSelectable={isSelectable(cards[0][1])}
+                        isSelectable={selectableCardNames.has(cards[0][1])}
                         isSelected={selectedCardName === cards[0][1]}
                         onSelectCard={handleSelectCard}
                     />
@@ -67,7 +69,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                     <CardUI
                         name={cards[1][0]}
                         armyIndex={1}
-                        isSelectable={isSelectable(cards[1][0])}
+                        isSelectable={selectableCardNames.has(cards[1][0])}
                         isSelected={selectedCardName === cards[1][0]}
                         onSelectCard={handleSelectCard}
                     />
@@ -76,7 +78,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                     <CardUI
                         name={cards[1][1]}
                         armyIndex={1}
-                        isSelectable={isSelectable(cards[1][1])}
+                        isSelectable={selectableCardNames.has(cards[1][1])}
                         isSelected={selectedCardName === cards[1][1]}
                         onSelectCard={handleSelectCard}
                     />

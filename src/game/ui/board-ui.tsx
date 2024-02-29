@@ -70,7 +70,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
             const to = Number(event.target.dataset.index);
             onSelectMove(from, to);
         },
-        [selectedPieceName, onSelectMove],
+        [b, selectedPieceName, onSelectMove],
     );
 
     return (
