@@ -5,10 +5,16 @@
     display: grid;
     justify-content: center;
     align-content: start;
+    position: relative;
 }
 
 .main {
     display: grid;
     place-content: start;
     width: var(--main-width);
+}
+
+.game-cover {
+    position: absolute;
+    inset: 0;
 }

@@ -54,18 +54,24 @@ export function GameUI() {
             const move = cardPossibleMoves.find((m) => m.from === from && m.to === to);
             g!.move(move);
             setPosition(g!.getCurPosition());
+            if (g!.isGameEnded()) {
+                setTimeout(() => {
+                    alert(g!.resultStr);
+                }, 1000);
+            }
         },
         [g, cardPossibleMoves],
     );
 
     return (
-        <Box className="game">
-            {g && (
+        g && (
+            <Box className="game">
                 <Box className="main">
                     <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                     <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />
                 </Box>
-            )}
-        </Box>
+                {g?.isGameEnded() && <Box className="game-cover" />}
+            </Box>
+        )
     );
 }
