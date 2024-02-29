@@ -2,6 +2,7 @@ import { Position } from './position';
 
 export enum MoveType {
     NA = 'NA',
+    PASS_CARD_ONLY = 'pass-card-only',
     MOVE_S = 'move-s',
     MOVE_M = 'move-m',
     CAPTURE = 'capture',

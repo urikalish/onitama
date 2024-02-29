@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Game } from '../model/game';
-import { Move } from '../model/move';
+import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
 import { Position } from '../model/position';
 import { BoardUI } from './board-ui';
@@ -45,9 +45,15 @@ export function GameUI() {
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
-            setCardPossibleMoves(allPossibleMoves.filter((m) => m.cardName === cardName));
+            const moves = allPossibleMoves.filter((m) => m.cardName === cardName);
+            if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
+                g!.move(moves[0]);
+                setPosition(g!.getCurPosition());
+            } else {
+                setCardPossibleMoves(moves);
+            }
         },
-        [allPossibleMoves],
+        [g, allPossibleMoves],
     );
 
     const handleSelectMove = useCallback(

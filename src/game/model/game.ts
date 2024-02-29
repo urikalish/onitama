@@ -146,17 +146,19 @@ export class Game {
         if (!m) {
             return null;
         }
-        const fromSquare = this.board.squares[m.from];
-        const piece = fromSquare.piece;
-        if (!piece) {
-            return null;
+        if (!m.types.has(MoveType.PASS_CARD_ONLY)) {
+            const fromSquare = this.board.squares[m.from];
+            const piece = fromSquare.piece;
+            if (!piece) {
+                return null;
+            }
+            if (m.types.has(MoveType.CAPTURE)) {
+                const targetPieceName = this.board.squares[m.to].piece?.name || '';
+                this.board.clearSquareByPieceName(targetPieceName);
+                this.armies[flipIndex(m.armyIndex)].removePiece(targetPieceName);
+            }
+            this.board.movePiece(piece, m.from, m.to);
         }
-        if (m.types.has(MoveType.CAPTURE)) {
-            const targetPieceName = this.board.squares[m.to].piece?.name || '';
-            this.board.clearSquareByPieceName(targetPieceName);
-            this.armies[flipIndex(m.armyIndex)].removePiece(targetPieceName);
-        }
-        this.board.movePiece(piece, m.from, m.to);
         this.pushMove(m);
         this.pushPosition(m.newPosition);
         return m;

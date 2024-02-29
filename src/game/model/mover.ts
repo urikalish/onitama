@@ -117,6 +117,14 @@ export class Mover {
         return moves;
     }
 
+    getPassOnlyMove(p: Position, cardName: string): Move {
+        const moveTypes: Set<MoveType> = new Set();
+        moveTypes.add(MoveType.PASS_CARD_ONLY);
+        const np = createNextPosition(p);
+        np.handsData = passCard(np.handsData, cardName);
+        return createMoveInstance(p.moveNum, p.armyIndex, cardName, -1, -1, moveTypes, `${cardName}`, p, np);
+    }
+
     getAllPossibleMoves(p: Position): Move[] {
         const moves: Move[] = [];
         const myIndex = p.armyIndex;
@@ -128,6 +136,12 @@ export class Mover {
             for (let c = 0; c < 2; c++) {
                 const cardName = p.handsData[p.armyIndex].split(',')[c];
                 moves.push(...this.getPieceMoves(p, i, cardName));
+            }
+        }
+        if (moves.length === 0) {
+            for (let c = 0; c < 2; c++) {
+                const cardName = p.handsData[p.armyIndex].split(',')[c];
+                moves.push(this.getPassOnlyMove(p, cardName));
             }
         }
         return moves;
