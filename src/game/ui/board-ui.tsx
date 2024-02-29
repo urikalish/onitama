@@ -3,7 +3,7 @@ import './board.css';
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 
-import {Board, squareTempleOfArmyIndex} from '../model/board';
+import { Board, squareTempleOfArmyIndex } from '../model/board';
 import { Move } from '../model/move';
 
 type BoardUIProps = {
@@ -44,11 +44,11 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                         key={s.name}
                         data-index={index}
                         data-name={s.name}
-                        className={`square ${squareTempleOfArmyIndex(index) === 0 ? 'temple temple--blue' : ''}${squareTempleOfArmyIndex(index) === 1 ? 'temple temple--red' : ''} ${
-                            cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''
-                        }${cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''} ${
-                            index === selectedSourceIndex ? 'selected' : ''
-                        }`}
+                        className={`square ${squareTempleOfArmyIndex(index) === 0 ? 'temple temple--blue' : ''}${
+                            squareTempleOfArmyIndex(index) === 1 ? 'temple temple--red' : ''
+                        } ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
+                            cardPossibleMoves.find((m) => m.to === index && m.from === selectedSourceIndex) ? 'selectable-target' : ''
+                        } ${index === selectedSourceIndex ? 'selected' : ''}`}
                         onClick={handleClickSquare}
                     />
                 ))}
