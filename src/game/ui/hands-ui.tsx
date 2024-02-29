@@ -26,11 +26,11 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
     }, [p]);
 
     useEffect(() => {
-        const cns: Set<string> = new Set();
+        const names: Set<string> = new Set();
         allPossibleMoves.forEach((m) => {
-            cns.add(m.cardName);
+            names.add(m.cardName);
         });
-        setSelectableCardNames(cns);
+        setSelectableCardNames(names);
     }, [allPossibleMoves]);
 
     const handleSelectCard = useCallback(
