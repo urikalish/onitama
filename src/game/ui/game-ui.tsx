@@ -74,11 +74,14 @@ export function GameUI() {
     return (
         g && (
             <Box className="game">
+                <Box sx={{ position: 'absolute', inset: '0', backgroundColor: '#000', opacity: '0.5' }} />
+                <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
                 <Box className="main">
                     <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                     <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />
                 </Box>
                 {g?.isGameEnded() && <Box className="game-cover" />}
+                </Box>
             </Box>
         )
     );

@@ -42,7 +42,7 @@
     left: 0;
     top: 0;
     transform: translate(200%, 200%);
-    transition: transform 150ms linear;
+    transition: transform 200ms linear;
     background-size: contain;
     border: 1px solid var(--color--gray--medium);
     border-radius: 50%;

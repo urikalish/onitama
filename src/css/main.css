@@ -30,5 +30,6 @@ body {
     overflow: hidden;
     background-color: #111 !important;
     background-image: url('/img/japan.jpg');
+    background-size: cover;
     color: #fff !important;
 }
