@@ -33,3 +33,9 @@
 .position--relative {
     position: relative;
 }
+
+.cover {
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+}
