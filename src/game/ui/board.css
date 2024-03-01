@@ -31,6 +31,9 @@
     cursor: pointer;
     pointer-events: auto;
 }
+.square.selected {
+    background-color: var(--color--green);
+}
 
 .piece {
     position: absolute;
@@ -41,6 +44,7 @@
     transform: translate(200%, 200%);
     transition: transform 150ms linear;
     background-size: contain;
+    border: 1px solid var(--color--gray--medium);
     border-radius: 50%;
 }
 /*.piece.blue.s {*/

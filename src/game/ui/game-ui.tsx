@@ -65,7 +65,7 @@ export function GameUI() {
                 setTimeout(() => {
                     alert(g!.resultStr);
                     navigate('/');
-                }, 3000);
+                }, 2000);
             }
         },
         [g, cardPossibleMoves],
