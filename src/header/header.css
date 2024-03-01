@@ -1,3 +1,6 @@
+header {
+    background-color: unset !important;
+}
 .header--link.header--link {
     color: #fff;
     transition: 200ms ease-in-out;

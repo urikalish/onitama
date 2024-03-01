@@ -20,7 +20,7 @@ export function Header() {
     // ];
 
     return (
-        <AppBar color="primary" position="static" sx={{ userSelect: 'none', backgroundImage: 'linear-gradient(90deg, var(--color--sand--light), var(--color--gray--darkest))' }}>
+        <AppBar color="primary" position="static" sx={{ userSelect: 'none' }}>
             <Toolbar variant="dense" sx={{ padding: '0 8px !important' }}>
                 <NavLink to="/" style={{ display: 'flex' }}>
                     <img src={onitamaLogoTextImage} alt="Onitama" style={{ position: 'relative', top: '2px', left: '2px', maxHeight: '32px' }} />

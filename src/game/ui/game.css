@@ -12,7 +12,6 @@
     display: grid;
     place-content: start;
     width: var(--main-width);
-    background-image: url('/img/japan.jpg');
 }
 
 .game-cover {
