@@ -20,7 +20,9 @@
     flex-flow: row-reverse;
 }
 .card.selectable {
-    color: var(--color--gray--lighter);
+    background-image: url("/img/japan.jpg");
+    color: var(--color--gray--darkest);
+    font-weight: 700;
     border: 2px solid var(--color--green);
     pointer-events: auto;
     cursor: pointer;
