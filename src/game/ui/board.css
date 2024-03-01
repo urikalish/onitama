@@ -27,7 +27,7 @@
     border: 2px solid var(--color--green);
 }
 .square.selectable-target {
-    border: 2px solid var(--color--red);
+    border: 2px solid var(--color--gray--medium);
     cursor: pointer;
     pointer-events: auto;
 }
