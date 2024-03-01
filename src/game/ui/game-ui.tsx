@@ -73,7 +73,7 @@ export function GameUI() {
 
     return (
         g && (
-            <Box className="game">
+            <Box className="game position--relative">
                 <Box className="cover" sx={{ opacity: '0.5' }} />
                 <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
                     <Box className="main">

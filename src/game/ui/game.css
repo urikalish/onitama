@@ -2,16 +2,8 @@
     --main-width: min(calc(100 * var(--vw)), 500px);
     --board-size: calc(var(--main-width) - 1rem);
     --square-size: calc(var(--board-size) / 5);
-    position: relative;
 }
 
 .main {
     width: var(--main-width);
-}
-
-.game-cover {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-content: center;
 }
