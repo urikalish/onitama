@@ -14,6 +14,9 @@
     pointer-events: none;
     user-select: none;
 }
+.card-cover {
+    opacity: 0.5;
+}
 .card.blue {
 }
 .card.red {
@@ -22,13 +25,15 @@
 .card.selectable {
     background-image: url('/img/japan.jpg');
     color: var(--color--gray--darkest);
-    font-weight: 700;
     border: 2px solid var(--color--green);
     pointer-events: auto;
     cursor: pointer;
 }
 .card.selected {
-    background-color: var(--color--green);
+    font-weight: 700;
+}
+.card.selected > .card-cover {
+    opacity: 0.25;
 }
 
 .card-name {
