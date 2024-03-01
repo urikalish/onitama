@@ -1,5 +1,5 @@
 .hands {
-    margin: 1rem 0.5rem;
+    margin: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;

@@ -1,6 +1,6 @@
 .board {
     position: relative;
-    margin: 1rem 0.5rem 0 0.5rem;
+    margin: 0.5rem;
     width: var(--board-size);
     height: var(--board-size);
     outline: 1px solid var(--color--gray--darker);
