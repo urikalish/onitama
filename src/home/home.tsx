@@ -1,5 +1,3 @@
-import './home.css';
-
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
