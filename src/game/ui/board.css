@@ -27,7 +27,7 @@
     border: 2px solid var(--color--green);
 }
 .square.selectable-target {
-    border: 2px solid var(--color--gray--medium);
+    border: 2px solid var(--color--gray--light);
     cursor: pointer;
     pointer-events: auto;
 }
@@ -44,7 +44,7 @@
     transform: translate(200%, 200%);
     transition: transform 200ms linear;
     background-size: contain;
-    border: 1px solid var(--color--gray--medium);
+    border: 1px solid var(--color--gray--light);
     border-radius: 50%;
 }
 /*.piece.blue.s {*/
