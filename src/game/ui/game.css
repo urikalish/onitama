@@ -6,10 +6,6 @@
 }
 
 .main {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-content: start;
     width: var(--main-width);
 }
 
