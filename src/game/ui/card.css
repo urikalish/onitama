@@ -6,7 +6,7 @@
     align-items: center;
     margin-bottom: 0.5rem;
     height: 58px;
-    border: 2px solid #222;
+    border: 2px solid var(--color--gray--darker);
     border-radius: 4px;
     background-color: #222;
     padding: 0 3px;
@@ -20,7 +20,7 @@
     flex-flow: row-reverse;
 }
 .card.selectable {
-    background-image: url("/img/japan.jpg");
+    background-image: url('/img/japan.jpg');
     color: var(--color--gray--darkest);
     font-weight: 700;
     border: 2px solid var(--color--green);
