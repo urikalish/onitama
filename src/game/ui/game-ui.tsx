@@ -1,4 +1,4 @@
-import './game.css';
+pimport './game.css';
 
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -74,7 +74,7 @@ export function GameUI() {
     return (
         g && (
             <Box className="game position--relative">
-                <Box className="cover" sx={{ opacity: '0.5' }} />
+                <Box className="cover" sx={{ opacity: '0.75' }} />
                 <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
                     <Box className="main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
