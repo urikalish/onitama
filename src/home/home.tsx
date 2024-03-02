@@ -44,7 +44,7 @@ export function Home() {
 
     return (
         <Box className="home" sx={{ position: 'relative', padding: '2rem' }}>
-            <Box className="cover" sx={{ opacity: '0.75' }} />
+            <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box sx={{ position: 'absolute', inset: '2rem' }}>
                 <Typography variant="h4">About Onitama</Typography>
                 <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
