@@ -3,7 +3,7 @@
     margin: 0.5rem;
     width: var(--board-size);
     height: var(--board-size);
-    outline: 1px solid var(--color--gray--darkest);
+    outline: 1px solid #000;
 }
 
 .squares {
@@ -14,7 +14,7 @@
 }
 
 .square {
-    border: 1px solid var(--color--gray--darkest);
+    border: 1px solid #000;
     pointer-events: none;
 }
 .square.temple--blue {

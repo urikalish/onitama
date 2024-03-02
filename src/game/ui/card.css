@@ -27,7 +27,6 @@
 .card.selectable {
     background-image: url('/img/japan.jpg');
     color: #000;
-    border: 2px solid var(--color--green);
     pointer-events: auto;
     cursor: pointer;
 }
