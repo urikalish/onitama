@@ -1,6 +1,6 @@
 import './header.css';
 
-import { AppBar, Toolbar } from '@mui/material';
+import {AppBar, Box, Toolbar} from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -20,7 +20,9 @@ export function Header() {
     // ];
 
     return (
-        <AppBar color="primary" position="static" sx={{ userSelect: 'none' }}>
+        <AppBar color="primary" position="static" sx={{ height: '48px', userSelect: 'none' }}>
+            <Box className="cover" sx={{ height: '48px', opacity: '0.4' }} />
+            <Box className="position--absolute" sx={{ height: '48px' }}>
             <Toolbar variant="dense" sx={{ padding: '0 8px !important' }}>
                 <NavLink to="/" style={{ display: 'flex' }}>
                     <img src={onitamaLogoTextImage} alt="Onitama" style={{ position: 'relative', top: '2px', left: '2px', maxHeight: '32px' }} />
@@ -35,6 +37,7 @@ export function Header() {
                 {/*    ))}*/}
                 {/*</Box>*/}
             </Toolbar>
+            </Box>
         </AppBar>
     );
 }
