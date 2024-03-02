@@ -13,6 +13,7 @@
     color: var(--color--gray--dark);
     pointer-events: none;
     user-select: none;
+    transition: all 200ms linear;
 }
 .card-cover {
     opacity: 0.3;
