@@ -3,6 +3,9 @@ import { createTheme } from '@mui/material/styles';
 export const myTheme = createTheme({
     palette: {
         mode: 'dark',
+        primary: {
+            main: '#f44',
+        },
     },
     typography: {
         fontFamily:
