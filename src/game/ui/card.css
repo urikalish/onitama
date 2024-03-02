@@ -26,9 +26,9 @@
 }
 .card.selectable {
     border-color: #000;
-    background-image: url('/img/japan.jpg');
-    color: #000;
-    font-weight: 700;
+    background-image: url('/img/bg/bg0.png');
+    background-position: bottom;
+    color: #fff;
     pointer-events: auto;
     cursor: pointer;
 }

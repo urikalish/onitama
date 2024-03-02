@@ -29,7 +29,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
     overflow: hidden;
     background-color: #111 !important;
-    background-image: url('/img/japan.jpg');
-    background-size: cover;
     color: #fff !important;
+}
+
+.root {
+    background-color: #111 !important;
+    background-image: url("/img/bg/bg0.png");
+    background-size: cover;
 }
