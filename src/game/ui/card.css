@@ -16,7 +16,7 @@
     transition: opacity 200ms linear;
 }
 .card-cover {
-    opacity: 0.2;
+    opacity: 0.4;
     transition: all 200ms linear;
 }
 .card.blue {
