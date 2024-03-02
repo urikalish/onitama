@@ -110,10 +110,10 @@ export class Game {
         }
         if (m.types.has(MoveType.WIN_STONE)) {
             this.results.add(GameResult.WIN_STONE);
-            this.resultStr += ' the way of the stone';
+            this.resultStr += ' the way of the stone.';
         } else if (m.types.has(MoveType.WIN_STREAM)) {
             this.results.add(GameResult.WIN_STREAM);
-            this.resultStr += ' the way of the stream';
+            this.resultStr += ' the way of the stream.';
         }
     }
 
