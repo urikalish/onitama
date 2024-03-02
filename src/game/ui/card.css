@@ -1,11 +1,11 @@
 .card {
     position: relative;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.5rem;
     height: 58px;
+    width: 100%;
     border: 2px solid var(--color--gray--darker);
     border-radius: 4px;
     background-color: var(--color--gray--darkest);
@@ -25,8 +25,8 @@
     flex-flow: row-reverse;
 }
 .card.selectable {
-    background-image: url('/img/japan.jpg');
     border-color: #000;
+    background-image: url('/img/japan.jpg');
     color: #000;
     font-weight: 700;
     pointer-events: auto;
@@ -39,8 +39,8 @@
 }
 
 .card-name {
-    align-self: start;
     margin: 2px 4px;
+    align-self: start;
     font-size: 1rem;
 }
 
