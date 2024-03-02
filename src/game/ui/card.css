@@ -9,7 +9,7 @@
     border: 2px solid var(--color--gray--darker);
     border-radius: 4px;
     background-color: var(--color--gray--darkest);
-    padding: 0 3px;
+    padding: 0 2px;
     color: var(--color--gray--dark);
     pointer-events: none;
     user-select: none;
