@@ -33,8 +33,8 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
         setSelectableCardNames(names);
     }, [allPossibleMoves]);
 
-	useEffect(() => {
-		if (selectableCardNames.size === 1) {
+    useEffect(() => {
+        if (selectableCardNames.size === 1) {
             for (let i = 0; i < 2; i++) {
                 for (let j = 0; j < 2; j++) {
                     if (selectableCardNames.has(cards[i][j])) {
@@ -44,7 +44,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                 }
             }
         }
-	}, [selectableCardNames]);
+    }, [selectableCardNames]);
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
