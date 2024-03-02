@@ -19,6 +19,7 @@ a:visited {
     height: calc(100 * var(--vh));
     margin: 0;
     padding: 0;
+    --bg: url('/img/bg/0.png');
 }
 
 body {
@@ -34,6 +35,6 @@ body {
 
 .root {
     background-color: #111 !important;
-    background-image: url("/img/bg/bg0.png");
+    background-image: var(--bg);
     background-size: cover;
 }

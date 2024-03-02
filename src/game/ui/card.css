@@ -22,13 +22,13 @@
 .card.blue {
 }
 .card.red {
-    flex-flow: row-reverse;
+    /*flex-flow: row-reverse;*/
 }
 .card.selectable {
     border-color: #000;
-    background-image: url('/img/bg/bg0.png');
-    background-position: bottom;
-    color: #fff;
+    background-image: var(--bg);
+    background-position: top;
+    color: #000;
     pointer-events: auto;
     cursor: pointer;
 }
