@@ -1,4 +1,4 @@
-pimport './game.css';
+import './game.css';
 
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
