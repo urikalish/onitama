@@ -43,7 +43,7 @@
     transform: translate(200%, 200%);
     transition: transform 200ms linear;
     background-size: contain;
-    border: 5px solid var(--color--gray--darkest);
+    border: 3px solid var(--color--gray--darkest);
     border-radius: 50%;
 }
 /*.piece.blue.s {*/
