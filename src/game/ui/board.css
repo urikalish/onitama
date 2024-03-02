@@ -24,7 +24,6 @@
     background-color: var(--color--red);
 }
 .square.selectable-source {
-    border: 2px solid var(--color--green);
 }
 .square.selectable-target {
     border: 2px solid var(--color--gray--light);
@@ -44,7 +43,7 @@
     transform: translate(200%, 200%);
     transition: transform 200ms linear;
     background-size: contain;
-    border: 1px solid var(--color--gray--light);
+    border: 5px solid var(--color--gray--medium);
     border-radius: 50%;
 }
 /*.piece.blue.s {*/
@@ -96,6 +95,9 @@
 .piece.selectable-target {
     cursor: pointer;
     pointer-events: auto;
+}
+.piece.selectable-source {
+    border-color: var(--color--green);
 }
 .piece.selected {
     background-color: var(--color--green);
