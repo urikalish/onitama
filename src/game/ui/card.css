@@ -16,7 +16,7 @@
     transition: all 200ms linear;
 }
 .card-cover {
-    opacity: 0.3;
+    opacity: 0.4;
     transition: all 200ms linear;
 }
 .card.blue {
@@ -27,11 +27,11 @@
 .card.selectable {
     background-image: url('/img/japan.jpg');
     color: #000;
+    font-weight: 700;
     pointer-events: auto;
     cursor: pointer;
 }
 .card.selected {
-    font-weight: 700;
 }
 .card.selected > .card-cover {
     opacity: 0;
