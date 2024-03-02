@@ -21,7 +21,7 @@ export function Header() {
 
     return (
         <AppBar color="primary" position="static" sx={{ height: '48px', userSelect: 'none' }}>
-            <Box className="cover" sx={{ height: '48px', opacity: '0.2' }} />
+            <Box className="cover" sx={{ height: '48px', opacity: '0.3' }} />
             <Box className="position--absolute" sx={{ height: '48px' }}>
                 <Toolbar variant="dense" sx={{ padding: '0 8px !important' }}>
                     <NavLink to="/" style={{ display: 'flex' }}>
