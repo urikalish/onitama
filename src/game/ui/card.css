@@ -1,11 +1,12 @@
 .card {
-    position: relative;
+    --card-height: 58px;
+    --card-margin: 0.5rem;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
-    height: 58px;
-    width: 100%;
+    height: var(--card-height);
+    width: calc(50% - 1rem);
     border: 2px solid #000;
     border-radius: 4px;
     background-image: var(--bg);
@@ -14,12 +15,29 @@
     color: #000;
     pointer-events: none;
     user-select: none;
-    transition: opacity 200ms linear;
+    transition: all 250ms linear;
 }
-.card.blue {
+.card-00 {
+    left: var(--card-margin);
 }
-.card.red {
-    /*flex-flow: row-reverse;*/
+.card-01 {
+    left: var(--card-margin);
+    top: calc(var(--card-height) + var(--card-margin));
+}
+.card-02 {
+    left: var(--card-margin);
+    top: calc(2 * (var(--card-height) + var(--card-margin)));
+}
+.card-10 {
+    left: calc(50% + var(--card-margin));
+}
+.card-11 {
+    left: calc(50% + var(--card-margin));
+    top: calc(var(--card-height) + var(--card-margin));
+}
+.card-12 {
+    left: calc(50% + var(--card-margin));
+    top: calc(2 * (var(--card-height) + var(--card-margin)));
 }
 .card.selectable {
     pointer-events: auto;

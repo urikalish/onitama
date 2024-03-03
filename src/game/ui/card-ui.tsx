@@ -11,6 +11,7 @@ function fixName(name: string) {
 }
 
 type CardUIProps = {
+    className?: string;
     name: string;
     armyIndex: number;
     isSelectable: boolean;
@@ -18,7 +19,7 @@ type CardUIProps = {
     onSelectCard?: (cardName: string) => void;
 };
 
-export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard }: CardUIProps) {
+export function CardUI({ className, name, armyIndex, isSelectable, isSelected, onSelectCard }: CardUIProps) {
     const cardGridRef = useRef<HTMLElement | null>(null);
 
     function drawCardGrid() {
@@ -59,7 +60,12 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
     }, [isSelectable, onSelectCard]);
 
     return (
-        <Box data-name={name} className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`} onClick={handleSelectCard}>
+        <Box
+            key={name}
+            data-name={name}
+            className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''} ${className}`}
+            onClick={handleSelectCard}
+        >
             <CoverUI opacity={0.8} className="card-cover" />
             <Box className="card-name">{fixName(name)}</Box>
             <Box ref={cardGridRef} className="card-grid" />
