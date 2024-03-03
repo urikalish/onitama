@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useRef } from 'react';
 
 import { getCardMoves } from '../model/card';
+import { CoverUI } from './cover-ui';
 
 function fixName(name: string) {
     return name.replaceAll('_', ' ');
@@ -59,7 +60,7 @@ export function CardUI({ name, armyIndex, isSelectable, isSelected, onSelectCard
 
     return (
         <Box data-name={name} className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''}`} onClick={handleSelectCard}>
-            <Box className="cover card-cover" />
+            <CoverUI opacity={0.3} className="card-cover" />
             <Box className="card-name">{fixName(name)}</Box>
             <Box ref={cardGridRef} className="card-grid" />
         </Box>

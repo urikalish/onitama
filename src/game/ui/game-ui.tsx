@@ -9,6 +9,7 @@ import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
 import { Position } from '../model/position';
 import { BoardUI } from './board-ui';
+import { CoverUI } from './cover-ui';
 import { HandsUi } from './hands-ui';
 
 export function GameUI() {
@@ -74,7 +75,7 @@ export function GameUI() {
     return (
         g && (
             <Box className="game position--relative">
-                <Box className="cover" sx={{ opacity: '0.2' }} />
+                <CoverUI opacity={0.2} />
                 <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
                     <Box className="main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
