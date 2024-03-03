@@ -75,7 +75,7 @@ export function GameUI() {
     return (
         g && (
             <Box className="game position--relative">
-                <CoverUI opacity={0.2} />
+                <CoverUI opacity={0.4} />
                 <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
                     <Box className="main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
