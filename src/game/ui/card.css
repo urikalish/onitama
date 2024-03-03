@@ -6,11 +6,12 @@
     margin-bottom: 0.5rem;
     height: 58px;
     width: 100%;
-    border: 2px solid var(--color--gray--darker);
+    border: 2px solid #000;
     border-radius: 4px;
-    background-color: var(--color--gray--darkest);
+    background-image: var(--bg);
+    background-position: -100px -80px;
     padding: 0 2px;
-    color: var(--color--gray--dark);
+    color: #000;
     pointer-events: none;
     user-select: none;
     transition: opacity 200ms linear;
@@ -21,14 +22,13 @@
     /*flex-flow: row-reverse;*/
 }
 .card.selectable {
-    border-color: #000;
-    background-image: var(--bg);
-    background-position: -100px -80px;
-    color: #000;
     pointer-events: auto;
     cursor: pointer;
 }
 .card.selected {
+}
+.card.selectable > .card-cover {
+    opacity: 0.4;
 }
 .card.selected > .card-cover {
     opacity: 0;

@@ -59,6 +59,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
             <Box className="hand hand--blue">
                 {cards[0] && (
                     <CardUI
+                        data-id="card-00"
                         name={cards[0][0]}
                         armyIndex={0}
                         isSelectable={selectableCardNames.has(cards[0][0])}
@@ -68,6 +69,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                 )}
                 {cards[0] && (
                     <CardUI
+                        data-id="card-01"
                         name={cards[0][1]}
                         armyIndex={0}
                         isSelectable={selectableCardNames.has(cards[0][1])}
@@ -75,11 +77,12 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                         onSelectCard={handleSelectCard}
                     />
                 )}
-                {cards[0] && cards[0][2] && <CardUI name={cards[0][2]} armyIndex={0} isSelectable={false} isSelected={false} />}
+                {cards[0] && cards[0][2] && <CardUI data-id="card-02" name={cards[0][2]} armyIndex={0} isSelectable={false} isSelected={false} />}
             </Box>
             <Box className="hand hand--red">
                 {cards[1] && (
                     <CardUI
+                        data-id="card-10"
                         name={cards[1][0]}
                         armyIndex={1}
                         isSelectable={selectableCardNames.has(cards[1][0])}
@@ -89,6 +92,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                 )}
                 {cards[1] && (
                     <CardUI
+                        data-id="card-11"
                         name={cards[1][1]}
                         armyIndex={1}
                         isSelectable={selectableCardNames.has(cards[1][1])}
@@ -96,7 +100,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
                         onSelectCard={handleSelectCard}
                     />
                 )}
-                {cards[1] && cards[1][2] && <CardUI name={cards[1][2]} armyIndex={1} isSelectable={false} isSelected={false} />}
+                {cards[1] && cards[1][2] && <CardUI data-id="card-12" name={cards[1][2]} armyIndex={1} isSelectable={false} isSelected={false} />}
             </Box>
         </Box>
     );
