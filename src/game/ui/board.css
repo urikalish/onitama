@@ -43,7 +43,7 @@
     top: 1%;
     transition: all 250ms linear;
     background-size: contain;
-    border: 3px solid var(--color--gray--darkest);
+    border: 2px solid var(--color--gray--darkest);
     border-radius: 50%;
 }
 /*.piece.blue.s {*/
