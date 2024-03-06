@@ -7,7 +7,7 @@
     align-items: center;
     height: var(--card-height);
     width: calc(50% - 1rem);
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 4px;
     background-image: var(--bg);
     background-position: -100px -80px;
