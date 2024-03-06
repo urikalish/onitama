@@ -3,7 +3,7 @@ header {
 }
 .header--link.header--link {
     color: #fff;
-    transition: 200ms ease-in-out;
+    transition: 250ms ease-in-out;
 }
 .header--link.header--link:hover,
 .header--link.header--link:focus-visible {

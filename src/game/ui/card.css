@@ -12,7 +12,6 @@
     background-image: var(--bg);
     background-position: -100px -80px;
     padding: 0 2px;
-    color: #000;
     pointer-events: none;
     user-select: none;
     transition: all 250ms linear;
@@ -45,10 +44,13 @@
 }
 .card.selected {
 }
-.card.selectable > .card-cover {
+.card > .cover {
+    opacity: 0.7;
+}
+.card.selectable > .cover {
     opacity: 0.4;
 }
-.card.selected > .card-cover {
+.card.selected > .cover {
     opacity: 0;
 }
 
@@ -57,6 +59,10 @@
     align-self: start;
     font-family: 'Kaushan Script', 'cursive', serif;
     font-size: 1.125rem;
+    color: #fff;
+}
+.card.selectable > .card-name {
+    color: #000;
 }
 
 .card-grid {

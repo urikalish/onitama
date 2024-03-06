@@ -66,7 +66,7 @@ export function CardUI({ className, name, armyIndex, isSelectable, isSelected, o
             className={`card ${armyIndex === 0 ? 'blue' : 'red'} ${isSelectable ? 'selectable' : ''} ${isSelected ? 'selected' : ''} ${className}`}
             onClick={handleSelectCard}
         >
-            <CoverUI opacity={0.8} className="card-cover" />
+            <CoverUI />
             <Box className="card-name">{fixName(name)}</Box>
             <Box ref={cardGridRef} className="card-grid" />
         </Box>
