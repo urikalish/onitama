@@ -45,10 +45,10 @@
 .card.selected {
 }
 .card > .cover {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 .card.selectable > .cover {
-    opacity: 0.4;
+    opacity: 0.3;
 }
 .card.selected > .cover {
     opacity: 0;
@@ -59,7 +59,7 @@
     align-self: start;
     font-family: 'Kaushan Script', 'cursive', serif;
     font-size: 1.125rem;
-    color: #fff;
+    color: #000;
 }
 .card.selectable > .card-name {
     color: #000;
