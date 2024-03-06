@@ -1,5 +1,5 @@
 .card {
-    --card-height: 58px;
+    --card-height: 56px;
     --card-margin: 0.5rem;
     position: absolute;
     display: flex;
