@@ -68,7 +68,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                                 className={`piece ${s.piece.color} ${s.piece.type} ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
                                     cardPossibleMoves.find((m) => m.from === selectedSourceIndex && m.to === index) ? 'selectable-target' : ''
                                 } ${index === selectedSourceIndex ? 'selected' : ''}`}
-                                style={{ transform: `translate(${Math.trunc(index % 5 * 111)}%, ${Math.trunc(index / 5) * 111}%)` }}
+                                style={{ transform: `translate(${Math.trunc((index % 5) * 111)}%, ${Math.trunc(index / 5) * 111}%)` }}
                                 onClick={handleClickPiece}
                             />
                         ),
