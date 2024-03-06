@@ -89,5 +89,5 @@
     background-color: var(--color--red);
 }
 .card-grid-square.destination {
-    background-color: var(--color--gray--light);
+    background-color: var(--color--gray--lighter);
 }
