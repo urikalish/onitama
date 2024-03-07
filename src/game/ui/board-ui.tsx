@@ -58,21 +58,18 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                 ))}
             </Box>
             <Box className="pieces">
-                {b.squares.map(
-                    (s, index) =>
-                        s.piece && (
-                            <Box
-                                key={s.piece.name}
-                                data-name={s.piece.name}
-                                data-square-index={index}
-                                className={`piece ${s.piece.color} ${s.piece.type} ${cardPossibleMoves.find((m) => m.from === index) ? 'selectable-source' : ''}${
-                                    cardPossibleMoves.find((m) => m.from === selectedSourceIndex && m.to === index) ? 'selectable-target' : ''
-                                } ${index === selectedSourceIndex ? 'selected' : ''}`}
-                                style={{ transform: `translate(${Math.trunc((index % 5) * 111)}%, ${Math.trunc(index / 5) * 111}%)` }}
-                                onClick={handleClickPiece}
-                            />
-                        ),
-                )}
+                {b.getPiecesDataByName().map((pd) => (
+                    <Box
+                        key={pd.p.name}
+                        data-name={pd.p.name}
+                        data-square-index={pd.i}
+                        className={`piece ${pd.p.color} ${pd.p.type} ${cardPossibleMoves.find((m) => m.from === pd.i) ? 'selectable-source' : ''}${
+                            cardPossibleMoves.find((m) => m.from === selectedSourceIndex && m.to === pd.i) ? 'selectable-target' : ''
+                        } ${pd.i === selectedSourceIndex ? 'selected' : ''}`}
+                        style={{ transform: `translate(${Math.trunc((pd.i % 5) * 111)}%, ${Math.trunc(pd.i / 5) * 111}%)` }}
+                        onClick={handleClickPiece}
+                    />
+                ))}
             </Box>
         </Box>
     );

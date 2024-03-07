@@ -50,7 +50,16 @@ export class Board {
         return true;
     }
 
-    getSquareIndexByPieceName(pieceName: string): number {
-        return this.squares.findIndex((s) => s.piece?.name === pieceName);
+    getPiecesDataByName(): { p: Piece; i: number }[] {
+        const pd: { p: Piece; i: number }[] = [];
+        this.squares.forEach((s, i) => {
+            if (s.piece) {
+                pd.push({
+                    p: s.piece,
+                    i,
+                });
+            }
+        });
+        return pd.sort((a, b) => (a.p.name > b.p.name ? 1 : b.p.name > a.p.name ? -1 : 0));
     }
 }
