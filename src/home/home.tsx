@@ -52,7 +52,7 @@ export function Home() {
                     2024.
                 </Typography>
                 <Typography variant="h4" sx={{ marginTop: '2rem' }}>
-                    Movement Cards
+                    Movement
                 </Typography>
                 <FormGroup>
                     <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
