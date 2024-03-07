@@ -48,13 +48,14 @@ export function Home() {
             <Box sx={{ position: 'absolute', inset: '2rem' }}>
                 <Typography variant="h4">About</Typography>
                 <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
-                    Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. This online version was developed by Uri Kalish in 2024.
+                    Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. This online version was developed by Uri Kalish in
+                    2024.
                 </Typography>
                 <Typography variant="h4" sx={{ marginTop: '2rem' }}>
                     Movement Cards
                 </Typography>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} disabled />} label="Base deck" />
+                    <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
                     <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
                     <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
                 </FormGroup>
