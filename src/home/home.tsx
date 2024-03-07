@@ -46,10 +46,9 @@ export function Home() {
         <Box className="home" sx={{ position: 'relative', padding: '2rem' }}>
             <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box sx={{ position: 'absolute', inset: '2rem' }}>
-                <Typography variant="h4">About Onitama</Typography>
+                <Typography variant="h4">About</Typography>
                 <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
-                    Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
-                    styles of Japanese martial arts. This online version was developed by Uri Kalish.
+                    Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. This online version was developed by Uri Kalish in 2024.
                 </Typography>
                 <Typography variant="h4" sx={{ marginTop: '2rem' }}>
                     Movement Cards
