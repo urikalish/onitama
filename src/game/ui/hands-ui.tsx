@@ -29,6 +29,7 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
             names.add(m.cardName);
         });
         setSelectableCardNames(names);
+        setSelectedCardName('');
     }, [allPossibleMoves]);
 
     useEffect(() => {
@@ -52,54 +53,35 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
         [onSelectCard],
     );
 
+    function getCardsDataByName(): { name: string; armyIndex: number; cardIndex: number }[] {
+        const cd: { name: string; armyIndex: number; cardIndex: number }[] = [];
+        cards.forEach((cs, armyIndex) => {
+            cs.forEach((cn, ci) => {
+                cd.push({
+                    name: cn,
+                    armyIndex,
+                    cardIndex: ci,
+                });
+            });
+        });
+        return cd.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    }
+
+    console.log(selectedCardName);
+
     return (
         <Box className="hands position--relative">
-            {cards[0] && (
+            {getCardsDataByName().map((cd) => (
                 <CardUI
-                    className="card-00"
-                    key={cards[0][0]}
-                    name={cards[0][0]}
-                    armyIndex={0}
-                    isSelectable={selectableCardNames.has(cards[0][0])}
-                    isSelected={selectedCardName === cards[0][0]}
+                    className={`card-${cd.armyIndex}-${cd.cardIndex}`}
+                    key={cd.name}
+                    name={cd.name}
+                    armyIndex={cd.armyIndex}
+                    isSelectable={selectableCardNames.has(cd.name)}
+                    isSelected={selectedCardName === cd.name}
                     onSelectCard={handleSelectCard}
                 />
-            )}
-            {cards[0] && (
-                <CardUI
-                    className="card-01"
-                    key={cards[0][1]}
-                    name={cards[0][1]}
-                    armyIndex={0}
-                    isSelectable={selectableCardNames.has(cards[0][1])}
-                    isSelected={selectedCardName === cards[0][1]}
-                    onSelectCard={handleSelectCard}
-                />
-            )}
-            {cards[0] && cards[0][2] && <CardUI className="card-02" key={cards[0][2]} name={cards[0][2]} armyIndex={0} isSelectable={false} isSelected={false} />}
-            {cards[1] && (
-                <CardUI
-                    className="card-10"
-                    name={cards[1][0]}
-                    key={cards[1][0]}
-                    armyIndex={1}
-                    isSelectable={selectableCardNames.has(cards[1][0])}
-                    isSelected={selectedCardName === cards[1][0]}
-                    onSelectCard={handleSelectCard}
-                />
-            )}
-            {cards[1] && (
-                <CardUI
-                    className="card-11"
-                    key={cards[1][1]}
-                    name={cards[1][1]}
-                    armyIndex={1}
-                    isSelectable={selectableCardNames.has(cards[1][1])}
-                    isSelected={selectedCardName === cards[1][1]}
-                    onSelectCard={handleSelectCard}
-                />
-            )}
-            {cards[1] && cards[1][2] && <CardUI className="card-12" key={cards[1][2]} name={cards[1][2]} armyIndex={1} isSelectable={false} isSelected={false} />}
+            ))}
         </Box>
     );
 }

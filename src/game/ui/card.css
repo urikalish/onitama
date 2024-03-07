@@ -16,25 +16,25 @@
     user-select: none;
     transition: all 250ms linear;
 }
-.card-00 {
+.card-0-0 {
     left: var(--card-margin);
 }
-.card-01 {
+.card-0-1 {
     left: var(--card-margin);
     top: calc(var(--card-height) + var(--card-margin));
 }
-.card-02 {
+.card-0-2 {
     left: var(--card-margin);
     top: calc(2 * (var(--card-height) + var(--card-margin)));
 }
-.card-10 {
+.card-1-0 {
     left: calc(50% + var(--card-margin));
 }
-.card-11 {
+.card-1-1 {
     left: calc(50% + var(--card-margin));
     top: calc(var(--card-height) + var(--card-margin));
 }
-.card-12 {
+.card-1-2 {
     left: calc(50% + var(--card-margin));
     top: calc(2 * (var(--card-height) + var(--card-margin)));
 }
