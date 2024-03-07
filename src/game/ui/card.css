@@ -56,7 +56,7 @@
 
 .card-name {
     margin: 2px 4px;
-    font-family: 'Kaushan Script', 'cursive', serif;
+    font-family: var(--font-family--script);
     font-size: 1.25rem;
     white-space: nowrap;
     color: #000;

@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { Footer } from '../../footer/footer';
 import { Game } from '../model/game';
 import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
@@ -82,6 +83,7 @@ export function GameUI() {
                         <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />
                     </Box>
                     {g?.isGameEnded() && <Box className="game-cover" />}
+                    <Footer />
                 </Box>
             </Box>
         )

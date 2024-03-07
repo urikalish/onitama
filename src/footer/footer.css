@@ -1,0 +1,7 @@
+.footer {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.125rem;
+    color: var(--color--gray--medium);
+    font-family: var(--font-family--script) !important;
+}
