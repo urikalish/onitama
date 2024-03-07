@@ -1,6 +1,6 @@
 .card {
     --card-height: 58px;
-    --card-margin: 0.5rem;
+    --card-margin: 0.25rem;
     position: absolute;
     display: flex;
     justify-content: space-between;
