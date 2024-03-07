@@ -56,9 +56,8 @@
 
 .card-name {
     margin: 2px 4px;
-    align-self: start;
     font-family: 'Kaushan Script', 'cursive', serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: #000;
 }
 .card.selectable > .card-name {
