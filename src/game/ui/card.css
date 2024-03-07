@@ -1,6 +1,7 @@
 .card {
     --card-height: 58px;
-    --card-margin: 0.25rem;
+    --card-horizontal-margin: 0.5rem;
+    --card-vertical-margin: 0.25rem;
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -17,26 +18,26 @@
     transition: all 300ms ease;
 }
 .card-0-0 {
-    left: var(--card-margin);
+    left: var(--card-horizontal-margin);
 }
 .card-0-1 {
-    left: var(--card-margin);
-    top: calc(var(--card-height) + var(--card-margin));
+    left: var(--card-horizontal-margin);
+    top: calc(var(--card-height) + var(--card-vertical-margin));
 }
 .card-0-2 {
-    left: var(--card-margin);
-    top: calc(2 * (var(--card-height) + var(--card-margin)));
+    left: var(--card-horizontal-margin);
+    top: calc(2 * (var(--card-height) + var(--card-vertical-margin)));
 }
 .card-1-0 {
-    right: var(--card-margin);
+    right: var(--card-horizontal-margin);
 }
 .card-1-1 {
-    right: var(--card-margin);
-    top: calc(var(--card-height) + var(--card-margin));
+    right: var(--card-horizontal-margin);
+    top: calc(var(--card-height) + var(--card-vertical-margin));
 }
 .card-1-2 {
-    right: var(--card-margin);
-    top: calc(2 * (var(--card-height) + var(--card-margin)));
+    right: var(--card-horizontal-margin);
+    top: calc(2 * (var(--card-height) + var(--card-vertical-margin)));
 }
 .card.selectable {
     pointer-events: auto;
