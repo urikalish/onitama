@@ -39,3 +39,9 @@
     inset: 0;
     background-color: #000;
 }
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

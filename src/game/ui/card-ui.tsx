@@ -67,7 +67,7 @@ export function CardUI({ className, name, armyIndex, isSelectable, isSelected, o
             onClick={handleSelectCard}
         >
             <CoverUI />
-            <Box className="card-name">{fixName(name)}</Box>
+            <Box className="card-name ellipsis">{fixName(name)}</Box>
             <Box ref={cardGridRef} className="card-grid" />
         </Box>
     );
