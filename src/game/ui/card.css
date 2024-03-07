@@ -1,5 +1,5 @@
 .card {
-    --card-height: 56px;
+    --card-height: 58px;
     --card-margin: 0.5rem;
     position: absolute;
     display: flex;
@@ -66,11 +66,12 @@
 }
 
 .card-grid {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    border: 1px solid var(--color--gray--darkest);
 }
 .card.blue > .card-grid {
     transform: rotate(90deg);
