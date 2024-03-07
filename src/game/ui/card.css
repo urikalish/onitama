@@ -28,14 +28,14 @@
     top: calc(2 * (var(--card-height) + var(--card-margin)));
 }
 .card-1-0 {
-    left: calc(50% + var(--card-margin));
+    right: var(--card-margin);
 }
 .card-1-1 {
-    left: calc(50% + var(--card-margin));
+    right: var(--card-margin);
     top: calc(var(--card-height) + var(--card-margin));
 }
 .card-1-2 {
-    left: calc(50% + var(--card-margin));
+    right: var(--card-margin);
     top: calc(2 * (var(--card-height) + var(--card-margin)));
 }
 .card.selectable {
