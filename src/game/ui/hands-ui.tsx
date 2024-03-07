@@ -21,16 +21,13 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
             return;
         }
         setCards([p.handsData[0].split(','), p.handsData[1].split(',')]);
-    }, [p]);
-
-    useEffect(() => {
         const names: Set<string> = new Set();
         allPossibleMoves.forEach((m) => {
             names.add(m.cardName);
         });
         setSelectableCardNames(names);
         setSelectedCardName('');
-    }, [allPossibleMoves]);
+    }, [p, allPossibleMoves]);
 
     useEffect(() => {
         if (selectableCardNames.size === 1) {
