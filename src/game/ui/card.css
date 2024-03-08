@@ -19,6 +19,7 @@
 }
 .card-0-0 {
     left: var(--card-horizontal-margin);
+    top: 0;
 }
 .card-0-1 {
     left: var(--card-horizontal-margin);
@@ -30,6 +31,7 @@
 }
 .card-1-0 {
     left: calc(50% + var(--card-horizontal-margin));
+    top: 0;
 }
 .card-1-1 {
     left: calc(50% + var(--card-horizontal-margin));
