@@ -45,7 +45,7 @@ export function Home() {
     }, [baseDeck, pathDeck, windDeck]);
 
     return (
-        <Box className="home">
+        <Box className="home position--relative fade-in">
             <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box className="position--absolute" sx={{ inset: '2rem' }}>
                 <Typography variant="h4">About</Typography>

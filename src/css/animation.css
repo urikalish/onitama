@@ -32,13 +32,5 @@
 }
 
 .fade-in {
-    animation: fade-in-animation 1s ease-in-out forwards;
-}
-
-.fade-in--filter--slow {
-    animation: fade-in-ex-animation 2s ease-in-out forwards;
-}
-
-.red-flash {
-    animation: red-flash-animation 100ms linear forwards;
+    animation: fade-in-animation 2s ease forwards;
 }

@@ -1,3 +1,5 @@
+import './root.css';
+
 import { Box } from '@mui/material';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
@@ -13,7 +15,7 @@ setWidthAndHeight();
 
 export function Root() {
     return (
-        <Box className="root full-screen-height grid" sx={{ gridTemplateColumns: '1fr', gridTemplateRows: 'auto 1fr auto' }}>
+        <Box className="root full-screen-height">
             <Header />
             <Outlet />
         </Box>

@@ -1,7 +1,5 @@
 .home {
-    position: relative;
     padding: 2rem;
-    animation: fade-in-animation 2s ease forwards;
 }
 
 button.home--submit-button {

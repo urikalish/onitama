@@ -75,14 +75,14 @@ export function GameUI() {
 
     return (
         g && (
-            <Box className="game position--relative">
+            <Box className="game position--relative fade-in">
                 <CoverUI opacity={0.4} />
-                <Box sx={{ position: 'absolute', inset: '0', display: 'grid', justifyContent: 'center' }}>
-                    <Box className="main">
+                <Box className="game-content">
+                    <Box className="game--main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                         <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />
                     </Box>
-                    {g?.isGameEnded() && <Box className="game-cover" />}
+                    {g?.isGameEnded() && <Box className="game-over-cover" />}
                     <Footer />
                 </Box>
             </Box>

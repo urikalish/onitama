@@ -3,4 +3,46 @@
 @import './typography.css';
 @import './animation.css';
 @import './utility.css';
-@import './main.css';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:focus-visible,
+a:active,
+a:visited {
+    color: var(--link--color);
+    text-decoration: none;
+}
+
+:root {
+    --vw: vw;
+    --vh: vh;
+    --bg: url('/img/bg/0.png');
+    height: calc(100 * var(--vh));
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family--default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    background-color: #111 !important;
+    color: #fff !important;
+}
+
+.app {
+    background-color: #111 !important;
+    background-image: var(--bg);
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
