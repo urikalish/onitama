@@ -13,3 +13,19 @@ header {
     color: var(--link--color);
     pointer-events: none;
 }
+
+.header--app-bar {
+    height: 48px;
+    user-select: none;
+}
+
+.header--toolbar.MuiToolbar-root {
+    padding: 0 8px;
+}
+
+.header--logo-image {
+    position: relative;
+    top: 2px;
+    left: 2px;
+    max-height: 32px;
+}

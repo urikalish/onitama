@@ -1,3 +1,5 @@
+import './home.css';
+
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -43,7 +45,7 @@ export function Home() {
     }, [baseDeck, pathDeck, windDeck]);
 
     return (
-        <Box className="home" sx={{ position: 'relative', padding: '2rem' }}>
+        <Box className="home">
             <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box sx={{ position: 'absolute', inset: '2rem' }}>
                 <Typography variant="h4">About</Typography>
@@ -59,7 +61,7 @@ export function Home() {
                     <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
                     <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
                 </FormGroup>
-                <Button disabled={!canSubmit} onClick={handleClickStart} variant="outlined" sx={{ marginTop: '2rem', width: '12rem' }}>
+                <Button disabled={!canSubmit} onClick={handleClickStart} variant="outlined" className="home--submit-button">
                     <Typography>Start Game</Typography>
                 </Button>
             </Box>
