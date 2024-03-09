@@ -1,5 +1,4 @@
 .game {
-    --main-width: min(calc(100 * var(--vw)), 500px);
     --board-size: calc(var(--main-width) - 1rem);
     --square-size: calc(var(--board-size) / 5);
 }

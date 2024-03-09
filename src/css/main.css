@@ -33,7 +33,17 @@ body {
     color: #fff !important;
 }
 
+.app {
+    background-color: #111 !important;
+    background-image: var(--bg);
+    background-size: cover;
+    display: grid;
+    place-items: center;
+}
+
 .root {
+    --main-width: min(calc(100 * var(--vw)), 500px);
+    width: var(--main-width);
     background-color: #111 !important;
     background-image: var(--bg);
     background-size: cover;
