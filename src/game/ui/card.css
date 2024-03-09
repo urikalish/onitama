@@ -15,6 +15,7 @@
     padding: 0 2px;
     pointer-events: none;
     user-select: none;
+    overflow: hidden;
     transition: all 400ms ease;
     z-index: 1;
 }
@@ -79,7 +80,6 @@
     grid-template-rows: repeat(5, 1fr);
     border: 1px solid var(--color--gray--darkest);
     border-radius: 2px;
-    overflow: hidden;
     transition: all 400ms ease;
 }
 .card.blue > .card-grid {
