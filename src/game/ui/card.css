@@ -62,7 +62,7 @@
 }
 
 .card-name {
-    margin: 2px 4px;
+    padding: 0 2px;
     font-family: var(--font-family--script);
     font-size: 1.25rem;
     white-space: nowrap;
