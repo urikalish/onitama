@@ -6,6 +6,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { About } from './about/about';
 import { ErrorPage } from './error-page/error-page';
 import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: 'rules',
                 element: <Rules />,
+            },
+            {
+                path: 'about',
+                element: <About />,
             },
             {
                 path: 'play',
