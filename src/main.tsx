@@ -7,12 +7,13 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { About } from './about/about';
+import { End } from './end/end';
 import { ErrorPage } from './error-page/error-page';
 import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
-import { Play } from './play/play';
 import { Root } from './root/root';
 import { Rules } from './rules/rules';
+import { Start } from './start/start';
 import { myTheme } from './theme/my-theme';
 
 const router = createBrowserRouter([
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
                 element: <About />,
             },
             {
-                path: 'play',
-                element: <Play />,
+                path: 'start',
+                element: <Start />,
+            },
+            {
+                path: 'end',
+                element: <End />,
             },
             {
                 path: 'game',

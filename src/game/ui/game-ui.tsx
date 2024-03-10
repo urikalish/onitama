@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Footer } from '../../footer/footer';
-import { Game } from '../model/game';
+import { Game, GameResult } from '../model/game';
 import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
 import { Position } from '../model/position';
@@ -24,8 +24,8 @@ export function GameUI() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
-        const decks = (queryParams.get('decks') || 'base').split(',');
-        const game = new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', decks);
+        const cardNames = (queryParams.get('cards') || '').split(',');
+        const game = new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', cardNames);
         game.startGame(Date.now());
         setG(game);
     }, []);
@@ -65,8 +65,7 @@ export function GameUI() {
             setPosition(g!.getCurPosition());
             if (g!.isGameEnded()) {
                 setTimeout(() => {
-                    alert(g!.resultStr);
-                    navigate('/');
+                    navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
                 }, 2000);
             }
         },

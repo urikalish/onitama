@@ -48,6 +48,12 @@
     text-overflow: ellipsis;
 }
 
+.cover {
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+}
+
 .page {
     position: relative;
     user-select: none;

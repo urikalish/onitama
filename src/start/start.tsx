@@ -2,7 +2,9 @@ import { Box, Button, Checkbox, FormControlLabel, FormGroup, Typography } from '
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Play() {
+import { getRandomCardsNames } from '../game/model/card';
+
+export function Start() {
     const [baseDeck, setBaseDeck] = useState(true);
     const [pathDeck, setPathDeck] = useState(true);
     const [windDeck, setWindDeck] = useState(true);
@@ -42,12 +44,13 @@ export function Play() {
             decks.push('promo');
         }
         if (decks.length > 0) {
-            navigate(`/game?decks=${decks.join(',')}`);
+            const cardNames = getRandomCardsNames(decks, 5);
+            navigate(`/game?cards=${cardNames.join(',')}`);
         }
     }, [baseDeck, pathDeck, windDeck]);
 
     return (
-        <Box className="play page">
+        <Box className="start page">
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">

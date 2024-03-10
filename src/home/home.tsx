@@ -14,7 +14,7 @@ export function Home() {
     }, []);
 
     const handleClickPlay = useCallback(() => {
-        navigate(`/play`);
+        navigate(`/start`);
     }, []);
 
     return (

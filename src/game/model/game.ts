@@ -34,18 +34,18 @@ export class Game {
     // botWorker: Worker = new Worker('js/bot-worker.js');
     // onBotWorkerProgress: any | null = null;
 
-    constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, decks: string[]) {
+    constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, cardNames: string[]) {
         this.players = [new Player(0, player0Type, player0Name), new Player(1, player1Type, player1Name)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
-        const cardNames = getRandomCardsNames(decks, 5);
-        const cardNames0: string[] = [cardNames[0], cardNames[1]];
-        const cardNames1: string[] = [cardNames[2], cardNames[3]];
-        const startingColor = getStartingColor(cardNames[4]);
+        const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
+        const cardNames0: string[] = [cNames[0], cNames[1]];
+        const cardNames1: string[] = [cNames[2], cNames[3]];
+        const startingColor = getStartingColor(cNames[4]);
         if (startingColor === Color.BLUE) {
-            cardNames0.push(cardNames[4]);
+            cardNames0.push(cNames[4]);
         } else {
-            cardNames1.push(cardNames[4]);
+            cardNames1.push(cNames[4]);
         }
         this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
         // this.botWorker.onmessage = this.handleBotWorkerMessage.bind(this);
