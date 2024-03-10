@@ -16,14 +16,14 @@ export function Rules() {
     }, []);
 
     return (
-        <Box className="rules position--relative page-padding fade-in">
-            <Box className="cover" sx={{ opacity: '0.7' }} />
-            <Box className="content-and-actions">
-                <Box>
+        <Box className="rules page">
+            <Box className="page-cover" />
+            <Box className="page--content-and-actions">
+                <Box className="page--content">
                     <Typography variant="h4">Rules</Typography>
                     <embed className="rulebook" type="application/pdf" src="/pdf/rulebook.pdf#toolbar=0&statusbar=0&scrollbar=0&navpanes=0" />
                 </Box>
-                <Box className="action-buttons">
+                <Box className="page--actions">
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
                     </Button>

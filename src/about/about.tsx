@@ -16,16 +16,70 @@ export function About() {
     }, []);
 
     return (
-        <Box className="about position--relative page-padding fade-in">
-            <Box className="cover" sx={{ opacity: '0.7' }} />
-            <Box className="content-and-actions">
-                <Box>
+        <Box className="about page">
+            <Box className="page-cover" />
+            <Box className="page--content-and-actions">
+                <Box className="page--content">
                     <Typography variant="h4">About</Typography>
-                    <Typography variant="body2" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
-                        Onitama is a two-player, perfect information abstract game created by game designer Shimpei Sato. This digital version was developed by Uri Kalish.
+                    <Typography variant="body1" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
+                        Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
+                        styles of Japanese martial arts.
                     </Typography>
+                    <Typography variant="h4" sx={{ marginTop: '2rem' }}>
+                        Credits
+                    </Typography>
+                    <Box className="about--credits-line">
+                        <Typography variant="body1" className="about--credits-label">
+                            <Box component="span" className="about--credits-label">
+                                Game design:
+                            </Box>
+                            <Box component="span" className="about--credits-value">
+                                Shimpei Sato, 2014
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="about--credits-line">
+                        <Typography variant="body1" className="about--credits-label">
+                            <Box component="span" className="about--credits-label">
+                                Web development:
+                            </Box>
+                            <Box component="span" className="about--credits-value">
+                                Uri Kalish, 2024
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="about--credits-line">
+                        <Typography variant="body1" className="about--credits-label">
+                            <Box component="span" className="about--credits-label">
+                                Run-time libraries:
+                            </Box>
+                            <Box component="span" className="about--credits-value">
+                                ReactJS, MaterialUI
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="about--credits-line">
+                        <Typography variant="body1" className="about--credits-label">
+                            <Box component="span" className="about--credits-label">
+                                Dev libraries:
+                            </Box>
+                            <Box component="span" className="about--credits-value">
+                                TypeScript, ESLint, Prettier, Vite
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="about--credits-line">
+                        <Typography variant="body1" className="about--credits-label">
+                            <Box component="span" className="about--credits-label">
+                                Image creator:
+                            </Box>
+                            <Box component="span" className="about--credits-value">
+                                Midjourney
+                            </Box>
+                        </Typography>
+                    </Box>
                 </Box>
-                <Box className="action-buttons">
+                <Box className="page--actions">
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
                     </Button>

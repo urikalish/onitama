@@ -1,5 +1,3 @@
-import './home.css';
-
 import { Box, Button, Typography } from '@mui/material';
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -20,13 +18,13 @@ export function Home() {
     }, []);
 
     return (
-        <Box className="home position--relative page-padding fade-in">
-            <Box className="cover" sx={{ opacity: '0.7' }} />
-            <Box className="content-and-actions">
-                <Box>
-                    <img alt="Onitama logo" className="home--onitama-image" src="/img/logo/onitama-pagoda.png" />
+        <Box className="home page">
+            <Box className="page-cover" />
+            <Box className="page--content-and-actions">
+                <Box className="page--content">
+                    <img alt="Onitama logo" className="width--100" src="/img/logo/onitama-pagoda.png" />
                 </Box>
-                <Box className="action-buttons">
+                <Box className="page--actions">
                     <Button onClick={handleClickAbout} variant="outlined" className="action-button">
                         <Typography>About</Typography>
                     </Button>

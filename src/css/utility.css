@@ -14,6 +14,10 @@
     display: grid;
 }
 
+.width--100 {
+    width: 100%;
+}
+
 .height--100 {
     height: 100%;
 }
@@ -38,10 +42,11 @@
     position: relative;
 }
 
-.cover {
+.page-cover {
     position: absolute;
     inset: 0;
     background-color: #000;
+    opacity: 0.7;
 }
 
 .ellipsis {
@@ -50,11 +55,14 @@
     text-overflow: ellipsis;
 }
 
-.page-padding {
+.page {
+    position: relative;
     padding: 2rem;
+    user-select: none;
+    animation: fade-in-animation 2s ease forwards;
 }
 
-.content-and-actions {
+.page--content-and-actions {
     position: absolute;
     inset: 2rem;
     display: grid;
@@ -63,12 +71,12 @@
     row-gap: 2rem;
 }
 
-.action-buttons {
+.page--actions {
     display: flex;
     justify-content: flex-end;
 }
 
-.action-buttons > .action-button {
+.page--actions > .action-button {
     margin-left: 1rem;
     width: 6rem;
 }

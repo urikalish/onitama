@@ -47,10 +47,10 @@ export function Play() {
     }, [baseDeck, pathDeck, windDeck]);
 
     return (
-        <Box className="play position--relative page-padding fade-in">
-            <Box className="cover" sx={{ opacity: '0.7' }} />
-            <Box className="content-and-actions">
-                <Box>
+        <Box className="play page">
+            <Box className="page-cover" />
+            <Box className="page--content-and-actions">
+                <Box className="page--content">
                     <Typography variant="h4">Movement</Typography>
                     <FormGroup>
                         <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
@@ -58,7 +58,7 @@ export function Play() {
                         <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
                     </FormGroup>
                 </Box>
-                <Box className="action-buttons">
+                <Box className="page--actions">
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
                     </Button>
