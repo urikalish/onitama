@@ -50,7 +50,6 @@
 
 .page {
     position: relative;
-    padding: 1rem;
     user-select: none;
     animation: fade-in-animation 2s ease forwards;
 }

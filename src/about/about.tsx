@@ -64,7 +64,7 @@ export function About() {
                                 Dev libraries:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                TypeScript, ESLint, Prettier, Vite
+                                TypeScript, Vite
                             </Box>
                         </Typography>
                     </Box>
