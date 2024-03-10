@@ -35,7 +35,7 @@ export function End() {
                         By the Way of the {way === 'stone' ? 'Stone' : 'Stream'}.
                     </Typography>
                     <Box className="end--winner-piece-container">
-                        <Box className="piece end--winner-piece" data-name={`m${win === 'blue' ? '0' : '1'}2`} />
+                        <img alt="Victorious master" className="end--winner-piece" src={`/img/pieces/m${win === 'blue' ? '0' : '1'}2.png`} />
                     </Box>
                 </Box>
                 <Box className="page--actions">

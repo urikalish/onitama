@@ -11,7 +11,7 @@ export function Header() {
         <AppBar color="primary" position="static" className="header--app-bar">
             <Toolbar variant="dense" className="header--toolbar">
                 <NavLink to="/" className="flex">
-                    <img src={appLogoImage} alt="Onitama" className="header--logo-image" />
+                    <img alt="Onitama" className="header--logo-image" src={appLogoImage} />
                 </NavLink>
             </Toolbar>
         </AppBar>

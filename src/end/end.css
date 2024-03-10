@@ -2,10 +2,8 @@
     display: grid;
     place-items: center;
 }
-.end .end--winner-piece {
-    position: unset;
-    height: 18rem;
-    width: 18rem;
-    background-repeat: no-repeat;
-    margin-top: 2rem;
+.end--winner-piece {
+    width: 256px;
+    margin-top: 4rem;
+    border-radius: 50%;
 }
