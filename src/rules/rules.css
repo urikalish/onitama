@@ -1,6 +1,6 @@
 .rulebook {
     margin-top: 1rem;
     width: 100%;
-    height: calc(100 * var(--vh) - 15rem);
+    height: calc(100 * var(--vh) - 16rem);
     overflow: hidden auto;
 }

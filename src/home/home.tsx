@@ -7,34 +7,34 @@ import { useNavigate } from 'react-router-dom';
 export function Home() {
     const navigate = useNavigate();
 
-    const handleClickPlay = useCallback(() => {
-        navigate(`/play`);
+    const handleClickAbout = useCallback(() => {
+        navigate(`/about`);
     }, []);
 
     const handleClickRules = useCallback(() => {
         navigate(`/rules`);
     }, []);
 
-    const handleClickAbout = useCallback(() => {
-        navigate(`/about`);
+    const handleClickPlay = useCallback(() => {
+        navigate(`/play`);
     }, []);
 
     return (
         <Box className="home position--relative page-padding fade-in">
             <Box className="cover" sx={{ opacity: '0.7' }} />
-            <Box className="position--absolute" sx={{ inset: '2rem' }}>
+            <Box className="content-and-actions">
                 <Box>
                     <img alt="Onitama logo" className="home--onitama-image" src="/img/logo/onitama-pagoda.png" />
                 </Box>
                 <Box className="action-buttons">
-                    <Button onClick={handleClickPlay} variant="contained" className="action-button">
-                        <Typography>Play</Typography>
+                    <Button onClick={handleClickAbout} variant="outlined" className="action-button">
+                        <Typography>About</Typography>
                     </Button>
                     <Button onClick={handleClickRules} variant="outlined" className="action-button">
                         <Typography>Rules</Typography>
                     </Button>
-                    <Button onClick={handleClickAbout} variant="outlined" className="action-button">
-                        <Typography>About</Typography>
+                    <Button onClick={handleClickPlay} variant="contained" className="action-button">
+                        <Typography>Play</Typography>
                     </Button>
                 </Box>
             </Box>

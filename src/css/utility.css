@@ -54,15 +54,21 @@
     padding: 2rem;
 }
 
+.content-and-actions {
+    position: absolute;
+    inset: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    row-gap: 2rem;
+}
+
 .action-buttons {
-    margin-top: 2rem;
     display: flex;
+    justify-content: flex-end;
 }
 
 .action-buttons > .action-button {
     margin-left: 1rem;
     width: 6rem;
-}
-.action-buttons > .action-button:first-child {
-    margin-left: 0;
 }
