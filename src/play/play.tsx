@@ -51,12 +51,12 @@ export function Play() {
             <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box className="content-and-actions">
                 <Box>
-                <Typography variant="h4">Movement</Typography>
-                <FormGroup>
-                    <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
-                    <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
-                    <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
-                </FormGroup>
+                    <Typography variant="h4">Movement</Typography>
+                    <FormGroup>
+                        <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
+                        <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
+                        <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
+                    </FormGroup>
                 </Box>
                 <Box className="action-buttons">
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
