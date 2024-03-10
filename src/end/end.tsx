@@ -30,7 +30,7 @@ export function End() {
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4">Victory!</Typography>
+                    <Typography variant="h4">{`${win === 'blue' ? 'Blue' : 'Red'} Victory!`}</Typography>
                     <Typography variant="body1" sx={{ color: 'var(--color--gray--light)' }}>
                         By the Way of the {way === 'stone' ? 'Stone' : 'Stream'}.
                     </Typography>
