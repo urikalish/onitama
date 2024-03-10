@@ -42,13 +42,6 @@
     position: relative;
 }
 
-.page-cover {
-    position: absolute;
-    inset: 0;
-    background-color: #000;
-    opacity: 0.7;
-}
-
 .ellipsis {
     white-space: nowrap;
     overflow: hidden;
@@ -57,9 +50,16 @@
 
 .page {
     position: relative;
-    padding: 2rem;
+    padding: 1rem;
     user-select: none;
     animation: fade-in-animation 2s ease forwards;
+}
+
+.page-cover {
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    opacity: 0.7;
 }
 
 .page--content-and-actions {
@@ -77,6 +77,6 @@
 }
 
 .page--actions > .action-button {
-    margin-left: 1rem;
-    width: 6rem;
+    margin-left: 0.5rem;
+    width: 5rem;
 }
