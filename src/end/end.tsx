@@ -32,7 +32,7 @@ export function End() {
                 <Box className="page--content">
                     <Typography variant="h4">Victory!</Typography>
                     <Typography variant="body1" sx={{ color: 'var(--color--gray--light)' }}>
-                        By the way of the {way === 'stone' ? 'stone' : 'stream'}.
+                        By the Way of the {way === 'stone' ? 'Stone' : 'Stream'}.
                     </Typography>
                     <Box className="end--winner-piece-container">
                         <Box className="piece end--winner-piece" data-name={`m${win === 'blue' ? '0' : '1'}2`} />
