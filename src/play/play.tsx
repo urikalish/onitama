@@ -1,5 +1,3 @@
-import './play.css';
-
 import { Box, Button, Checkbox, FormControlLabel, FormGroup, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -44,8 +42,12 @@ export function Play() {
         }
     }, [baseDeck, pathDeck, windDeck]);
 
+    const handleClickHome = useCallback(() => {
+        navigate(`/`);
+    }, []);
+
     return (
-        <Box className="home position--relative fade-in">
+        <Box className="play position--relative page-padding fade-in">
             <Box className="cover" sx={{ opacity: '0.7' }} />
             <Box className="position--absolute" sx={{ inset: '2rem' }}>
                 <Typography variant="h4">Movement</Typography>
@@ -54,9 +56,14 @@ export function Play() {
                     <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
                     <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
                 </FormGroup>
-                <Button disabled={!canSubmit} onClick={handleClickStart} variant="outlined" className="play--start-button">
-                    <Typography>Start</Typography>
-                </Button>
+                <Box className="action-buttons">
+                    <Button disabled={!canSubmit} onClick={handleClickStart} variant="contained" className="action-button">
+                        <Typography>Start</Typography>
+                    </Button>
+                    <Button onClick={handleClickHome} variant="outlined" className="action-button">
+                        <Typography>Home</Typography>
+                    </Button>
+                </Box>
             </Box>
         </Box>
     );

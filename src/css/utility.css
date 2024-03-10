@@ -49,3 +49,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.page-padding {
+    padding: 2rem;
+}
+
+.action-buttons {
+    margin-top: 2rem;
+    display: flex;
+}
+
+.action-buttons > .action-button {
+    margin-left: 1rem;
+    width: 6rem;
+}
+.action-buttons > .action-button:first-child {
+    margin-left: 0;
+}

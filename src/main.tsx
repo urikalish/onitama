@@ -11,6 +11,7 @@ import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
 import { Play } from './play/play';
 import { Root } from './root/root';
+import { Rules } from './rules/rules';
 import { myTheme } from './theme/my-theme';
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
+            },
+            {
+                path: 'rules',
+                element: <Rules />,
             },
             {
                 path: 'play',
