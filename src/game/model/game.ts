@@ -32,8 +32,8 @@ export class Game {
     resultStr = '';
     bots: any[] = [];
 
-    constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, cardNames: string[]) {
-        this.players = [new Player(0, player0Type, player0Name), new Player(1, player1Type, player1Name)];
+    constructor(player0Name: string, player0Type: PlayerType, player0Strength: number, player1Name: string, player1Type: PlayerType, player1Strength: number, cardNames: string[]) {
+        this.players = [new Player(player0Name, 0, player0Type, player0Strength), new Player(player1Name, 1, player1Type, player1Strength)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
         const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
@@ -167,8 +167,10 @@ export class Game {
 
     async getBotMove() {
         const p = this.getCurPosition();
-        const bot = this.bots[p.armyIndex];
-        const m: Move = (await bot['getBotMove'](p)) as Move;
+        const index = p.armyIndex;
+        const bot = this.bots[index];
+        const strength = this.players[index].strength;
+        const m: Move = (await bot['getBotMove'](p, strength)) as Move;
         return {
             cardName: m.cardName,
             from: m.from,

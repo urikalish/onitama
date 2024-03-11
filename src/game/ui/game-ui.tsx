@@ -24,13 +24,16 @@ export function GameUI() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
-        const playerTypes: string[] = (queryParams.get('players') || '').split(',');
+        const opponent: string = queryParams.get('opponent') || 'human';
+        const strength: number = Number(queryParams.get('strength') || '0');
         const cardNames = (queryParams.get('cards') || '').split(',');
         const game = new Game(
-            playerTypes[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
-            `Blue ${playerTypes[0] === 'human' ? 'player' : 'bot'}`,
-            playerTypes[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
-            `Red ${playerTypes[1] === 'human' ? 'player' : 'bot'}`,
+            'Blue Player',
+            PlayerType.HUMAN,
+            0,
+            opponent === 'human' ? 'Red Player' : 'Red Bot',
+            opponent === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            opponent === 'human' ? 0 : strength,
             cardNames,
         );
         game.startGame(Date.now());

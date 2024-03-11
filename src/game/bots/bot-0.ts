@@ -3,7 +3,7 @@ import { Mover } from '../model/mover';
 import { Position } from '../model/position';
 import { shuffleFisherYates, sortMoves } from './bot-helper';
 
-export async function getBotMove(p: Position): Promise<Move> {
+export async function getBotMove(p: Position /*, strength: number*/): Promise<Move> {
     const moves = new Mover().getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';

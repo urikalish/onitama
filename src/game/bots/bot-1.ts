@@ -18,6 +18,6 @@ export function score1(p: Position, myIndex: number): number {
     return myIndex === 0 ? score : -score;
 }
 
-export async function getBotMove(p: Position): Promise<Move> {
-    return getMove(p, 0, score1);
+export async function getBotMove(p: Position, strength: number): Promise<Move> {
+    return getMove(p, strength, score1);
 }

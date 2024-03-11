@@ -76,7 +76,7 @@ export function alphaBeta(p: Position, depth: number, a: number, b: number, maxi
     }
 }
 
-export async function getMove(p: Position, depth: number, scoreFunc: (p: Position, myIndex: number) => number): Promise<Move> {
+export async function getMove(p: Position, strength: number, scoreFunc: (p: Position, myIndex: number) => number): Promise<Move> {
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
@@ -93,6 +93,7 @@ export async function getMove(p: Position, depth: number, scoreFunc: (p: Positio
         myIndex: p.armyIndex,
         scoreFunc,
     };
+    const depth = strength;
     let score;
     let bestMoveScore = Number.NEGATIVE_INFINITY;
     let bestMoves: Move[] = [];

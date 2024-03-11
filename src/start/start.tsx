@@ -82,8 +82,9 @@ export function Start() {
         localStorage.setItem(LOCAL_STORAGE_KEY_OPPONENT_TYPE, opponentType);
         localStorage.setItem(LOCAL_STORAGE_KEY_BOT_STRENGTH, botStrength.toString());
         localStorage.setItem(LOCAL_STORAGE_KEY_DECK_NAMES, decks.join(','));
-        navigate(`/game?players=human,${opponentType}&cards=${cardNames.join(',')}`);
-    }, [opponentType, baseDeck, pathDeck, windAndPromoDecks]);
+        const botStrengthParam = opponentType === 'bot' ? `&strength=${botStrength}` : '';
+        navigate(`/game?opponent=${opponentType}${botStrengthParam}&cards=${cardNames.join(',')}`);
+    }, [opponentType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);
 
     return (
         <Box className="start page">
