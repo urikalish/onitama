@@ -1,0 +1,19 @@
+.start--bot-level {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.start--bot-level.hidden {
+    opacity: 0.5;
+}
+
+.start--bot-level-slider-label {
+    position: relative;
+    top: -1px;
+    color: var(--color--gray--light);
+}
+
+.start--bot-level-slider {
+    margin: 0 2rem;
+}
