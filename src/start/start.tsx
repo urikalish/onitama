@@ -4,21 +4,39 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRandomCardsNames } from '../game/model/card';
 
+const LOCAL_STORAGE_KEY_PLAYER_TYPES = 'playerTypes';
+const LOCAL_STORAGE_KEY_DECK_NAMES = 'deckNames';
+
 export function Start() {
     const [playerTypes, setPLayerTypes] = useState('human,human');
     const [baseDeck, setBaseDeck] = useState(true);
     const [pathDeck, setPathDeck] = useState(true);
-    const [windDeck, setWindDeck] = useState(true);
+    const [windAndPromoDecks, setWindAndPromoDecks] = useState(true);
     const [canSubmit, setCanSubmit] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        let value;
+        value = localStorage.getItem(LOCAL_STORAGE_KEY_PLAYER_TYPES);
+        if (value) {
+            setPLayerTypes(value);
+        }
+        value = localStorage.getItem(LOCAL_STORAGE_KEY_DECK_NAMES);
+        if (value) {
+            const deckNames = value.split(',');
+            setBaseDeck(deckNames.includes('base'));
+            setPathDeck(deckNames.includes('path'));
+            setWindAndPromoDecks(deckNames.includes('wind') && deckNames.includes('promo'));
+        }
+    }, []);
 
     const handleChangePlayerTypes = useCallback((event: any) => {
         setPLayerTypes(event.target.value);
     }, []);
 
     useEffect(() => {
-        setCanSubmit(baseDeck || pathDeck || windDeck);
-    }, [baseDeck, pathDeck, windDeck]);
+        setCanSubmit(baseDeck || pathDeck || windAndPromoDecks);
+    }, [baseDeck, pathDeck, windAndPromoDecks]);
 
     const handleChangeBaseDeck = useCallback((event: any) => {
         setBaseDeck(event.target.checked);
@@ -28,8 +46,8 @@ export function Start() {
         setPathDeck(event.target.checked);
     }, []);
 
-    const handleChangeWindDeck = useCallback((event: any) => {
-        setWindDeck(event.target.checked);
+    const handleChangeWindAndPromoDecks = useCallback((event: any) => {
+        setWindAndPromoDecks(event.target.checked);
     }, []);
 
     const handleClickHome = useCallback(() => {
@@ -44,13 +62,15 @@ export function Start() {
         if (pathDeck) {
             decks.push('path');
         }
-        if (windDeck) {
+        if (windAndPromoDecks) {
             decks.push('wind');
             decks.push('promo');
         }
+        localStorage.setItem(LOCAL_STORAGE_KEY_PLAYER_TYPES, playerTypes);
+        localStorage.setItem(LOCAL_STORAGE_KEY_DECK_NAMES, decks.join(','));
         const cardNames = getRandomCardsNames(decks, 5);
         navigate(`/game?players=${playerTypes}&cards=${cardNames.join(',')}`);
-    }, [playerTypes, baseDeck, pathDeck, windDeck]);
+    }, [playerTypes, baseDeck, pathDeck, windAndPromoDecks]);
 
     return (
         <Box className="start page">
@@ -70,7 +90,7 @@ export function Start() {
                     <FormGroup>
                         <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
                         <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
-                        <FormControlLabel control={<Checkbox checked={windDeck} onChange={handleChangeWindDeck} />} label="Way of the Wind + promo cards" />
+                        <FormControlLabel control={<Checkbox checked={windAndPromoDecks} onChange={handleChangeWindAndPromoDecks} />} label="Way of the Wind + promo cards" />
                     </FormGroup>
                 </Box>
                 <Box className="page--actions">
