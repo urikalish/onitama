@@ -2,7 +2,7 @@ import { Color } from './color';
 
 export enum PlayerType {
     HUMAN = 'human',
-    // BOT = 'bot',
+    BOT = 'bot',
 }
 
 export class Player {
