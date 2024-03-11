@@ -24,52 +24,63 @@ export function GameUI() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
+        const playerTypes: string[] = (queryParams.get('players') || '').split(',');
         const cardNames = (queryParams.get('cards') || '').split(',');
-        const game = new Game(PlayerType.HUMAN, 'Blue player', PlayerType.HUMAN, 'Red player', cardNames);
+        const game = new Game(
+            playerTypes[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            `Blue ${playerTypes[0] === 'human' ? 'player' : 'bot'}`,
+            playerTypes[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            `Red ${playerTypes[1] === 'human' ? 'player' : 'bot'}`,
+            cardNames,
+        );
         game.startGame(Date.now());
         setG(game);
+        setPosition(game.getCurPosition());
     }, []);
 
     useEffect(() => {
         if (!g) {
             return;
         }
-        setPosition(g!.getCurPosition());
-    }, [g]);
-
-    useEffect(() => {
-        if (!g) {
+        setCardPossibleMoves([]);
+        if (g!.isGameEnded()) {
+            setAllPossibleMoves([]);
+            setTimeout(() => {
+                navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
+            }, 2000);
             return;
         }
         setAllPossibleMoves(g!.possibleMoves);
-        setCardPossibleMoves([]);
-    }, [position]);
+    }, [g, position]);
+
+    const goMove = useCallback(
+        (cardName: string, from: number, to: number) => {
+            const m = allPossibleMoves.filter((m) => m.cardName === cardName && m.from === from && m.to === to)[0];
+            g!.move(m);
+            setPosition(g!.getCurPosition());
+        },
+        [g, allPossibleMoves],
+    );
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
             const moves = allPossibleMoves.filter((m) => m.cardName === cardName);
             if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
-                g!.move(moves[0]);
-                setPosition(g!.getCurPosition());
+                const m = moves[0];
+                goMove(m.cardName, m.from, m.to);
             } else {
                 setCardPossibleMoves(moves);
             }
         },
-        [g, allPossibleMoves],
+        [g, allPossibleMoves, goMove],
     );
 
     const handleSelectMove = useCallback(
         (from: number, to: number) => {
-            const move = cardPossibleMoves.find((m) => m.from === from && m.to === to);
-            g!.move(move);
-            setPosition(g!.getCurPosition());
-            if (g!.isGameEnded()) {
-                setTimeout(() => {
-                    navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
-                }, 2000);
-            }
+            const m = cardPossibleMoves.find((m) => m.from === from && m.to === to);
+            goMove(m!.cardName, m!.from, m!.to);
         },
-        [g, cardPossibleMoves],
+        [g, cardPossibleMoves, goMove],
     );
 
     return (

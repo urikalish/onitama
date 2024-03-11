@@ -30,9 +30,7 @@ export class Game {
     mover = new Mover();
     results: Set<GameResult> = new Set();
     resultStr = '';
-    // botWorker: Worker = new Worker('js/bot-worker.min.js');
-    // botWorker: Worker = new Worker('js/bot-worker.js');
-    // onBotWorkerProgress: any | null = null;
+    bots: any[] = [];
 
     constructor(player0Type: PlayerType, player0Name: string, player1Type: PlayerType, player1Name: string, cardNames: string[]) {
         this.players = [new Player(0, player0Type, player0Name), new Player(1, player1Type, player1Name)];
@@ -48,7 +46,12 @@ export class Game {
             cardNames1.push(cNames[4]);
         }
         this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
-        // this.botWorker.onmessage = this.handleBotWorkerMessage.bind(this);
+        this.bots[0] = new ComlinkWorker<typeof import('../bots/bot-0')>(new URL('../bots/bot-0', import.meta.url), {
+            /* normal Worker options*/
+        });
+        this.bots[1] = new ComlinkWorker<typeof import('../bots/bot-1')>(new URL('../bots/bot-1', import.meta.url), {
+            /* normal Worker options*/
+        });
     }
 
     startGame(startTime: number) {
@@ -63,14 +66,6 @@ export class Game {
         return this.moves.length ? this.moves[this.moves.length - 1] : null;
     }
 
-    getMoveNames(): string[] {
-        const moveNames: string[] = [];
-        this.moves.forEach((m) => {
-            moveNames.push(m.name);
-        });
-        return moveNames;
-    }
-
     getCurPlayer(): Player | null {
         const p = this.getCurPosition();
         return p ? this.players[p.armyIndex] : null;
@@ -78,10 +73,6 @@ export class Game {
 
     pushMove(m: Move) {
         this.moves.push(m);
-    }
-
-    hasMoves(): boolean {
-        return this.moves.length > 0;
     }
 
     isGameGoing(): boolean {
@@ -164,28 +155,24 @@ export class Game {
         return m;
     }
 
-    // isBotTurn() {
-    //     const p = this.getCurPosition();
-    //     return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.BOT;
-    // }
-    //
-    // isHumanTurn() {
-    //     const p = this.getCurPosition();
-    //     return p && !this.isEnded() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
-    // }
-    //
-    // goComputeBotWorkerMove() {
-    //     const p = this.getCurPosition();
-    //     const botName = this.getCurPlayer()?.name || '';
-    //     if (!p || !botName) {
-    //         return null;
-    //     }
-    //     this.botWorker.postMessage({ botName, position: this.getCurPosition(), moveNames: this.getMoveNames() });
-    // }
-    //
-    // handleBotWorkerMessage(e: any) {
-    //     if (this.onBotWorkerProgress) {
-    //         this.onBotWorkerProgress(e['data']['progress'], e['data']['moveName']);
-    //     }
-    // }
+    isBotTurn() {
+        const p = this.getCurPosition();
+        return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.BOT;
+    }
+
+    isHumanTurn() {
+        const p = this.getCurPosition();
+        return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
+    }
+
+    async getBotMove() {
+        const p = this.getCurPosition();
+        const bot = this.bots[p.armyIndex];
+        const m: Move = (await bot['getBotMove'](p)) as Move;
+        return {
+            cardName: m.cardName,
+            from: m.from,
+            to: m.to,
+        };
+    }
 }
