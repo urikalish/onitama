@@ -25,46 +25,46 @@ export function About() {
                         Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
                         styles of Japanese martial arts.
                     </Typography>
-                    <Typography variant="h4" sx={{ marginTop: '2rem' }}>
+                    <Typography variant="h4" sx={{ margin: '2rem 0 0.5rem 0' }}>
                         Credits
                     </Typography>
                     <Box className="about--credits-line">
                         <Typography variant="body1" className="about--credits-label">
                             <Box component="span" className="about--credits-label">
-                                Game design:
+                                Onitama game designer:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                Shimpei Sato, 2014
+                                Shimpei Sato
                             </Box>
                         </Typography>
                     </Box>
                     <Box className="about--credits-line">
                         <Typography variant="body1" className="about--credits-label">
                             <Box component="span" className="about--credits-label">
-                                Web development:
+                                Web developer:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                Uri Kalish, 2024
+                                Uri Kalish
                             </Box>
                         </Typography>
                     </Box>
                     <Box className="about--credits-line">
                         <Typography variant="body1" className="about--credits-label">
                             <Box component="span" className="about--credits-label">
-                                Run-time libraries:
+                                Run-time libs:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                ReactJS, MaterialUI
+                                React, MaterialUI, Comlink
                             </Box>
                         </Typography>
                     </Box>
                     <Box className="about--credits-line">
                         <Typography variant="body1" className="about--credits-label">
                             <Box component="span" className="about--credits-label">
-                                Dev libraries:
+                                Dev libs:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                TypeScript, Vite
+                                TypeScript, Vite, ESLint, Prettier
                             </Box>
                         </Typography>
                     </Box>
