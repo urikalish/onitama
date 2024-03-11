@@ -56,7 +56,7 @@ export function GameUI() {
         }
         setCardPossibleMoves([]);
         if (g!.isGameEnded()) {
-            setAllPossibleMoves([]);
+            //setAllPossibleMoves([]);
             setTimeout(() => {
                 navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
             }, 2000);
@@ -100,7 +100,7 @@ export function GameUI() {
                 <Box className="game-content">
                     <Box className="game--main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
-                        <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />
+                        {g!.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
                     </Box>
                     {g?.isGameEnded() && <Box className="game-over-cover" />}
                     <Footer />
