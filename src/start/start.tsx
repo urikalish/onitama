@@ -62,7 +62,6 @@ export function Start() {
                         <RadioGroup value={playerTypes} onChange={handleChangePlayerTypes} name="players-radio-buttons-group">
                             <FormControlLabel value="human,human" control={<Radio />} label="Human vs. human" />
                             <FormControlLabel value="human,bot" control={<Radio />} label="Human vs. bot" />
-                            <FormControlLabel disabled={true} value="bot,bot" control={<Radio />} label="Bot vs. bot" />
                         </RadioGroup>
                     </FormControl>
                     <Typography variant="h4" sx={{ marginTop: '2rem' }}>
