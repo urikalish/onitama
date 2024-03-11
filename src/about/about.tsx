@@ -31,7 +31,7 @@ export function About() {
                     <Box className="about--credits-line">
                         <Typography variant="body1" className="about--credits-label">
                             <Box component="span" className="about--credits-label">
-                                Onitama game designer:
+                                Game designer:
                             </Box>
                             <Box component="span" className="about--credits-value">
                                 Shimpei Sato
