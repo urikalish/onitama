@@ -38,6 +38,15 @@ export function GameUI() {
         setPosition(game.getCurPosition());
     }, []);
 
+    const goMove = useCallback(
+        (cardName: string, from: number, to: number) => {
+            const m = allPossibleMoves.filter((m) => m.cardName === cardName && m.from === from && m.to === to)[0];
+            g!.move(m);
+            setPosition(g!.getCurPosition());
+        },
+        [g, allPossibleMoves],
+    );
+
     useEffect(() => {
         if (!g) {
             return;
@@ -51,16 +60,15 @@ export function GameUI() {
             return;
         }
         setAllPossibleMoves(g!.possibleMoves);
-    }, [g, position]);
-
-    const goMove = useCallback(
-        (cardName: string, from: number, to: number) => {
-            const m = allPossibleMoves.filter((m) => m.cardName === cardName && m.from === from && m.to === to)[0];
-            g!.move(m);
-            setPosition(g!.getCurPosition());
-        },
-        [g, allPossibleMoves],
-    );
+        if (g!.isBotTurn()) {
+            setTimeout(() => {
+                (async () => {
+                    const m = await g!.getBotMove();
+                    goMove(m.cardName, m.from, m.to);
+                })();
+            }, 500);
+        }
+    }, [g, position, goMove]);
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
