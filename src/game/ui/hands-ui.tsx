@@ -64,8 +64,6 @@ export function HandsUi({ p, allPossibleMoves, onSelectCard }: HandsUIProps) {
         return cd.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
     }
 
-    console.log(selectedCardName);
-
     return (
         <Box className="hands position--relative">
             {getCardsDataByName().map((cd) => (
