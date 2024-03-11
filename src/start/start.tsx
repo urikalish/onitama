@@ -10,6 +10,8 @@ const LOCAL_STORAGE_KEY_OPPONENT_TYPE = 'opponentType';
 const LOCAL_STORAGE_KEY_BOT_STRENGTH = 'botStrength';
 const LOCAL_STORAGE_KEY_DECK_NAMES = 'deckNames';
 
+const MAX_BOT_STRENGTH = 4;
+
 export function Start() {
     const [opponentType, setOpponentType] = useState('human');
     const [botStrength, setBotStrength] = useState(0);
@@ -27,7 +29,7 @@ export function Start() {
         }
         value = localStorage.getItem(LOCAL_STORAGE_KEY_BOT_STRENGTH);
         if (value) {
-            setBotStrength(Number(value));
+            setBotStrength(Math.min(Number(value), MAX_BOT_STRENGTH));
         }
         value = localStorage.getItem(LOCAL_STORAGE_KEY_DECK_NAMES);
         if (value) {
@@ -108,7 +110,7 @@ export function Start() {
                                 step={1}
                                 marks
                                 min={0}
-                                max={6}
+                                max={MAX_BOT_STRENGTH}
                                 disabled={opponentType !== 'bot'}
                                 onChange={handleChangeBotStrength}
                                 className="start--bot-level-slider"
