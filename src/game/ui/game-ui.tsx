@@ -66,8 +66,7 @@ export function GameUI() {
         (cardName: string) => {
             const moves = allPossibleMoves.filter((m) => m.cardName === cardName);
             if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
-                const m = moves[0];
-                goMove(m.cardName, m.from, m.to);
+                goMove(moves[0].cardName, moves[0].from, moves[0].to);
             } else {
                 setCardPossibleMoves(moves);
             }
@@ -86,7 +85,7 @@ export function GameUI() {
     return (
         g && (
             <Box className="game position--relative fade-in">
-                <CoverUI opacity={0.4} />
+                <CoverUI opacity={0.3} />
                 <Box className="game-content">
                     <Box className="game--main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
