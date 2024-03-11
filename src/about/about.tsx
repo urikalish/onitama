@@ -54,7 +54,7 @@ export function About() {
                                 Run-time libs:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                React, MaterialUI, Comlink
+                                React, MaterialUI
                             </Box>
                         </Typography>
                     </Box>
@@ -64,7 +64,7 @@ export function About() {
                                 Dev libs:
                             </Box>
                             <Box component="span" className="about--credits-value">
-                                TypeScript, Vite, ESLint, Prettier
+                                TypeScript, Vite
                             </Box>
                         </Typography>
                     </Box>
