@@ -52,25 +52,24 @@ export function alphaBeta(p: Position, depth: number, a: number, b: number, maxi
     if (nextMoves.length === 0) {
         return context.scoreFunc(p, context.myIndex);
     }
-    sortMoves(nextMoves);
     if (maximizingPlayer) {
         let value = Number.NEGATIVE_INFINITY;
         for (const m of nextMoves) {
             value = Math.max(value, alphaBeta(m.newPosition, depth - 1, a, b, false, context));
+            a = Math.max(a, value);
             if (value >= b) {
                 break;
             }
-            a = Math.max(a, value);
         }
         return value;
     } else {
         let value = Number.POSITIVE_INFINITY;
         for (const m of nextMoves) {
             value = Math.min(value, alphaBeta(m.newPosition, depth - 1, a, b, true, context));
+            b = Math.min(b, value);
             if (value <= a) {
                 break;
             }
-            b = Math.min(b, value);
         }
         return value;
     }
