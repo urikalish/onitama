@@ -57,7 +57,7 @@ export function alphaBeta(p: Position, depth: number, a: number, b: number, maxi
         for (const m of nextMoves) {
             value = Math.max(value, alphaBeta(m.newPosition, depth - 1, a, b, false, context));
             a = Math.max(a, value);
-            if (value >= b) {
+            if (b <= a) {
                 break;
             }
         }
@@ -67,7 +67,7 @@ export function alphaBeta(p: Position, depth: number, a: number, b: number, maxi
         for (const m of nextMoves) {
             value = Math.min(value, alphaBeta(m.newPosition, depth - 1, a, b, true, context));
             b = Math.min(b, value);
-            if (value <= a) {
+            if (b <= a) {
                 break;
             }
         }
