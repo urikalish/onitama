@@ -7,7 +7,7 @@ type Context = {
     scoreFunc: (p: Position, myIndex: number) => number;
 };
 
-export const mover = new Mover();
+const mover = new Mover();
 
 export function shuffleFisherYates(arr: Move[]) {
     let rnd;
@@ -44,7 +44,7 @@ export function sortMoves(moves: Move[]) {
     });
 }
 
-export function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingPlayer: boolean, context: Context) {
+function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context) {
     if (depth === 0) {
         return context.scoreFunc(p, context.myIndex);
     }
@@ -52,28 +52,51 @@ export function alphaBeta(p: Position, depth: number, a: number, b: number, maxi
     if (nextMoves.length === 0) {
         return context.scoreFunc(p, context.myIndex);
     }
-    if (maximizingPlayer) {
-        let value = Number.NEGATIVE_INFINITY;
+    if (isMaximizingPlayer) {
+        let maxEval = -Infinity;
         for (const m of nextMoves) {
-            value = Math.max(value, alphaBeta(m.newPosition, depth - 1, a, b, false, context));
-            a = Math.max(a, value);
-            if (b <= a) {
-                break;
-            }
+            maxEval = Math.max(maxEval, minimax(m.newPosition, depth - 1, false, context));
         }
-        return value;
+        return maxEval;
     } else {
-        let value = Number.POSITIVE_INFINITY;
+        let minEval = Infinity;
         for (const m of nextMoves) {
-            value = Math.min(value, alphaBeta(m.newPosition, depth - 1, a, b, true, context));
-            b = Math.min(b, value);
-            if (b <= a) {
-                break;
-            }
+            minEval = Math.min(minEval, minimax(m.newPosition, depth - 1, true, context));
         }
-        return value;
+        return minEval;
     }
 }
+
+// function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingPlayer: boolean, context: Context) {
+//     if (depth === 0) {
+//         return context.scoreFunc(p, context.myIndex);
+//     }
+//     const nextMoves = mover.getAllPossibleMoves(p);
+//     if (nextMoves.length === 0) {
+//         return context.scoreFunc(p, context.myIndex);
+//     }
+//     if (maximizingPlayer) {
+//         let value = Number.NEGATIVE_INFINITY;
+//         for (const m of nextMoves) {
+//             value = Math.max(value, alphaBeta(m.newPosition, depth - 1, a, b, false, context));
+//             a = Math.max(a, value);
+//             if (b <= a) {
+//                 break;
+//             }
+//         }
+//         return value;
+//     } else {
+//         let value = Number.POSITIVE_INFINITY;
+//         for (const m of nextMoves) {
+//             value = Math.min(value, alphaBeta(m.newPosition, depth - 1, a, b, true, context));
+//             b = Math.min(b, value);
+//             if (b <= a) {
+//                 break;
+//             }
+//         }
+//         return value;
+//     }
+// }
 
 export async function getMove(p: Position, strength: number, scoreFunc: (p: Position, myIndex: number) => number): Promise<Move> {
     const moves = mover.getAllPossibleMoves(p);
@@ -97,7 +120,7 @@ export async function getMove(p: Position, strength: number, scoreFunc: (p: Posi
     let bestMoveScore = Number.NEGATIVE_INFINITY;
     let bestMoves: Move[] = [];
     moves.forEach((m) => {
-        score = alphaBeta(m.newPosition, depth, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY, true, context);
+        score = minimax(m.newPosition, depth, true, context);
         if (score === bestMoveScore) {
             bestMoves.push(m);
         } else if (score > bestMoveScore) {
