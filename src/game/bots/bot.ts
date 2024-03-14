@@ -5,7 +5,7 @@ import { Position } from '../model/position';
 export type Context = {
     myIndex: number;
     blueScoreFunc: (p: Position, context: Context) => number;
-    scoresCache: Map<number, number> | null;
+    blueScoresCache: Map<number, number> | null;
 };
 
 const mover = new Mover();
@@ -56,23 +56,23 @@ function getHashCode(str: string): number {
 }
 
 export function getPositionHashCode(p: Position): number {
-    return getHashCode(`${p.armyIndex}|${p.pieceData.toString()}|${p.handsData.toString()}`);
+    return getHashCode(p.pieceData.toString());
 }
 
 function getScore(p: Position, context: Context) {
-    const hashCode = 0;
-    if (context.scoresCache) {
-        const hashCode: number = getPositionHashCode(p);
-        if (context.scoresCache.has(hashCode)) {
-            return context.scoresCache.get(hashCode) || 0;
+    let blueScore;
+    if (context.blueScoresCache) {
+        const hashCode = getPositionHashCode(p);
+        if (context.blueScoresCache.has(hashCode)) {
+            blueScore = context.blueScoresCache.get(hashCode) || 0;
+        } else {
+            blueScore = context.blueScoreFunc(p, context);
+            context.blueScoresCache.set(hashCode, blueScore);
         }
+    } else {
+        blueScore = context.blueScoreFunc(p, context);
     }
-    const blueScore = context.blueScoreFunc(p, context);
-    const score = context.myIndex === 0 ? blueScore : -blueScore;
-    if (context.scoresCache) {
-        context.scoresCache.set(hashCode, score);
-    }
-    return score;
+    return context.myIndex === 0 ? blueScore : -blueScore;
 }
 
 function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context) {
@@ -145,7 +145,7 @@ export async function getMove(p: Position, strength: number, blueScoreFunc: (p: 
     const context: Context = {
         myIndex: p.armyIndex,
         blueScoreFunc,
-        scoresCache: useScoresCache ? new Map<number, number>() : null,
+        blueScoresCache: useScoresCache ? new Map<number, number>() : null,
     };
     const depth = strength;
     let score;
