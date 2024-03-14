@@ -3,10 +3,10 @@ import { Position } from '../model/position';
 import { getMove } from './bot-helper';
 
 export function getPieceScore(p: string): number {
-    if (p === 'M') return 1000000;
-    if (p === 'm') return -1000000;
-    if (p === 'S') return 1000;
-    if (p === 's') return -1000;
+    if (p === 'M') return 100;
+    if (p === 'm') return -100;
+    if (p === 'S') return 1;
+    if (p === 's') return -1;
     return 0;
 }
 
