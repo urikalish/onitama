@@ -20,12 +20,14 @@ export function About() {
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4">About</Typography>
-                    <Typography variant="body1" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
+                    <Typography variant="h4" className="page--section-header">
+                        About
+                    </Typography>
+                    <Typography variant="body1" className="about--about-text">
                         Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
                         styles of Japanese martial arts.
                     </Typography>
-                    <Typography variant="h4" sx={{ margin: '2rem 0 0.5rem 0' }}>
+                    <Typography variant="h4" className="page--section-header" sx={{ margin: '2rem 0 0.5rem 0' }}>
                         Credits
                     </Typography>
                     <Box className="about--credits-line">

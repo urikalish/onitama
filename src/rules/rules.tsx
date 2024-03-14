@@ -21,9 +21,8 @@ export function Rules() {
             <Box className="page--content-and-actions">
                 <Box className="page--content">
                     <Box className="rules-container">
-                        <Typography variant="h4">Rules</Typography>
-                        <Typography variant="h5" className="rules-section-header">
-                            Initial Setup
+                        <Typography variant="h4" className="page--section-header">
+                            Setup
                         </Typography>
                         <Typography variant="body1">
                             At the beginning of each game, a set of five cards is randomly selected from a total of 40 available movement cards, and one of the players is randomly
@@ -31,8 +30,8 @@ export function Rules() {
                             <br />
                             Each player starts with five pawns: one master and four students.
                         </Typography>
-                        <Typography variant="h5" className="rules-section-header">
-                            Movement and Attack
+                        <Typography variant="h4" className="page--section-header">
+                            Move & Attack
                         </Typography>
                         <Typography variant="body1">
                             This is a turn-based game.
@@ -47,7 +46,7 @@ export function Rules() {
                             <br />
                             If you have a legal move, you must take it - even if you do not want to. If you have no legal moves, simply choose a card to pass on to your opponent.
                         </Typography>
-                        <Typography variant="h5" className="rules-section-header">
+                        <Typography variant="h4" className="page--section-header">
                             Game End
                         </Typography>
                         <Typography variant="body1">

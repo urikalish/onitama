@@ -84,6 +84,14 @@
     row-gap: 2rem;
 }
 
+.page--section-header.page--section-header {
+    margin: 2rem 0 0.5rem 0;
+    color: var(--color--accent);
+}
+.page--section-header.page--section-header:first-child {
+    margin-top: 0;
+}
+
 .page--actions {
     display: flex;
     justify-content: flex-end;

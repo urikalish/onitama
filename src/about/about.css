@@ -1,7 +1,13 @@
+.about--about-text {
+    color: var(--color--gray--lighter);
+    margin-top: 0.5rem;
+}
+
 .about--credits-label {
-    color: var(--color--gray--light);
+    color: var(--color--gray--lighter);
 }
 .about--credits-value {
     margin-left: 0.5rem;
-    color: #f55;
+    color: #fff;
+    text-transform: none;
 }

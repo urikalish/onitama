@@ -10,6 +10,8 @@
     --color--red: hsl(0, 50%, 50%);
     --color--blue: hsl(220, 50%, 50%);
 
+    --color--accent: #f55;
+
     --color--sand--light: #fd9;
 
     --link--color: var(--color--sand--light);
