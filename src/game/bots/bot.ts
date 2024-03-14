@@ -45,7 +45,7 @@ export function sortMoves(moves: Move[]) {
     });
 }
 
-function hashCode(str: string): number {
+function getHashCode(str: string): number {
     let hash = 0;
     let i;
     let l;
@@ -56,10 +56,10 @@ function hashCode(str: string): number {
 }
 
 export function getPositionHashCode(p: Position): number {
-    return hashCode(`${p.armyIndex}|${p.pieceData.toString()}|${p.handsData.toString()}`);
+    return getHashCode(`${p.armyIndex}|${p.pieceData.toString()}|${p.handsData.toString()}`);
 }
 
-function score(p: Position, context: Context) {
+function getScore(p: Position, context: Context) {
     const hashCode = 0;
     if (context.scoresCache) {
         const hashCode: number = getPositionHashCode(p);
@@ -77,11 +77,11 @@ function score(p: Position, context: Context) {
 
 function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context) {
     if (depth === 0) {
-        return score(p, context);
+        return getScore(p, context);
     }
     const nextMoves = mover.getAllPossibleMoves(p);
     if (nextMoves.length === 0) {
-        return score(p, context);
+        return getScore(p, context);
     }
     if (isMaximizingPlayer) {
         let maxEval = -Infinity;
@@ -100,11 +100,11 @@ function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, contex
 
 function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingPlayer: boolean, context: Context) {
     if (depth === 0) {
-        return score(p, context);
+        return getScore(p, context);
     }
     const nextMoves = mover.getAllPossibleMoves(p);
     if (nextMoves.length === 0) {
-        return score(p, context);
+        return getScore(p, context);
     }
     if (maximizingPlayer) {
         let value = -Infinity;
