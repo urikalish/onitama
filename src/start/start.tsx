@@ -12,7 +12,7 @@ const BOT_STRENGTH = 'botStrength';
 const DECK_NAMES = 'deckNames';
 
 const MIN_BOT_STRENGTH = 2;
-const MAX_BOT_STRENGTH = 4;
+const MAX_BOT_STRENGTH = 5;
 
 export function Start() {
     const [opponentType, setOpponentType] = useState('human');
