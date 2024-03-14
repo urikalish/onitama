@@ -21,7 +21,7 @@ export function About() {
             <Box className="page--content-and-actions">
                 <Box className="page--content">
                     <Typography variant="h4">About</Typography>
-                    <Typography variant="body1" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem', textAlign: 'justify' }}>
+                    <Typography variant="body1" sx={{ color: 'var(--color--gray--light)', marginTop: '0.5rem' }}>
                         Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
                         styles of Japanese martial arts.
                     </Typography>
