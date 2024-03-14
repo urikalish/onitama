@@ -120,7 +120,7 @@ export async function getMove(p: Position, strength: number, scoreFunc: (p: Posi
     let bestMoveScore = Number.NEGATIVE_INFINITY;
     let bestMoves: Move[] = [];
     moves.forEach((m) => {
-        score = minimax(m.newPosition, depth, true, context);
+        score = minimax(m.newPosition, depth, false, context);
         if (score === bestMoveScore) {
             bestMoves.push(m);
         } else if (score > bestMoveScore) {
