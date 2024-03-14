@@ -129,13 +129,7 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
     }
 }
 
-export async function getMove(
-    p: Position,
-    strength: number,
-    blueScoreFunc: (p: Position, context: Context) => number,
-    useAlphaBeta: boolean,
-    useScoresCache: boolean,
-): Promise<Move> {
+export async function getMove(p: Position, strength: number, blueScoreFunc: (p: Position) => number, useAlphaBeta: boolean, useScoresCache: boolean): Promise<Move> {
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
