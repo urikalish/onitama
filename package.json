@@ -7,6 +7,7 @@
         "type": "git",
         "url": "git@github.com:urikalish/onitama.git"
     },
+    "type": "module",
     "pre-commit": "full",
     "scripts": {
         "format": "prettier  --log-level warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
