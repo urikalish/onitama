@@ -3,7 +3,9 @@
     inset: 0;
     padding-right: 1rem;
     overflow: hidden auto;
+    text-align: justify;
 }
+
 h5.rules-section-header {
     color: #f55;
     margin: 2rem 0 0.5rem 0;
