@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRandomCardsNames } from '../game/model/card';
 
-const LOCAL_STORAGE_KEY_OPPONENT_TYPE = 'opponentType';
-const LOCAL_STORAGE_KEY_BOT_STRENGTH = 'botStrength';
-const LOCAL_STORAGE_KEY_DECK_NAMES = 'deckNames';
+const LOCAL_STORAGE_SETTINGS_KEY = 'onitamaSettings';
+const OPPONENT_TYPE = 'opponentType';
+const BOT_STRENGTH = 'botStrength';
+const DECK_NAMES = 'deckNames';
 
 const MAX_BOT_STRENGTH = 4;
 
@@ -22,16 +23,17 @@ export function Start() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
         let value;
-        value = localStorage.getItem(LOCAL_STORAGE_KEY_OPPONENT_TYPE);
+        value = settings[OPPONENT_TYPE];
         if (value) {
             setOpponentType(value);
         }
-        value = localStorage.getItem(LOCAL_STORAGE_KEY_BOT_STRENGTH);
+        value = settings[BOT_STRENGTH];
         if (value) {
             setBotStrength(Math.min(Number(value), MAX_BOT_STRENGTH));
         }
-        value = localStorage.getItem(LOCAL_STORAGE_KEY_DECK_NAMES);
+        value = settings[DECK_NAMES];
         if (value) {
             const deckNames = value.split(',');
             setBaseDeck(deckNames.includes('base'));
@@ -81,9 +83,14 @@ export function Start() {
             decks.push('promo');
         }
         const cardNames = getRandomCardsNames(decks, 5);
-        localStorage.setItem(LOCAL_STORAGE_KEY_OPPONENT_TYPE, opponentType);
-        localStorage.setItem(LOCAL_STORAGE_KEY_BOT_STRENGTH, botStrength.toString());
-        localStorage.setItem(LOCAL_STORAGE_KEY_DECK_NAMES, decks.join(','));
+        localStorage.setItem(
+            LOCAL_STORAGE_SETTINGS_KEY,
+            JSON.stringify({
+                [OPPONENT_TYPE]: opponentType,
+                [BOT_STRENGTH]: botStrength.toString(),
+                [DECK_NAMES]: decks.join(','),
+            }),
+        );
         const botStrengthParam = opponentType === 'bot' ? `&strength=${botStrength}` : '';
         navigate(`/game?opponent=${opponentType}${botStrengthParam}&cards=${cardNames.join(',')}`);
     }, [opponentType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);
