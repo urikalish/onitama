@@ -102,7 +102,7 @@ export function GameUI() {
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                         {g!.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
                     </Box>
-                    {g?.isGameEnded() && <Box className="game-over-cover" />}
+                    {(g?.isGameEnded() || g?.isBotTurn())&& <Box className="game-over-cover" />}
                     <Footer />
                 </Box>
             </Box>
