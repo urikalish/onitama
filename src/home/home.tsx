@@ -19,7 +19,7 @@ export function Home() {
 
     return (
         <Box className="home page">
-            <Box className="page-cover" />
+            <Box className="page-cover" sx={{ opacity: '0.5' }} />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
                     <img alt="Onitama logo" className="width--100" src="/img/logo/onitama-pagoda.png" />
