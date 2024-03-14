@@ -1,8 +1,8 @@
 .rules-container {
     position: absolute;
     inset: 0;
-    padding-right: 1rem;
     overflow: hidden auto;
+    padding-right: 1rem;
     text-align: justify;
 }
 
