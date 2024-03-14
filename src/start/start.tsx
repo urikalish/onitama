@@ -11,11 +11,12 @@ const OPPONENT_TYPE = 'opponentType';
 const BOT_STRENGTH = 'botStrength';
 const DECK_NAMES = 'deckNames';
 
+const MIN_BOT_STRENGTH = 2;
 const MAX_BOT_STRENGTH = 5;
 
 export function Start() {
     const [opponentType, setOpponentType] = useState('human');
-    const [botStrength, setBotStrength] = useState(0);
+    const [botStrength, setBotStrength] = useState(MIN_BOT_STRENGTH);
     const [baseDeck, setBaseDeck] = useState(true);
     const [pathDeck, setPathDeck] = useState(false);
     const [windAndPromoDecks, setWindAndPromoDecks] = useState(false);
@@ -31,7 +32,7 @@ export function Start() {
         }
         value = settings[BOT_STRENGTH];
         if (value) {
-            setBotStrength(Math.min(Number(value), MAX_BOT_STRENGTH));
+            setBotStrength(Math.max(Math.min(Number(value), MAX_BOT_STRENGTH), MIN_BOT_STRENGTH));
         }
         value = settings[DECK_NAMES];
         if (value) {
@@ -116,7 +117,7 @@ export function Start() {
                                 value={botStrength}
                                 step={1}
                                 marks
-                                min={0}
+                                min={MIN_BOT_STRENGTH}
                                 max={MAX_BOT_STRENGTH}
                                 disabled={opponentType !== 'bot'}
                                 onChange={handleChangeBotStrength}
