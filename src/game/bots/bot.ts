@@ -83,7 +83,6 @@ function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, contex
     if (nextMoves.length === 0) {
         return getScore(p, context);
     }
-    sortMoves(nextMoves);
     if (isMaximizingPlayer) {
         let maxEval = -Infinity;
         for (const m of nextMoves) {
@@ -107,6 +106,7 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
     if (nextMoves.length === 0) {
         return getScore(p, context);
     }
+    sortMoves(nextMoves);
     if (maximizingPlayer) {
         let value = -Infinity;
         for (const m of nextMoves) {
