@@ -19,5 +19,5 @@ export function getBlueScore1(p: Position): number {
 }
 
 export async function getBotMove(p: Position, strength: number): Promise<Move> {
-    return getMove(p, strength, getBlueScore1, false, false);
+    return getMove(p, strength, getBlueScore1, true, false);
 }
