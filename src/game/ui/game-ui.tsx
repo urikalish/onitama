@@ -1,7 +1,7 @@
 import './game.css';
 
 import { Box } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Progress } from '../../progress/progress';
@@ -14,7 +14,7 @@ import { CoverUI } from './cover-ui';
 import { HandsUi } from './hands-ui';
 
 export function GameUI() {
-    const [g, setG] = useState<Game | null>(null);
+    const g = useRef<Game | null>(null);
     const [position, setPosition] = useState<Position | null>(null);
     const [allPossibleMoves, setAllPossibleMoves] = useState<Move[]>([]);
     const [cardPossibleMoves, setCardPossibleMoves] = useState<Move[]>([]);
@@ -36,72 +36,86 @@ export function GameUI() {
             cardNames,
         );
         game.startGame(Date.now());
-        setG(game);
+        g.current = game;
         setPosition(game.getCurPosition());
     }, []);
 
     useEffect(() => {
-        if (!g) {
+        if (!g.current) {
             return;
         }
-        if (g!.isGameGoing()) {
-            setAllPossibleMoves(g!.possibleMoves);
+        if (g.current.isGameGoing()) {
+            setAllPossibleMoves(g.current.possibleMoves);
             setCardPossibleMoves([]);
         } else {
             setTimeout(() => {
-                navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
+                if (g.current) {
+                    navigate(`/end?win=${g.current.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g.current.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
+                }
             }, 2000);
         }
-    }, [g, position]);
+    }, [position]);
 
     useEffect(() => {
-        if (!g || !g.isBotTurn()) {
+        if (!g.current) {
+            return;
+        }
+        if (!g.current.isBotTurn()) {
             return;
         }
         setTimeout(() => {
             (async () => {
-                const bm = await g!.getBotMove();
+                if (!g.current) {
+                    return;
+                }
+                const bm = await g.current.getBotMove();
                 const m = allPossibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];
-                g!.move(m);
-                setPosition(g!.getCurPosition());
+                g.current.move(m);
+                setPosition(g.current.getCurPosition());
             })();
         }, 500);
-    }, [g, allPossibleMoves]);
+    }, [allPossibleMoves]);
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
+            if (!g.current) {
+                return;
+            }
             const moves = allPossibleMoves.filter((m) => m.cardName === cardName);
             if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
                 const m = moves[0];
-                g!.move(m);
-                setPosition(g!.getCurPosition());
+                g.current.move(m);
+                setPosition(g.current.getCurPosition());
             } else {
                 setCardPossibleMoves(moves);
             }
         },
-        [g, allPossibleMoves],
+        [allPossibleMoves],
     );
 
     const handleSelectMove = useCallback(
         (from: number, to: number) => {
+            if (!g.current) {
+                return;
+            }
             const m = cardPossibleMoves.find((m) => m.from === from && m.to === to);
-            g!.move(m);
-            setPosition(g!.getCurPosition());
+            g.current.move(m);
+            setPosition(g.current.getCurPosition());
         },
         [g, cardPossibleMoves],
     );
 
     return (
-        g && (
+        g.current && (
             <Box className="game position--relative fade-in">
                 <CoverUI opacity={0.3} />
                 <Box className="game-content">
                     <Progress />
                     <Box className="game--main">
-                        <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
-                        {g!.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
+                        <BoardUI b={g.current.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
+                        {g.current.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
                     </Box>
-                    {(g?.isGameEnded() || g?.isBotTurn()) && <Box className="game-over-cover" />}
+                    {(g.current.isGameEnded() || g.current.isBotTurn()) && <Box className="game-over-cover" />}
                 </Box>
             </Box>
         )
