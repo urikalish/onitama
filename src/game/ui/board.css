@@ -34,7 +34,7 @@
 .square.selectable-source {
 }
 .square.selectable-target {
-    border-color: var(--color--gray--lighter);
+    border: 2px solid var(--color--gray--lighter);
     cursor: pointer;
     pointer-events: auto;
 }
