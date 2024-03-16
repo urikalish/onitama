@@ -86,6 +86,7 @@
 
 .page--section-header.page--section-header {
     margin: 2rem 0 0.5rem 0;
+    font-family: var(--font-family--script);
     color: var(--color--accent);
 }
 .page--section-header.page--section-header:first-child {

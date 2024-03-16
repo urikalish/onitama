@@ -1,3 +1,12 @@
+.end--title.end--title {
+    font-family: var(--font-family--script);
+}
+.end--subtitle.end--subtitle {
+    margin-left: 2px;
+    color: var(--color--gray--light);
+    font-family: var(--font-family--script);
+}
+
 .end--winner-piece-container {
     display: grid;
     place-items: center;
