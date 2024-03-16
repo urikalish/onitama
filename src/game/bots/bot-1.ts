@@ -55,6 +55,6 @@ export function getBlueScore1(p: Position): number {
     return score;
 }
 
-export async function getBotMove(p: Position, strength: number): Promise<Move> {
-    return getMove(p, strength, getBlueScore1, true, false);
+export async function getBotMove(p: Position, strength: number, progressCB: (progressPercent: number) => void): Promise<Move> {
+    return getMove(p, strength, getBlueScore1, true, false, progressCB);
 }

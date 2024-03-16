@@ -1,3 +1,5 @@
+import { proxy } from 'comlink';
+
 import { flipIndex } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
@@ -165,12 +167,21 @@ export class Game {
         return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
     }
 
+    handleProgressCallback(progressPercent: number) {
+        document.documentElement.style.setProperty('--bot-progress', `${progressPercent}%`);
+        if (progressPercent >= 100) {
+            setTimeout(() => {
+                document.documentElement.style.setProperty('--bot-progress', '0%');
+            }, 100);
+        }
+    }
+
     async getBotMove() {
         const p = this.getCurPosition();
         const index = p.armyIndex;
         const bot = this.bots[index];
         const strength = this.players[index].strength;
-        const m: Move = (await bot['getBotMove'](p, strength)) as Move;
+        const m: Move = (await bot['getBotMove'](p, strength, proxy(this.handleProgressCallback))) as Move;
         return {
             cardName: m.cardName,
             from: m.from,

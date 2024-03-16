@@ -129,18 +129,27 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
         return value;
     }
 }
-
-export async function getMove(p: Position, strength: number, blueScoreFunc: (p: Position) => number, useAlphaBeta: boolean, useScoresCache: boolean): Promise<Move> {
+export async function getMove(
+    p: Position,
+    strength: number,
+    blueScoreFunc: (p: Position) => number,
+    useAlphaBeta: boolean,
+    useScoresCache: boolean,
+    progressCB: (progressPercent: number) => void,
+): Promise<Move> {
+    progressCB(0);
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
     }
     if (moves.length === 1) {
+        progressCB(100);
         return moves[0];
     }
     sortMoves(moves);
     const winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
+        progressCB(100);
         return winMove;
     }
     const context: Context = {
@@ -152,7 +161,7 @@ export async function getMove(p: Position, strength: number, blueScoreFunc: (p: 
     let score;
     let bestMoveScore = Number.NEGATIVE_INFINITY;
     let bestMoves: Move[] = [];
-    moves.forEach((m) => {
+    moves.forEach((m, i) => {
         if (useAlphaBeta) {
             score = alphaBeta(m.newPosition, depth, -Infinity, Infinity, false, context);
         } else {
@@ -164,6 +173,7 @@ export async function getMove(p: Position, strength: number, blueScoreFunc: (p: 
             bestMoves = [m];
             bestMoveScore = score;
         }
+        progressCB(Math.round(((i + 1) / moves.length) * 100));
     });
     return bestMoves[Math.trunc(Math.random() * bestMoves.length)];
 }

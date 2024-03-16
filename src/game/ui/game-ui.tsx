@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Footer } from '../../footer/footer';
+import { Progress } from '../../progress/progress';
 import { Game, GameResult } from '../model/game';
 import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
@@ -98,12 +98,12 @@ export function GameUI() {
             <Box className="game position--relative fade-in">
                 <CoverUI opacity={0.3} />
                 <Box className="game-content">
+                    <Progress />
                     <Box className="game--main">
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                         {g!.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
                     </Box>
                     {(g?.isGameEnded() || g?.isBotTurn()) && <Box className="game-over-cover" />}
-                    <Footer />
                 </Box>
             </Box>
         )
