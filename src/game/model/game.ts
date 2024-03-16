@@ -172,7 +172,7 @@ export class Game {
         if (progressPercent >= 100) {
             setTimeout(() => {
                 document.documentElement.style.setProperty('--bot-progress', '0%');
-            }, 100);
+            }, 500);
         }
     }
 
