@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: var(--bot-progress);
-    height: 4px;
+    height: 3px;
     background-color: #f55;
     transition: all 250ms ease;
 }
