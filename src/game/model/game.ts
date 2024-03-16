@@ -1,16 +1,16 @@
-import {proxy} from 'comlink';
+import { proxy } from 'comlink';
 
-import {flipIndex} from '../../services/utils';
-import {Army} from './army';
-import {Board} from './board';
-import {getRandomCardsNames, getStartingColor} from './card';
-import {Color} from './color';
-import {Fen} from './fen';
-import {Move, MoveType} from './move';
-import {Mover} from './mover';
-import {PieceType} from './piece';
-import {Player, PlayerType} from './player';
-import {assureTwoMasters, Position} from './position';
+import { flipIndex } from '../../services/utils';
+import { Army } from './army';
+import { Board } from './board';
+import { getRandomCardsNames, getStartingColor } from './card';
+import { Color } from './color';
+import { Fen } from './fen';
+import { Move, MoveType } from './move';
+import { Mover } from './mover';
+import { PieceType } from './piece';
+import { Player, PlayerType } from './player';
+import { assureTwoMasters, Position } from './position';
 
 export enum GameResult {
     WIN = 'win',
