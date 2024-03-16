@@ -5,5 +5,5 @@
     width: var(--bot-progress);
     height: 3px;
     background-color: #f55;
-    transition: all 500ms ease;
+    transition: all 500ms linear;
 }
