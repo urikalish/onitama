@@ -1,7 +1,7 @@
 import './game.css';
 
 import { Box } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Progress } from '../../progress/progress';
@@ -18,6 +18,7 @@ export function GameUI() {
     const [position, setPosition] = useState<Position | null>(null);
     const [allPossibleMoves, setAllPossibleMoves] = useState<Move[]>([]);
     const [cardPossibleMoves, setCardPossibleMoves] = useState<Move[]>([]);
+    const goBot = useRef<boolean>(false);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -64,10 +65,15 @@ export function GameUI() {
         }
         setAllPossibleMoves(g!.possibleMoves);
         if (g!.isBotTurn()) {
+            if (!goBot.current) {
+                goBot.current = true;
+                return;
+            }
             setTimeout(() => {
                 (async () => {
                     const m = await g!.getBotMove();
                     goMove(m.cardName, m.from, m.to);
+                    goBot.current = false;
                 })();
             }, 500);
         }
