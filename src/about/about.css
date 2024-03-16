@@ -1,6 +1,7 @@
 .about--about-text {
     color: var(--color--gray--lighter);
     margin-top: 0.5rem;
+    text-align: justify;
 }
 
 .about--credits-label {

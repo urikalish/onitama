@@ -2,8 +2,12 @@
     position: absolute;
     inset: 0;
     overflow: hidden auto;
-    padding-right: 1rem;
+    padding-right: 2rem;
     color: var(--color--gray--lighter);
+}
+
+.rules--text {
+    text-align: justify;
 }
 
 .rulebook {
