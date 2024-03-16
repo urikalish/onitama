@@ -1,16 +1,16 @@
-import { proxy } from 'comlink';
+import {proxy} from 'comlink';
 
-import { flipIndex } from '../../services/utils';
-import { Army } from './army';
-import { Board } from './board';
-import { getRandomCardsNames, getStartingColor } from './card';
-import { Color } from './color';
-import { Fen } from './fen';
-import { Move, MoveType } from './move';
-import { Mover } from './mover';
-import { PieceType } from './piece';
-import { Player, PlayerType } from './player';
-import { assureTwoMasters, Position } from './position';
+import {flipIndex} from '../../services/utils';
+import {Army} from './army';
+import {Board} from './board';
+import {getRandomCardsNames, getStartingColor} from './card';
+import {Color} from './color';
+import {Fen} from './fen';
+import {Move, MoveType} from './move';
+import {Mover} from './mover';
+import {PieceType} from './piece';
+import {Player, PlayerType} from './player';
+import {assureTwoMasters, Position} from './position';
 
 export enum GameResult {
     WIN = 'win',
@@ -41,7 +41,7 @@ export class Game {
         const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
         const cardNames0: string[] = [cNames[0], cNames[1]];
         const cardNames1: string[] = [cNames[2], cNames[3]];
-        const startingColor = getStartingColor(cNames[4]);
+        const startingColor = player1Type === PlayerType.BOT ? Color.BLUE : getStartingColor(cNames[4]);
         if (startingColor === Color.BLUE) {
             cardNames0.push(cNames[4]);
         } else {
