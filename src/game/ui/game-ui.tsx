@@ -1,7 +1,7 @@
 import './game.css';
 
 import { Box } from '@mui/material';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Progress } from '../../progress/progress';
@@ -18,8 +18,6 @@ export function GameUI() {
     const [position, setPosition] = useState<Position | null>(null);
     const [allPossibleMoves, setAllPossibleMoves] = useState<Move[]>([]);
     const [cardPossibleMoves, setCardPossibleMoves] = useState<Move[]>([]);
-    const goBot = useRef<boolean>(false);
-
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -42,61 +40,55 @@ export function GameUI() {
         setPosition(game.getCurPosition());
     }, []);
 
-    const goMove = useCallback(
-        (cardName: string, from: number, to: number) => {
-            const m = allPossibleMoves.filter((m) => m.cardName === cardName && m.from === from && m.to === to)[0];
-            g!.move(m);
-            setPosition(g!.getCurPosition());
-        },
-        [g, allPossibleMoves],
-    );
-
     useEffect(() => {
         if (!g) {
             return;
         }
-        setCardPossibleMoves([]);
-        if (g!.isGameEnded()) {
-            //setAllPossibleMoves([]);
+        if (g!.isGameGoing()) {
+            setAllPossibleMoves(g!.possibleMoves);
+            setCardPossibleMoves([]);
+        } else {
             setTimeout(() => {
                 navigate(`/end?win=${g!.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g!.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
             }, 2000);
+        }
+    }, [g, position]);
+
+    useEffect(() => {
+        if (!g || !g.isBotTurn()) {
             return;
         }
-        setAllPossibleMoves(g!.possibleMoves);
-        if (g!.isBotTurn()) {
-            if (!goBot.current) {
-                goBot.current = true;
-                return;
-            }
-            setTimeout(() => {
-                (async () => {
-                    const m = await g!.getBotMove();
-                    goMove(m.cardName, m.from, m.to);
-                    goBot.current = false;
-                })();
-            }, 500);
-        }
-    }, [g, position, goMove]);
+        setTimeout(() => {
+            (async () => {
+                const bm = await g!.getBotMove();
+                const m = allPossibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];
+                g!.move(m);
+                setPosition(g!.getCurPosition());
+            })();
+        }, 500);
+    }, [g, allPossibleMoves]);
 
     const handleSelectCard = useCallback(
         (cardName: string) => {
             const moves = allPossibleMoves.filter((m) => m.cardName === cardName);
             if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
-                goMove(moves[0].cardName, moves[0].from, moves[0].to);
+                const m = moves[0];
+                g!.move(m);
+                setPosition(g!.getCurPosition());
             } else {
                 setCardPossibleMoves(moves);
             }
         },
-        [g, allPossibleMoves, goMove],
+        [g, allPossibleMoves],
     );
 
     const handleSelectMove = useCallback(
         (from: number, to: number) => {
             const m = cardPossibleMoves.find((m) => m.from === from && m.to === to);
-            goMove(m!.cardName, m!.from, m!.to);
+            g!.move(m);
+            setPosition(g!.getCurPosition());
         },
-        [g, cardPossibleMoves, goMove],
+        [g, cardPossibleMoves],
     );
 
     return (
