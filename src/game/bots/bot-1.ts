@@ -2,19 +2,56 @@ import { Move } from '../model/move';
 import { Position } from '../model/position';
 import { getMove } from './bot';
 
-export function getPieceScore(p: string): number {
-    if (p === 'M') return 100;
-    if (p === 'm') return -100;
-    if (p === 'S') return 1;
-    if (p === 's') return -1;
-    return 0;
-}
-
 export function getBlueScore1(p: Position): number {
     let score = 0;
-    p.pieceData.forEach((d) => {
-        score += getPieceScore(d);
-    });
+    const blueTorii = 10;
+    const redTorii = 14;
+    const centerCircle = [6, 7, 8, 11, 13, 16, 17, 18, 21, 22, 23];
+    const centerSquare = 12;
+    for (const [i, d] of p.pieceData.entries()) {
+        if (d === '') {
+            continue;
+        }
+        if (d === 'M') {
+            score += 100;
+            if (i === redTorii) {
+                score += 100;
+            }
+            if (centerCircle.includes(i)) {
+                score += 1;
+            }
+            if (i === centerSquare) {
+                score += 2;
+            }
+        } else if (d === 'S') {
+            score += 10;
+            if (centerCircle.includes(i)) {
+                score += 1;
+            }
+            if (i === centerSquare) {
+                score += 2;
+            }
+        } else if (d === 'm') {
+            score += -100;
+            if (i === blueTorii) {
+                score -= 100;
+            }
+            if (centerCircle.includes(i)) {
+                score -= 1;
+            }
+            if (i === centerSquare) {
+                score -= 2;
+            }
+        } else if (d === 's') {
+            score += -10;
+            if (centerCircle.includes(i)) {
+                score -= 1;
+            }
+            if (i === centerSquare) {
+                score -= 2;
+            }
+        }
+    }
     return score;
 }
 
