@@ -26,7 +26,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Game designer:
+                                Game designer -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Shimpei Sato
@@ -36,7 +36,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Web developer:
+                                Web developer -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Uri Kalish
@@ -46,17 +46,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Run-time libs:
-                            </Box>
-                            <Box component="span" className="credits--value">
-                                React, MaterialUI
-                            </Box>
-                        </Typography>
-                    </Box>
-                    <Box className="credits--line">
-                        <Typography variant="body1" className="credits--label">
-                            <Box component="span" className="credits--label">
-                                Dev libs:
+                                Dev libs -
                             </Box>
                             <Box component="span" className="credits--value">
                                 TypeScript, Vite
@@ -66,10 +56,30 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Image creator:
+                                Run-time libs -
+                            </Box>
+                            <Box component="span" className="credits--value">
+                                React, MaterialUI
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
+                                Image creator -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Midjourney
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
+                                Music -
+                            </Box>
+                            <Box component="span" className="credits--value">
+                                Triple7Music
                             </Box>
                         </Typography>
                     </Box>

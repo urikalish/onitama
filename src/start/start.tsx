@@ -92,14 +92,11 @@ export function Start() {
             decks.push('promo');
         }
         const cardNames = getRandomCardsNames(decks, 5);
-        localStorage.setItem(
-            LOCAL_STORAGE_SETTINGS_KEY,
-            JSON.stringify({
-                [OPPONENT_TYPE]: opponentType,
-                [BOT_STRENGTH]: botStrength.toString(),
-                [DECK_NAMES]: decks.join(','),
-            }),
-        );
+        const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
+        settings[OPPONENT_TYPE] = opponentType;
+        settings[BOT_STRENGTH] = botStrength.toString();
+        settings[DECK_NAMES] = decks.join(',');
+        localStorage.setItem(LOCAL_STORAGE_SETTINGS_KEY, JSON.stringify(settings));
         const botStrengthParam = opponentType === 'bot' ? `&strength=${botStrength}` : '';
         navigate(`/game?opponent=${opponentType}${botStrengthParam}&cards=${cardNames.join(',')}`);
     }, [opponentType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);

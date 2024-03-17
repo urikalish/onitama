@@ -19,6 +19,11 @@ header {
     user-select: none;
 }
 
+.header--toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
 .header--toolbar.MuiToolbar-root {
     padding: 0 8px;
 }
