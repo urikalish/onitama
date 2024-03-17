@@ -22,11 +22,15 @@ export function Audio() {
     const musicPlayerRef = useRef<HTMLAudioElement>(null);
     const [soundOn, setSoundOn] = useState<boolean>(false);
 
-    const handleMusicEnded = useCallback(() => {
+    const playNextSong = useCallback(() => {
         audioIndex++;
         musicPlayerRef.current!.src = musicFiles[audioIndex % musicFiles.length];
         musicPlayerRef.current!.play().then(() => {});
     }, []);
+
+    const handleMusicEnded = useCallback(() => {
+        playNextSong();
+    }, [playNextSong]);
 
     useEffect(() => {
         if (!musicPlayerRef.current) {
@@ -44,7 +48,7 @@ export function Audio() {
             return;
         }
         if (soundOn) {
-            musicPlayerRef.current!.play().then(() => {});
+            playNextSong();
         } else {
             musicPlayerRef.current!.pause();
         }
