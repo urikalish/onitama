@@ -72,6 +72,10 @@ export function Start() {
     }, []);
 
     const handleClickStart = useCallback(() => {
+        const audioElm = document.getElementById('musicPlayer');
+        if (audioElm) {
+            (audioElm as HTMLAudioElement).play().then(() => {});
+        }
         const decks = [];
         if (baseDeck) {
             decks.push('base');
@@ -102,34 +106,36 @@ export function Start() {
             <Box className="page--content-and-actions">
                 <Box className="page--content">
                     <FormGroup>
-                        <Typography variant="h4">Opponent</Typography>
+                        <Typography variant="h4" className="page--section-header">
+                            Opponent
+                        </Typography>
                         <FormControl>
                             <RadioGroup value={opponentType} onChange={handleChangeOpponentType} name="opponent-type-radio-group">
                                 <FormControlLabel value="human" control={<Radio />} label="Human" />
                                 <FormControlLabel value="bot" control={<Radio />} label="Bot" />
                             </RadioGroup>
+                            <Box className={`start--bot-level ${opponentType === 'bot' ? '' : 'hidden'}`}>
+                                <Typography variant="body2" className="start--bot-level-slider-label">
+                                    Easy
+                                </Typography>
+                                <Slider
+                                    value={botStrength}
+                                    step={1}
+                                    marks
+                                    min={MIN_BOT_STRENGTH}
+                                    max={MAX_BOT_STRENGTH}
+                                    disabled={opponentType !== 'bot'}
+                                    onChange={handleChangeBotStrength}
+                                    className="start--bot-level-slider"
+                                />
+                                <Typography variant="body2" className="start--bot-level-slider-label">
+                                    Hard
+                                </Typography>
+                            </Box>
                         </FormControl>
-                        <Box className={`start--bot-level ${opponentType === 'bot' ? '' : 'hidden'}`}>
-                            <Typography variant="body2" className="start--bot-level-slider-label">
-                                Easy
-                            </Typography>
-                            <Slider
-                                value={botStrength}
-                                step={1}
-                                marks
-                                min={MIN_BOT_STRENGTH}
-                                max={MAX_BOT_STRENGTH}
-                                disabled={opponentType !== 'bot'}
-                                onChange={handleChangeBotStrength}
-                                className="start--bot-level-slider"
-                            />
-                            <Typography variant="body2" className="start--bot-level-slider-label">
-                                Hard
-                            </Typography>
-                        </Box>
                     </FormGroup>
                     <FormGroup>
-                        <Typography variant="h4" sx={{ marginTop: '2rem' }}>
+                        <Typography variant="h4" className="page--section-header" sx={{ marginTop: '2rem !important' }}>
                             Movement
                         </Typography>
                         <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />

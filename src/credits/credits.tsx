@@ -1,10 +1,10 @@
-import './about.css';
+import './credits.css';
 
 import { Box, Button, Typography } from '@mui/material';
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function About() {
+export function Credits() {
     const navigate = useNavigate();
 
     const handleClickHome = useCallback(() => {
@@ -16,66 +16,59 @@ export function About() {
     }, []);
 
     return (
-        <Box className="about page">
+        <Box className="credits page">
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4" className="page--section-header">
-                        About
-                    </Typography>
-                    <Typography variant="body1" className="about--about-text">
-                        Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different fighting
-                        styles of Japanese martial arts.
-                    </Typography>
                     <Typography variant="h4" className="page--section-header" sx={{ margin: '2rem 0 0.5rem 0' }}>
                         Credits
                     </Typography>
-                    <Box className="about--credits-line">
-                        <Typography variant="body1" className="about--credits-label">
-                            <Box component="span" className="about--credits-label">
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
                                 Game designer:
                             </Box>
-                            <Box component="span" className="about--credits-value">
+                            <Box component="span" className="credits--value">
                                 Shimpei Sato
                             </Box>
                         </Typography>
                     </Box>
-                    <Box className="about--credits-line">
-                        <Typography variant="body1" className="about--credits-label">
-                            <Box component="span" className="about--credits-label">
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
                                 Web developer:
                             </Box>
-                            <Box component="span" className="about--credits-value">
+                            <Box component="span" className="credits--value">
                                 Uri Kalish
                             </Box>
                         </Typography>
                     </Box>
-                    <Box className="about--credits-line">
-                        <Typography variant="body1" className="about--credits-label">
-                            <Box component="span" className="about--credits-label">
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
                                 Run-time libs:
                             </Box>
-                            <Box component="span" className="about--credits-value">
+                            <Box component="span" className="credits--value">
                                 React, MaterialUI
                             </Box>
                         </Typography>
                     </Box>
-                    <Box className="about--credits-line">
-                        <Typography variant="body1" className="about--credits-label">
-                            <Box component="span" className="about--credits-label">
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
                                 Dev libs:
                             </Box>
-                            <Box component="span" className="about--credits-value">
+                            <Box component="span" className="credits--value">
                                 TypeScript, Vite
                             </Box>
                         </Typography>
                     </Box>
-                    <Box className="about--credits-line">
-                        <Typography variant="body1" className="about--credits-label">
-                            <Box component="span" className="about--credits-label">
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
                                 Image creator:
                             </Box>
-                            <Box component="span" className="about--credits-value">
+                            <Box component="span" className="credits--value">
                                 Midjourney
                             </Box>
                         </Typography>

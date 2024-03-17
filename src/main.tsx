@@ -6,9 +6,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { About } from './about/about';
+import { Credits } from './credits/credits';
 import { End } from './end/end';
-import { ErrorPage } from './error-page/error-page';
+import { Error } from './error/error';
 import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
 import { Root } from './root/root';
@@ -20,19 +20,19 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Root />,
-        errorElement: <ErrorPage />,
+        errorElement: <Error />,
         children: [
             {
                 path: '/',
                 element: <Home />,
             },
             {
-                path: 'rules',
-                element: <Rules />,
+                path: 'credits',
+                element: <Credits />,
             },
             {
-                path: 'about',
-                element: <About />,
+                path: 'rules',
+                element: <Rules />,
             },
             {
                 path: 'start',

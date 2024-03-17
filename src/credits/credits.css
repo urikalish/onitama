@@ -1,0 +1,7 @@
+.credits--label {
+    color: var(--color--gray--lighter);
+}
+.credits--value {
+    margin-left: 0.5rem;
+    color: #fff;
+}

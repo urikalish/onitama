@@ -22,16 +22,23 @@ export function Rules() {
                 <Box className="page--content">
                     <Box className="rules-container">
                         <Typography variant="h4" className="page--section-header">
-                            Setup
+                            About Onitama
                         </Typography>
-                        <Typography variant="body1" className="rules--text">
+                        <Typography variant="body1" className="page--section-text">
+                            Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different
+                            fighting styles of Japanese martial arts.
+                        </Typography>
+                        <Typography variant="h4" className="page--section-header">
+                            Initial Setup
+                        </Typography>
+                        <Typography variant="body1" className="page--section-text">
                             At the beginning of each game, a set of five cards is randomly selected from a total of 40 available movement cards, and one of the players is randomly
                             chosen to go first. Each player starts with five pawns: one master and four students.
                         </Typography>
                         <Typography variant="h4" className="page--section-header">
                             Move & Attack
                         </Typography>
-                        <Typography variant="body1" className="rules--text">
+                        <Typography variant="body1" className="page--section-text">
                             This is a turn-based game. On your turn, choose one of your two active cards, and move one of your pawns according to the grid drawn on the card. The
                             colored square in the middle represents the space your chosen pawn currently occupies, and the light squares indicate where your pawn can move, relative
                             to its starting position. Your pawn can jump over any other pawn, provided it does not land off the board or on one of your own pieces. If your pawn
@@ -42,7 +49,7 @@ export function Rules() {
                         <Typography variant="h4" className="page--section-header">
                             Game End
                         </Typography>
-                        <Typography variant="body1" className="rules--text">
+                        <Typography variant="body1" className="page--section-text">
                             There are two ways to win the game. To win in the Way of the Stone, you must capture your opponent’s Master pawn. To win in the Way of the Stream, you
                             must move your own Master pawn into your opponent’s blue or red Torii gate square.
                         </Typography>

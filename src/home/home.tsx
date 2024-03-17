@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 export function Home() {
     const navigate = useNavigate();
 
-    const handleClickAbout = useCallback(() => {
-        navigate(`/about`);
+    const handleClickCredits = useCallback(() => {
+        navigate(`/credits`);
     }, []);
 
     const handleClickRules = useCallback(() => {
@@ -25,8 +25,8 @@ export function Home() {
                     <img alt="Onitama logo" className="width--100" src="/img/logo/onitama-pagoda.png" />
                 </Box>
                 <Box className="page--actions">
-                    <Button onClick={handleClickAbout} variant="outlined" className="action-button">
-                        <Typography>About</Typography>
+                    <Button onClick={handleClickCredits} variant="outlined" className="action-button">
+                        <Typography>Credits</Typography>
                     </Button>
                     <Button onClick={handleClickRules} variant="outlined" className="action-button">
                         <Typography>Rules</Typography>

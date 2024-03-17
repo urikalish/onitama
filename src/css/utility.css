@@ -92,6 +92,9 @@
 .page--section-header.page--section-header:first-child {
     margin-top: 0;
 }
+.page--section-text.page--section-text {
+    color: var(--color--gray--lighter);
+}
 
 .page--actions {
     display: flex;

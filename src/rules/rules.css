@@ -6,13 +6,13 @@
     color: var(--color--gray--lighter);
 }
 
-.rules--text {
+.rules-container > .page--section-text {
     text-align: justify;
 }
 
-.rulebook {
-    margin-top: 1rem;
-    width: 100%;
-    height: calc(100 * var(--vh) - 16rem);
-    overflow: hidden auto;
-}
+/*.rulebook {*/
+/*    margin-top: 1rem;*/
+/*    width: 100%;*/
+/*    height: calc(100 * var(--vh) - 16rem);*/
+/*    overflow: hidden auto;*/
+/*}*/
