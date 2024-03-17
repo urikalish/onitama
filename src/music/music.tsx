@@ -3,6 +3,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { Box, IconButton } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
+import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
 import { shuffleArray } from '../services/utils';
 
 function getRandomMusicTracks(): string[] {
@@ -16,7 +17,7 @@ let audioIndex = 0;
 
 export function Music() {
     const musicPlayerRef = useRef<HTMLAudioElement>(null);
-    const [soundOn, setSoundOn] = useState<boolean>(false);
+    const [musicOn, setMusicOn] = useState<boolean>(false);
 
     const playNextSong = useCallback(() => {
         audioIndex++;
@@ -43,25 +44,26 @@ export function Music() {
         if (!musicPlayerRef.current) {
             return;
         }
-        if (soundOn) {
+        if (musicOn) {
             playNextSong();
+            sendAnalyticsEvent(AnalyticsCategory.MUSIC, AnalyticsAction.MUSIC_ON);
         } else {
             musicPlayerRef.current!.pause();
         }
-    }, [soundOn]);
+    }, [musicOn]);
 
     const handleToggleSound = useCallback(() => {
-        setSoundOn((on) => !on);
+        setMusicOn((on) => !on);
     }, []);
 
     return (
         <Box>
-            {soundOn && (
+            {musicOn && (
                 <IconButton aria-label="Sounds on" onClick={handleToggleSound}>
                     <VolumeUpIcon sx={{ fill: '#000' }} />
                 </IconButton>
             )}
-            {!soundOn && (
+            {!musicOn && (
                 <IconButton aria-label="Sounds off" onClick={handleToggleSound}>
                     <VolumeOffIcon sx={{ fill: '#000' }} />
                 </IconButton>

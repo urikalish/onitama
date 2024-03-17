@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Progress } from '../../progress/progress';
+import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
 import { Game, GameResult } from '../model/game';
 import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
@@ -26,18 +27,21 @@ export function GameUI() {
         const opponent: string = queryParams.get('opponent') || 'human';
         const strength: number = Number(queryParams.get('strength') || '0');
         const cardNames = (queryParams.get('cards') || '').split(',');
+        const isSinglePlayer = opponent === 'bot';
         const game = new Game(
             'Blue Player',
             PlayerType.HUMAN,
             0,
-            opponent === 'human' ? 'Red Player' : 'Red Bot',
-            opponent === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
-            opponent === 'human' ? 0 : strength,
+            isSinglePlayer ? 'Red Bot' : 'Red Player',
+            isSinglePlayer ? PlayerType.BOT : PlayerType.HUMAN,
+            isSinglePlayer ? strength : 0,
             cardNames,
         );
         game.startGame(Date.now());
         g.current = game;
         setPosition(game.getCurPosition());
+        sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
+        sendAnalyticsEvent(AnalyticsCategory.GAME_TYPE, isSinglePlayer ? AnalyticsAction.GAME_TYPE_1_PLAYER : AnalyticsAction.GAME_TYPE_2_PLAYERS);
     }, []);
 
     useEffect(() => {
@@ -48,6 +52,15 @@ export function GameUI() {
             setAllPossibleMoves(g.current.possibleMoves);
             setCardPossibleMoves([]);
         } else {
+            sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
+            if (g.current?.players[1].type === PlayerType.BOT) {
+                sendAnalyticsEvent(
+                    AnalyticsCategory.GAME_RESULT,
+                    g.current.results.has(GameResult.WIN_BLUE)
+                        ? AnalyticsAction.GAME_RESULT_BOT_LOSS + g.current?.players[1].strength
+                        : AnalyticsAction.GAME_RESULT_BOT_WIN + g.current?.players[1].strength,
+                );
+            }
             setTimeout(() => {
                 if (g.current) {
                     navigate(`/end?win=${g.current.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g.current.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
