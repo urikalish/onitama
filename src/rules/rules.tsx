@@ -33,7 +33,7 @@ export function Rules() {
                         </Typography>
                         <Typography variant="body1" className="page--section-text">
                             At the beginning of each game, a set of five cards is randomly selected from a total of 40 available movement cards, and one of the players is randomly
-                            chosen to go first. Each player starts with five pawns: one master and four students.
+                            chosen to go first. Each player starts with five pawns: one Master and four students.
                         </Typography>
                         <Typography variant="h4" className="page--section-header">
                             Move & Attack
@@ -43,7 +43,7 @@ export function Rules() {
                             colored square in the middle represents the space your chosen pawn currently occupies, and the light squares indicate where your pawn can move, relative
                             to its starting position. Your pawn can jump over any other pawn, provided it does not land off the board or on one of your own pieces. If your pawn
                             moves onto a square occupied by one of your opponent’s pawns, the opponent’s pawn is captured and removed from the game. After your move, your selected
-                            card will flip and go to your opponent but will become usable only in the next round. If you have a legal move, you must take it - even if you do not
+                            card will go to your opponent and flip, but will become usable only in the next round. If you have a legal move, you must take it - even if you do not
                             want to. If you have no legal moves, simply choose a card to pass on to your opponent.
                         </Typography>
                         <Typography variant="h4" className="page--section-header">
