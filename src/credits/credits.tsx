@@ -1,17 +1,11 @@
 import './credits.css';
 
 import { Box, Button, Typography } from '@mui/material';
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
 
 export function Credits() {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        sendAnalyticsEvent(AnalyticsCategory.PAGE_VIEW, AnalyticsAction.PAGE_VIEW_CREDITS);
-    }, []);
 
     const handleClickHome = useCallback(() => {
         navigate(`/`);
