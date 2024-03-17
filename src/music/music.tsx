@@ -18,7 +18,7 @@ function getRandomMusicTracks(): string[] {
 const musicFiles = getRandomMusicTracks();
 let audioIndex = 0;
 
-export function Audio() {
+export function Music() {
     const musicPlayerRef = useRef<HTMLAudioElement>(null);
     const [soundOn, setSoundOn] = useState<boolean>(false);
 

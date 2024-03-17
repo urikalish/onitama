@@ -66,7 +66,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Image creator -
+                                Images -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Midjourney
