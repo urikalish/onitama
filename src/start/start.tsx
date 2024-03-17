@@ -67,6 +67,10 @@ export function Start() {
         setWindAndPromoDecks(event.target.checked);
     }, []);
 
+    const handleClickRules = useCallback(() => {
+        navigate(`/rules`);
+    }, []);
+
     const handleClickHome = useCallback(() => {
         navigate(`/`);
     }, []);
@@ -146,6 +150,9 @@ export function Start() {
                 <Box className="page--actions">
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
+                    </Button>
+                    <Button onClick={handleClickRules} variant="outlined" className="action-button">
+                        <Typography>Rules</Typography>
                     </Button>
                     <Button disabled={!canSubmit} onClick={handleClickStart} variant="contained" className="action-button">
                         <Typography>Start</Typography>

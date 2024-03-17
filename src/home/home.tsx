@@ -9,10 +9,6 @@ export function Home() {
         navigate(`/credits`);
     }, []);
 
-    const handleClickRules = useCallback(() => {
-        navigate(`/rules`);
-    }, []);
-
     const handleClickPlay = useCallback(() => {
         navigate(`/start`);
     }, []);
@@ -27,9 +23,6 @@ export function Home() {
                 <Box className="page--actions">
                     <Button onClick={handleClickCredits} variant="outlined" className="action-button">
                         <Typography>Credits</Typography>
-                    </Button>
-                    <Button onClick={handleClickRules} variant="outlined" className="action-button">
-                        <Typography>Rules</Typography>
                     </Button>
                     <Button onClick={handleClickPlay} variant="contained" className="action-button">
                         <Typography>Play</Typography>
