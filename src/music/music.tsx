@@ -61,13 +61,13 @@ export function Music() {
     return (
         <Box>
             {soundOn && (
-                <IconButton color="primary" aria-label="Sounds on" onClick={handleToggleSound}>
-                    <VolumeUpIcon />
+                <IconButton aria-label="Sounds on" onClick={handleToggleSound}>
+                    <VolumeUpIcon sx={{ fill: '#000' }} />
                 </IconButton>
             )}
             {!soundOn && (
-                <IconButton color="primary" aria-label="Sounds off" onClick={handleToggleSound}>
-                    <VolumeOffIcon sx={{ fill: '#f55' }} />
+                <IconButton aria-label="Sounds off" onClick={handleToggleSound}>
+                    <VolumeOffIcon sx={{ fill: '#000' }} />
                 </IconButton>
             )}
             <audio ref={musicPlayerRef} id="musicPlayer" src="/music/epic-taiko-percussion-drums.mp3">
