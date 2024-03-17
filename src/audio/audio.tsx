@@ -3,7 +3,19 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { Box, IconButton } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-const musicFiles = ['/music/taiko-drums.mp3', '/music/tokyo-sunrise.mp3', '/music/tokyo-sunset.mp3'];
+function getRandomMusicTracks(): string[] {
+    const musicFiles = ['/music/taiko-drums.mp3', '/music/tokyo-sunrise.mp3', '/music/tokyo-sunset.mp3'];
+    let rnd;
+    let cur = musicFiles.length;
+    while (cur !== 0) {
+        rnd = Math.floor(Math.random() * cur);
+        cur--;
+        [musicFiles[cur], musicFiles[rnd]] = [musicFiles[rnd], musicFiles[cur]];
+    }
+    return musicFiles;
+}
+
+const musicFiles = getRandomMusicTracks();
 let audioIndex = 0;
 
 export function Audio() {
