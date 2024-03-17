@@ -111,25 +111,25 @@ export function Start() {
                                 <FormControlLabel value="human" control={<Radio />} label="Human" />
                                 <FormControlLabel value="bot" control={<Radio />} label="Bot" />
                             </RadioGroup>
-                            <Box className={`start--bot-level ${opponentType === 'bot' ? '' : 'hidden'}`}>
-                                <Typography variant="body2" className="start--bot-level-slider-label">
-                                    Easy
-                                </Typography>
-                                <Slider
-                                    value={botStrength}
-                                    step={1}
-                                    marks
-                                    min={MIN_BOT_STRENGTH}
-                                    max={MAX_BOT_STRENGTH}
-                                    disabled={opponentType !== 'bot'}
-                                    onChange={handleChangeBotStrength}
-                                    className="start--bot-level-slider"
-                                />
-                                <Typography variant="body2" className="start--bot-level-slider-label">
-                                    Hard
-                                </Typography>
-                            </Box>
                         </FormControl>
+                        <Box className={`start--bot-level ${opponentType === 'bot' ? '' : 'hidden'}`}>
+                            <Typography variant="body2" className="start--bot-level-slider-label">
+                                Easy
+                            </Typography>
+                            <Slider
+                                value={botStrength}
+                                step={1}
+                                marks
+                                min={MIN_BOT_STRENGTH}
+                                max={MAX_BOT_STRENGTH}
+                                disabled={opponentType !== 'bot'}
+                                onChange={handleChangeBotStrength}
+                                className="start--bot-level-slider"
+                            />
+                            <Typography variant="body2" className="start--bot-level-slider-label">
+                                Hard
+                            </Typography>
+                        </Box>
                     </FormGroup>
                     <FormGroup>
                         <Typography variant="h4" className="page--section-header" sx={{ marginTop: '2rem !important' }}>
