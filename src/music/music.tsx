@@ -2,16 +2,11 @@ import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { Box, IconButton } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import {shuffleArray} from "../services/utils";
 
 function getRandomMusicTracks(): string[] {
     const musicFiles = ['/music/taiko-drums.mp3', '/music/tokyo-sunrise.mp3', '/music/tokyo-sunset.mp3'];
-    let rnd;
-    let cur = musicFiles.length;
-    while (cur !== 0) {
-        rnd = Math.floor(Math.random() * cur);
-        cur--;
-        [musicFiles[cur], musicFiles[rnd]] = [musicFiles[rnd], musicFiles[cur]];
-    }
+    shuffleArray(musicFiles)
     return musicFiles;
 }
 
