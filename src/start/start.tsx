@@ -76,10 +76,6 @@ export function Start() {
     }, []);
 
     const handleClickStart = useCallback(() => {
-        const audioElm = document.getElementById('musicPlayer');
-        if (audioElm) {
-            (audioElm as HTMLAudioElement).play().then(() => {});
-        }
         const decks = [];
         if (baseDeck) {
             decks.push('base');
