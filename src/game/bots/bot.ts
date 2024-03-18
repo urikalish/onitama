@@ -146,8 +146,18 @@ export async function getMove(
         progressCB(100);
         return moves[0];
     }
-    sortMoves(moves);
-    const winMove = moves.find((m) => m.types.has(MoveType.WIN));
+    let winMove;
+    winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STONE));
+    if (winMove) {
+        progressCB(100);
+        return winMove;
+    }
+    winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STREAM));
+    if (winMove) {
+        progressCB(100);
+        return winMove;
+    }
+    winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
         progressCB(100);
         return winMove;
@@ -161,6 +171,7 @@ export async function getMove(
     let score;
     let bestMoveScore = Number.NEGATIVE_INFINITY;
     let bestMoves: Move[] = [];
+    sortMoves(moves);
     moves.forEach((m, i) => {
         if (useAlphaBeta) {
             score = alphaBeta(m.newPosition, depth, -Infinity, Infinity, false, context);
