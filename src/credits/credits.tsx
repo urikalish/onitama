@@ -29,7 +29,7 @@ export function Credits() {
                                 Game designer -
                             </Box>
                             <Box component="span" className="credits--value">
-                                Shimpei Sato
+                                Shimpei Sato, 2014
                             </Box>
                         </Typography>
                     </Box>
@@ -39,7 +39,7 @@ export function Credits() {
                                 Web developer -
                             </Box>
                             <Box component="span" className="credits--value">
-                                Uri Kalish
+                                Uri Kalish, 2024
                             </Box>
                         </Typography>
                     </Box>
