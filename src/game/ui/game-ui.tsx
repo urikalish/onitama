@@ -63,7 +63,14 @@ export function GameUI() {
             }
             setTimeout(() => {
                 if (g.current) {
-                    navigate(`/end?win=${g.current.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${g.current.results.has(GameResult.WIN_STONE) ? 'stone' : 'stream'}`);
+                    const ways = [];
+                    if (g.current.results.has(GameResult.WIN_STONE)) {
+                        ways.push('stone');
+                    }
+                    if (g.current.results.has(GameResult.WIN_STREAM)) {
+                        ways.push('stream');
+                    }
+                    navigate(`/end?win=${g.current.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${ways.join(',')}`);
                 }
             }, 2000);
         }

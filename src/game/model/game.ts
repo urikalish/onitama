@@ -101,6 +101,11 @@ export class Game {
             this.results.add(GameResult.WIN_RED);
             this.resultStr = 'Red wins by';
         }
+        if (m.types.has(MoveType.WIN_STONE) && m.types.has(MoveType.WIN_STREAM)) {
+            this.results.add(GameResult.WIN_STONE);
+            this.results.add(GameResult.WIN_STREAM);
+            this.resultStr += ' the ways of the stone and the stream.';
+        }
         if (m.types.has(MoveType.WIN_STONE)) {
             this.results.add(GameResult.WIN_STONE);
             this.resultStr += ' the way of the stone.';

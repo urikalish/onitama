@@ -31,9 +31,21 @@ export function End() {
             <Box className="page--content-and-actions">
                 <Box className="page--content">
                     <Typography variant="h4" className="end--title">{`${win === 'blue' ? 'Blue' : 'Red'} Victory!`}</Typography>
-                    <Typography variant="body1" className="end--subtitle">
-                        By the Way of the {way === 'stone' ? 'Stone' : 'Stream'}
-                    </Typography>
+                    {way.split(',').includes('stone') && way.split(',').includes('stream') && (
+                        <Typography variant="body1" className="end--subtitle">
+                            By the Ways of the Stone and the Stream.
+                        </Typography>
+                    )}
+                    {way.split(',').includes('stone') && !way.split(',').includes('stream') && (
+                        <Typography variant="body1" className="end--subtitle">
+                            By the Way of the Stone.
+                        </Typography>
+                    )}
+                    {!way.split(',').includes('stone') && way.split(',').includes('stream') && (
+                        <Typography variant="body1" className="end--subtitle">
+                            By the Way of the Stream.
+                        </Typography>
+                    )}
                     <Box className="end--winner-piece-container">
                         <img alt="Victorious master" className="end--winner-piece" src={`/img/pieces/m${win === 'blue' ? '0' : '1'}2.png`} />
                     </Box>
