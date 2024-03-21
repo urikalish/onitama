@@ -4,8 +4,8 @@ import { Position } from '../model/position';
 
 export type Context = {
     myIndex: number;
-    blueScoreFunc: (p: Position, context: Context) => number;
-    blueScoresCache: Map<number, number> | null;
+    redScoreFunc: (p: Position, context: Context) => number;
+    redScoresCache: Map<number, number> | null;
 };
 
 const mover = new Mover();
@@ -55,24 +55,20 @@ function getHashCode(str: string): number {
     return hash;
 }
 
-export function getPositionHashCode(p: Position): number {
-    return getHashCode(p.pieceData.toString());
-}
-
 function getScore(p: Position, context: Context) {
-    let blueScore;
-    if (context.blueScoresCache) {
-        const hashCode = getPositionHashCode(p);
-        if (context.blueScoresCache.has(hashCode)) {
-            blueScore = context.blueScoresCache.get(hashCode) || 0;
+    let redScore;
+    if (context.redScoresCache) {
+        const hashCode = getHashCode(p.pieceData.toString());
+        if (context.redScoresCache.has(hashCode)) {
+            redScore = context.redScoresCache.get(hashCode) || 0;
         } else {
-            blueScore = context.blueScoreFunc(p, context);
-            context.blueScoresCache.set(hashCode, blueScore);
+            redScore = context.redScoreFunc(p, context);
+            context.redScoresCache.set(hashCode, redScore);
         }
     } else {
-        blueScore = context.blueScoreFunc(p, context);
+        redScore = context.redScoreFunc(p, context);
     }
-    return context.myIndex === 0 ? blueScore : -blueScore;
+    return context.myIndex === 1 ? redScore : -redScore;
 }
 
 function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context) {
@@ -132,7 +128,7 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
 export async function getMove(
     p: Position,
     strength: number,
-    blueScoreFunc: (p: Position) => number,
+    redScoreFunc: (p: Position) => number,
     useAlphaBeta: boolean,
     useScoresCache: boolean,
     progressCB: (progressPercent: number) => void,
@@ -164,8 +160,8 @@ export async function getMove(
     }
     const context: Context = {
         myIndex: p.armyIndex,
-        blueScoreFunc,
-        blueScoresCache: useScoresCache ? new Map<number, number>() : null,
+        redScoreFunc: redScoreFunc,
+        redScoresCache: useScoresCache ? new Map<number, number>() : null,
     };
     const depth = strength;
     let score;
