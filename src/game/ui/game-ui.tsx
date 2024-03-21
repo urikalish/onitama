@@ -128,7 +128,7 @@ export function GameUI() {
     return (
         g.current && (
             <Box className="game position--relative fade-in">
-                <CoverUI opacity={0.3} />
+                <CoverUI opacity={0.4} />
                 <Box className="game-content">
                     <Progress />
                     <Box className="game--main">
