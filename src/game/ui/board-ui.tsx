@@ -16,8 +16,10 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
     const [selectedSourceIndex, setSelectedSourceIndex] = useState<number>(-1);
 
     useEffect(() => {
-        setSelectedSourceIndex(-1);
-    }, [cardPossibleMoves]);
+        if (!cardPossibleMoves.find((m) => m.from === selectedSourceIndex)) {
+            setSelectedSourceIndex(-1);
+        }
+    }, [cardPossibleMoves, selectedSourceIndex]);
 
     const handleClickPiece = useCallback(
         (event: any) => {
