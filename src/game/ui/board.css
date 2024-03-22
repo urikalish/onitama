@@ -41,6 +41,7 @@
 .square.selected {
     border-color: var(--color--gray--lighter);
     background-color: var(--color--gray--lighter);
+    opacity: 0.7;
 }
 
 .piece {
