@@ -40,6 +40,6 @@ export function getRedScore(p: Position): number {
     return score;
 }
 
-export async function getBotMove(p: Position, strength: number, progressCB: (progressPercent: number) => void): Promise<Move> {
+export async function getBotMove(p: Position, strength: number, progressCB: (progressPercent: number) => void): Promise<[Move, number]> {
     return getMove(p, strength, getRedScore, true, false, progressCB);
 }

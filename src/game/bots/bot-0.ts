@@ -3,15 +3,15 @@ import { Mover } from '../model/mover';
 import { Position } from '../model/position';
 import { shuffleFisherYates, sortMoves } from './bot';
 
-export async function getBotMove(p: Position): Promise<Move> {
+export async function getBotMove(p: Position): Promise<[Move, number]> {
     const moves = new Mover().getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
     }
     if (moves.length === 1) {
-        return moves[0];
+        return [moves[0], 0];
     }
     shuffleFisherYates(moves);
     sortMoves(moves);
-    return moves[0];
+    return [moves[0], 0];
 }

@@ -132,31 +132,27 @@ export async function getMove(
     useAlphaBeta: boolean,
     useScoresCache: boolean,
     progressCB: (progressPercent: number) => void,
-): Promise<Move> {
+): Promise<[Move, number]> {
     progressCB(0);
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
     }
-    if (moves.length === 1) {
-        progressCB(100);
-        return moves[0];
-    }
     let winMove;
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STONE));
     if (winMove) {
         progressCB(100);
-        return winMove;
+        return [winMove, 100];
     }
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STREAM));
     if (winMove) {
         progressCB(100);
-        return winMove;
+        return [winMove, 100];
     }
     winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
         progressCB(100);
-        return winMove;
+        return [winMove, 100];
     }
     const context: Context = {
         myIndex: p.armyIndex,
@@ -188,5 +184,5 @@ export async function getMove(
         });
         tryDepth--;
     } while (bestMoveScore === -100 && tryDepth >= 0);
-    return bestMoves[Math.trunc(Math.random() * bestMoves.length)];
+    return [bestMoves[Math.trunc(Math.random() * bestMoves.length)], bestMoveScore];
 }

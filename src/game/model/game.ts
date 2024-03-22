@@ -186,11 +186,12 @@ export class Game {
         const index = p.armyIndex;
         const bot = this.bots[index];
         const strength = this.players[index].strength;
-        const m: Move = (await bot['getBotMove'](p, strength, proxy(this.handleProgressCallback))) as Move;
+        const [move, score]: [Move, number] = await bot['getBotMove'](p, strength, proxy(this.handleProgressCallback));
         return {
-            cardName: m.cardName,
-            from: m.from,
-            to: m.to,
+            cardName: move.cardName,
+            from: move.from,
+            to: move.to,
+            score,
         };
     }
 }
