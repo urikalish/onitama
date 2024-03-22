@@ -9,8 +9,7 @@ export function getRedScore(p: Position): number {
     if (p.pieceData[14] === 'M') {
         return -100;
     }
-    const boardCenter = [6, 7, 8, 11, 12, 13, 16, 17, 18, 21, 22, 23];
-    const centerSquare = 12;
+    const squareScore = [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
     let redMaster = false;
     let blueMaster = false;
     let score = 0;
@@ -20,36 +19,16 @@ export function getRedScore(p: Position): number {
         }
         if (d === 'm') {
             redMaster = true;
-            if (boardCenter.includes(i)) {
-                score += 1;
-            }
-            if (i === centerSquare) {
-                score += 1;
-            }
+            score += squareScore[i];
         } else if (d === 's') {
             score += +10;
-            if (boardCenter.includes(i)) {
-                score += 1;
-            }
-            if (i === centerSquare) {
-                score += 1;
-            }
+            score += squareScore[i];
         } else if (d === 'M') {
             blueMaster = true;
-            if (boardCenter.includes(i)) {
-                score -= 1;
-            }
-            if (i === centerSquare) {
-                score -= 1;
-            }
+            score -= squareScore[i];
         } else if (d === 'S') {
             score -= 10;
-            if (boardCenter.includes(i)) {
-                score -= 1;
-            }
-            if (i === centerSquare) {
-                score -= 1;
-            }
+            score -= squareScore[i];
         }
     }
     if (!blueMaster) {
