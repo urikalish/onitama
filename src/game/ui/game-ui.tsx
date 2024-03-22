@@ -72,7 +72,7 @@ export function GameUI() {
                     }
                     navigate(`/end?win=${g.current.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red'}&way=${ways.join(',')}`);
                 }
-            }, 2000);
+            }, 3000);
         }
     }, [position]);
 
