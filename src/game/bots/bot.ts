@@ -127,7 +127,7 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
 }
 export async function getMove(
     p: Position,
-    strength: number,
+    maxDepth: number,
     redScoreFunc: (p: Position) => number,
     useAlphaBeta: boolean,
     useScoresCache: boolean,
@@ -163,24 +163,30 @@ export async function getMove(
         redScoreFunc: redScoreFunc,
         redScoresCache: useScoresCache ? new Map<number, number>() : null,
     };
-    const depth = strength;
-    let score;
-    let bestMoveScore = Number.NEGATIVE_INFINITY;
-    let bestMoves: Move[] = [];
     sortMoves(moves);
-    moves.forEach((m, i) => {
-        if (useAlphaBeta) {
-            score = alphaBeta(m.newPosition, depth, -Infinity, Infinity, false, context);
-        } else {
-            score = minimax(m.newPosition, depth, false, context);
-        }
-        if (score === bestMoveScore) {
-            bestMoves.push(m);
-        } else if (score > bestMoveScore) {
-            bestMoves = [m];
-            bestMoveScore = score;
-        }
-        progressCB(Math.round(((i + 1) / moves.length) * 100));
-    });
+    let bestMoveScore: number;
+    let bestMoves: Move[];
+    let tryDepth = maxDepth;
+    do {
+        progressCB(0);
+        bestMoveScore = Number.NEGATIVE_INFINITY;
+        bestMoves = [];
+        moves.forEach((m, i) => {
+            let score;
+            if (useAlphaBeta) {
+                score = alphaBeta(m.newPosition, tryDepth, -Infinity, Infinity, false, context);
+            } else {
+                score = minimax(m.newPosition, tryDepth, false, context);
+            }
+            if (score === bestMoveScore) {
+                bestMoves.push(m);
+            } else if (score > bestMoveScore) {
+                bestMoves = [m];
+                bestMoveScore = score;
+            }
+            progressCB(Math.round(((i + 1) / moves.length) * 100));
+        });
+        tryDepth--;
+    } while (bestMoveScore === -100 && tryDepth >= 0);
     return bestMoves[Math.trunc(Math.random() * bestMoves.length)];
 }

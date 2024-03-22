@@ -15,11 +15,11 @@ const MIN_BOT_STRENGTH = 2;
 const MAX_BOT_STRENGTH = 5;
 
 export function Start() {
-    const [opponentType, setOpponentType] = useState('human');
-    const [botStrength, setBotStrength] = useState(MIN_BOT_STRENGTH);
+    const [opponentType, setOpponentType] = useState('bot');
+    const [botStrength, setBotStrength] = useState(MAX_BOT_STRENGTH);
     const [baseDeck, setBaseDeck] = useState(true);
-    const [pathDeck, setPathDeck] = useState(false);
-    const [windAndPromoDecks, setWindAndPromoDecks] = useState(false);
+    const [pathDeck, setPathDeck] = useState(true);
+    const [windAndPromoDecks, setWindAndPromoDecks] = useState(true);
     const [canSubmit, setCanSubmit] = useState(true);
     const navigate = useNavigate();
 
