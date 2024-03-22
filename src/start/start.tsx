@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { getRandomCardsNames } from '../game/model/card';
 
-const LOCAL_STORAGE_SETTINGS_KEY = 'onitamaSettings';
+const LOCAL_STORAGE_SETTINGS_KEY = 'onitama';
 const OPPONENT_TYPE = 'opponentType';
 const BOT_STRENGTH = 'botStrength';
 const DECK_NAMES = 'deckNames';
