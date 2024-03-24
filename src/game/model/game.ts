@@ -194,6 +194,7 @@ export class Game {
         const index = p.armyIndex;
         const [move, score]: [Move, number] = await this.bot['getBotMove'](this.players[index].name, p, proxy(this.handleProgressCallback.bind(this)));
         return {
+            armyIndex: index,
             cardName: move.cardName,
             from: move.from,
             to: move.to,
