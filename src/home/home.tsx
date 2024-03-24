@@ -5,9 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { goTest } from '../game/model/test';
 
 export function Home() {
-    // const [test] = useState(true);
-    const [test] = useState(false);
-
+    const queryParams = new URLSearchParams(location.search);
+    const [test] = useState(queryParams.get('mode') === 'test');
     const navigate = useNavigate();
 
     const handleClickCredits = useCallback(() => {
