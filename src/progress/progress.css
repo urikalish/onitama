@@ -1,16 +1,16 @@
 .progress {
     position: absolute;
     bottom: 0;
-    width: 7px;
-    transition: all 500ms linear;
+    width: 5px;
+    transition: all 400ms linear;
 }
 .progress--blue {
-    left: -8px;
+    left: -7px;
     height: var(--progress--blue);
     background-color: var(--color--blue);
 }
 .progress--red {
-    right: -8px;
+    right: -7px;
     height: var(--progress--red);
     background-color: var(--color--red);
 }
