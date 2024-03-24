@@ -7,10 +7,10 @@
 .progress--blue {
     left: -8px;
     height: var(--progress--blue);
-    background-color: var(--color--blue--light);
+    background-color: var(--color--blue);
 }
 .progress--red {
     right: -8px;
     height: var(--progress--red);
-    background-color: var(--color--red--light);
+    background-color: var(--color--red);
 }
