@@ -1,16 +1,16 @@
 export enum AnalyticsCategory {
     GAME_PHASE = 'game-phase',
-    GAME_TYPE = 'game-type',
     GAME_RESULT = 'game-result',
+    PLAYERS = 'players',
     MUSIC = 'music',
 }
 export enum AnalyticsAction {
     GAME_PHASE_GAME_STARTED = 'game-phase--game-started',
     GAME_PHASE_GAME_ENDED = 'game-phase--game-ended',
-    GAME_TYPE_1_PLAYER = 'game-type--1-player',
-    GAME_TYPE_2_PLAYERS = 'game-type--2-players',
     GAME_RESULT_BOT_LOSS = 'game-result--bot-loss-',
     GAME_RESULT_BOT_WIN = 'game-result--bot-win-',
+    PLAYER_TYPES_PREFIX = 'player-types--',
+    PLAYER_STRENGTHS_PREFIX = 'player-strength--',
     MUSIC_ON = 'music--on',
 }
 

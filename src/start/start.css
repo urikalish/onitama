@@ -1,6 +1,9 @@
+.start--players {
+    position: relative;
+}
 .start--bot-level {
-    margin-left: 2rem;
-    width: calc(100% - 2rem);
+    position: absolute;
+    inset: 0.5rem 0 auto 8rem;
     display: flex;
     align-items: center;
 }

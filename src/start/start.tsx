@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { getRandomCardsNames } from '../game/model/card';
 
 const LOCAL_STORAGE_SETTINGS_KEY = 'onitama';
-const OPPONENT_TYPE = 'opponentType';
+const GAME_TYPE = 'gameType';
+const GAME_TYPE_1_PLAYER = '1-player';
+const GAME_TYPE_2_PLAYERS = '2-players';
 const BOT_STRENGTH = 'botStrength';
 const DECK_NAMES = 'deckNames';
 
@@ -15,7 +17,7 @@ const MIN_BOT_STRENGTH = 2;
 const MAX_BOT_STRENGTH = 5;
 
 export function Start() {
-    const [opponentType, setOpponentType] = useState('bot');
+    const [gameType, setGameType] = useState('1-player');
     const [botStrength, setBotStrength] = useState(MAX_BOT_STRENGTH);
     const [baseDeck, setBaseDeck] = useState(true);
     const [pathDeck, setPathDeck] = useState(true);
@@ -26,9 +28,9 @@ export function Start() {
     useEffect(() => {
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
         let value;
-        value = settings[OPPONENT_TYPE];
+        value = settings[GAME_TYPE];
         if (value) {
-            setOpponentType(value);
+            setGameType(value);
         }
         value = settings[BOT_STRENGTH];
         if (value) {
@@ -44,7 +46,7 @@ export function Start() {
     }, []);
 
     const handleChangeOpponentType = useCallback((event: any) => {
-        setOpponentType(event.target.value);
+        setGameType(event.target.value);
     }, []);
 
     const handleChangeBotStrength = useCallback((event: any) => {
@@ -89,13 +91,16 @@ export function Start() {
         }
         const cardNames = getRandomCardsNames(decks, 5);
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
-        settings[OPPONENT_TYPE] = opponentType;
+        settings[GAME_TYPE] = gameType;
         settings[BOT_STRENGTH] = botStrength.toString();
         settings[DECK_NAMES] = decks.join(',');
         localStorage.setItem(LOCAL_STORAGE_SETTINGS_KEY, JSON.stringify(settings));
-        const botStrengthParam = opponentType === 'bot' ? `&strength=${botStrength}` : '';
-        navigate(`/game?opponent=${opponentType}${botStrengthParam}&cards=${cardNames.join(',')}`);
-    }, [opponentType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);
+        if (gameType === GAME_TYPE_1_PLAYER) {
+            navigate(`/game?players=human,bot&strengths=0,${botStrength}&cards=${cardNames.join(',')}`);
+        } else {
+            navigate(`/game?players=human,human&cards=${cardNames.join(',')}`);
+        }
+    }, [gameType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);
 
     return (
         <Box className="start page">
@@ -104,32 +109,32 @@ export function Start() {
                 <Box className="page--content">
                     <FormGroup>
                         <Typography variant="h4" className="page--section-header">
-                            Opponent
+                            Players
                         </Typography>
-                        <FormControl>
-                            <RadioGroup value={opponentType} onChange={handleChangeOpponentType} name="opponent-type-radio-group">
-                                <FormControlLabel value="human" control={<Radio />} label="Human" />
-                                <FormControlLabel value="bot" control={<Radio />} label="Bot" />
+                        <FormControl className="start--players">
+                            <RadioGroup value={gameType} onChange={handleChangeOpponentType} name="start--players-type-radio-group">
+                                <FormControlLabel value={GAME_TYPE_1_PLAYER} control={<Radio />} label="1 player" />
+                                <FormControlLabel value={GAME_TYPE_2_PLAYERS} control={<Radio />} label="2 players" />
                             </RadioGroup>
+                            <Box className={`start--bot-level ${gameType === GAME_TYPE_1_PLAYER} ? '' : 'hidden'}`}>
+                                <Typography variant="body2" className="start--bot-level-slider-label">
+                                    Easy
+                                </Typography>
+                                <Slider
+                                    value={botStrength}
+                                    step={1}
+                                    marks
+                                    min={MIN_BOT_STRENGTH}
+                                    max={MAX_BOT_STRENGTH}
+                                    disabled={gameType === GAME_TYPE_2_PLAYERS}
+                                    onChange={handleChangeBotStrength}
+                                    className="start--bot-level-slider"
+                                />
+                                <Typography variant="body2" className="start--bot-level-slider-label">
+                                    Hard
+                                </Typography>
+                            </Box>
                         </FormControl>
-                        <Box className={`start--bot-level ${opponentType === 'bot' ? '' : 'hidden'}`}>
-                            <Typography variant="body2" className="start--bot-level-slider-label">
-                                Easy
-                            </Typography>
-                            <Slider
-                                value={botStrength}
-                                step={1}
-                                marks
-                                min={MIN_BOT_STRENGTH}
-                                max={MAX_BOT_STRENGTH}
-                                disabled={opponentType !== 'bot'}
-                                onChange={handleChangeBotStrength}
-                                className="start--bot-level-slider"
-                            />
-                            <Typography variant="body2" className="start--bot-level-slider-label">
-                                Hard
-                            </Typography>
-                        </Box>
                     </FormGroup>
                     <FormGroup>
                         <Typography variant="h4" className="page--section-header" sx={{ marginTop: '2rem !important' }}>

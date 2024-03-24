@@ -24,24 +24,24 @@ export function GameUI() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
-        const opponent: string = queryParams.get('opponent') || 'human';
-        const strength: number = Number(queryParams.get('strength') || '0');
+        const playerTypes: string[] = (queryParams.get('players') || 'human,human').split(',');
+        const playerStrengths: string[] = (queryParams.get('strengths') || '0,0').split(',');
         const cardNames = (queryParams.get('cards') || '').split(',');
-        const isSinglePlayer = opponent === 'bot';
         const game = new Game(
-            'Blue Player',
-            PlayerType.HUMAN,
-            0,
-            isSinglePlayer ? 'Red Bot' : 'Red Player',
-            isSinglePlayer ? PlayerType.BOT : PlayerType.HUMAN,
-            isSinglePlayer ? strength : 0,
+            `Blue ${playerTypes[0] === 'human' ? 'Player' : 'Bot'}`,
+            playerTypes[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            Number(playerStrengths[0]),
+            `Blue ${playerTypes[1] === 'human' ? 'Player' : 'Bot'}`,
+            playerTypes[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            Number(playerStrengths[1]),
             cardNames,
         );
         game.startGame(Date.now());
         g.current = game;
         setPosition(game.getCurPosition());
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
-        sendAnalyticsEvent(AnalyticsCategory.GAME_TYPE, isSinglePlayer ? AnalyticsAction.GAME_TYPE_1_PLAYER : AnalyticsAction.GAME_TYPE_2_PLAYERS);
+        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${AnalyticsAction.PLAYER_TYPES_PREFIX}${playerTypes.join(',')}`);
+        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${AnalyticsAction.PLAYER_STRENGTHS_PREFIX}${playerStrengths.join(',')}`);
     }, []);
 
     useEffect(() => {
