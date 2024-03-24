@@ -1,12 +1,21 @@
 import { Box, Button, Typography } from '@mui/material';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { goTest } from '../game/model/test';
+
 export function Home() {
+    // const [test] = useState(true);
+    const [test] = useState(false);
+
     const navigate = useNavigate();
 
     const handleClickCredits = useCallback(() => {
         navigate(`/credits`);
+    }, []);
+
+    const handleClickTest = useCallback(() => {
+        goTest(100).then(() => {});
     }, []);
 
     const handleClickPlay = useCallback(() => {
@@ -21,12 +30,21 @@ export function Home() {
                     <img alt="Onitama logo" className="width--100" src="/img/logo/onitama-pagoda.png" />
                 </Box>
                 <Box className="page--actions">
-                    <Button onClick={handleClickCredits} variant="outlined" className="action-button">
-                        <Typography>Credits</Typography>
-                    </Button>
-                    <Button onClick={handleClickPlay} variant="contained" className="action-button">
-                        <Typography>Play</Typography>
-                    </Button>
+                    {!test && (
+                        <Button onClick={handleClickCredits} variant="outlined" className="action-button">
+                            <Typography>Credits</Typography>
+                        </Button>
+                    )}
+                    {!test && (
+                        <Button onClick={handleClickPlay} variant="contained" className="action-button">
+                            <Typography>Play</Typography>
+                        </Button>
+                    )}
+                    {test && (
+                        <Button onClick={handleClickTest} variant="contained" className="action-button">
+                            <Typography>Test</Typography>
+                        </Button>
+                    )}
                 </Box>
             </Box>
         </Box>

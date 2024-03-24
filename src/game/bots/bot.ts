@@ -234,6 +234,20 @@ export async function getBotMove(botName: string, p: Position, progressCB: (army
             useAlphaBeta: true,
             useScoresCache: false,
         },
+        {
+            name: 'test0',
+            depth: 0,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+        {
+            name: 'test1',
+            depth: 0,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
     ];
     const botConfig = botConfigs.find((bc) => bc.name === botName) || botConfigs[botConfigs.length - 1];
     return getMove(p, botConfig.depth, botConfig.scoreFunc, botConfig.useAlphaBeta, botConfig.useScoresCache, progressCB);
