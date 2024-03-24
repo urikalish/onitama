@@ -4,7 +4,6 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Progress } from '../../progress/progress';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
 import { Game, GameResult } from '../model/game';
 import { Move, MoveType } from '../model/move';
@@ -124,7 +123,6 @@ export function GameUI() {
             <Box className="game position--relative fade-in">
                 <CoverUI opacity={0.3} />
                 <Box className="game-content">
-                    <Progress />
                     <Box className="game--main">
                         <BoardUI b={g.current.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                         {g.current.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}

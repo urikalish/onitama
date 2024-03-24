@@ -3,6 +3,7 @@ import './board.css';
 import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 
+import { Progress } from '../../progress/progress';
 import { Board, squareTempleOfArmyIndex } from '../model/board';
 import { Move } from '../model/move';
 
@@ -73,6 +74,7 @@ export function BoardUI({ b, cardPossibleMoves, onSelectMove }: BoardUIProps) {
                     />
                 ))}
             </Box>
+            <Progress />
         </Box>
     );
 }

@@ -132,9 +132,10 @@ async function getMove(
     redScoreFunc: (p: Position) => number,
     useAlphaBeta: boolean,
     useScoresCache: boolean,
-    progressCB: (progressPercent: number) => void,
+    progressCB: (index: number, progressPercent: number) => void,
 ): Promise<[Move, number]> {
-    progressCB(0);
+    const myIndex = p.armyIndex;
+    progressCB(myIndex, 0);
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
@@ -143,17 +144,17 @@ async function getMove(
     let winMove;
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STONE));
     if (winMove) {
-        progressCB(100);
+        progressCB(myIndex, 100);
         return [winMove, VICTORY_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STREAM));
     if (winMove) {
-        progressCB(100);
+        progressCB(myIndex, 100);
         return [winMove, VICTORY_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
-        progressCB(100);
+        progressCB(myIndex, 100);
         return [winMove, VICTORY_SCORE];
     }
     const context: Context = {
@@ -166,7 +167,7 @@ async function getMove(
     let bestMoves: Move[];
     let tryDepth = maxDepth;
     do {
-        progressCB(0);
+        progressCB(myIndex, 0);
         bestMoveScore = Number.NEGATIVE_INFINITY;
         bestMoves = [];
         moves.forEach((m, i) => {
@@ -182,14 +183,14 @@ async function getMove(
                 bestMoves = [m];
                 bestMoveScore = score;
             }
-            progressCB(Math.round(((i + 1) / moves.length) * 100));
+            progressCB(myIndex, Math.round(((i + 1) / moves.length) * 100));
         });
         tryDepth--;
     } while (bestMoveScore === -100 && tryDepth >= 0);
     return [bestMoves[Math.trunc(Math.random() * bestMoves.length)], bestMoveScore];
 }
 
-export async function getBotMove(botName: string, p: Position, progressCB: (progressPercent: number) => void): Promise<[Move, number]> {
+export async function getBotMove(botName: string, p: Position, progressCB: (armyIndex: number, progressPercent: number) => void): Promise<[Move, number]> {
     type botConfig = {
         name: string;
         depth: number;

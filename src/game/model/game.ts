@@ -174,11 +174,12 @@ export class Game {
         return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
     }
 
-    handleProgressCallback(progressPercent: number) {
-        document.documentElement.style.setProperty('--bot-progress', `${progressPercent}%`);
+    handleProgressCallback(armyIndex: number, progressPercent: number) {
+        const propName = armyIndex === 0 ? '--progress--blue' : '--progress--red';
+        document.documentElement.style.setProperty(propName, `${progressPercent}%`);
         if (progressPercent >= 100) {
             setTimeout(() => {
-                document.documentElement.style.setProperty('--bot-progress', '0%');
+                document.documentElement.style.setProperty(propName, '0%');
             }, 500);
         }
     }

@@ -23,7 +23,8 @@ a:visited {
     --vw: vw;
     --vh: vh;
     --bg: url('/img/bg/0.png');
-    --bot-progress: 0%;
+    --progress--blue: 0%;
+    --progress--red: 0%;
     height: calc(100 * var(--vh));
     margin: 0;
     padding: 0;

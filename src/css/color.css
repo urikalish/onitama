@@ -8,7 +8,9 @@
     --color--gray--darkest: #222;
 
     --color--red: hsl(0, 50%, 50%);
+    --color--red--light: hsl(0, 80%, 60%);
     --color--blue: hsl(220, 50%, 50%);
+    --color--blue--light: hsl(220, 80%, 60%);
 
     --color--accent: #f55;
 
