@@ -2,7 +2,7 @@
     position: absolute;
     bottom: 0;
     width: 5px;
-    transition: all 400ms linear;
+    transition: all 250ms linear;
 }
 .progress--blue {
     left: -7px;

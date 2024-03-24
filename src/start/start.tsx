@@ -111,7 +111,8 @@ export function Start() {
                                     <MenuItem value="bot2">Bot2</MenuItem>
                                     <MenuItem value="bot3">Bot3</MenuItem>
                                     <MenuItem value="bot4">Bot4</MenuItem>
-                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+                                    <MenuItem value="bot5">Bot5</MenuItem>
+                                    <MenuItem value="bot6">Bot6 (hard)</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
@@ -122,7 +123,8 @@ export function Start() {
                                     <MenuItem value="bot2">Bot2</MenuItem>
                                     <MenuItem value="bot3">Bot3</MenuItem>
                                     <MenuItem value="bot4">Bot4</MenuItem>
-                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+                                    <MenuItem value="bot5">Bot5</MenuItem>
+                                    <MenuItem value="bot6">Bot6 (hard)</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
