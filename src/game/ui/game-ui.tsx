@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
+import { getRandomCardsNames } from '../model/card';
 import { Game, GameResult } from '../model/game';
 import { Move, MoveType } from '../model/move';
 import { PlayerType } from '../model/player';
@@ -34,7 +35,8 @@ export function GameUI() {
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
         const players: string[] = (queryParams.get('players') || 'human,human').split(',');
-        const cardNames = (queryParams.get('cards') || '').split(',');
+        const deckNames = (queryParams.get('decks') || 'base').split(',');
+        const cardNames = getRandomCardsNames(deckNames, 5);
         const game = new Game(
             players[0],
             players[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,

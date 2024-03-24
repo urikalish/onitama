@@ -4,8 +4,6 @@ import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputL
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getRandomCardsNames } from '../game/model/card';
-
 const LOCAL_STORAGE_SETTINGS_KEY = 'onitama';
 const BLUE_PLAYER = 'bluePlayer';
 const RED_PLAYER = 'redPlayer';
@@ -84,13 +82,12 @@ export function Start() {
             decks.push('wind');
             decks.push('promo');
         }
-        const cardNames = getRandomCardsNames(decks, 5);
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
         settings[BLUE_PLAYER] = bluePlayer;
         settings[RED_PLAYER] = redPlayer;
         settings[DECK_NAMES] = decks.join(',');
         localStorage.setItem(LOCAL_STORAGE_SETTINGS_KEY, JSON.stringify(settings));
-        navigate(`/game?players=${bluePlayer},${redPlayer}&cards=${cardNames.join(',')}`);
+        navigate(`/game?players=${bluePlayer},${redPlayer}&decks=${decks.join(',')}`);
     }, [bluePlayer, redPlayer, baseDeck, pathDeck, windAndPromoDecks]);
 
     return (
