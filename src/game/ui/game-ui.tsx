@@ -13,6 +13,16 @@ import { BoardUI } from './board-ui';
 import { CoverUI } from './cover-ui';
 import { HandsUi } from './hands-ui';
 
+export function handleProgressCallback(armyIndex: number, progressPercent: number) {
+    const propName = armyIndex === 0 ? '--progress--blue' : '--progress--red';
+    document.documentElement.style.setProperty(propName, `${progressPercent}%`);
+    if (progressPercent >= 100) {
+        setTimeout(() => {
+            document.documentElement.style.setProperty(propName, '0%');
+        }, 250);
+    }
+}
+
 export function GameUI() {
     const g = useRef<Game | null>(null);
     const [position, setPosition] = useState<Position | null>(null);
@@ -31,6 +41,7 @@ export function GameUI() {
             players[1],
             players[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
             cardNames,
+            handleProgressCallback,
         );
         game.startGame(Date.now());
         g.current = game;

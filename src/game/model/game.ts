@@ -33,8 +33,16 @@ export class Game {
     results: Set<GameResult> = new Set();
     resultStr = '';
     bot: any;
+    progressCB: ((armyIndex: number, progressPercent: number) => void) | null = null;
 
-    constructor(player0Name: string, player0Type: PlayerType, player1Name: string, player1Type: PlayerType, cardNames: string[]) {
+    constructor(
+        player0Name: string,
+        player0Type: PlayerType,
+        player1Name: string,
+        player1Type: PlayerType,
+        cardNames: string[],
+        progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
+    ) {
         this.players = [new Player(player0Name, 0, player0Type), new Player(player1Name, 1, player1Type)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
@@ -56,6 +64,7 @@ export class Game {
         }
         this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
         this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
+        this.progressCB = progressCB;
     }
 
     startGame(startTime: number) {
@@ -175,19 +184,15 @@ export class Game {
     }
 
     handleProgressCallback(armyIndex: number, progressPercent: number) {
-        const propName = armyIndex === 0 ? '--progress--blue' : '--progress--red';
-        document.documentElement.style.setProperty(propName, `${progressPercent}%`);
-        if (progressPercent >= 100) {
-            setTimeout(() => {
-                document.documentElement.style.setProperty(propName, '0%');
-            }, 250);
+        if (this.progressCB) {
+            this.progressCB(armyIndex, progressPercent);
         }
     }
 
     async getBotMove() {
         const p = this.getCurPosition();
         const index = p.armyIndex;
-        const [move, score]: [Move, number] = await this.bot['getBotMove'](this.players[index].name, p, proxy(this.handleProgressCallback));
+        const [move, score]: [Move, number] = await this.bot['getBotMove'](this.players[index].name, p, proxy(this.handleProgressCallback.bind(this)));
         return {
             cardName: move.cardName,
             from: move.from,
