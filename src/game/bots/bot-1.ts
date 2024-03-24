@@ -3,13 +3,28 @@ import { Position } from '../model/position';
 import { getMove } from './bot';
 
 export function getRedScore(p: Position): number {
+    const VICTORY_SCORE = 100;
     if (p.pieceData[10] === 'm') {
-        return 100;
+        return VICTORY_SCORE;
     }
     if (p.pieceData[14] === 'M') {
-        return -100;
+        return -VICTORY_SCORE;
     }
-    const squareScore = [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
+    let pieceCount = 0;
+    p.pieceData.forEach((pd) => {
+        if (pd !== '') {
+            pieceCount++;
+        }
+    });
+    let gamePhase;
+    if (pieceCount <= 4) {
+        gamePhase = 2;
+    } else if (pieceCount <= 6) {
+        gamePhase = 1;
+    } else {
+        gamePhase = 0;
+    }
+    const squareScores = [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
     let redMaster = false;
     let blueMaster = false;
     let score = 0;
@@ -17,25 +32,39 @@ export function getRedScore(p: Position): number {
         if (d === '') {
             continue;
         }
-        if (d === 'm') {
-            redMaster = true;
-            score += squareScore[i];
-        } else if (d === 's') {
+        if (d === 's') {
             score += +10;
-            score += squareScore[i];
-        } else if (d === 'M') {
-            blueMaster = true;
-            score -= squareScore[i];
+            score += squareScores[i];
         } else if (d === 'S') {
             score -= 10;
-            score -= squareScore[i];
+            score -= squareScores[i];
+        } else {
+            const x = i % 5;
+            const y = Math.trunc(i / 5);
+            if (d === 'm') {
+                redMaster = true;
+                score += [
+                    [0, 0, 0, 1, 2],
+                    [0, 0, 1, 2, 0],
+                    [0, 1, 2, 0, 0],
+                ][gamePhase][x];
+                score += [0, 1, 2, 0, 1][y];
+            } else if (d === 'M') {
+                blueMaster = true;
+                score -= [
+                    [2, 1, 0, 0, 0],
+                    [0, 2, 1, 0, 0],
+                    [0, 0, 2, 1, 0],
+                ][gamePhase][x];
+                score -= [0, 1, 2, 0, 1][y];
+            }
         }
     }
     if (!blueMaster) {
-        return 100;
+        return VICTORY_SCORE;
     }
     if (!redMaster) {
-        return -100;
+        return -VICTORY_SCORE;
     }
     return score;
 }

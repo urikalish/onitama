@@ -138,21 +138,22 @@ export async function getMove(
     if (moves.length === 0) {
         throw 'No moves!';
     }
+    const VICTORY_SCORE = 100;
     let winMove;
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STONE));
     if (winMove) {
         progressCB(100);
-        return [winMove, 100];
+        return [winMove, VICTORY_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STREAM));
     if (winMove) {
         progressCB(100);
-        return [winMove, 100];
+        return [winMove, VICTORY_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
         progressCB(100);
-        return [winMove, 100];
+        return [winMove, VICTORY_SCORE];
     }
     const context: Context = {
         myIndex: p.armyIndex,
