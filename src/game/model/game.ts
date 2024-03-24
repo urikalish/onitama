@@ -41,7 +41,14 @@ export class Game {
         const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
         const cardNames0: string[] = [cNames[0], cNames[1]];
         const cardNames1: string[] = [cNames[2], cNames[3]];
-        const startingColor = player1Type === PlayerType.BOT ? Color.BLUE : getStartingColor(cNames[4]);
+        let startingColor;
+        if (player0Type === PlayerType.HUMAN && player1Type === PlayerType.BOT) {
+            startingColor = Color.BLUE;
+        } else if (player0Type === PlayerType.BOT && player1Type === PlayerType.HUMAN) {
+            startingColor = Color.RED;
+        } else {
+            startingColor = getStartingColor(cNames[4]);
+        }
         if (startingColor === Color.BLUE) {
             cardNames0.push(cNames[4]);
         } else {
