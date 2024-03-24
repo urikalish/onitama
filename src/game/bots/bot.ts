@@ -55,8 +55,8 @@ function getHashCode(str: string): number {
     return hash;
 }
 
-function getScore(p: Position, context: Context) {
-    let redScore;
+function getScore(p: Position, context: Context): number {
+    let redScore: number;
     if (context.redScoresCache) {
         const hashCode = getHashCode(p.pieceData.toString());
         if (context.redScoresCache.has(hashCode)) {
@@ -68,10 +68,10 @@ function getScore(p: Position, context: Context) {
     } else {
         redScore = context.redScoreFunc(p, context);
     }
-    return context.myIndex === 1 ? redScore : -redScore;
+    return Number((context.myIndex === 1 ? redScore : -redScore).toFixed(1));
 }
 
-function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context) {
+function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context): number {
     if (depth === 0) {
         return getScore(p, context);
     }
@@ -94,7 +94,7 @@ function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, contex
     }
 }
 
-function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingPlayer: boolean, context: Context) {
+function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingPlayer: boolean, context: Context): number {
     if (depth === 0) {
         return getScore(p, context);
     }

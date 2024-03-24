@@ -24,7 +24,7 @@ export function getRedScore(p: Position): number {
     } else {
         gamePhase = 0;
     }
-    const squareScores = [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 2, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0];
+    const squareScores = [0, 0, 0, 0, 0, 0, 0.1, 0.1, 0.1, 0, 0, 0.1, 0.2, 0.1, 0, 0, 0.1, 0.1, 0.1, 0, 0, 0, 0, 0, 0];
     let redMaster = false;
     let blueMaster = false;
     let score = 0;
@@ -44,19 +44,19 @@ export function getRedScore(p: Position): number {
             if (d === 'm') {
                 redMaster = true;
                 score += [
-                    [0, 0, 0, 1, 2],
-                    [0, 0, 1, 2, 0],
-                    [0, 1, 2, 0, 0],
+                    [0, 0, 0, 0.1, 0.2],
+                    [0, 0, 0.1, 0.2, 0],
+                    [0, 0.1, 0.2, 0, 0],
                 ][gamePhase][x];
-                score += [0, 1, 2, 0, 1][y];
+                score += [0, 0.1, 0.2, 0.1, 0][y];
             } else if (d === 'M') {
                 blueMaster = true;
                 score -= [
-                    [2, 1, 0, 0, 0],
-                    [0, 2, 1, 0, 0],
-                    [0, 0, 2, 1, 0],
+                    [0.2, 0.1, 0, 0, 0],
+                    [0, 0.2, 0.1, 0, 0],
+                    [0, 0, 0.2, 0.1, 0],
                 ][gamePhase][x];
-                score -= [0, 1, 2, 0, 1][y];
+                score -= [0, 0.1, 0.2, 0.1, 0][y];
             }
         }
     }
@@ -66,7 +66,7 @@ export function getRedScore(p: Position): number {
     if (!redMaster) {
         return -VICTORY_SCORE;
     }
-    return score;
+    return Number(score.toFixed(1));
 }
 
 export async function getBotMove(p: Position, strength: number, progressCB: (progressPercent: number) => void): Promise<[Move, number]> {
