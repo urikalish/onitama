@@ -1,8 +1,9 @@
 import { Move, MoveType } from '../model/move';
 import { Mover } from '../model/mover';
 import { Position } from '../model/position';
+import { getRedScoreBasic } from './scoring';
 
-export type Context = {
+type Context = {
     myIndex: number;
     redScoreFunc: (p: Position, context: Context) => number;
     redScoresCache: Map<number, number> | null;
@@ -10,7 +11,7 @@ export type Context = {
 
 const mover = new Mover();
 
-export function shuffleFisherYates(arr: Move[]) {
+function shuffleFisherYates(arr: Move[]) {
     let rnd;
     let cur = arr.length;
     while (cur !== 0) {
@@ -20,7 +21,7 @@ export function shuffleFisherYates(arr: Move[]) {
     }
 }
 
-export function sortMoves(moves: Move[]) {
+function sortMoves(moves: Move[]) {
     shuffleFisherYates(moves);
     moves.sort((a, b) => {
         let scoreA;
@@ -125,7 +126,7 @@ function alphaBeta(p: Position, depth: number, a: number, b: number, maximizingP
         return value;
     }
 }
-export async function getMove(
+async function getMove(
     p: Position,
     maxDepth: number,
     redScoreFunc: (p: Position) => number,
@@ -186,4 +187,53 @@ export async function getMove(
         tryDepth--;
     } while (bestMoveScore === -100 && tryDepth >= 0);
     return [bestMoves[Math.trunc(Math.random() * bestMoves.length)], bestMoveScore];
+}
+
+export async function getBotMove(botName: string, p: Position, progressCB: (progressPercent: number) => void): Promise<[Move, number]> {
+    type botConfig = {
+        name: string;
+        depth: number;
+        scoreFunc: (p: Position) => number;
+        useAlphaBeta: boolean;
+        useScoresCache: boolean;
+    };
+    const botConfigs: botConfig[] = [
+        {
+            name: 'bot1',
+            depth: 1,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+        {
+            name: 'bot2',
+            depth: 2,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+        {
+            name: 'bot3',
+            depth: 3,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+        {
+            name: 'bot4',
+            depth: 4,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+        {
+            name: 'bot5',
+            depth: 5,
+            scoreFunc: getRedScoreBasic,
+            useAlphaBeta: true,
+            useScoresCache: false,
+        },
+    ];
+    const botConfig = botConfigs.find((bc) => bc.name === botName) || botConfigs[botConfigs.length - 1];
+    return getMove(p, botConfig.depth, botConfig.scoreFunc, botConfig.useAlphaBeta, botConfig.useScoresCache, progressCB);
 }

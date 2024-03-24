@@ -24,24 +24,20 @@ export function GameUI() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(location.search);
-        const playerTypes: string[] = (queryParams.get('players') || 'human,human').split(',');
-        const playerStrengths: string[] = (queryParams.get('strengths') || '0,0').split(',');
+        const players: string[] = (queryParams.get('players') || 'human,human').split(',');
         const cardNames = (queryParams.get('cards') || '').split(',');
         const game = new Game(
-            `Blue ${playerTypes[0] === 'human' ? 'Player' : 'Bot'}`,
-            playerTypes[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
-            Number(playerStrengths[0]),
-            `Blue ${playerTypes[1] === 'human' ? 'Player' : 'Bot'}`,
-            playerTypes[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
-            Number(playerStrengths[1]),
+            players[0],
+            players[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+            players[1],
+            players[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
             cardNames,
         );
         game.startGame(Date.now());
         g.current = game;
         setPosition(game.getCurPosition());
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
-        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${AnalyticsAction.PLAYER_TYPES_PREFIX}${playerTypes.join(',')}`);
-        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${AnalyticsAction.PLAYER_STRENGTHS_PREFIX}${playerStrengths.join(',')}`);
+        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${players[0]} vs ${players[1]}`);
     }, []);
 
     useEffect(() => {
@@ -53,14 +49,12 @@ export function GameUI() {
             setCardPossibleMoves([]);
         } else {
             sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
-            if (g.current?.players[1].type === PlayerType.BOT) {
-                sendAnalyticsEvent(
-                    AnalyticsCategory.GAME_RESULT,
-                    g.current.results.has(GameResult.WIN_BLUE)
-                        ? AnalyticsAction.GAME_RESULT_BOT_LOSS + g.current?.players[1].strength
-                        : AnalyticsAction.GAME_RESULT_BOT_WIN + g.current?.players[1].strength,
-                );
-            }
+            sendAnalyticsEvent(
+                AnalyticsCategory.GAME_RESULT,
+                g.current.results.has(GameResult.WIN_BLUE)
+                    ? `${g.current?.players[0].name} > ${g.current?.players[1].name}`
+                    : `${g.current?.players[1].name} > ${g.current?.players[0].name}`,
+            );
             setTimeout(() => {
                 if (g.current) {
                     const ways = [];

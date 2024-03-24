@@ -1,8 +1,6 @@
-import { Move } from '../model/move';
 import { Position } from '../model/position';
-import { getMove } from './bot';
 
-export function getRedScore(p: Position): number {
+export function getRedScoreBasic(p: Position): number {
     const VICTORY_SCORE = 100;
     if (p.pieceData[10] === 'm') {
         return VICTORY_SCORE;
@@ -67,8 +65,4 @@ export function getRedScore(p: Position): number {
         return -VICTORY_SCORE;
     }
     return Number(score.toFixed(1));
-}
-
-export async function getBotMove(p: Position, strength: number, progressCB: (progressPercent: number) => void): Promise<[Move, number]> {
-    return getMove(p, strength, getRedScore, true, false, progressCB);
 }

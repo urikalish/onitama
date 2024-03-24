@@ -32,10 +32,10 @@ export class Game {
     mover = new Mover();
     results: Set<GameResult> = new Set();
     resultStr = '';
-    bots: any[] = [];
+    bot: any;
 
-    constructor(player0Name: string, player0Type: PlayerType, player0Strength: number, player1Name: string, player1Type: PlayerType, player1Strength: number, cardNames: string[]) {
-        this.players = [new Player(player0Name, 0, player0Type, player0Strength), new Player(player1Name, 1, player1Type, player1Strength)];
+    constructor(player0Name: string, player0Type: PlayerType, player1Name: string, player1Type: PlayerType, cardNames: string[]) {
+        this.players = [new Player(player0Name, 0, player0Type), new Player(player1Name, 1, player1Type)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
         const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
@@ -55,12 +55,7 @@ export class Game {
             cardNames1.push(cNames[4]);
         }
         this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
-        this.bots[0] = new ComlinkWorker<typeof import('../bots/bot-0')>(new URL('../bots/bot-0', import.meta.url), {
-            /* normal Worker options*/
-        });
-        this.bots[1] = new ComlinkWorker<typeof import('../bots/bot-1')>(new URL('../bots/bot-1', import.meta.url), {
-            /* normal Worker options*/
-        });
+        this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
     }
 
     startGame(startTime: number) {
@@ -191,9 +186,7 @@ export class Game {
     async getBotMove() {
         const p = this.getCurPosition();
         const index = p.armyIndex;
-        const bot = this.bots[index];
-        const strength = this.players[index].strength;
-        const [move, score]: [Move, number] = await bot['getBotMove'](p, strength, proxy(this.handleProgressCallback));
+        const [move, score]: [Move, number] = await this.bot['getBotMove'](this.players[index].name, p, proxy(this.handleProgressCallback));
         return {
             cardName: move.cardName,
             from: move.from,

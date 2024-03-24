@@ -1,24 +1,19 @@
 import './start.css';
 
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, Slider, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { getRandomCardsNames } from '../game/model/card';
 
 const LOCAL_STORAGE_SETTINGS_KEY = 'onitama';
-const GAME_TYPE = 'gameType';
-const GAME_TYPE_1_PLAYER = '1-player';
-const GAME_TYPE_2_PLAYERS = '2-players';
-const BOT_STRENGTH = 'botStrength';
+const BLUE_PLAYER = 'bluePlayer';
+const RED_PLAYER = 'redPlayer';
 const DECK_NAMES = 'deckNames';
 
-const MIN_BOT_STRENGTH = 2;
-const MAX_BOT_STRENGTH = 5;
-
 export function Start() {
-    const [gameType, setGameType] = useState('1-player');
-    const [botStrength, setBotStrength] = useState(MAX_BOT_STRENGTH);
+    const [bluePlayer, setBluePlayer] = useState('human');
+    const [redPlayer, setRedPlayer] = useState('human');
     const [baseDeck, setBaseDeck] = useState(true);
     const [pathDeck, setPathDeck] = useState(true);
     const [windAndPromoDecks, setWindAndPromoDecks] = useState(true);
@@ -28,13 +23,13 @@ export function Start() {
     useEffect(() => {
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
         let value;
-        value = settings[GAME_TYPE];
+        value = settings[BLUE_PLAYER];
         if (value) {
-            setGameType(value);
+            setBluePlayer(value);
         }
-        value = settings[BOT_STRENGTH];
+        value = settings[RED_PLAYER];
         if (value) {
-            setBotStrength(Math.max(Math.min(Number(value), MAX_BOT_STRENGTH), MIN_BOT_STRENGTH));
+            setRedPlayer(value);
         }
         value = settings[DECK_NAMES];
         if (value) {
@@ -45,12 +40,12 @@ export function Start() {
         }
     }, []);
 
-    const handleChangeOpponentType = useCallback((event: any) => {
-        setGameType(event.target.value);
+    const handleChangeBluePlayer = useCallback((event: any) => {
+        setBluePlayer(event.target.value);
     }, []);
 
-    const handleChangeBotStrength = useCallback((event: any) => {
-        setBotStrength(event.target.value);
+    const handleChangeRedPlayer = useCallback((event: any) => {
+        setRedPlayer(event.target.value);
     }, []);
 
     useEffect(() => {
@@ -91,16 +86,12 @@ export function Start() {
         }
         const cardNames = getRandomCardsNames(decks, 5);
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
-        settings[GAME_TYPE] = gameType;
-        settings[BOT_STRENGTH] = botStrength.toString();
+        settings[BLUE_PLAYER] = bluePlayer;
+        settings[RED_PLAYER] = redPlayer;
         settings[DECK_NAMES] = decks.join(',');
         localStorage.setItem(LOCAL_STORAGE_SETTINGS_KEY, JSON.stringify(settings));
-        if (gameType === GAME_TYPE_1_PLAYER) {
-            navigate(`/game?players=human,bot&strengths=0,${botStrength}&cards=${cardNames.join(',')}`);
-        } else {
-            navigate(`/game?players=human,human&cards=${cardNames.join(',')}`);
-        }
-    }, [gameType, botStrength, baseDeck, pathDeck, windAndPromoDecks]);
+        navigate(`/game?players=${bluePlayer},${redPlayer}&cards=${cardNames.join(',')}`);
+    }, [bluePlayer, redPlayer, baseDeck, pathDeck, windAndPromoDecks]);
 
     return (
         <Box className="start page">
@@ -111,30 +102,30 @@ export function Start() {
                         <Typography variant="h4" className="page--section-header">
                             Players
                         </Typography>
-                        <FormControl className="start--players">
-                            <RadioGroup value={gameType} onChange={handleChangeOpponentType} name="start--players-type-radio-group">
-                                <FormControlLabel value={GAME_TYPE_1_PLAYER} control={<Radio />} label="1 player" />
-                                <FormControlLabel value={GAME_TYPE_2_PLAYERS} control={<Radio />} label="2 players" />
-                            </RadioGroup>
-                            <Box className={`start--bot-level ${gameType === GAME_TYPE_1_PLAYER} ? '' : 'hidden'}`}>
-                                <Typography variant="body2" className="start--bot-level-slider-label">
-                                    Easy
-                                </Typography>
-                                <Slider
-                                    value={botStrength}
-                                    step={1}
-                                    marks
-                                    min={MIN_BOT_STRENGTH}
-                                    max={MAX_BOT_STRENGTH}
-                                    disabled={gameType === GAME_TYPE_2_PLAYERS}
-                                    onChange={handleChangeBotStrength}
-                                    className="start--bot-level-slider"
-                                />
-                                <Typography variant="body2" className="start--bot-level-slider-label">
-                                    Hard
-                                </Typography>
-                            </Box>
-                        </FormControl>
+                        <Box className="start--players">
+                            <FormControl fullWidth>
+                                <InputLabel id="blue-select-label">Blue Player</InputLabel>
+                                <Select labelId="blue-select-label" id="blue-select" value={bluePlayer} label="Blue Player" onChange={handleChangeBluePlayer}>
+                                    <MenuItem value="human">Human</MenuItem>
+                                    <MenuItem value="bot1">Bot1 (easy)</MenuItem>
+                                    <MenuItem value="bot2">Bot2</MenuItem>
+                                    <MenuItem value="bot3">Bot3</MenuItem>
+                                    <MenuItem value="bot4">Bot4</MenuItem>
+                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <FormControl fullWidth>
+                                <InputLabel id="red-select-label">Red Player</InputLabel>
+                                <Select labelId="red-select-label" id="red-select" value={redPlayer} label="Red Player" onChange={handleChangeRedPlayer}>
+                                    <MenuItem value="human">Human</MenuItem>
+                                    <MenuItem value="bot1">Bot1 (easy)</MenuItem>
+                                    <MenuItem value="bot2">Bot2</MenuItem>
+                                    <MenuItem value="bot3">Bot3</MenuItem>
+                                    <MenuItem value="bot4">Bot4</MenuItem>
+                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
                     </FormGroup>
                     <FormGroup>
                         <Typography variant="h4" className="page--section-header" sx={{ marginTop: '2rem !important' }}>

@@ -1,5 +1,7 @@
 .start--players {
-    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 .start--bot-level {
     position: absolute;
