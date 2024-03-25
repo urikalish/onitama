@@ -104,7 +104,9 @@ export function Start() {
                                 <InputLabel id="blue-select-label">Blue Player</InputLabel>
                                 <Select labelId="blue-select-label" id="blue-select" value={bluePlayer} label="Blue Player" onChange={handleChangeBluePlayer}>
                                     <MenuItem value="human">Human</MenuItem>
-                                    <MenuItem value="bot1">Bot1 (easy)</MenuItem>
+                                    <MenuItem value="bot0">Bot0 (easy)</MenuItem>
+
+<MenuItem value="bot1">Bot1</MenuItem>
                                     <MenuItem value="bot2">Bot2</MenuItem>
                                     <MenuItem value="bot3">Bot3</MenuItem>
                                     <MenuItem value="bot4">Bot4</MenuItem>
@@ -115,7 +117,9 @@ export function Start() {
                                 <InputLabel id="red-select-label">Red Player</InputLabel>
                                 <Select labelId="red-select-label" id="red-select" value={redPlayer} label="Red Player" onChange={handleChangeRedPlayer}>
                                     <MenuItem value="human">Human</MenuItem>
-                                    <MenuItem value="bot1">Bot1 (easy)</MenuItem>
+                                    <MenuItem value="bot0">Bot0 (easy)</MenuItem>
+
+<MenuItem value="bot1">Bot1</MenuItem>
                                     <MenuItem value="bot2">Bot2</MenuItem>
                                     <MenuItem value="bot3">Bot3</MenuItem>
                                     <MenuItem value="bot4">Bot4</MenuItem>
