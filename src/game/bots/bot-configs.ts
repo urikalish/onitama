@@ -46,16 +46,16 @@ export const botConfigs: botConfig[] = [
     },
     {
         name: 'test0',
-        depth: 0,
+        depth: 2,
         scoreFunc: getRedScoreBasic,
-        useAlphaBeta: false,
+        useAlphaBeta: true,
         useScoresCache: false,
     },
     {
         name: 'test1',
-        depth: 0,
+        depth: 2,
         scoreFunc: getRedScoreBasic,
-        useAlphaBeta: false,
+        useAlphaBeta: true,
         useScoresCache: false,
     },
 ];

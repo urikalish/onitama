@@ -1,11 +1,12 @@
 import { Position } from '../model/position';
 
 export const WIN_SCORE = 1000;
-const PIECE_SCORE = 100;
-const SQUARE_SCORE = 1;
-const MASTER_SQUARE_SCORE = 10;
 
 export function getRedScoreBasic(p: Position): number {
+    const PIECE_SCORE = 100;
+    const SQUARE_SCORE = 1;
+    const SQUARE_SCORE_MASTER_MULTIPLIER = 5;
+    const MASTER_RANK_SCORE = 5;
     if (p.pieceData[10] === 'm') {
         return WIN_SCORE;
     }
@@ -51,19 +52,19 @@ export function getRedScoreBasic(p: Position): number {
         } else {
             if (d === 'm') {
                 redMaster = true;
-                score += squareScores[y][x];
+                score += SQUARE_SCORE_MASTER_MULTIPLIER * squareScores[y][x];
                 score += [
-                    [0, 0, 0, MASTER_SQUARE_SCORE, 2 * MASTER_SQUARE_SCORE],
-                    [0, 0, MASTER_SQUARE_SCORE, 2 * MASTER_SQUARE_SCORE, 0],
-                    [0, MASTER_SQUARE_SCORE, 2 * MASTER_SQUARE_SCORE, 0, 0],
+                    [0, 0, 0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE],
+                    [0, 0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE, 0],
+                    [0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE, 0, 0],
                 ][gamePhase][x];
             } else if (d === 'M') {
                 blueMaster = true;
-                score -= squareScores[y][x];
+                score -= SQUARE_SCORE_MASTER_MULTIPLIER * squareScores[y][x];
                 score -= [
-                    [2 * MASTER_SQUARE_SCORE, MASTER_SQUARE_SCORE, 0, 0, 0],
-                    [0, 2 * MASTER_SQUARE_SCORE, MASTER_SQUARE_SCORE, 0, 0],
-                    [0, 0, 2 * MASTER_SQUARE_SCORE, MASTER_SQUARE_SCORE, 0],
+                    [2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0, 0, 0],
+                    [0, 2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0, 0],
+                    [0, 0, 2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0],
                 ][gamePhase][x];
             }
         }
