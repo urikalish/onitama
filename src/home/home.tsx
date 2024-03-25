@@ -14,7 +14,7 @@ export function Home() {
     }, []);
 
     const handleClickTest = useCallback(() => {
-        goTest(100).then(() => {});
+        goTest().then(() => {});
     }, []);
 
     const handleClickPlay = useCallback(() => {

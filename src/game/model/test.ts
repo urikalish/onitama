@@ -1,9 +1,10 @@
 import { Game, GameResult } from './game';
 import { PlayerType } from './player';
 
-export async function goTest(numberOfGames: number) {
+export async function goTest() {
+    const NUM_OF_GAMES = 100;
     const wins = [0, 0];
-    for (let i = 0; i < numberOfGames; i++) {
+    for (let i = 0; i < NUM_OF_GAMES; i++) {
         const g = new Game('test0', PlayerType.BOT, 'test1', PlayerType.BOT, { deckNames: ['base', 'path', 'wind', 'promo'] }, null);
         g.startGame(Date.now());
         do {
