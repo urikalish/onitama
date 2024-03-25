@@ -195,7 +195,7 @@ async function getMove(
         tryDepth--;
     } while (bestMoveScore === -WIN_SCORE && tryDepth >= 0);
     const move = bestMoves[Math.trunc(Math.random() * bestMoves.length)];
-    if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] depth:${tryDepth+1} score:${bestMoveScore} move:${move.name}`);
+    if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] depth:${tryDepth + 1} score:${bestMoveScore} move:${move.name}`);
     if (debug && bestMoveScore === WIN_SCORE) {
         console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN?`);
     }

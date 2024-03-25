@@ -33,6 +33,9 @@ export function GameUI() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (g.current) {
+            return;
+        }
         const queryParams = new URLSearchParams(location.search);
         const players: string[] = (queryParams.get('players') || 'human,human').split(',');
         const deckNames = (queryParams.get('decks') || 'base').split(',');
@@ -53,7 +56,7 @@ export function GameUI() {
     }, []);
 
     useEffect(() => {
-        if (!g.current) {
+        if (!g.current || !position) {
             return;
         }
         if (g.current.isGameGoing()) {
@@ -83,7 +86,7 @@ export function GameUI() {
     }, [position]);
 
     useEffect(() => {
-        if (!g.current) {
+        if (!g.current || allPossibleMoves.length === 0) {
             return;
         }
         if (!g.current.isBotTurn()) {
