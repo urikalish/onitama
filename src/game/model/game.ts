@@ -34,6 +34,7 @@ export class Game {
     resultStr = '';
     bot: any;
     progressCB: ((armyIndex: number, progressPercent: number) => void) | null = null;
+    debug = false;
 
     constructor(
         player0Name: string,
@@ -101,7 +102,9 @@ export class Game {
 
     pushMove(m: Move) {
         this.moves.push(m);
-        console.log(`MOVE ${m.name}`);
+        if (this.debug) {
+            console.log(`MOVE ${m.name}`);
+        }
     }
 
     isGameGoing(): boolean {
@@ -144,7 +147,9 @@ export class Game {
 
     pushPosition(p: Position) {
         this.positions.push(p);
-        console.log(`POSITION ${getFenStr(p)}`);
+        if (this.debug) {
+            console.log(`POSITION ${getFenStr(p)}`);
+        }
         this.possibleMoves = this.mover.getAllPossibleMoves(p);
         this.checkForGameEnded();
     }
