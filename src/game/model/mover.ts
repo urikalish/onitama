@@ -126,6 +126,21 @@ export class Mover {
     }
 
     getAllPossibleMoves(p: Position): Move[] {
+        let blueMaster = false;
+        let redMaster = false;
+        for (let i = 0; i < p.pieceData.length; i++) {
+            if (p.pieceData[i] === 'M') {
+                blueMaster = true;
+            } else if (p.pieceData[i] === 'm') {
+                redMaster = true;
+            }
+            if (blueMaster && redMaster) {
+                break;
+            }
+        }
+        if (!blueMaster || !redMaster) {
+            return [];
+        }
         const moves: Move[] = [];
         const myIndex = p.armyIndex;
         const enemyIndex = flipIndex(myIndex);
