@@ -10,6 +10,13 @@ export type botConfig = {
 };
 export const botConfigs: botConfig[] = [
     {
+        name: 'bot0',
+        depth: 0,
+        scoreFunc: getRedScoreBasic,
+        useAlphaBeta: true,
+        useScoresCache: false,
+    },
+    {
         name: 'bot1',
         depth: 1,
         scoreFunc: getRedScoreBasic,
