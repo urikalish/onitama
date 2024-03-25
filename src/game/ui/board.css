@@ -54,39 +54,19 @@
     background-size: contain;
     border: 2px solid var(--color--gray--darkest);
     border-radius: 50%;
-}
-.piece[data-name='s00'] {
-    background-image: url('/img/pieces/s00.png');
-}
-.piece[data-name='s01'] {
-    background-image: url('/img/pieces/s01.png');
-}
-.piece[data-name='m02'] {
-    background-image: url('/img/pieces/m02.png');
-}
-.piece[data-name='s03'] {
-    background-image: url('/img/pieces/s03.png');
-}
-.piece[data-name='s04'] {
-    background-image: url('/img/pieces/s04.png');
-}
-.piece[data-name='s10'] {
-    background-image: url('/img/pieces/s10.png');
-}
-.piece[data-name='s11'] {
-    background-image: url('/img/pieces/s11.png');
-}
-.piece[data-name='m12'] {
-    background-image: url('/img/pieces/m12.png');
-}
-.piece[data-name='s13'] {
-    background-image: url('/img/pieces/s13.png');
-}
-.piece[data-name='s14'] {
-    background-image: url('/img/pieces/s14.png');
-}
-.piece {
     pointer-events: none;
+}
+.piece.S {
+    background-image: url('/img/pieces/s0.png');
+}
+.piece.M {
+    background-image: url('/img/pieces/m0.png');
+}
+.piece.s {
+    background-image: url('/img/pieces/s1.png');
+}
+.piece.m {
+    background-image: url('/img/pieces/m1.png');
 }
 .piece.selectable-source,
 .piece.selectable-target {

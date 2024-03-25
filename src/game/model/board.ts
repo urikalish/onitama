@@ -31,6 +31,12 @@ export class Board {
         this.squares[index].clearPiece();
     }
 
+    clearAllPieces() {
+        for (let i = 0; i < 25; i++) {
+            this.clearPiece(i);
+        }
+    }
+
     placePiece(piece: Piece, index: number) {
         const square = this.squares[index];
         square.setPiece(piece);

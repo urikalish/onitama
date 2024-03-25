@@ -47,7 +47,7 @@ export function End() {
                         </Typography>
                     )}
                     <Box className="end--winner-piece-container">
-                        <img alt="Victorious master" className="end--winner-piece" src={`/img/pieces/m${win === 'blue' ? '0' : '1'}2.png`} />
+                        <img alt="Victorious master" className="end--winner-piece" src={`/img/pieces/m${win === 'blue' ? '0' : '1'}.png`} />
                     </Box>
                 </Box>
                 <Box className="page--actions">
