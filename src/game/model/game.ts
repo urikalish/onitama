@@ -101,6 +101,7 @@ export class Game {
 
     pushMove(m: Move) {
         this.moves.push(m);
+        console.log(`MOVE ${m.name}`);
     }
 
     isGameGoing(): boolean {
@@ -142,8 +143,8 @@ export class Game {
     }
 
     pushPosition(p: Position) {
-        console.log(getFenStr(p));
         this.positions.push(p);
+        console.log(`POSITION ${getFenStr(p)}`);
         this.possibleMoves = this.mover.getAllPossibleMoves(p);
         this.checkForGameEnded();
     }

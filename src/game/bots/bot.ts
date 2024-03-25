@@ -135,7 +135,7 @@ async function getMove(
     useScoresCache: boolean,
     progressCB: (index: number, progressPercent: number) => void,
 ): Promise<[Move, number]> {
-    const debug = true;
+    const debug = false;
     const myIndex = p.armyIndex;
     progressCB(myIndex, 0);
     const moves = mover.getAllPossibleMoves(p);
@@ -198,7 +198,7 @@ async function getMove(
     if (debug && bestMoveScore === WIN_SCORE) {
         console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN?`);
     }
-    if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] depth:${tryDepth + 1} score:${bestMoveScore} move:${move.name}`);
+    if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'} bot] depth:${tryDepth + 1} score:${bestMoveScore} move:${move.name}`);
     return [move, bestMoveScore];
 }
 
