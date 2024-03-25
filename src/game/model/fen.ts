@@ -28,8 +28,8 @@ export function getFenStr(p: Position | null, includeHands = true, includeMoveNu
     const parts: string[] = [];
     const pd: string[] = [];
     let emptySquaresCount = 0;
-    for (let i = 0; i < 64; i++) {
-        if (i % 8 === 0) {
+    for (let i = 0; i < 25; i++) {
+        if (i % 5 === 0) {
             if (i !== 0) {
                 pd.push(`/`);
             }
@@ -44,7 +44,7 @@ export function getFenStr(p: Position | null, includeHands = true, includeMoveNu
         } else {
             emptySquaresCount++;
         }
-        if (i % 8 === 7 && emptySquaresCount > 0) {
+        if (i % 5 === 4 && emptySquaresCount > 0) {
             pd.push(String(emptySquaresCount));
         }
     }
