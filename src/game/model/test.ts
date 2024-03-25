@@ -1,12 +1,10 @@
-import { getRandomCardsNames } from './card';
 import { Game, GameResult } from './game';
 import { PlayerType } from './player';
 
 export async function goTest(numberOfGames: number) {
     const wins = [0, 0];
     for (let i = 0; i < numberOfGames; i++) {
-        const cardNames = getRandomCardsNames(['base', 'path', 'wind', 'promo'], 5);
-        const g = new Game('test0', PlayerType.BOT, 'test1', PlayerType.BOT, cardNames, null);
+        const g = new Game('test0', PlayerType.BOT, 'test1', PlayerType.BOT, { deckNames: ['base', 'path', 'wind', 'promo'] }, null);
         g.startGame(Date.now());
         do {
             const bm = await g.getBotMove();

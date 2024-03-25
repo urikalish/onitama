@@ -5,7 +5,7 @@ import { Army } from './army';
 import { Board } from './board';
 import { getRandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
-import { parseFenStr } from './fen';
+import { getFenStr, parseFenStr } from './fen';
 import { Move, MoveType } from './move';
 import { Mover } from './mover';
 import { PieceType } from './piece';
@@ -40,29 +40,44 @@ export class Game {
         player0Type: PlayerType,
         player1Name: string,
         player1Type: PlayerType,
-        cardNames: string[],
+        initBy: {
+            deckNames?: string[];
+            cardNames?: string[];
+            fenStr?: string;
+        },
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
         this.players = [new Player(player0Name, 0, player0Type), new Player(player1Name, 1, player1Type)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
-        const cNames = cardNames.length === 5 ? cardNames : getRandomCardsNames(['base'], 5);
-        const cardNames0: string[] = [cNames[0], cNames[1]];
-        const cardNames1: string[] = [cNames[2], cNames[3]];
-        let startingColor;
-        if (player0Type === PlayerType.HUMAN && player1Type === PlayerType.BOT) {
-            startingColor = Color.BLUE;
-        } else if (player0Type === PlayerType.BOT && player1Type === PlayerType.HUMAN) {
-            startingColor = Color.RED;
+        if (initBy.fenStr) {
+            this.applyFen(initBy.fenStr);
         } else {
-            startingColor = getStartingColor(cNames[4]);
+            let cardNames: string[] = [];
+            if (initBy.deckNames) {
+                cardNames = getRandomCardsNames(initBy.deckNames, 5);
+            } else if (initBy.cardNames) {
+                cardNames = initBy.cardNames;
+            } else {
+                throw 'Unable to init game!';
+            }
+            const cardNames0: string[] = [cardNames[0], cardNames[1]];
+            const cardNames1: string[] = [cardNames[2], cardNames[3]];
+            let startingColor;
+            if (player0Type === PlayerType.HUMAN && player1Type === PlayerType.BOT) {
+                startingColor = Color.BLUE;
+            } else if (player0Type === PlayerType.BOT && player1Type === PlayerType.HUMAN) {
+                startingColor = Color.RED;
+            } else {
+                startingColor = getStartingColor(cardNames[4]);
+            }
+            if (startingColor === Color.BLUE) {
+                cardNames0.push(cardNames[4]);
+            } else {
+                cardNames1.push(cardNames[4]);
+            }
+            this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
         }
-        if (startingColor === Color.BLUE) {
-            cardNames0.push(cNames[4]);
-        } else {
-            cardNames1.push(cNames[4]);
-        }
-        this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
         this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
         this.progressCB = progressCB;
     }
@@ -127,6 +142,7 @@ export class Game {
     }
 
     pushPosition(p: Position) {
+        console.log(getFenStr(p));
         this.positions.push(p);
         this.possibleMoves = this.mover.getAllPossibleMoves(p);
         this.checkForGameEnded();
@@ -138,6 +154,7 @@ export class Game {
             this.results.add(GameResult.INVALID_POSITION);
             alert('Missing some masters...');
         }
+        this.board.clearAllPieces();
         for (let i = 0; i < 25; i++) {
             const char = p.pieceData[i];
             if (!char) {
