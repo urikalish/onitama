@@ -1,6 +1,12 @@
 .end--title.end--title {
     font-family: var(--font-family--script);
 }
+.end--title.end--title--blue {
+    color: var(--color--blue);
+}
+.end--title.end--title--red {
+    color: var(--color--red);
+}
 .end--subtitle.end--subtitle {
     margin-left: 2px;
     color: var(--color--gray--light);

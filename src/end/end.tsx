@@ -30,7 +30,7 @@ export function End() {
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4" className="end--title">{`${win === 'blue' ? 'Blue' : 'Red'} Victory!`}</Typography>
+                    <Typography variant="h4" className={`end--title end--title--${win === 'blue' ? 'blue' : 'red'}`}>{`${win === 'blue' ? 'Blue' : 'Red'} Victory!`}</Typography>
                     {way.split(',').includes('stone') && way.split(',').includes('stream') && (
                         <Typography variant="body1" className="end--subtitle">
                             By the Ways of the Stone and the Stream.
