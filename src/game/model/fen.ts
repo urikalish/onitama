@@ -1,6 +1,6 @@
 import { createPositionInstance, Position } from './position';
 
-// S3s/S3s/M3m/S3s/S3s c1,c2,c3 c4,c5 1;
+// S3s/S3s/M3m/S3s/S3s c1,c2,c3/c4,c5 1;
 
 export function parseFenStr(fenStr: string): Position {
     const parts = fenStr.split(' ');
@@ -15,10 +15,10 @@ export function parseFenStr(fenStr: string): Position {
             }
         }
     });
-    const hands0Data: string[] = parts[1].split(',');
-    const hands1Data: string[] = parts[2].split(',');
+    const hands0Data: string[] = parts[1].split('/')[0].split(',');
+    const hands1Data: string[] = parts[1].split('/')[1].split(',');
     const armyIndex = hands0Data.length > hands1Data.length ? 0 : 1;
-    return createPositionInstance(armyIndex, pd, [parts[1], parts[2]], Number(parts[3]));
+    return createPositionInstance(armyIndex, pd, [parts[1].split('/')[0], parts[1].split('/')[1]], Number(parts[2]));
 }
 
 export function getFenStr(p: Position | null, includeHands = true, includeMoveNum = true): string {
@@ -50,11 +50,10 @@ export function getFenStr(p: Position | null, includeHands = true, includeMoveNu
     }
     parts[0] = pd.join('');
     if (includeHands) {
-        parts[1] = p.handsData[0];
-        parts[2] = p.handsData[1];
+        parts[1] = `${p.handsData[0]}/${p.handsData[1]}`;
     }
     if (includeMoveNum) {
-        parts[3] = String(p.moveNum);
+        parts[2] = String(p.moveNum);
     }
     return parts.join(' ');
 }

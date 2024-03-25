@@ -76,7 +76,7 @@ export class Game {
             } else {
                 cardNames1.push(cardNames[4]);
             }
-            this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')} ${cardNames1.join(',')} 1`);
+            this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`);
         }
         this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
         this.progressCB = progressCB;
