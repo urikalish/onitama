@@ -5,7 +5,7 @@ import { Army } from './army';
 import { Board } from './board';
 import { getRandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
-import { Fen } from './fen';
+import { parseFenStr } from './fen';
 import { Move, MoveType } from './move';
 import { Mover } from './mover';
 import { PieceType } from './piece';
@@ -133,7 +133,7 @@ export class Game {
     }
 
     applyFen(fenStr: string) {
-        const p = Fen.parseFenStr(fenStr);
+        const p = parseFenStr(fenStr);
         if (!assureTwoMasters(p)) {
             this.results.add(GameResult.INVALID_POSITION);
             alert('Missing some masters...');
