@@ -6,7 +6,6 @@ export function getRedScoreBasic(p: Position): number {
     const PIECE_SCORE = 100;
     const SQUARE_SCORE = 1;
     const SQUARE_SCORE_MASTER_MULTIPLIER = 5;
-    const MASTER_RANK_SCORE = 5;
     if (p.pieceData[10] === 'm') {
         return WIN_SCORE;
     }
@@ -29,9 +28,9 @@ export function getRedScoreBasic(p: Position): number {
     }
     const squareScores = [
         [0, 0, 0, 0, 0],
-        [0, SQUARE_SCORE, SQUARE_SCORE, SQUARE_SCORE, 0],
-        [0, SQUARE_SCORE, 2 * SQUARE_SCORE, SQUARE_SCORE, 0],
-        [0, SQUARE_SCORE, SQUARE_SCORE, SQUARE_SCORE, 0],
+        [0, 1, 1, 1, 0],
+        [0, 1, 2, 1, 0],
+        [0, 1, 1, 1, 0],
         [0, 0, 0, 0, 0],
     ];
     let redMaster = false;
@@ -45,27 +44,63 @@ export function getRedScoreBasic(p: Position): number {
         const y = Math.trunc(i / 5);
         if (d === 's') {
             score += PIECE_SCORE;
-            score += squareScores[y][x];
+            score += squareScores[y][x] * SQUARE_SCORE;
         } else if (d === 'S') {
             score -= PIECE_SCORE;
-            score -= squareScores[y][x];
+            score -= squareScores[y][x] * SQUARE_SCORE;
         } else {
             if (d === 'm') {
                 redMaster = true;
-                score += SQUARE_SCORE_MASTER_MULTIPLIER * squareScores[y][x];
-                score += [
-                    [0, 0, 0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE],
-                    [0, 0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE, 0],
-                    [0, MASTER_RANK_SCORE, 2 * MASTER_RANK_SCORE, 0, 0],
-                ][gamePhase][x];
+                score +=
+                    [
+                        [
+                            [0, 0, 0, 0, 0],
+                            [0, 0, 0, 1, 2],
+                            [0, 0, 0, 1, 2],
+                            [0, 0, 0, 1, 2],
+                            [0, 0, 0, 0, 0],
+                        ],
+                        [
+                            [0, 0, 0, 0, 0],
+                            [0, 0, 1, 2, 0],
+                            [0, 0, 1, 2, 0],
+                            [0, 0, 1, 2, 0],
+                            [0, 0, 0, 0, 0],
+                        ],
+                        [
+                            [0, 0, 0, 0, 0],
+                            [0, 1, 2, 0, 0],
+                            [0, 1, 2, 0, 0],
+                            [0, 1, 2, 0, 0],
+                            [0, 0, 0, 0, 0],
+                        ],
+                    ][gamePhase][y][x] * SQUARE_SCORE_MASTER_MULTIPLIER;
             } else if (d === 'M') {
                 blueMaster = true;
-                score -= SQUARE_SCORE_MASTER_MULTIPLIER * squareScores[y][x];
-                score -= [
-                    [2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0, 0, 0],
-                    [0, 2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0, 0],
-                    [0, 0, 2 * MASTER_RANK_SCORE, MASTER_RANK_SCORE, 0],
-                ][gamePhase][x];
+                score -=
+                    [
+                        [
+                            [0, 0, 0, 0, 0],
+                            [2, 1, 0, 0, 0],
+                            [2, 1, 0, 0, 0],
+                            [2, 1, 0, 0, 0],
+                            [0, 0, 0, 0, 0],
+                        ],
+                        [
+                            [0, 0, 0, 0, 0],
+                            [0, 2, 1, 0, 0],
+                            [0, 2, 1, 0, 0],
+                            [0, 2, 1, 0, 0],
+                            [0, 0, 0, 0, 0],
+                        ],
+                        [
+                            [0, 0, 0, 0, 0],
+                            [0, 0, 2, 1, 0],
+                            [0, 0, 2, 1, 0],
+                            [0, 0, 2, 1, 0],
+                            [0, 0, 0, 0, 0],
+                        ],
+                    ][gamePhase][y][x] * SQUARE_SCORE_MASTER_MULTIPLIER;
             }
         }
     }
