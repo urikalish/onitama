@@ -56,16 +56,16 @@
     border-radius: 50%;
     pointer-events: none;
 }
-.piece.S {
+.piece.blue.s {
     background-image: url('/img/pieces/s0.png');
 }
-.piece.M {
+.piece.blue.m {
     background-image: url('/img/pieces/m0.png');
 }
-.piece.s {
+.piece.red.s {
     background-image: url('/img/pieces/s1.png');
 }
-.piece.m {
+.piece.red.m {
     background-image: url('/img/pieces/m1.png');
 }
 .piece.selectable-source,
