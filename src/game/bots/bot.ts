@@ -1,7 +1,8 @@
 import { Move, MoveType } from '../model/move';
 import { Mover } from '../model/mover';
 import { Position } from '../model/position';
-import { getRedScoreBasic } from './scoring';
+import { botConfigs } from './bot-configs';
+import { WIN_SCORE } from './bot-scoring';
 
 type Context = {
     myIndex: number;
@@ -69,7 +70,7 @@ function getScore(p: Position, context: Context): number {
     } else {
         redScore = context.redScoreFunc(p, context);
     }
-    return Number((context.myIndex === 1 ? redScore : -redScore).toFixed(1));
+    return context.myIndex === 1 ? redScore : -redScore;
 }
 
 function minimax(p: Position, depth: number, isMaximizingPlayer: boolean, context: Context): number {
@@ -134,28 +135,31 @@ async function getMove(
     useScoresCache: boolean,
     progressCB: (index: number, progressPercent: number) => void,
 ): Promise<[Move, number]> {
+    const debug = true;
     const myIndex = p.armyIndex;
     progressCB(myIndex, 0);
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
         throw 'No moves!';
     }
-    const VICTORY_SCORE = 100;
     let winMove;
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STONE));
     if (winMove) {
         progressCB(myIndex, 100);
-        return [winMove, VICTORY_SCORE];
+        if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN!`);
+        return [winMove, WIN_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.MOVE_M) && m.types.has(MoveType.WIN_STREAM));
     if (winMove) {
         progressCB(myIndex, 100);
-        return [winMove, VICTORY_SCORE];
+        if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN!`);
+        return [winMove, WIN_SCORE];
     }
     winMove = moves.find((m) => m.types.has(MoveType.WIN));
     if (winMove) {
         progressCB(myIndex, 100);
-        return [winMove, VICTORY_SCORE];
+        if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN!`);
+        return [winMove, WIN_SCORE];
     }
     const context: Context = {
         myIndex: p.armyIndex,
@@ -185,70 +189,20 @@ async function getMove(
             }
             progressCB(myIndex, Math.round(((i + 1) / moves.length) * 100));
         });
+        if (debug && bestMoveScore === -WIN_SCORE) {
+            console.log(`[${myIndex === 0 ? 'blue' : 'red'}] LOSS?`);
+        }
         tryDepth--;
-    } while (bestMoveScore === -100 && tryDepth >= 0);
-    return [bestMoves[Math.trunc(Math.random() * bestMoves.length)], bestMoveScore];
+    } while (bestMoveScore === -WIN_SCORE && tryDepth >= 0);
+    const move = bestMoves[Math.trunc(Math.random() * bestMoves.length)];
+    if (debug) console.log(`[${myIndex === 0 ? 'blue' : 'red'}] depth:${tryDepth+1} score:${bestMoveScore} move:${move.name}`);
+    if (debug && bestMoveScore === WIN_SCORE) {
+        console.log(`[${myIndex === 0 ? 'blue' : 'red'}] WIN?`);
+    }
+    return [move, bestMoveScore];
 }
 
 export async function getBotMove(botName: string, p: Position, progressCB: (armyIndex: number, progressPercent: number) => void): Promise<[Move, number]> {
-    type botConfig = {
-        name: string;
-        depth: number;
-        scoreFunc: (p: Position) => number;
-        useAlphaBeta: boolean;
-        useScoresCache: boolean;
-    };
-    const botConfigs: botConfig[] = [
-        {
-            name: 'bot1',
-            depth: 1,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'bot2',
-            depth: 2,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'bot3',
-            depth: 3,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'bot4',
-            depth: 4,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'bot5',
-            depth: 5,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'test0',
-            depth: 0,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-        {
-            name: 'test1',
-            depth: 0,
-            scoreFunc: getRedScoreBasic,
-            useAlphaBeta: true,
-            useScoresCache: false,
-        },
-    ];
     const botConfig = botConfigs.find((bc) => bc.name === botName) || botConfigs[botConfigs.length - 1];
     return getMove(p, botConfig.depth, botConfig.scoreFunc, botConfig.useAlphaBeta, botConfig.useScoresCache, progressCB);
 }
