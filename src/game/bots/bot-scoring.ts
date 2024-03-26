@@ -4,8 +4,8 @@ export const WIN_SCORE = 1000;
 
 export function getRedScoreBasic(p: Position): number {
     const PIECE_SCORE = 100;
-    const SQUARE_SCORE = 1;
-    const SQUARE_SCORE_MASTER_MULTIPLIER = 5;
+    const SQUARE_SCORE_S_MUL = 1;
+    const SQUARE_SCORE_M_MUL = 10;
     if (p.pieceData[10] === 'm') {
         return WIN_SCORE;
     }
@@ -44,10 +44,10 @@ export function getRedScoreBasic(p: Position): number {
         const y = Math.trunc(i / 5);
         if (d === 's') {
             score += PIECE_SCORE;
-            score += squareScores[y][x] * SQUARE_SCORE;
+            score += squareScores[y][x] * SQUARE_SCORE_S_MUL;
         } else if (d === 'S') {
             score -= PIECE_SCORE;
-            score -= squareScores[y][x] * SQUARE_SCORE;
+            score -= squareScores[y][x] * SQUARE_SCORE_S_MUL;
         } else {
             if (d === 'm') {
                 redMaster = true;
@@ -74,7 +74,7 @@ export function getRedScoreBasic(p: Position): number {
                             [0, 1, 2, 0, 0],
                             [0, 0, 0, 0, 0],
                         ],
-                    ][gamePhase][y][x] * SQUARE_SCORE_MASTER_MULTIPLIER;
+                    ][gamePhase][y][x] * SQUARE_SCORE_M_MUL;
             } else if (d === 'M') {
                 blueMaster = true;
                 score -=
@@ -100,7 +100,7 @@ export function getRedScoreBasic(p: Position): number {
                             [0, 0, 2, 1, 0],
                             [0, 0, 0, 0, 0],
                         ],
-                    ][gamePhase][y][x] * SQUARE_SCORE_MASTER_MULTIPLIER;
+                    ][gamePhase][y][x] * SQUARE_SCORE_M_MUL;
             }
         }
     }
