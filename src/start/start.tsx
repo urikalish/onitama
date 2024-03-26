@@ -104,26 +104,26 @@ export function Start() {
                                 <InputLabel id="blue-select-label">Blue Player</InputLabel>
                                 <Select labelId="blue-select-label" id="blue-select" value={bluePlayer} label="Blue Player" onChange={handleChangeBluePlayer}>
                                     <MenuItem value="human">Human</MenuItem>
-                                    <MenuItem value="bot0">Bot0 (easy)</MenuItem>
+                                    <MenuItem value="bot0">Bot 0 (easy)</MenuItem>
 
-<MenuItem value="bot1">Bot1</MenuItem>
-                                    <MenuItem value="bot2">Bot2</MenuItem>
-                                    <MenuItem value="bot3">Bot3</MenuItem>
-                                    <MenuItem value="bot4">Bot4</MenuItem>
-                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+<MenuItem value="bot1">Bot 1</MenuItem>
+                                    <MenuItem value="bot2">Bot 2</MenuItem>
+                                    <MenuItem value="bot3">Bot 3</MenuItem>
+                                    <MenuItem value="bot4">Bot 4</MenuItem>
+                                    <MenuItem value="bot5">Bot 5 (hard)</MenuItem>
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
                                 <InputLabel id="red-select-label">Red Player</InputLabel>
                                 <Select labelId="red-select-label" id="red-select" value={redPlayer} label="Red Player" onChange={handleChangeRedPlayer}>
                                     <MenuItem value="human">Human</MenuItem>
-                                    <MenuItem value="bot0">Bot0 (easy)</MenuItem>
+                                    <MenuItem value="bot0">Bot 0 (easy)</MenuItem>
 
-<MenuItem value="bot1">Bot1</MenuItem>
-                                    <MenuItem value="bot2">Bot2</MenuItem>
-                                    <MenuItem value="bot3">Bot3</MenuItem>
-                                    <MenuItem value="bot4">Bot4</MenuItem>
-                                    <MenuItem value="bot5">Bot5 (hard)</MenuItem>
+<MenuItem value="bot1">Bot 1</MenuItem>
+                                    <MenuItem value="bot2">Bot 2</MenuItem>
+                                    <MenuItem value="bot3">Bot 3</MenuItem>
+                                    <MenuItem value="bot4">Bot 4</MenuItem>
+                                    <MenuItem value="bot5">Bot 5 (hard)</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
