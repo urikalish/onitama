@@ -3,7 +3,7 @@ import { proxy } from 'comlink';
 import { flipIndex } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
-import { getRandomCardsNames, getStartingColor } from './card';
+import { get5RandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
 import { getFenStr, parseFenStr } from './fen';
 import { Move, MoveType } from './move';
@@ -56,7 +56,7 @@ export class Game {
         } else {
             let cardNames: string[] = [];
             if (initBy.deckNames) {
-                cardNames = getRandomCardsNames(initBy.deckNames, 5);
+                cardNames = get5RandomCardsNames(initBy.deckNames);
             } else if (initBy.cardNames) {
                 cardNames = initBy.cardNames;
             } else {

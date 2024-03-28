@@ -2,14 +2,24 @@ import { shuffleArray } from '../../services/utils';
 import allCardsData from '../data/cards-data.json';
 import { Color } from './color';
 
-export function getRandomCardsNames(decks: string[], numberOfCards: number = 5): string[] {
+function sortHand(hand: string[], i: number, j: number) {
+    if (hand[i] > hand[j]) {
+        const temp = hand[i];
+        hand[i] = hand[j];
+        hand[j] = temp;
+    }
+}
+
+export function get5RandomCardsNames(decks: string[]): string[] {
     const relevantCardsNames = allCards
         .filter((c) => {
             return decks.includes(c.deck);
         })
         .map((c) => c.name);
     const shuffledCardNames: string[] = shuffleArray(relevantCardsNames);
-    shuffledCardNames.length = numberOfCards;
+    shuffledCardNames.length = 5;
+    sortHand(shuffledCardNames, 0, 1);
+    sortHand(shuffledCardNames, 2, 3);
     return shuffledCardNames;
 }
 
@@ -34,11 +44,15 @@ export function passCard(cardData: string[], cardName: string): string[] {
     index = cardNames0.indexOf(cardName);
     if (index > -1) {
         cardNames0.splice(index, 1);
+        sortHand(cardNames0, 0, 1);
+        sortHand(cardNames0, 2, 3);
         cardNames1.push(cardName);
     } else {
         index = cardNames1.indexOf(cardName);
         if (index > -1) {
             cardNames1.splice(index, 1);
+            sortHand(cardNames1, 0, 1);
+            sortHand(cardNames1, 2, 3);
             cardNames0.push(cardName);
         }
     }
