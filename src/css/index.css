@@ -22,7 +22,7 @@ a:visited {
 :root {
     --vw: vw;
     --vh: vh;
-    --bg: url('/img/bg/0.png');
+    --bg: url('/img/bg/bg.png');
     --progress--blue: 0%;
     --progress--red: 0%;
     height: calc(100 * var(--vh));
