@@ -12,3 +12,9 @@ export function shuffleArray(array: any[]) {
 export function flipIndex(armyIndex: number): number {
     return Math.abs(armyIndex - 1);
 }
+
+export function getRandomNumber(numOfDigits: number) {
+    const min = Math.pow(10, numOfDigits - 1);
+    const max = Math.pow(10, numOfDigits) - 1;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
