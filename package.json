@@ -27,6 +27,7 @@
         "comlink": "^4.4.1",
         "copyfiles": "^2.4.1",
         "eslint-plugin-prettier": "^5.0.1",
+        "firebase": "^10.10.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.19.0"

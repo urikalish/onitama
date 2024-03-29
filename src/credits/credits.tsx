@@ -26,7 +26,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Game designer -
+                                Game Designer -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Shimpei Sato, 2014
@@ -36,7 +36,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Web developer -
+                                Web Developer -
                             </Box>
                             <Box component="span" className="credits--value">
                                 Uri Kalish, 2024
@@ -46,7 +46,7 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Dev libs -
+                                Dev Libs -
                             </Box>
                             <Box component="span" className="credits--value">
                                 TypeScript, Vite
@@ -56,10 +56,20 @@ export function Credits() {
                     <Box className="credits--line">
                         <Typography variant="body1" className="credits--label">
                             <Box component="span" className="credits--label">
-                                Run-time libs -
+                                RT Libs -
                             </Box>
                             <Box component="span" className="credits--value">
-                                React, MaterialUI
+                                React, Material, Comlink
+                            </Box>
+                        </Typography>
+                    </Box>
+                    <Box className="credits--line">
+                        <Typography variant="body1" className="credits--label">
+                            <Box component="span" className="credits--label">
+                                RT DB -
+                            </Box>
+                            <Box component="span" className="credits--value">
+                                Firebase
                             </Box>
                         </Typography>
                     </Box>
