@@ -269,7 +269,7 @@ export function Start() {
                         <FormControl>
                             <RadioGroup aria-label="Game mode" name="game-mode-radio-buttons-group" value={gameMode} onChange={handleChangeGameMode}>
                                 <FormControlLabel value="local-vs-bot" control={<Radio />} label="Play vs. Bot" />
-                                <FormControlLabel value="local-vs-local" control={<Radio />} label="Local Multiplayer - Single Device" />
+                                <FormControlLabel value="local-vs-local" control={<Radio />} label="Local Multiplayer (Single Device)" />
                                 <FormControlLabel disabled={true} value="local-vs-remote" control={<Radio />} label="Remote Multiplayer - Create Game" />
                                 <FormControlLabel disabled={true} value="remote-vs-local" control={<Radio />} label="Remote Multiplayer - Join Game" />
                                 <FormControlLabel value="bot-vs-bot" control={<Radio />} label="Bot vs. Bot" />
