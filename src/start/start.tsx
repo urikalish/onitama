@@ -282,9 +282,11 @@ export function Start() {
     }, [gameMode, bluePlayer, redPlayer]);
 
     const handleClickCreate = useCallback(() => {
+        navigate(`/create`);
     }, []);
 
     const handleClickJoin = useCallback(() => {
+        navigate(`/join`);
     }, []);
 
     return (
@@ -348,14 +350,14 @@ export function Start() {
                         </Button>
                     )}
                     {canCreate && (
-                    <Button onClick={handleClickCreate} variant="contained" className="action-button">
-                        <Typography>Create</Typography>
-                    </Button>
+                        <Button onClick={handleClickCreate} variant="contained" className="action-button">
+                            <Typography>Create</Typography>
+                        </Button>
                     )}
                     {canJoin && (
-                    <Button onClick={handleClickJoin} variant="contained" className="action-button">
-                        <Typography>Join</Typography>
-                    </Button>
+                        <Button onClick={handleClickJoin} variant="contained" className="action-button">
+                            <Typography>Join</Typography>
+                        </Button>
                     )}
                 </Box>
             </Box>

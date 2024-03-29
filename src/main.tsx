@@ -6,11 +6,13 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { Create } from './create/create';
 import { Credits } from './credits/credits';
 import { End } from './end/end';
 import { Error } from './error/error';
 import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
+import { Join } from './join/join';
 import { Root } from './root/root';
 import { Rules } from './rules/rules';
 import { Start } from './start/start';
@@ -39,12 +41,20 @@ const router = createBrowserRouter([
                 element: <Start />,
             },
             {
-                path: 'end',
-                element: <End />,
+                path: 'create',
+                element: <Create />,
+            },
+            {
+                path: 'join',
+                element: <Join />,
             },
             {
                 path: 'game',
                 element: <GameUI />,
+            },
+            {
+                path: 'end',
+                element: <End />,
             },
         ],
     },
