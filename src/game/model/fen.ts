@@ -21,6 +21,10 @@ export function parseFenStr(fenStr: string): Position {
     return createPositionInstance(armyIndex, pd, [parts[1].split('/')[0], parts[1].split('/')[1]], Number(parts[2]));
 }
 
+export function getInitialFenStr(cardNames0: string[], cardNames1: string[]): string {
+    return `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
+}
+
 export function getFenStr(p: Position | null, includeHands = true, includePositionNum = true): string {
     if (!p) {
         return '';
