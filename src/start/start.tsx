@@ -193,12 +193,12 @@ export function Start() {
     const saveToLocalStorage = useCallback(() => {
         localStorage.clear();
         localStorage.setItem(
-        LS_ITEM_SETTINGS,
-        JSON.stringify({
-            [LS_GAME_MODE]: gameMode,
-            [LS_BLUE_PLAYER]: bluePlayer,
-            [LS_RED_PLAYER]: redPlayer,
-        }),
+            LS_ITEM_SETTINGS,
+            JSON.stringify({
+                [LS_GAME_MODE]: gameMode,
+                [LS_BLUE_PLAYER]: bluePlayer,
+                [LS_RED_PLAYER]: redPlayer,
+            }),
         );
     }, [gameMode, bluePlayer, redPlayer]);
 
@@ -231,12 +231,12 @@ export function Start() {
         let playerTypes: PlayerType[];
         switch (gameMode) {
             case LOCAL_VS_BOT:
-                playerNames = ['Local Player', redPlayer];
+                playerNames = ['local', redPlayer];
                 playerTypes = [PlayerType.LOCAL, PlayerType.BOT];
                 cardNames0.push(cardNames[4]);
                 break;
             case LOCAL_VS_LOCAL:
-                playerNames = ['Local Player 0', 'Local Player 1'];
+                playerNames = ['local0', 'local1'];
                 playerTypes = [PlayerType.LOCAL, PlayerType.LOCAL];
                 if (getStartingColor(cardNames[4]) === Color.BLUE) {
                     cardNames0.push(cardNames[4]);
