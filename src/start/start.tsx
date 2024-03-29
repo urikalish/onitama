@@ -6,10 +6,12 @@ import { useNavigate } from 'react-router-dom';
 
 import { get5RandomCardsNames, getStartingColor } from '../game/model/card';
 import { Color } from '../game/model/color';
+import { getInitialFenStr } from '../game/model/fen';
 import { g, Game, setG } from '../game/model/game';
 import { PlayerType } from '../game/model/player';
 import { handleProgressCallback } from '../game/ui/game-ui';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
+import { getRandomNumber } from '../services/utils';
 
 const LS_ITEM_SETTINGS = 'kalish-onitama';
 const LS_GAME_MODE = 'gameMode';
@@ -21,7 +23,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-local',
-                text: 'Human (local)',
+                text: 'Me',
             },
         ],
         red: [
@@ -55,13 +57,13 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-local',
-                text: 'Human (local)',
+                text: 'Local Player',
             },
         ],
         red: [
             {
                 value: 'human-local',
-                text: 'Human (local)',
+                text: 'Local Player',
             },
         ],
     },
@@ -69,13 +71,13 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-local',
-                text: 'Human (local)',
+                text: 'Me',
             },
         ],
         red: [
             {
                 value: 'human-remote',
-                text: 'Human (remote)',
+                text: 'Remote Player',
             },
         ],
     },
@@ -83,13 +85,13 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-remote',
-                text: 'Human (remote)',
+                text: 'Remote Player',
             },
         ],
         red: [
             {
                 value: 'human-local',
-                text: 'Human (local)',
+                text: 'Me',
             },
         ],
     },
@@ -203,12 +205,13 @@ export function Start() {
         let playerNames: string[];
         let playerTypes: PlayerType[];
         let fenStr = '';
+        const gameId = getRandomNumber(5);
         switch (gameMode) {
             case 'local-vs-bot':
                 playerNames = ['Local player', redPlayer];
                 playerTypes = [PlayerType.LOCAL, PlayerType.BOT];
                 cardNames0.push(cardNames[4]);
-                fenStr = `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
+                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
             case 'local-vs-local':
                 playerNames = ['Local player 0', 'Local player 1'];
@@ -218,11 +221,17 @@ export function Start() {
                 } else {
                     cardNames1.push(cardNames[4]);
                 }
-                fenStr = `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
+                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
             // case 'local-vs-remote':
             //     playerNames = ['Local player 0', 'Remote player 1'];
             //     playerTypes = [PlayerType.LOCAL, PlayerType.REMOTE];
+            //     if (getStartingColor(cardNames[4]) === Color.BLUE) {
+            //         cardNames0.push(cardNames[4]);
+            //     } else {
+            //         cardNames1.push(cardNames[4]);
+            //     }
+            //     fenStr = getInitialFenStr(cardNames0, cardNames1);
             //     break;
             // case 'remote-vs-local':
             //     playerNames = ['Remote player 0', 'Local player 1'];
@@ -236,12 +245,12 @@ export function Start() {
                 } else {
                     cardNames1.push(cardNames[4]);
                 }
-                fenStr = `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
+                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
             default:
                 throw 'Unsupported game mode';
         }
-        setG(new Game(playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
+        setG(new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
         g!.startGame(Date.now());
         localStorage.clear();
         localStorage.setItem(
@@ -283,12 +292,12 @@ export function Start() {
                         </Typography>
                         <Box className="start--players">
                             <FormControl fullWidth>
-                                <InputLabel id="blue-select-label">Blue Player</InputLabel>
+                                <InputLabel id="blue-select-label">Blue</InputLabel>
                                 <Select
                                     labelId="blue-select-label"
                                     id="blue-select"
                                     value={bluePlayer}
-                                    label="Blue Player"
+                                    label="Blue"
                                     disabled={blueCombo.length <= 1}
                                     onChange={handleChangeBluePlayer}
                                 >
@@ -300,15 +309,8 @@ export function Start() {
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
-                                <InputLabel id="red-select-label">Red Player</InputLabel>
-                                <Select
-                                    labelId="red-select-label"
-                                    id="red-select"
-                                    value={redPlayer}
-                                    label="Red Player"
-                                    disabled={redCombo.length <= 1}
-                                    onChange={handleChangeRedPlayer}
-                                >
+                                <InputLabel id="red-select-label">Red</InputLabel>
+                                <Select labelId="red-select-label" id="red-select" value={redPlayer} label="Red" disabled={redCombo.length <= 1} onChange={handleChangeRedPlayer}>
                                     {redCombo.map((item) => (
                                         <MenuItem key={item.value} value={item.value}>
                                             {item.text}

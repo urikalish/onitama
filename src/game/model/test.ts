@@ -1,5 +1,7 @@
+import { getRandomNumber } from '../../services/utils';
 import { get5RandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
+import { getInitialFenStr } from './fen';
 import { Game, GameResult } from './game';
 import { PlayerType } from './player';
 
@@ -16,8 +18,9 @@ export async function goTest() {
         } else {
             cardNames1.push(cardNames[4]);
         }
-        const fenStr = `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
-        const g = new Game('test0', PlayerType.BOT, 'test1', PlayerType.BOT, fenStr, null);
+        const fenStr = getInitialFenStr(cardNames0, cardNames1);
+        const gameId = getRandomNumber(5);
+        const g = new Game(gameId, 'test0', PlayerType.BOT, 'test1', PlayerType.BOT, fenStr, null);
         g.startGame(Date.now());
         do {
             const bm = await g.getBotMove();

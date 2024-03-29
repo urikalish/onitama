@@ -21,6 +21,7 @@ export enum GameResult {
 }
 
 export class Game {
+    id: number;
     players: Player[];
     armies: Army[];
     board: Board;
@@ -36,6 +37,7 @@ export class Game {
     debug = false;
 
     constructor(
+        id: number,
         player0Name: string,
         player0Type: PlayerType,
         player1Name: string,
@@ -43,6 +45,7 @@ export class Game {
         fenStr: string,
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
+        this.id = id;
         if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
             this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
             this.progressCB = progressCB;
