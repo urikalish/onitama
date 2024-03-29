@@ -2,19 +2,31 @@ import './end.css';
 
 import { Box, Button, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+import { g, GameResult } from '../game/model/game';
 
 export function End() {
     const [win, setWin] = useState<string>('');
     const [way, setWay] = useState<string>('');
 
-    const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const queryParams = new URLSearchParams(location.search);
-        setWin(queryParams.get('win') || '');
-        setWay(queryParams.get('way') || '');
+        if (!g) {
+            navigate('/start');
+            return;
+        }
+        const win = g.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red';
+        setWin(win);
+        const ways = [];
+        if (g.results.has(GameResult.WIN_STONE)) {
+            ways.push('stone');
+        }
+        if (g.results.has(GameResult.WIN_STREAM)) {
+            ways.push('stream');
+        }
+        setWay(ways.join(','));
     }, []);
 
     const handleClickHome = useCallback(() => {

@@ -225,3 +225,8 @@ export class Game {
         };
     }
 }
+
+export let g: Game | null = null;
+export const setG = (game: Game) => {
+    g = game;
+};

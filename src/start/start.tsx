@@ -1,21 +1,22 @@
 import './start.css';
 
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import { Box, Button, FormControl, FormGroup, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { g, Game, setG } from '../game/model/game';
+import { PlayerType } from '../game/model/player';
+import { handleProgressCallback } from '../game/ui/game-ui';
+import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
 
 const LOCAL_STORAGE_SETTINGS_KEY = 'onitama';
 const BLUE_PLAYER = 'bluePlayer';
 const RED_PLAYER = 'redPlayer';
-const DECK_NAMES = 'deckNames';
 
 export function Start() {
     const [bluePlayer, setBluePlayer] = useState('human');
     const [redPlayer, setRedPlayer] = useState('human');
-    const [baseDeck, setBaseDeck] = useState(true);
-    const [pathDeck, setPathDeck] = useState(true);
-    const [windAndPromoDecks, setWindAndPromoDecks] = useState(true);
-    const [canSubmit, setCanSubmit] = useState(true);
+    const [canSubmit] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,13 +30,6 @@ export function Start() {
         if (value) {
             setRedPlayer(value);
         }
-        value = settings[DECK_NAMES];
-        if (value) {
-            const deckNames = value.split(',');
-            setBaseDeck(deckNames.includes('base'));
-            setPathDeck(deckNames.includes('path'));
-            setWindAndPromoDecks(deckNames.includes('wind') && deckNames.includes('promo'));
-        }
     }, []);
 
     const handleChangeBluePlayer = useCallback((event: any) => {
@@ -44,22 +38,6 @@ export function Start() {
 
     const handleChangeRedPlayer = useCallback((event: any) => {
         setRedPlayer(event.target.value);
-    }, []);
-
-    useEffect(() => {
-        setCanSubmit(baseDeck || pathDeck || windAndPromoDecks);
-    }, [baseDeck, pathDeck, windAndPromoDecks]);
-
-    const handleChangeBaseDeck = useCallback((event: any) => {
-        setBaseDeck(event.target.checked);
-    }, []);
-
-    const handleChangePathDeck = useCallback((event: any) => {
-        setPathDeck(event.target.checked);
-    }, []);
-
-    const handleChangeWindAndPromoDecks = useCallback((event: any) => {
-        setWindAndPromoDecks(event.target.checked);
     }, []);
 
     const handleClickRules = useCallback(() => {
@@ -71,24 +49,28 @@ export function Start() {
     }, []);
 
     const handleClickStart = useCallback(() => {
-        const decks = [];
-        if (baseDeck) {
-            decks.push('base');
-        }
-        if (pathDeck) {
-            decks.push('path');
-        }
-        if (windAndPromoDecks) {
-            decks.push('wind');
-            decks.push('promo');
-        }
         const settings = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SETTINGS_KEY) || '{}');
         settings[BLUE_PLAYER] = bluePlayer;
         settings[RED_PLAYER] = redPlayer;
-        settings[DECK_NAMES] = decks.join(',');
         localStorage.setItem(LOCAL_STORAGE_SETTINGS_KEY, JSON.stringify(settings));
-        navigate(`/game?players=${bluePlayer},${redPlayer}&decks=${decks.join(',')}`);
-    }, [bluePlayer, redPlayer, baseDeck, pathDeck, windAndPromoDecks]);
+
+        const players: string[] = [bluePlayer, redPlayer];
+        const deckNames = ['base', 'path', 'wind', 'promo'];
+        setG(
+            new Game(
+                players[0],
+                players[0] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+                players[1],
+                players[1] === 'human' ? PlayerType.HUMAN : PlayerType.BOT,
+                { deckNames },
+                handleProgressCallback,
+            ),
+        );
+        g!.startGame(Date.now());
+        sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
+        sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${players[0]} vs ${players[1]}`);
+        navigate('/game');
+    }, [bluePlayer, redPlayer]);
 
     return (
         <Box className="start page">
@@ -125,14 +107,6 @@ export function Start() {
                                 </Select>
                             </FormControl>
                         </Box>
-                    </FormGroup>
-                    <FormGroup>
-                        <Typography variant="h4" className="page--section-header" sx={{ marginTop: '2rem !important' }}>
-                            Movement
-                        </Typography>
-                        <FormControlLabel control={<Checkbox checked={baseDeck} onChange={handleChangeBaseDeck} />} label="Base deck" />
-                        <FormControlLabel control={<Checkbox checked={pathDeck} onChange={handleChangePathDeck} />} label="Sensei's Path cards" />
-                        <FormControlLabel control={<Checkbox checked={windAndPromoDecks} onChange={handleChangeWindAndPromoDecks} />} label="Way of the Wind + promo cards" />
                     </FormGroup>
                 </Box>
                 <Box className="page--actions">
