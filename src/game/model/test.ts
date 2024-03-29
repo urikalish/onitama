@@ -21,7 +21,6 @@ export async function goTest() {
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
         const gameId = getRandomNumber(5);
         const g = new Game(gameId, 'test0', PlayerType.BOT, 'test1', PlayerType.BOT, fenStr, null);
-        g.startGame(Date.now());
         do {
             const bm = await g.getBotMove();
             const m = g.possibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];

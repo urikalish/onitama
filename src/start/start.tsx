@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { get5RandomCardsNames, getStartingColor } from '../game/model/card';
 import { Color } from '../game/model/color';
 import { getInitialFenStr } from '../game/model/fen';
-import { g, Game, setG } from '../game/model/game';
+import { Game, setG } from '../game/model/game';
 import { PlayerType } from '../game/model/player';
 import { handleProgressCallback } from '../game/ui/game-ui';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
@@ -250,8 +250,8 @@ export function Start() {
             default:
                 throw 'Unsupported game mode';
         }
-        setG(new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
-        g!.startGame(Date.now());
+        const game = new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
+        setG(game);
         localStorage.clear();
         localStorage.setItem(
             LS_ITEM_SETTINGS,

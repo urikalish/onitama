@@ -22,13 +22,13 @@ export enum GameResult {
 
 export class Game {
     id: number;
+    creationTime = 0;
     players: Player[];
     armies: Army[];
     board: Board;
     positions: Position[] = [];
     moves: Move[] = [];
     possibleMoves: Move[] = [];
-    startTime = 0;
     mover = new Mover();
     results: Set<GameResult> = new Set();
     resultStr = '';
@@ -46,6 +46,7 @@ export class Game {
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
         this.id = id;
+        this.creationTime = Date.now();
         if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
             this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
             this.progressCB = progressCB;
@@ -54,10 +55,6 @@ export class Game {
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
         this.applyFen(fenStr);
-    }
-
-    startGame(startTime: number) {
-        this.startTime = startTime;
     }
 
     getCurPosition(): Position {
