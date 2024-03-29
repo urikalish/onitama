@@ -212,45 +212,26 @@ export function Start() {
     }, []);
 
     const handleClickStart = useCallback(() => {
-        const decks = ['base', 'path', 'wind', 'promo'];
-        const cardNames: string[] = get5RandomCardsNames(decks);
+        const cardNames: string[] = get5RandomCardsNames(['base', 'path', 'wind', 'promo']);
         const cardNames0: string[] = [cardNames[0], cardNames[1]];
         const cardNames1: string[] = [cardNames[2], cardNames[3]];
         let playerNames: string[];
         let playerTypes: PlayerType[];
-        let fenStr = '';
-        const gameId = getRandomNumber(5);
         switch (gameMode) {
             case LOCAL_VS_BOT:
-                playerNames = ['Local player', redPlayer];
+                playerNames = ['Local Player', redPlayer];
                 playerTypes = [PlayerType.LOCAL, PlayerType.BOT];
                 cardNames0.push(cardNames[4]);
-                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
             case LOCAL_VS_LOCAL:
-                playerNames = ['Local player 0', 'Local player 1'];
+                playerNames = ['Local Player 0', 'Local Player 1'];
                 playerTypes = [PlayerType.LOCAL, PlayerType.LOCAL];
                 if (getStartingColor(cardNames[4]) === Color.BLUE) {
                     cardNames0.push(cardNames[4]);
                 } else {
                     cardNames1.push(cardNames[4]);
                 }
-                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
-            // case LOCAL_VS_REMOTE:
-            //     playerNames = ['Local player 0', 'Remote player 1'];
-            //     playerTypes = [PlayerType.LOCAL, PlayerType.REMOTE];
-            //     if (getStartingColor(cardNames[4]) === Color.BLUE) {
-            //         cardNames0.push(cardNames[4]);
-            //     } else {
-            //         cardNames1.push(cardNames[4]);
-            //     }
-            //     fenStr = getInitialFenStr(cardNames0, cardNames1);
-            //     break;
-            // case REMOTE_VS_LOCAL:
-            //     playerNames = ['Remote player 0', 'Local player 1'];
-            //     playerTypes = [PlayerType.REMOTE, PlayerType.LOCAL];
-            //     break;
             case BOT_VS_BOT:
                 playerNames = [bluePlayer, redPlayer];
                 playerTypes = [PlayerType.BOT, PlayerType.BOT];
@@ -259,12 +240,14 @@ export function Start() {
                 } else {
                     cardNames1.push(cardNames[4]);
                 }
-                fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
             default:
                 throw 'Unsupported game mode';
         }
-        const game = new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
+        const gameId = getRandomNumber(5);
+        const creationTime = Date.now();
+        const fenStr = getInitialFenStr(cardNames0, cardNames1);
+        const game = new Game(gameId, creationTime, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
         setG(game);
         localStorage.clear();
         localStorage.setItem(

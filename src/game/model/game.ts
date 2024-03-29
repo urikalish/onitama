@@ -38,6 +38,7 @@ export class Game {
 
     constructor(
         id: number,
+        creationTime: number,
         player0Name: string,
         player0Type: PlayerType,
         player1Name: string,
@@ -46,7 +47,7 @@ export class Game {
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
         this.id = id;
-        this.creationTime = Date.now();
+        this.creationTime = creationTime;
         if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
             this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
             this.progressCB = progressCB;

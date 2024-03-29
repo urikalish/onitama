@@ -18,9 +18,10 @@ export async function goTest() {
         } else {
             cardNames1.push(cardNames[4]);
         }
-        const fenStr = getInitialFenStr(cardNames0, cardNames1);
         const gameId = getRandomNumber(5);
-        const g = new Game(gameId, 'test0', PlayerType.BOT, 'test1', PlayerType.BOT, fenStr, null);
+        const creationTime = Date.now();
+        const fenStr = getInitialFenStr(cardNames0, cardNames1);
+        const g = new Game(gameId, creationTime, 'test0', PlayerType.BOT, 'test1', PlayerType.BOT, fenStr, null);
         do {
             const bm = await g.getBotMove();
             const m = g.possibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];
