@@ -13,6 +13,10 @@ export function Home() {
         navigate(`/credits`);
     }, []);
 
+    const handleClickRules = useCallback(() => {
+        navigate(`/rules`);
+    }, []);
+
     const handleClickTest = useCallback(() => {
         goTest().then(() => {});
     }, []);
@@ -33,6 +37,11 @@ export function Home() {
                         <Button onClick={handleClickCredits} variant="outlined" className="action-button">
                             <Typography>Credits</Typography>
                         </Button>
+                    )}
+                    {!test && (
+                    <Button onClick={handleClickRules} variant="outlined" className="action-button">
+                        <Typography>Rules</Typography>
+                    </Button>
                     )}
                     {!test && (
                         <Button onClick={handleClickPlay} variant="contained" className="action-button">
