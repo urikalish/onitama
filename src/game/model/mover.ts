@@ -92,7 +92,7 @@ export class Mover {
                 np.pieceData[to] = casedPieceType;
                 np.handsData = passCard(np.handsData, cardName);
                 moves.push(
-                    createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}>${toFile}${toRank}`, p, np),
+                    createMoveInstance(p.positionNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}>${toFile}${toRank}`, p, np),
                 );
             } else {
                 //piece capture
@@ -110,7 +110,7 @@ export class Mover {
                 np.pieceData[to] = casedPieceType;
                 np.handsData = passCard(np.handsData, cardName);
                 moves.push(
-                    createMoveInstance(p.moveNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}x${toFile}${toRank}`, p, np),
+                    createMoveInstance(p.positionNum, p.armyIndex, cardName, i, to, moveTypes, `${cardName}.${casedPieceType}.${fromFile}${fromRank}x${toFile}${toRank}`, p, np),
                 );
             }
         }
@@ -122,7 +122,7 @@ export class Mover {
         moveTypes.add(MoveType.PASS_CARD_ONLY);
         const np = createNextPosition(p);
         np.handsData = passCard(np.handsData, cardName);
-        return createMoveInstance(p.moveNum, p.armyIndex, cardName, -1, -1, moveTypes, `${cardName}`, p, np);
+        return createMoveInstance(p.positionNum, p.armyIndex, cardName, -1, -1, moveTypes, `${cardName}`, p, np);
     }
 
     getAllPossibleMoves(p: Position): Move[] {

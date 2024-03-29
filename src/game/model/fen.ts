@@ -21,7 +21,7 @@ export function parseFenStr(fenStr: string): Position {
     return createPositionInstance(armyIndex, pd, [parts[1].split('/')[0], parts[1].split('/')[1]], Number(parts[2]));
 }
 
-export function getFenStr(p: Position | null, includeHands = true, includeMoveNum = true): string {
+export function getFenStr(p: Position | null, includeHands = true, includePositionNum = true): string {
     if (!p) {
         return '';
     }
@@ -52,8 +52,8 @@ export function getFenStr(p: Position | null, includeHands = true, includeMoveNu
     if (includeHands) {
         parts[1] = `${p.handsData[0]}/${p.handsData[1]}`;
     }
-    if (includeMoveNum) {
-        parts[2] = String(p.moveNum);
+    if (includePositionNum) {
+        parts[2] = String(p.positionNum);
     }
     return parts.join(' ');
 }
