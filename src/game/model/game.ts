@@ -3,7 +3,6 @@ import { proxy } from 'comlink';
 import { flipIndex } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
-import { get5RandomCardsNames, getStartingColor } from './card';
 import { Color } from './color';
 import { getFenStr, parseFenStr } from './fen';
 import { Move, MoveType } from './move';
@@ -41,46 +40,17 @@ export class Game {
         player0Type: PlayerType,
         player1Name: string,
         player1Type: PlayerType,
-        initBy: {
-            deckNames?: string[];
-            cardNames?: string[];
-            fenStr?: string;
-        },
+        fenStr: string,
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
+        if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
+            this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
+            this.progressCB = progressCB;
+        }
         this.players = [new Player(player0Name, 0, player0Type), new Player(player1Name, 1, player1Type)];
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
-        if (initBy.fenStr) {
-            this.applyFen(initBy.fenStr);
-        } else {
-            let cardNames: string[] = [];
-            if (initBy.deckNames) {
-                cardNames = get5RandomCardsNames(initBy.deckNames);
-            } else if (initBy.cardNames) {
-                cardNames = initBy.cardNames;
-            } else {
-                throw 'Unable to init game!';
-            }
-            const cardNames0: string[] = [cardNames[0], cardNames[1]];
-            const cardNames1: string[] = [cardNames[2], cardNames[3]];
-            let startingColor;
-            if (player0Type === PlayerType.HUMAN && player1Type === PlayerType.BOT) {
-                startingColor = Color.BLUE;
-            } else if (player0Type === PlayerType.BOT && player1Type === PlayerType.HUMAN) {
-                startingColor = Color.RED;
-            } else {
-                startingColor = getStartingColor(cardNames[4]);
-            }
-            if (startingColor === Color.BLUE) {
-                cardNames0.push(cardNames[4]);
-            } else {
-                cardNames1.push(cardNames[4]);
-            }
-            this.applyFen(`S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`);
-        }
-        this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
-        this.progressCB = progressCB;
+        this.applyFen(fenStr);
     }
 
     startGame(startTime: number) {
@@ -201,9 +171,14 @@ export class Game {
         return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.BOT;
     }
 
-    isHumanTurn() {
+    isLocalTurn() {
         const p = this.getCurPosition();
-        return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.HUMAN;
+        return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.LOCAL;
+    }
+
+    isRemoteTurn() {
+        const p = this.getCurPosition();
+        return p && this.isGameGoing() && this.armies[p.armyIndex].playerType === PlayerType.REMOTE;
     }
 
     handleProgressCallback(armyIndex: number, progressPercent: number) {

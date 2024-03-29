@@ -1,5 +1,6 @@
 export enum AnalyticsCategory {
     GAME_PHASE = 'game-phase',
+    GAME_TYPE = 'game-type',
     GAME_RESULT = 'game-result',
     PLAYERS = 'players',
     MUSIC = 'music',

@@ -1,7 +1,8 @@
 import { Color } from './color';
 
 export enum PlayerType {
-    HUMAN = 'human',
+    LOCAL = 'local',
+    REMOTE = 'remote',
     BOT = 'bot',
 }
 

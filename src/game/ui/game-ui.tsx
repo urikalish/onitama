@@ -62,20 +62,19 @@ export function GameUI() {
         if (!g || allPossibleMoves.length === 0) {
             return;
         }
-        if (!g.isBotTurn()) {
-            return;
+        if (g.isBotTurn()) {
+            setTimeout(() => {
+                (async () => {
+                    if (!g) {
+                        return;
+                    }
+                    const bm = await g.getBotMove();
+                    const m = allPossibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];
+                    g.move(m);
+                    setPosition(g.getCurPosition());
+                })();
+            }, 500);
         }
-        setTimeout(() => {
-            (async () => {
-                if (!g) {
-                    return;
-                }
-                const bm = await g.getBotMove();
-                const m = allPossibleMoves.filter((m) => m.cardName === bm.cardName && m.from === bm.from && m.to === bm.to)[0];
-                g.move(m);
-                setPosition(g.getCurPosition());
-            })();
-        }, 500);
     }, [allPossibleMoves]);
 
     const handleSelectCard = useCallback(
@@ -116,7 +115,7 @@ export function GameUI() {
                         <BoardUI b={g.board} cardPossibleMoves={cardPossibleMoves} onSelectMove={handleSelectMove} />
                         {g.isGameGoing() && <HandsUi p={position} allPossibleMoves={allPossibleMoves} onSelectCard={handleSelectCard} />}
                     </Box>
-                    {(g.isGameEnded() || g.isBotTurn()) && <Box className="game-over-cover" />}
+                    {(g.isBotTurn() || g.isRemoteTurn() || g.isGameEnded()) && <Box className="game-over-cover" />}
                 </Box>
             </Box>
         )
