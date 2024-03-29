@@ -287,9 +287,6 @@ export function Start() {
                         </FormControl>
                     </FormGroup>
                     <FormGroup>
-                        <Typography variant="h4" className="page--section-header">
-                            Players
-                        </Typography>
                         <Box className="start--players">
                             <FormControl fullWidth>
                                 <InputLabel id="blue-select-label">Blue</InputLabel>
