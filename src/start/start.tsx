@@ -18,8 +18,14 @@ const LS_GAME_MODE = 'gameMode';
 const LS_BLUE_PLAYER = 'bluePlayer';
 const LS_RED_PLAYER = 'redPlayer';
 
+const LOCAL_VS_BOT = 'local-vs-bot';
+const LOCAL_VS_LOCAL = 'local-vs-local';
+const LOCAL_VS_REMOTE = 'local-vs-remote';
+const REMOTE_VS_LOCAL = 'remote-vs-local';
+const BOT_VS_BOT = 'bot-vs-bot';
+
 const combos: Record<string, { blue: { value: string; text: string }[]; red: { value: string; text: string }[] }> = {
-    'local-vs-bot': {
+    [LOCAL_VS_BOT]: {
         blue: [
             {
                 value: 'human-local',
@@ -53,7 +59,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
             },
         ],
     },
-    'local-vs-local': {
+    [LOCAL_VS_LOCAL]: {
         blue: [
             {
                 value: 'human-local',
@@ -67,7 +73,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
             },
         ],
     },
-    'local-vs-remote': {
+    [LOCAL_VS_REMOTE]: {
         blue: [
             {
                 value: 'human-local',
@@ -81,7 +87,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
             },
         ],
     },
-    'remote-vs-local': {
+    [REMOTE_VS_LOCAL]: {
         blue: [
             {
                 value: 'human-remote',
@@ -95,7 +101,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
             },
         ],
     },
-    'bot-vs-bot': {
+    [BOT_VS_BOT]: {
         blue: [
             {
                 value: 'bot0',
@@ -153,12 +159,14 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
 
 export function Start() {
     const initialized = useRef(false);
-    const [gameMode, setGameMode] = useState('local-vs-bot');
-    const [blueCombo, setBlueCombo] = useState(combos['local-vs-bot'].blue);
-    const [redCombo, setRedCombo] = useState(combos['local-vs-bot'].red);
-    const [bluePlayer, setBluePlayer] = useState(combos['local-vs-bot'].blue[0].value);
-    const [redPlayer, setRedPlayer] = useState(combos['local-vs-bot'].red[0].value);
-    const [canSubmit] = useState(true);
+    const [gameMode, setGameMode] = useState(LOCAL_VS_BOT);
+    const [blueCombo, setBlueCombo] = useState(combos[LOCAL_VS_BOT].blue);
+    const [redCombo, setRedCombo] = useState(combos[LOCAL_VS_BOT].red);
+    const [bluePlayer, setBluePlayer] = useState(combos[LOCAL_VS_BOT].blue[0].value);
+    const [redPlayer, setRedPlayer] = useState(combos[LOCAL_VS_BOT].red[0].value);
+    const [canStart, setCanStart] = useState(true);
+    const [canCreate, setCanCreate] = useState(false);
+    const [canJoin, setCanJoin] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -175,6 +183,12 @@ export function Start() {
         }
         initialized.current = true;
     }, []);
+
+    useEffect(() => {
+        setCanStart([LOCAL_VS_BOT, LOCAL_VS_LOCAL, BOT_VS_BOT].includes(gameMode));
+        setCanCreate([LOCAL_VS_REMOTE].includes(gameMode));
+        setCanJoin([REMOTE_VS_LOCAL].includes(gameMode));
+    }, [gameMode]);
 
     const handleChangeGameMode = useCallback((event: any) => {
         const mode = event.target.value;
@@ -207,13 +221,13 @@ export function Start() {
         let fenStr = '';
         const gameId = getRandomNumber(5);
         switch (gameMode) {
-            case 'local-vs-bot':
+            case LOCAL_VS_BOT:
                 playerNames = ['Local player', redPlayer];
                 playerTypes = [PlayerType.LOCAL, PlayerType.BOT];
                 cardNames0.push(cardNames[4]);
                 fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
-            case 'local-vs-local':
+            case LOCAL_VS_LOCAL:
                 playerNames = ['Local player 0', 'Local player 1'];
                 playerTypes = [PlayerType.LOCAL, PlayerType.LOCAL];
                 if (getStartingColor(cardNames[4]) === Color.BLUE) {
@@ -223,7 +237,7 @@ export function Start() {
                 }
                 fenStr = getInitialFenStr(cardNames0, cardNames1);
                 break;
-            // case 'local-vs-remote':
+            // case LOCAL_VS_REMOTE:
             //     playerNames = ['Local player 0', 'Remote player 1'];
             //     playerTypes = [PlayerType.LOCAL, PlayerType.REMOTE];
             //     if (getStartingColor(cardNames[4]) === Color.BLUE) {
@@ -233,11 +247,11 @@ export function Start() {
             //     }
             //     fenStr = getInitialFenStr(cardNames0, cardNames1);
             //     break;
-            // case 'remote-vs-local':
+            // case REMOTE_VS_LOCAL:
             //     playerNames = ['Remote player 0', 'Local player 1'];
             //     playerTypes = [PlayerType.REMOTE, PlayerType.LOCAL];
             //     break;
-            case 'bot-vs-bot':
+            case BOT_VS_BOT:
                 playerNames = [bluePlayer, redPlayer];
                 playerTypes = [PlayerType.BOT, PlayerType.BOT];
                 if (getStartingColor(cardNames[4]) === Color.BLUE) {
@@ -267,6 +281,12 @@ export function Start() {
         navigate('/game');
     }, [gameMode, bluePlayer, redPlayer]);
 
+    const handleClickCreate = useCallback(() => {
+    }, []);
+
+    const handleClickJoin = useCallback(() => {
+    }, []);
+
     return (
         <Box className="start page">
             <Box className="page-cover" />
@@ -278,11 +298,11 @@ export function Start() {
                         </Typography>
                         <FormControl>
                             <RadioGroup aria-label="Game mode" name="game-mode-radio-buttons-group" value={gameMode} onChange={handleChangeGameMode}>
-                                <FormControlLabel value="local-vs-bot" control={<Radio />} label="Play vs. Bot" />
-                                <FormControlLabel value="local-vs-local" control={<Radio />} label="Local Multiplayer (Single Device)" />
-                                <FormControlLabel disabled={true} value="local-vs-remote" control={<Radio />} label="Remote Multiplayer - Create Game" />
-                                <FormControlLabel disabled={true} value="remote-vs-local" control={<Radio />} label="Remote Multiplayer - Join Game" />
-                                <FormControlLabel value="bot-vs-bot" control={<Radio />} label="Bot vs. Bot" />
+                                <FormControlLabel value={LOCAL_VS_BOT} control={<Radio />} label="Play vs. Bot" />
+                                <FormControlLabel value={LOCAL_VS_LOCAL} control={<Radio />} label="Local Multiplayer (Single Device)" />
+                                <FormControlLabel value={LOCAL_VS_REMOTE} control={<Radio />} label="Remote Multiplayer - Create Game" />
+                                <FormControlLabel value={REMOTE_VS_LOCAL} control={<Radio />} label="Remote Multiplayer - Join Game" />
+                                <FormControlLabel value={BOT_VS_BOT} control={<Radio />} label="Bot vs. Bot" />
                             </RadioGroup>
                         </FormControl>
                     </FormGroup>
@@ -322,9 +342,21 @@ export function Start() {
                     <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
                     </Button>
-                    <Button disabled={!canSubmit} onClick={handleClickStart} variant="contained" className="action-button">
-                        <Typography>Start</Typography>
+                    {canStart && (
+                        <Button onClick={handleClickStart} variant="contained" className="action-button">
+                            <Typography>Start</Typography>
+                        </Button>
+                    )}
+                    {canCreate && (
+                    <Button onClick={handleClickCreate} variant="contained" className="action-button">
+                        <Typography>Create</Typography>
                     </Button>
+                    )}
+                    {canJoin && (
+                    <Button onClick={handleClickJoin} variant="contained" className="action-button">
+                        <Typography>Join</Typography>
+                    </Button>
+                    )}
                 </Box>
             </Box>
         </Box>
