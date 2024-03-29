@@ -3,8 +3,8 @@
     "short_name": "Kalish Onitama",
     "description": "Kalish Onitama",
     "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#222222",
+    "background_color": "#222222",
     "icons": [
         {
             "src": "/favicon-16x16.png",

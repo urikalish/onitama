@@ -27,27 +27,27 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         red: [
             {
                 value: 'bot0',
-                text: 'Bot 0 (easy)',
+                text: 'Bot0 (easy)',
             },
             {
                 value: 'bot1',
-                text: 'Bot 1',
+                text: 'Bot1',
             },
             {
                 value: 'bot2',
-                text: 'Bot 2',
+                text: 'Bot2',
             },
             {
                 value: 'bot3',
-                text: 'Bot 3',
+                text: 'Bot3',
             },
             {
                 value: 'bot4',
-                text: 'Bot 4',
+                text: 'Bot4',
             },
             {
                 value: 'bot5',
-                text: 'Bot 5 (hard)',
+                text: 'Bot5 (hard)',
             },
         ],
     },
@@ -97,53 +97,53 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'bot0',
-                text: 'Bot 0 (easy)',
+                text: 'Bot0 (easy)',
             },
             {
                 value: 'bot1',
-                text: 'Bot 1',
+                text: 'Bot1',
             },
             {
                 value: 'bot2',
-                text: 'Bot 2',
+                text: 'Bot2',
             },
             {
                 value: 'bot3',
-                text: 'Bot 3',
+                text: 'Bot3',
             },
             {
                 value: 'bot4',
-                text: 'Bot 4',
+                text: 'Bot4',
             },
             {
                 value: 'bot5',
-                text: 'Bot 5 (hard)',
+                text: 'Bot5 (hard)',
             },
         ],
         red: [
             {
                 value: 'bot0',
-                text: 'Bot 0 (easy)',
+                text: 'Bot0 (easy)',
             },
             {
                 value: 'bot1',
-                text: 'Bot 1',
+                text: 'Bot1',
             },
             {
                 value: 'bot2',
-                text: 'Bot 2',
+                text: 'Bot2',
             },
             {
                 value: 'bot3',
-                text: 'Bot 3',
+                text: 'Bot3',
             },
             {
                 value: 'bot4',
-                text: 'Bot 4',
+                text: 'Bot4',
             },
             {
                 value: 'bot5',
-                text: 'Bot 5 (hard)',
+                text: 'Bot5 (hard)',
             },
         ],
     },
