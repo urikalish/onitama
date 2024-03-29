@@ -11,8 +11,8 @@ import { PlayerType } from '../game/model/player';
 import { handleProgressCallback } from '../game/ui/game-ui';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
 
-const LS_ITEM_SETTINGS = 'onitama-290324';
-const LS_GAME_TYPE = 'gameType';
+const LS_ITEM_SETTINGS = 'onitama-300324';
+const LS_GAME_MODE = 'gameMode';
 const LS_BLUE_PLAYER = 'bluePlayer';
 const LS_RED_PLAYER = 'redPlayer';
 
@@ -151,7 +151,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
 
 export function Start() {
     const initialized = useRef(false);
-    const [gameType, setGameType] = useState('local-vs-bot');
+    const [gameMode, setGameMode] = useState('local-vs-bot');
     const [blueCombo, setBlueCombo] = useState(combos['local-vs-bot'].blue);
     const [redCombo, setRedCombo] = useState(combos['local-vs-bot'].red);
     const [bluePlayer, setBluePlayer] = useState(combos['local-vs-bot'].blue[0].value);
@@ -164,23 +164,23 @@ export function Start() {
             return;
         }
         const ls = JSON.parse(localStorage.getItem(LS_ITEM_SETTINGS) || '{}');
-        if (ls[LS_GAME_TYPE] && ls[LS_BLUE_PLAYER] && ls[LS_RED_PLAYER]) {
-            setGameType(ls[LS_GAME_TYPE]);
-            setBlueCombo(combos[ls[LS_GAME_TYPE]].blue);
-            setRedCombo(combos[ls[LS_GAME_TYPE]].red);
+        if (ls[LS_GAME_MODE] && ls[LS_BLUE_PLAYER] && ls[LS_RED_PLAYER]) {
+            setGameMode(ls[LS_GAME_MODE]);
+            setBlueCombo(combos[ls[LS_GAME_MODE]].blue);
+            setRedCombo(combos[ls[LS_GAME_MODE]].red);
             setBluePlayer(ls[LS_BLUE_PLAYER]);
             setRedPlayer(ls[LS_RED_PLAYER]);
         }
         initialized.current = true;
     }, []);
 
-    const handleChangeGameType = useCallback((event: any) => {
-        const gType = event.target.value;
-        setGameType(gType);
-        setBlueCombo(combos[gType].blue);
-        setRedCombo(combos[gType].red);
-        setBluePlayer(combos[gType].blue[0].value);
-        setRedPlayer(combos[gType].red[0].value);
+    const handleChangeGameMode = useCallback((event: any) => {
+        const mode = event.target.value;
+        setGameMode(mode);
+        setBlueCombo(combos[mode].blue);
+        setRedCombo(combos[mode].red);
+        setBluePlayer(combos[mode].blue[0].value);
+        setRedPlayer(combos[mode].red[0].value);
     }, []);
 
     const handleChangeBluePlayer = useCallback((event: any) => {
@@ -199,7 +199,7 @@ export function Start() {
         localStorage.setItem(
             LS_ITEM_SETTINGS,
             JSON.stringify({
-                [LS_GAME_TYPE]: gameType,
+                [LS_GAME_MODE]: gameMode,
                 [LS_BLUE_PLAYER]: bluePlayer,
                 [LS_RED_PLAYER]: redPlayer,
             }),
@@ -211,7 +211,7 @@ export function Start() {
         let playerNames: string[];
         let playerTypes: PlayerType[];
         let fenStr = '';
-        switch (gameType) {
+        switch (gameMode) {
             case 'local-vs-bot':
                 playerNames = ['Local player', redPlayer];
                 playerTypes = [PlayerType.LOCAL, PlayerType.BOT];
@@ -247,15 +247,15 @@ export function Start() {
                 fenStr = `S3s/S3s/M3m/S3s/S3s ${cardNames0.join(',')}/${cardNames1.join(',')} 1`;
                 break;
             default:
-                throw 'Unsupported game type';
+                throw 'Unsupported game mode';
         }
         setG(new Game(playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
         g!.startGame(Date.now());
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
-        sendAnalyticsEvent(AnalyticsCategory.GAME_TYPE, gameType);
+        sendAnalyticsEvent(AnalyticsCategory.GAME_MODE, gameMode);
         sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${playerNames[0]} vs ${playerNames[1]}`);
         navigate('/game');
-    }, [gameType, bluePlayer, redPlayer]);
+    }, [gameMode, bluePlayer, redPlayer]);
 
     return (
         <Box className="start page">
@@ -264,14 +264,14 @@ export function Start() {
                 <Box className="page--content">
                     <FormGroup>
                         <Typography variant="h4" className="page--section-header">
-                            Game Type
+                            Game Mode
                         </Typography>
                         <FormControl>
-                            <RadioGroup aria-label="Game type" name="game-type-radio-buttons-group" value={gameType} onChange={handleChangeGameType}>
+                            <RadioGroup aria-label="Game mode" name="game-mode-radio-buttons-group" value={gameMode} onChange={handleChangeGameMode}>
                                 <FormControlLabel value="local-vs-bot" control={<Radio />} label="Play vs. Bot" />
-                                <FormControlLabel value="local-vs-local" control={<Radio />} label="Single Device Multiplayer" />
-                                <FormControlLabel disabled={true} value="local-vs-remote" control={<Radio />} label="Remote Multiplayer - Create" />
-                                <FormControlLabel disabled={true} value="remote-vs-local" control={<Radio />} label="Remote Multiplayer - Join" />
+                                <FormControlLabel value="local-vs-local" control={<Radio />} label="Local Multiplayer - Single Device" />
+                                <FormControlLabel disabled={true} value="local-vs-remote" control={<Radio />} label="Remote Multiplayer - Create Game" />
+                                <FormControlLabel disabled={true} value="remote-vs-local" control={<Radio />} label="Remote Multiplayer - Join Game" />
                                 <FormControlLabel value="bot-vs-bot" control={<Radio />} label="Bot vs. Bot" />
                             </RadioGroup>
                         </FormControl>
