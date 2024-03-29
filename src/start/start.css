@@ -2,6 +2,15 @@
     margin-bottom: 1rem;
 }
 
+.page.start .MuiRadio-root {
+    padding: 6px;
+}
+
+.page.start .MuiFormControlLabel-label {
+    position: relative;
+    top: 1px;
+}
+
 .start--players {
     display: flex;
     gap: 1rem;
