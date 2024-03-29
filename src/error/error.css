@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
-    background-color: #111 !important;
+    background-color: #222 !important;
     background-image: var(--bg);
     background-size: cover;
 }

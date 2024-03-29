@@ -37,12 +37,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow: hidden;
-    background-color: #111 !important;
+    background-color: #222 !important;
     color: #fff !important;
 }
 
 .app {
-    background-color: #111 !important;
+    background-color: #222 !important;
     background-image: var(--bg);
     background-size: cover;
     display: grid;

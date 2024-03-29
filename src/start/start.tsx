@@ -11,7 +11,7 @@ import { PlayerType } from '../game/model/player';
 import { handleProgressCallback } from '../game/ui/game-ui';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../services/analytics';
 
-const LS_ITEM_SETTINGS = 'onitama';
+const LS_ITEM_SETTINGS = 'kalish-onitama';
 const LS_GAME_MODE = 'gameMode';
 const LS_BLUE_PLAYER = 'bluePlayer';
 const LS_RED_PLAYER = 'redPlayer';
@@ -245,12 +245,12 @@ export function Start() {
         g!.startGame(Date.now());
         localStorage.clear();
         localStorage.setItem(
-        LS_ITEM_SETTINGS,
-        JSON.stringify({
-            [LS_GAME_MODE]: gameMode,
-            [LS_BLUE_PLAYER]: bluePlayer,
-            [LS_RED_PLAYER]: redPlayer,
-        }),
+            LS_ITEM_SETTINGS,
+            JSON.stringify({
+                [LS_GAME_MODE]: gameMode,
+                [LS_BLUE_PLAYER]: bluePlayer,
+                [LS_RED_PLAYER]: redPlayer,
+            }),
         );
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
         sendAnalyticsEvent(AnalyticsCategory.GAME_MODE, gameMode);
