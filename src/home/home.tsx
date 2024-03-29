@@ -39,9 +39,9 @@ export function Home() {
                         </Button>
                     )}
                     {!test && (
-                    <Button onClick={handleClickRules} variant="outlined" className="action-button">
-                        <Typography>Rules</Typography>
-                    </Button>
+                        <Button onClick={handleClickRules} variant="outlined" className="action-button">
+                            <Typography>Rules</Typography>
+                        </Button>
                     )}
                     {!test && (
                         <Button onClick={handleClickPlay} variant="contained" className="action-button">
