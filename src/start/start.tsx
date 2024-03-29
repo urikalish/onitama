@@ -190,6 +190,18 @@ export function Start() {
         setCanJoin([REMOTE_VS_LOCAL].includes(gameMode));
     }, [gameMode]);
 
+    const saveToLocalStorage = useCallback(() => {
+        localStorage.clear();
+        localStorage.setItem(
+        LS_ITEM_SETTINGS,
+        JSON.stringify({
+            [LS_GAME_MODE]: gameMode,
+            [LS_BLUE_PLAYER]: bluePlayer,
+            [LS_RED_PLAYER]: redPlayer,
+        }),
+        );
+    }, [gameMode, bluePlayer, redPlayer]);
+
     const handleChangeGameMode = useCallback((event: any) => {
         const mode = event.target.value;
         setGameMode(mode);
@@ -249,28 +261,22 @@ export function Start() {
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
         const game = new Game(gameId, creationTime, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
         setG(game);
-        localStorage.clear();
-        localStorage.setItem(
-            LS_ITEM_SETTINGS,
-            JSON.stringify({
-                [LS_GAME_MODE]: gameMode,
-                [LS_BLUE_PLAYER]: bluePlayer,
-                [LS_RED_PLAYER]: redPlayer,
-            }),
-        );
+        saveToLocalStorage();
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
         sendAnalyticsEvent(AnalyticsCategory.GAME_MODE, gameMode);
         sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${playerNames[0]} vs ${playerNames[1]}`);
         navigate('/game');
-    }, [gameMode, bluePlayer, redPlayer]);
+    }, [gameMode, bluePlayer, redPlayer, saveToLocalStorage]);
 
     const handleClickCreate = useCallback(() => {
+        saveToLocalStorage();
         navigate(`/create`);
-    }, []);
+    }, [saveToLocalStorage]);
 
     const handleClickJoin = useCallback(() => {
+        saveToLocalStorage();
         navigate(`/join`);
-    }, []);
+    }, [saveToLocalStorage]);
 
     return (
         <Box className="start page">
