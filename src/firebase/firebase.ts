@@ -3,6 +3,7 @@ import { Database, get, getDatabase, onValue, ref, set } from 'firebase/database
 
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
+import { Move } from '../game/model/move';
 
 let db: Database;
 
@@ -21,33 +22,9 @@ export function initFirebaseApp() {
     db = getDatabase(fbApp);
 }
 
-export async function fbCreateGame(g: Game) {
+export async function fbGetValue(path: string) {
     try {
-        return await set(ref(db, `games/${g.id}`), {
-            cTime: g.creationTime,
-            cDate: g.creationDate,
-            status: g.status.toString(),
-            position: getFenStr(g.getCurPosition()),
-        });
-    } catch (err) {
-        alert(err);
-    }
-}
-export function fbWaitForJoining(id: number, cb: (status: string) => void) {
-    try {
-        const statusRef = ref(db, `games/${id}/status`);
-        onValue(statusRef, (snapshot) => {
-            const status = snapshot.val();
-            cb(status);
-        });
-    } catch (err) {
-        alert(err);
-    }
-}
-
-export async function fbGetGameRecord(gameIdStr: number): Promise<any> {
-    try {
-        const valueRef = ref(db, `games/${gameIdStr}`);
+        const valueRef = ref(db, path);
         const snapshot = await get(valueRef);
         if (snapshot.exists()) {
             return snapshot.val();
@@ -59,19 +36,62 @@ export async function fbGetGameRecord(gameIdStr: number): Promise<any> {
     }
 }
 
-export function fbStartGame(id: number) {
+async function fbSetValue(path: string, value: any) {
     try {
-        set(ref(db, `games/${id}/status`), GameStatus.STARTED.toString()).then(() => {});
+        return await set(ref(db, path), value);
     } catch (err) {
         alert(err);
     }
 }
 
-export function fbEndGame(g: Game) {
+function onChangeValue(path: string, cb: (value: any) => void) {
     try {
-        set(ref(db, `games/${g.id}/status`), GameStatus.ENDED.toString()).then(() => {});
-        set(ref(db, `games/${g.id}/result`), g.resultStr).then(() => {});
+        const valueRef = ref(db, path);
+        onValue(valueRef, (snapshot) => {
+            const value = snapshot.val();
+            cb(value);
+        });
     } catch (err) {
         alert(err);
     }
+}
+
+export async function fbGetGameRecord(gameId: number): Promise<any> {
+    return fbGetValue(`games/${gameId}`);
+}
+
+export async function fbCreateGame(g: Game) {
+    return fbSetValue(`games/${g.id}`, {
+        cTime: g.creationTime,
+        cDate: g.creationDate,
+        status: g.status.toString(),
+        position: getFenStr(g.getCurPosition()),
+    });
+}
+export async function fbMove(gameId: number, m: Move) {
+    return fbSetValue(`games/${gameId}/move`, {
+        moveNum: m.moveNum,
+        armyIndex: m.armyIndex,
+        cardName: m.cardName,
+        from: m.from,
+        to: m.to,
+        name: m.name,
+        types: Array.from(m.types).toString(),
+    });
+}
+
+export function fbStartGame(gameId: number) {
+    fbSetValue(`games/${gameId}/status`, GameStatus.STARTED.toString()).then(() => {});
+}
+
+export function fbEndGame(gameId: number) {
+    fbSetValue(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
+}
+
+export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
+    onChangeValue(`games/${gameId}/status`, cb);
+}
+
+export function fbWaitForMove(gameId: number, cb: (moveRec: any) => void) {
+    onChangeValue(`games/${gameId}/move`, cb);
 }

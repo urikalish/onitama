@@ -4,7 +4,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { fbCreateGame, fbWaitForJoining, initFirebaseApp } from '../firebase/firebase';
+import { fbCreateGame, fbWaitForStatusChange, initFirebaseApp } from '../firebase/firebase';
 import { get5RandomCardsNames, getStartingColor } from '../game/model/card';
 import { Color } from '../game/model/color';
 import { getInitialFenStr } from '../game/model/fen';
@@ -40,7 +40,7 @@ export function Create() {
         g!.status = GameStatus.JOINING;
         initFirebaseApp();
         fbCreateGame(g!).then(() => {});
-        fbWaitForJoining(g!.id, (status) => {
+        fbWaitForStatusChange(g!.id, (status: string) => {
             if (status === GameStatus.STARTED) {
                 g!.startGame();
                 sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
