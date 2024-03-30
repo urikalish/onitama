@@ -11,7 +11,7 @@ import { PieceType } from './piece';
 import { Player, PlayerType } from './player';
 import { assureTwoMasters, Position } from './position';
 
-export enum GamePhase {
+export enum GameStatus {
     CREATED = 'created',
     JOINING = 'joining',
     STARTED = 'started',
@@ -31,7 +31,7 @@ export class Game {
     id: number;
     creationTime: number;
     creationDate: string;
-    phase: GamePhase;
+    status: GameStatus;
     players: Player[];
     armies: Army[];
     board: Board;
@@ -58,7 +58,7 @@ export class Game {
         const now = new Date();
         this.creationTime = now.getTime();
         this.creationDate = getDateTime(now);
-        this.phase = GamePhase.CREATED;
+        this.status = GameStatus.CREATED;
         if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
             this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
             this.progressCB = progressCB;
@@ -70,7 +70,7 @@ export class Game {
     }
 
     startGame() {
-        this.phase = GamePhase.STARTED;
+        this.status = GameStatus.STARTED;
     }
 
     getCurPosition(): Position {
@@ -94,15 +94,15 @@ export class Game {
     }
 
     isGameJoining(): boolean {
-        return this.phase === GamePhase.JOINING;
+        return this.status === GameStatus.JOINING;
     }
 
     isGameGoing(): boolean {
-        return this.phase === GamePhase.STARTED;
+        return this.status === GameStatus.STARTED;
     }
 
     isGameEnded(): boolean {
-        return this.phase === GamePhase.ENDED;
+        return this.status === GameStatus.ENDED;
     }
 
     checkForGameEnded() {
@@ -133,7 +133,7 @@ export class Game {
             this.results.add(GameResult.WIN_STREAM);
             this.resultStr += ' the way of the stream.';
         }
-        this.phase = GamePhase.ENDED;
+        this.status = GameStatus.ENDED;
     }
 
     pushPosition(p: Position) {
@@ -149,9 +149,9 @@ export class Game {
         const p = parseFenStr(fenStr);
         if (!assureTwoMasters(p)) {
             this.results.add(GameResult.INVALID_POSITION);
-            this.phase = GamePhase.ENDED;
-            alert('Missing some masters...');
-            throw 'Invalid fen';
+            this.status = GameStatus.ENDED;
+            alert('Invalid fen!');
+            throw 'Invalid fen!';
         }
         this.board.clearAllPieces();
         for (let i = 0; i < 25; i++) {
