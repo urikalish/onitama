@@ -22,7 +22,7 @@ export function Home() {
     }, []);
 
     const handleClickPlay = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

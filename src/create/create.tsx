@@ -6,7 +6,7 @@ export function Create() {
     const navigate = useNavigate();
 
     const handleClickCancel = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

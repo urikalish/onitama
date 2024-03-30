@@ -12,7 +12,7 @@ export function Rules() {
     }, []);
 
     const handleClickPlay = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

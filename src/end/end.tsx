@@ -14,7 +14,7 @@ export function End() {
 
     useEffect(() => {
         if (!g) {
-            navigate('/start');
+            navigate('/init');
             return;
         }
         const win = g.results.has(GameResult.WIN_BLUE) ? 'blue' : 'red';
@@ -34,7 +34,7 @@ export function End() {
     }, []);
 
     const handleClickPlay = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

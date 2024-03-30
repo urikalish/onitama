@@ -6,7 +6,7 @@ export function Join() {
     const navigate = useNavigate();
 
     const handleClickCancel = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

@@ -12,10 +12,10 @@ import { End } from './end/end';
 import { Error } from './error/error';
 import { GameUI } from './game/ui/game-ui';
 import { Home } from './home/home';
+import { Init } from './init/init';
 import { Join } from './join/join';
 import { Root } from './root/root';
 import { Rules } from './rules/rules';
-import { Start } from './start/start';
 import { myTheme } from './theme/my-theme';
 
 const router = createBrowserRouter([
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
                 element: <Rules />,
             },
             {
-                path: 'start',
-                element: <Start />,
+                path: 'init',
+                element: <Init />,
             },
             {
                 path: 'create',

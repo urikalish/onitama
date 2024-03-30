@@ -31,7 +31,7 @@ export function GameUI() {
 
     useEffect(() => {
         if (!g) {
-            navigate('/start');
+            navigate('/init');
             return;
         }
         setPosition(g.getCurPosition());

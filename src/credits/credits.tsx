@@ -12,7 +12,7 @@ export function Credits() {
     }, []);
 
     const handleClickPlay = useCallback(() => {
-        navigate(`/start`);
+        navigate(`/init`);
     }, []);
 
     return (

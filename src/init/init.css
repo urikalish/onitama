@@ -1,13 +1,13 @@
-.page.start .MuiFormGroup-root {
+.page.init .MuiFormGroup-root {
     margin-bottom: 1rem;
 }
 
-.page.start .MuiFormControlLabel-label {
+.page.init .MuiFormControlLabel-label {
     position: relative;
     top: 1px;
 }
 
-.start--players {
+.init--players {
     display: flex;
     gap: 0.5rem;
 }

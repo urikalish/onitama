@@ -1,4 +1,4 @@
-import './start.css';
+import './init.css';
 
 import { Box, Button, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Radio, RadioGroup, Select, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -157,7 +157,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
     },
 };
 
-export function Start() {
+export function Init() {
     const initialized = useRef(false);
     const [gameMode, setGameMode] = useState(LOCAL_VS_BOT);
     const [blueCombo, setBlueCombo] = useState(combos[LOCAL_VS_BOT].blue);
@@ -278,7 +278,7 @@ export function Start() {
     }, [saveToLocalStorage]);
 
     return (
-        <Box className="start page">
+        <Box className="init page">
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
@@ -297,7 +297,7 @@ export function Start() {
                         </FormControl>
                     </FormGroup>
                     <FormGroup>
-                        <Box className="start--players">
+                        <Box className="init--players">
                             <FormControl fullWidth>
                                 <InputLabel id="blue-select-label">Blue</InputLabel>
                                 <Select
