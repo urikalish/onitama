@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { Database, get, getDatabase, onValue, ref, remove, set } from 'firebase/database';
+import { Database, get, getDatabase, off, onValue, ref, remove, set } from 'firebase/database';
 
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
@@ -65,6 +65,15 @@ function fbRemove(path: string) {
     }
 }
 
+function fbDetach(path: string) {
+    try {
+        const dbRef = ref(db, path);
+        off(dbRef);
+    } catch (err) {
+        alert(err);
+    }
+}
+
 export async function fbGetGameRecord(gameId: number): Promise<any> {
     return fbGet(`games/${gameId}`);
 }
@@ -95,6 +104,7 @@ export function fbStartGame(gameId: number) {
 
 export function fbEndGame(gameId: number) {
     fbSet(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
+    fbDetach(`games/${gameId}`);
 }
 
 export function fbDeleteGame(gameId: number) {
