@@ -22,7 +22,7 @@ export function initFirebaseApp() {
     db = getDatabase(fbApp);
 }
 
-export async function fbGetValue(path: string) {
+export async function fbGet(path: string) {
     try {
         const dbRef = ref(db, path);
         const snapshot = await get(dbRef);
@@ -36,7 +36,7 @@ export async function fbGetValue(path: string) {
     }
 }
 
-async function fbSetValue(path: string, value: any) {
+async function fbSet(path: string, value: any) {
     try {
         return await set(ref(db, path), value);
     } catch (err) {
@@ -66,19 +66,19 @@ function fbRemove(path: string) {
 }
 
 export async function fbGetGameRecord(gameId: number): Promise<any> {
-    return fbGetValue(`games/${gameId}`);
+    return fbGet(`games/${gameId}`);
 }
 
 export async function fbCreateGame(g: Game) {
-    return fbSetValue(`games/${g.id}`, {
+    return fbSet(`games/${g.id}`, {
         cTime: g.creationTime,
         cDate: g.creationDate,
         status: g.status.toString(),
         position: getFenStr(g.getCurPosition()),
     });
 }
-export async function fbMove(gameId: number, m: Move) {
-    return fbSetValue(`games/${gameId}/move`, {
+export async function fbSetMove(gameId: number, m: Move) {
+    return fbSet(`games/${gameId}/move`, {
         moveNum: m.moveNum,
         armyIndex: m.armyIndex,
         cardName: m.cardName,
@@ -90,11 +90,11 @@ export async function fbMove(gameId: number, m: Move) {
 }
 
 export function fbStartGame(gameId: number) {
-    fbSetValue(`games/${gameId}/status`, GameStatus.STARTED.toString()).then(() => {});
+    fbSet(`games/${gameId}/status`, GameStatus.STARTED.toString()).then(() => {});
 }
 
 export function fbEndGame(gameId: number) {
-    fbSetValue(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
+    fbSet(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
 }
 
 export function fbDeleteGame(gameId: number) {
