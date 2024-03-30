@@ -105,6 +105,14 @@ export class Game {
         return this.status === GameStatus.ENDED;
     }
 
+    isRemoteGame(): boolean {
+        return this.players[0].type === PlayerType.REMOTE || this.players[1].type === PlayerType.REMOTE;
+    }
+
+    getRemotePlayerIndex(): number {
+        return this.players[0].type === PlayerType.REMOTE ? 0 : 1;
+    }
+
     checkForGameEnded() {
         const m = this.getCurMove();
         if (!m) {

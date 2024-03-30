@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { fbEndGame } from '../../firebase/firebase';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
 import { GameResult } from '../model/game';
 import { g } from '../model/game';
@@ -45,11 +46,16 @@ export function GameUI() {
             setAllPossibleMoves(g.possibleMoves);
             setCardPossibleMoves([]);
         } else {
-            sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
-            sendAnalyticsEvent(
-                AnalyticsCategory.GAME_RESULT,
-                g.results.has(GameResult.WIN_BLUE) ? `${g?.players[0].name} > ${g?.players[1].name}` : `${g?.players[1].name} > ${g?.players[0].name}`,
-            );
+            if (!g.isRemoteGame() || g.getRemotePlayerIndex() === 1) {
+                sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
+                sendAnalyticsEvent(
+                    AnalyticsCategory.GAME_RESULT,
+                    g.results.has(GameResult.WIN_BLUE) ? `${g?.players[0].name} > ${g?.players[1].name}` : `${g?.players[1].name} > ${g?.players[0].name}`,
+                );
+                if (g.isRemoteGame()) {
+                    fbEndGame(g);
+                }
+            }
             setTimeout(() => {
                 if (g) {
                     navigate('/end');

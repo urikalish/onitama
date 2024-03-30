@@ -1,0 +1,7 @@
+.create--text {
+    color: var(--color--gray--lighter);
+}
+
+.create--id {
+    color: var(--color--accent) !important;
+}
