@@ -25,8 +25,7 @@ export function Rules() {
                             About Onitama
                         </Typography>
                         <Typography variant="body1" className="page--section-text">
-                            Onitama is a two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. It is thematically based on the different
-                            fighting styles of Japanese martial arts.
+                            A two-player, perfect information abstract game created in 2014 by game designer Shimpei Sato. Onitama is thematically based on the different fighting styles of Japanese martial arts.
                         </Typography>
                         <Typography variant="h4" className="page--section-header">
                             Initial Setup
