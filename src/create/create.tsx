@@ -4,7 +4,7 @@ import { Box, Button, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { fbCreateGame, fbWaitForStatusChange, initFirebaseApp } from '../firebase/firebase';
+import { fbCreateGame, fbDeleteGame, fbWaitForStatusChange, initFirebaseApp } from '../firebase/firebase';
 import { get5RandomCardsNames, getStartingColor } from '../game/model/card';
 import { Color } from '../game/model/color';
 import { getInitialFenStr } from '../game/model/fen';
@@ -52,8 +52,9 @@ export function Create() {
     }, []);
 
     const handleClickCancel = useCallback(() => {
+        fbDeleteGame(gameId);
         navigate(`/init`);
-    }, []);
+    }, [gameId]);
 
     return (
         <Box className="create page">

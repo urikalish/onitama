@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { Database, get, getDatabase, onValue, ref, set } from 'firebase/database';
+import { Database, get, getDatabase, onValue, ref, remove, set } from 'firebase/database';
 
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
@@ -24,8 +24,8 @@ export function initFirebaseApp() {
 
 export async function fbGetValue(path: string) {
     try {
-        const valueRef = ref(db, path);
-        const snapshot = await get(valueRef);
+        const dbRef = ref(db, path);
+        const snapshot = await get(dbRef);
         if (snapshot.exists()) {
             return snapshot.val();
         } else {
@@ -44,13 +44,22 @@ async function fbSetValue(path: string, value: any) {
     }
 }
 
-function onChangeValue(path: string, cb: (value: any) => void) {
+function fbOnChangeValue(path: string, cb: (value: any) => void) {
     try {
-        const valueRef = ref(db, path);
-        onValue(valueRef, (snapshot) => {
+        const dbRef = ref(db, path);
+        onValue(dbRef, (snapshot) => {
             const value = snapshot.val();
             cb(value);
         });
+    } catch (err) {
+        alert(err);
+    }
+}
+
+function fbRemove(path: string) {
+    try {
+        const dbRef = ref(db, path);
+        remove(dbRef).then(() => {});
     } catch (err) {
         alert(err);
     }
@@ -88,10 +97,14 @@ export function fbEndGame(gameId: number) {
     fbSetValue(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
 }
 
+export function fbDeleteGame(gameId: number) {
+    fbRemove(`games/${gameId}`);
+}
+
 export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
-    onChangeValue(`games/${gameId}/status`, cb);
+    fbOnChangeValue(`games/${gameId}/status`, cb);
 }
 
 export function fbWaitForMove(gameId: number, cb: (moveRec: any) => void) {
-    onChangeValue(`games/${gameId}/move`, cb);
+    fbOnChangeValue(`games/${gameId}/move`, cb);
 }
