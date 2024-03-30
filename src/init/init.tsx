@@ -259,11 +259,12 @@ export function Init() {
         const gameId = getRandomNumber(5);
         const creationTime = Date.now();
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
-        const game = new Game(gameId, creationTime, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
+        const game = new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
         setG(game);
         saveToLocalStorage();
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
         sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${playerNames[0]} vs ${playerNames[1]}`);
+        game.startGame();
         navigate('/game');
     }, [gameMode, bluePlayer, redPlayer, saveToLocalStorage]);
 

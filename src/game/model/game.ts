@@ -1,6 +1,6 @@
 import { proxy } from 'comlink';
 
-import { flipIndex } from '../../services/utils';
+import { flipIndex, getDateTime } from '../../services/utils';
 import { Army } from './army';
 import { Board } from './board';
 import { Color } from './color';
@@ -10,6 +10,13 @@ import { Mover } from './mover';
 import { PieceType } from './piece';
 import { Player, PlayerType } from './player';
 import { assureTwoMasters, Position } from './position';
+
+export enum GamePhase {
+    CREATED = 'created',
+    JOINING = 'joining',
+    STARTED = 'started',
+    ENDED = 'ended',
+}
 
 export enum GameResult {
     WIN = 'win',
@@ -22,7 +29,9 @@ export enum GameResult {
 
 export class Game {
     id: number;
-    creationTime = 0;
+    creationTime: number;
+    creationDate: string;
+    phase: GamePhase;
     players: Player[];
     armies: Army[];
     board: Board;
@@ -38,7 +47,6 @@ export class Game {
 
     constructor(
         id: number,
-        creationTime: number,
         player0Name: string,
         player0Type: PlayerType,
         player1Name: string,
@@ -47,7 +55,10 @@ export class Game {
         progressCB: ((armyIndex: number, progressPercent: number) => void) | null,
     ) {
         this.id = id;
-        this.creationTime = creationTime;
+        const now = new Date();
+        this.creationTime = now.getTime();
+        this.creationDate = getDateTime(now);
+        this.phase = GamePhase.CREATED;
         if (player0Type === PlayerType.BOT || player1Type === PlayerType.BOT) {
             this.bot = new ComlinkWorker<typeof import('../bots/bot')>(new URL('../bots/bot', import.meta.url), {});
             this.progressCB = progressCB;
@@ -56,6 +67,10 @@ export class Game {
         this.armies = [new Army(0, player0Type), new Army(1, player1Type)];
         this.board = new Board();
         this.applyFen(fenStr);
+    }
+
+    startGame() {
+        this.phase = GamePhase.STARTED;
     }
 
     getCurPosition(): Position {
@@ -78,12 +93,16 @@ export class Game {
         }
     }
 
+    isGameJoining(): boolean {
+        return this.phase === GamePhase.JOINING;
+    }
+
     isGameGoing(): boolean {
-        return this.results.size === 0;
+        return this.phase === GamePhase.STARTED;
     }
 
     isGameEnded(): boolean {
-        return !this.isGameGoing();
+        return this.phase === GamePhase.ENDED;
     }
 
     checkForGameEnded() {
@@ -114,6 +133,7 @@ export class Game {
             this.results.add(GameResult.WIN_STREAM);
             this.resultStr += ' the way of the stream.';
         }
+        this.phase = GamePhase.ENDED;
     }
 
     pushPosition(p: Position) {
@@ -129,7 +149,9 @@ export class Game {
         const p = parseFenStr(fenStr);
         if (!assureTwoMasters(p)) {
             this.results.add(GameResult.INVALID_POSITION);
+            this.phase = GamePhase.ENDED;
             alert('Missing some masters...');
+            throw 'Invalid fen';
         }
         this.board.clearAllPieces();
         for (let i = 0; i < 25; i++) {
