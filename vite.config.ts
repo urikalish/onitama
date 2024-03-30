@@ -4,10 +4,13 @@ import comlink from 'vite-plugin-comlink';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [comlink(), react()],
+    build: {
+        chunkSizeWarningLimit: 1024,
+    },
     server: {
         port: 2014,
     },
+    plugins: [comlink(), react()],
     worker: {
         plugins: () => [comlink()],
     },
