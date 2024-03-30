@@ -140,6 +140,7 @@ async function getMove(
     progressCB(myIndex, 0);
     const moves = mover.getAllPossibleMoves(p);
     if (moves.length === 0) {
+        alert('No moves!');
         throw 'No moves!';
     }
     let winMove;
