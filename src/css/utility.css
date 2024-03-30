@@ -77,7 +77,7 @@
 
 .page--content-and-actions {
     position: absolute;
-    inset: 2rem;
+    inset: 1rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
