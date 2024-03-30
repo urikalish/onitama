@@ -44,6 +44,7 @@ export function fbWaitForJoining(g: Game, cb: (status: string) => void) {
 export function fbEndGame(g: Game) {
     try {
         set(ref(db, `games/${g.id}/status`), GameStatus.ENDED.toString()).then(() => {});
+        set(ref(db, `games/${g.id}/result`), g.resultStr).then(() => {});
     } catch (err) {
         alert(err);
     }
