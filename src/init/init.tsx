@@ -257,7 +257,6 @@ export function Init() {
                 throw 'Unsupported game mode';
         }
         const gameId = getRandomNumber(5);
-        const creationTime = Date.now();
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
         const game = new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback);
         setG(game);
