@@ -66,7 +66,7 @@ export function Join() {
                         Join Game
                     </Typography>
                     <Typography variant="body1" className="create--text">
-                        To join a game, please enter the ID provided by the game creator:
+                        To join a game, please enter the ID provided by the game creator.
                     </Typography>
                     <TextField required id="game-id" placeholder="00000" variant="outlined" className="join--game-id" value={gameIdStr} onChange={handleChangeGameId} />
                 </Box>
