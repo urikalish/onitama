@@ -254,7 +254,8 @@ export function Init() {
                 }
                 break;
             default:
-                throw 'Unsupported game mode';
+                alert('Unsupported game mode!');
+                throw 'Unsupported game mode!';
         }
         const gameId = getRandomNumber(5);
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
