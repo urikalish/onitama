@@ -106,7 +106,9 @@ export function GameUI() {
                 const m = moves[0];
                 g.move(m);
                 setPosition(g.getCurPosition());
-                fbSetMove(g.id, m);
+                if (g.isRemoteGame()) {
+                    fbSetMove(g.id, m);
+                }
             } else {
                 setCardPossibleMoves(moves);
             }
@@ -125,7 +127,9 @@ export function GameUI() {
             }
             g.move(m);
             setPosition(g.getCurPosition());
-            fbSetMove(g.id, m);
+            if (g.isRemoteGame()) {
+                fbSetMove(g.id, m);
+            }
         },
         [g, cardPossibleMoves],
     );
