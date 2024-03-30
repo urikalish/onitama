@@ -69,16 +69,16 @@ export async function fbGetGameRecord(gameId: number): Promise<any> {
     return fbGet(`games/${gameId}`);
 }
 
-export async function fbCreateGame(g: Game) {
-    return fbSet(`games/${g.id}`, {
+export function fbCreateGame(g: Game) {
+    fbSet(`games/${g.id}`, {
         cTime: g.creationTime,
         cDate: g.creationDate,
         status: g.status.toString(),
         position: getFenStr(g.getCurPosition()),
-    });
+    }).then(() => {});
 }
-export async function fbSetMove(gameId: number, m: Move) {
-    return fbSet(`games/${gameId}/move`, {
+export function fbSetMove(gameId: number, m: Move) {
+    fbSet(`games/${gameId}/move`, {
         moveNum: m.moveNum,
         armyIndex: m.armyIndex,
         cardName: m.cardName,
@@ -86,7 +86,7 @@ export async function fbSetMove(gameId: number, m: Move) {
         to: m.to,
         name: m.name,
         types: Array.from(m.types).toString(),
-    });
+    }).then(() => {});
 }
 
 export function fbStartGame(gameId: number) {

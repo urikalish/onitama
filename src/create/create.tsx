@@ -39,7 +39,7 @@ export function Create() {
         setGameId(g!.id);
         g!.status = GameStatus.JOINING;
         initFirebaseApp();
-        fbCreateGame(g!).then(() => {});
+        fbCreateGame(g!);
         fbWaitForStatusChange(g!.id, (status: string) => {
             if (status === GameStatus.STARTED) {
                 g!.startGame();

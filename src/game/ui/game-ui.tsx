@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { fbEndGame } from '../../firebase/firebase';
+import { fbEndGame, fbSetMove, fbWaitForMove } from '../../firebase/firebase';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
 import { GameResult } from '../model/game';
 import { g } from '../model/game';
@@ -36,6 +36,19 @@ export function GameUI() {
             return;
         }
         setPosition(g.getCurPosition());
+        if (g.isRemoteGame()) {
+            fbWaitForMove(g.id, (mRec: any) => {
+                if (!g?.isRemoteTurn()) {
+                    return;
+                }
+                const m = g.possibleMoves.filter((m) => m.cardName === mRec.cardName && m.from === mRec.from && m.to === mRec.to)[0];
+                if (!m) {
+                    return;
+                }
+                g.move(m);
+                setPosition(g.getCurPosition());
+            });
+        }
     }, []);
 
     useEffect(() => {
@@ -93,6 +106,7 @@ export function GameUI() {
                 const m = moves[0];
                 g.move(m);
                 setPosition(g.getCurPosition());
+                fbSetMove(g.id, m);
             } else {
                 setCardPossibleMoves(moves);
             }
@@ -106,8 +120,12 @@ export function GameUI() {
                 return;
             }
             const m = cardPossibleMoves.find((m) => m.from === from && m.to === to);
+            if (!m) {
+                return;
+            }
             g.move(m);
             setPosition(g.getCurPosition());
+            fbSetMove(g.id, m);
         },
         [g, cardPossibleMoves],
     );
