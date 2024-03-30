@@ -263,7 +263,6 @@ export function Start() {
         setG(game);
         saveToLocalStorage();
         sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
-        sendAnalyticsEvent(AnalyticsCategory.GAME_MODE, gameMode);
         sendAnalyticsEvent(AnalyticsCategory.PLAYERS, `${playerNames[0]} vs ${playerNames[1]}`);
         navigate('/game');
     }, [gameMode, bluePlayer, redPlayer, saveToLocalStorage]);
