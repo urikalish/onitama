@@ -1,0 +1,14 @@
+.join--text {
+    color: var(--color--gray--lighter);
+}
+
+.join--game-id {
+    margin-top: 2rem !important;
+    width: 100%;
+}
+
+.join--game-id input#game-id {
+    width: 50%;
+    font-size: 2rem;
+    color: #fff;
+}

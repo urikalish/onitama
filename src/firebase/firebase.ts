@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { Database, getDatabase, onValue, ref, set } from 'firebase/database';
+import { Database, get, getDatabase, onValue, ref, set } from 'firebase/database';
 
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
@@ -33,12 +33,38 @@ export async function fbCreateGame(g: Game) {
         alert(err);
     }
 }
-export function fbWaitForJoining(g: Game, cb: (status: string) => void) {
-    const statusRef = ref(db, `games/${g.id}/status`);
-    onValue(statusRef, (snapshot) => {
-        const status = snapshot.val();
-        cb(status);
-    });
+export function fbWaitForJoining(id: number, cb: (status: string) => void) {
+    try {
+        const statusRef = ref(db, `games/${id}/status`);
+        onValue(statusRef, (snapshot) => {
+            const status = snapshot.val();
+            cb(status);
+        });
+    } catch (err) {
+        alert(err);
+    }
+}
+
+export async function fbGetGameRecord(gameIdStr: number): Promise<any> {
+    try {
+        const valueRef = ref(db, `games/${gameIdStr}`);
+        const snapshot = await get(valueRef);
+        if (snapshot.exists()) {
+            return snapshot.val();
+        } else {
+            return null;
+        }
+    } catch (err) {
+        return null;
+    }
+}
+
+export function fbStartGame(id: number) {
+    try {
+        set(ref(db, `games/${id}/status`), GameStatus.STARTED.toString()).then(() => {});
+    } catch (err) {
+        alert(err);
+    }
 }
 
 export function fbEndGame(g: Game) {

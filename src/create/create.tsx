@@ -40,7 +40,7 @@ export function Create() {
         g!.status = GameStatus.JOINING;
         initFirebaseApp();
         fbCreateGame(g!).then(() => {});
-        fbWaitForJoining(g!, (status) => {
+        fbWaitForJoining(g!.id, (status) => {
             if (status === GameStatus.STARTED) {
                 g!.startGame();
                 sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_STARTED);
@@ -66,7 +66,7 @@ export function Create() {
                     {gameId && (
                         <>
                             <Typography variant="body1" className="create--text">
-                                The game was created successfully and will start automatically when the remote player joins. Please ask the other player to join the game using Game
+                                The game was created successfully and will start automatically when the remote player joins. Please ask the other player to join the game using this
                                 ID:
                             </Typography>
                             <Typography variant="h3" className="create--id">
