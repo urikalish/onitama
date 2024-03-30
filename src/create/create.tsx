@@ -67,8 +67,7 @@ export function Create() {
                     {gameId && (
                         <>
                             <Typography variant="body1" className="create--text">
-                                The game was created successfully and will start automatically when the remote player joins. Please ask the other player to join the game using this
-                                ID:
+                                The game will start automatically when the remote player joins. Please ask the other player to join the game using this ID:
                             </Typography>
                             <Typography variant="h3" className="create--id">
                                 {gameId}
