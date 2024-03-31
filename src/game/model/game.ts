@@ -109,8 +109,8 @@ export class Game {
         return this.players[0].type === PlayerType.REMOTE || this.players[1].type === PlayerType.REMOTE;
     }
 
-    getRemotePlayerIndex(): number {
-        return this.players[0].type === PlayerType.REMOTE ? 0 : 1;
+    isRemoteGameReportingPlayer(): number {
+        return this.isRemoteGame() && this.players[0].type === PlayerType.REMOTE ? 0 : 1;
     }
 
     checkForGameEnded() {
@@ -124,10 +124,10 @@ export class Game {
         this.results.add(GameResult.WIN);
         if (m.types.has(MoveType.WIN_BLUE)) {
             this.results.add(GameResult.WIN_BLUE);
-            this.resultStr = 'Blue wins by';
+            this.resultStr = 'Blue victory by';
         } else if (m.types.has(MoveType.WIN_RED)) {
             this.results.add(GameResult.WIN_RED);
-            this.resultStr = 'Red wins by';
+            this.resultStr = 'Red victory by';
         }
         if (m.types.has(MoveType.WIN_STONE) && m.types.has(MoveType.WIN_STREAM)) {
             this.results.add(GameResult.WIN_STONE);

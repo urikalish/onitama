@@ -35,14 +35,6 @@ export function getAllPieceCount(p: Position) {
     ];
 }
 
-export function getStandardScore(p: Position): number {
-    let score = 0;
-    const pieceCount = getAllPieceCount(p);
-    score += pieceCount[0][PieceType.STUDENT];
-    score -= pieceCount[1][PieceType.STUDENT];
-    return score;
-}
-
 export class Position {
     armyIndex = -1;
     pieceData: string[] = [];

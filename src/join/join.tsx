@@ -21,7 +21,7 @@ export function Join() {
                 if (record && record['status'] === GameStatus.JOINING) {
                     const playerNames: string[] = ['remote', 'local'];
                     const playerTypes: PlayerType[] = [PlayerType.REMOTE, PlayerType.LOCAL];
-                    const fenStr = record['position'];
+                    const fenStr = record['cFen'];
                     setG(new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
                     g!.startGame();
                     fbStartGame(g!.id);

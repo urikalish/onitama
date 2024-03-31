@@ -4,6 +4,7 @@ import { Database, get, getDatabase, off, onValue, ref, remove, set } from 'fire
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
 import { Move } from '../game/model/move';
+import { Position } from '../game/model/position';
 
 let db: Database;
 
@@ -90,8 +91,8 @@ export function fbCreateGame(g: Game) {
         id: g.id,
         cTime: g.creationTime,
         cDate: g.creationDate,
+        cFen: getFenStr(g.getCurPosition()),
         status: g.status.toString(),
-        position: getFenStr(g.getCurPosition()),
     });
 }
 export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
@@ -112,13 +113,21 @@ export function fbWaitForMove(gameId: number, cb: (moveRec: any) => void) {
 
 export function fbSetMove(gameId: number, m: Move) {
     fbSet(`games/${gameId}/move`, {
-        moveNum: m.moveNum,
         armyIndex: m.armyIndex,
         cardName: m.cardName,
         from: m.from,
-        to: m.to,
+        moveNum: m.moveNum,
         name: m.name,
+        to: m.to,
         types: Array.from(m.types).toString(),
+    });
+}
+
+export function fbSetPosition(gameId: number, p: Position) {
+    fbSet(`games/${gameId}/position`, {
+        armyIndex: p.armyIndex,
+        fenStr: getFenStr(p),
+        positionNum: p.positionNum,
     });
 }
 

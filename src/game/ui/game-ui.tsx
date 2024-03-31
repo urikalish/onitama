@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { fbEndGame, fbSetMove, fbWaitForMove } from '../../firebase/firebase';
+import { fbEndGame, fbSetMove, fbSetPosition, fbWaitForMove } from '../../firebase/firebase';
 import { AnalyticsAction, AnalyticsCategory, sendAnalyticsEvent } from '../../services/analytics';
 import { GameResult } from '../model/game';
 import { g } from '../model/game';
@@ -59,13 +59,13 @@ export function GameUI() {
             setAllPossibleMoves(g.possibleMoves);
             setCardPossibleMoves([]);
         } else {
-            if (!g.isRemoteGame() || g.getRemotePlayerIndex() === 1) {
+            if (!g.isRemoteGame() || g.isRemoteGameReportingPlayer()) {
                 sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
                 sendAnalyticsEvent(
                     AnalyticsCategory.GAME_RESULT,
                     g.results.has(GameResult.WIN_BLUE) ? `${g?.players[0].name} > ${g?.players[1].name}` : `${g?.players[1].name} > ${g?.players[0].name}`,
                 );
-                if (g.isRemoteGame()) {
+                if (g.isRemoteGameReportingPlayer()) {
                     fbEndGame(g.id, g.resultStr);
                 }
             }
@@ -105,9 +105,11 @@ export function GameUI() {
             if (moves.length === 1 && moves[0].types.has(MoveType.PASS_CARD_ONLY)) {
                 const m = moves[0];
                 g.move(m);
-                setPosition(g.getCurPosition());
+                const p = g.getCurPosition();
+                setPosition(p);
                 if (g.isRemoteGame()) {
                     fbSetMove(g.id, m);
+                    fbSetPosition(g.id, p);
                 }
             } else {
                 setCardPossibleMoves(moves);
@@ -126,9 +128,11 @@ export function GameUI() {
                 return;
             }
             g.move(m);
-            setPosition(g.getCurPosition());
+            const p = g.getCurPosition();
+            setPosition(p);
             if (g.isRemoteGame()) {
                 fbSetMove(g.id, m);
+                fbSetPosition(g.id, p);
             }
         },
         [g, cardPossibleMoves],
