@@ -1,8 +1,8 @@
-.page.init .MuiFormGroup-root {
+.init.page .MuiFormGroup-root {
     margin-bottom: 1rem;
 }
 
-.page.init .MuiFormControlLabel-label {
+.init.page .MuiFormControlLabel-label {
     position: relative;
     top: 1px;
 }

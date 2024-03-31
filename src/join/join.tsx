@@ -1,26 +1,17 @@
 import './join.css';
 
 import { Box, Button, TextField, Typography } from '@mui/material';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { fbGetGameRecord, fbStartGame, initFirebaseApp } from '../firebase/firebase';
+import { fbGetGameRecord, fbStartGame } from '../firebase/firebase';
 import { g, Game, GameStatus, setG } from '../game/model/game';
 import { PlayerType } from '../game/model/player';
 import { handleProgressCallback } from '../game/ui/game-ui';
 
 export function Join() {
-    const initialized = useRef(false);
     const navigate = useNavigate();
     const [gameIdStr, setGameIdStr] = useState('');
-
-    useEffect(() => {
-        if (initialized.current) {
-            return;
-        }
-        initFirebaseApp();
-        initialized.current = true;
-    }, []);
 
     useEffect(() => {
         if (gameIdStr && gameIdStr.length === 5) {

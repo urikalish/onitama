@@ -6,6 +6,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { Admin } from './admin/admin';
 import { Create } from './create/create';
 import { Credits } from './credits/credits';
 import { End } from './end/end';
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
             {
                 path: 'end',
                 element: <End />,
+            },
+            {
+                path: 'admin',
+                element: <Admin />,
             },
         ],
     },

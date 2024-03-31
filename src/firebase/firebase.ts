@@ -7,7 +7,7 @@ import { Move } from '../game/model/move';
 
 let db: Database;
 
-export function initFirebaseApp() {
+function initFirebaseApp() {
     const firebaseConfig = {
         apiKey: 'AIzaSyBsO40MyUVaNRhyhuxqmYbi0IyjTaRUKWs',
         authDomain: 'kalish-onitama.firebaseapp.com',
@@ -22,8 +22,15 @@ export function initFirebaseApp() {
     db = getDatabase(fbApp);
 }
 
+function ensureDb() {
+    if (!db) {
+        initFirebaseApp();
+    }
+}
+
 export async function fbGet(path: string) {
     try {
+        ensureDb();
         const dbRef = ref(db, path);
         const snapshot = await get(dbRef);
         if (snapshot.exists()) {
@@ -38,6 +45,7 @@ export async function fbGet(path: string) {
 
 async function fbSet(path: string, value: any) {
     try {
+        ensureDb();
         return await set(ref(db, path), value);
     } catch (err) {
         alert(err);
@@ -46,6 +54,7 @@ async function fbSet(path: string, value: any) {
 
 function fbOnChangeValue(path: string, cb: (value: any) => void) {
     try {
+        ensureDb();
         const dbRef = ref(db, path);
         onValue(dbRef, (snapshot) => {
             const value = snapshot.val();
@@ -58,6 +67,7 @@ function fbOnChangeValue(path: string, cb: (value: any) => void) {
 
 function fbRemove(path: string) {
     try {
+        ensureDb();
         const dbRef = ref(db, path);
         remove(dbRef).then(() => {});
     } catch (err) {
@@ -67,6 +77,7 @@ function fbRemove(path: string) {
 
 function fbDetach(path: string) {
     try {
+        ensureDb();
         const dbRef = ref(db, path);
         off(dbRef);
     } catch (err) {
@@ -109,6 +120,25 @@ export function fbEndGame(gameId: number) {
 
 export function fbDeleteGame(gameId: number) {
     fbRemove(`games/${gameId}`);
+}
+
+export function fbDeleteAllOldGames(timeDiff: number) {
+    (async () => {
+        const allGames = await fbGet(`games`);
+        if (!allGames) {
+            return;
+        }
+        let count = 0;
+        const cutoff = Date.now() - timeDiff;
+        for (const gameId in allGames) {
+            const gameRec = allGames[gameId];
+            if (gameRec.cTime < cutoff) {
+                fbDeleteGame(gameRec.id);
+                count++;
+            }
+        }
+        alert(`${count} games deleted`);
+    })();
 }
 
 export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
