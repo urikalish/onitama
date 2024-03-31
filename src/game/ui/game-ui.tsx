@@ -66,7 +66,7 @@ export function GameUI() {
                     g.results.has(GameResult.WIN_BLUE) ? `${g?.players[0].name} > ${g?.players[1].name}` : `${g?.players[1].name} > ${g?.players[0].name}`,
                 );
                 if (g.isRemoteGame()) {
-                    fbEndGame(g.id);
+                    fbEndGame(g.id, g.resultStr);
                 }
             }
             setTimeout(() => {

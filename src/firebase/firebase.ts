@@ -43,10 +43,10 @@ export async function fbGet(path: string) {
     }
 }
 
-async function fbSet(path: string, value: any) {
+function fbSet(path: string, value: any) {
     try {
         ensureDb();
-        return await set(ref(db, path), value);
+        set(ref(db, path), value).then(() => {});
     } catch (err) {
         alert(err);
     }
@@ -85,18 +85,31 @@ function fbDetach(path: string) {
     }
 }
 
-export async function fbGetGameRecord(gameId: number): Promise<any> {
-    return fbGet(`games/${gameId}`);
-}
-
 export function fbCreateGame(g: Game) {
     fbSet(`games/${g.id}`, {
+        id: g.id,
         cTime: g.creationTime,
         cDate: g.creationDate,
         status: g.status.toString(),
         position: getFenStr(g.getCurPosition()),
-    }).then(() => {});
+    });
 }
+export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
+    fbOnChangeValue(`games/${gameId}/status`, cb);
+}
+
+export async function fbGetGameRecord(gameId: number): Promise<any> {
+    return fbGet(`games/${gameId}`);
+}
+
+export function fbStartGame(gameId: number) {
+    fbSet(`games/${gameId}/status`, GameStatus.STARTED.toString());
+}
+
+export function fbWaitForMove(gameId: number, cb: (moveRec: any) => void) {
+    fbOnChangeValue(`games/${gameId}/move`, cb);
+}
+
 export function fbSetMove(gameId: number, m: Move) {
     fbSet(`games/${gameId}/move`, {
         moveNum: m.moveNum,
@@ -106,19 +119,19 @@ export function fbSetMove(gameId: number, m: Move) {
         to: m.to,
         name: m.name,
         types: Array.from(m.types).toString(),
-    }).then(() => {});
+    });
 }
 
-export function fbStartGame(gameId: number) {
-    fbSet(`games/${gameId}/status`, GameStatus.STARTED.toString()).then(() => {});
-}
-
-export function fbEndGame(gameId: number) {
-    fbSet(`games/${gameId}/status`, GameStatus.ENDED.toString()).then(() => {});
-    fbDetach(`games/${gameId}`);
+export function fbEndGame(gameId: number, resultStr: string) {
+    fbSet(`games/${gameId}/status`, GameStatus.ENDED.toString());
+    fbSet(`games/${gameId}/result`, resultStr);
+    setTimeout(() => {
+        fbDetach(`games/${gameId}`);
+    }, 5000);
 }
 
 export function fbDeleteGame(gameId: number) {
+    fbDetach(`games/${gameId}`);
     fbRemove(`games/${gameId}`);
 }
 
@@ -133,18 +146,10 @@ export function fbDeleteAllOldGames(timeDiff: number) {
         for (const gameId in allGames) {
             const gameRec = allGames[gameId];
             if (gameRec.cTime < cutoff) {
-                fbDeleteGame(gameRec.id);
+                fbDeleteGame(Number(gameId));
                 count++;
             }
         }
         alert(`${count} games deleted`);
     })();
-}
-
-export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
-    fbOnChangeValue(`games/${gameId}/status`, cb);
-}
-
-export function fbWaitForMove(gameId: number, cb: (moveRec: any) => void) {
-    fbOnChangeValue(`games/${gameId}/move`, cb);
 }
