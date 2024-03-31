@@ -109,8 +109,8 @@ export class Game {
         return this.players[0].type === PlayerType.REMOTE || this.players[1].type === PlayerType.REMOTE;
     }
 
-    isRemoteGameReportingPlayer(): number {
-        return this.isRemoteGame() && this.players[0].type === PlayerType.REMOTE ? 0 : 1;
+    isRemoteGameCreator(): boolean {
+        return this.players[1].type === PlayerType.REMOTE;
     }
 
     checkForGameEnded() {
