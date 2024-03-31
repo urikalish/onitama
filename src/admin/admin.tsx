@@ -39,7 +39,7 @@ export function Admin() {
                     </Box>
                 </Box>
                 <Box className="page--actions">
-                    <Button onClick={handleClickHome} variant="contained" className="action-button">
+                    <Button onClick={handleClickHome} variant="outlined" className="action-button">
                         <Typography>Home</Typography>
                     </Button>
                 </Box>
