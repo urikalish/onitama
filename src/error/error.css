@@ -8,3 +8,7 @@
     background-image: var(--bg);
     background-size: cover;
 }
+
+.error--text {
+    margin-top: 1rem !important;
+}
