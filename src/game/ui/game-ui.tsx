@@ -59,7 +59,7 @@ export function GameUI() {
             setAllPossibleMoves(g.possibleMoves);
             setCardPossibleMoves([]);
         } else {
-            if (!g.isRemoteGame() || g.isRemoteGameReportingPlayer()) {
+            if (!g.isRemoteGame() || g.isRemoteGameCreator()) {
                 sendAnalyticsEvent(AnalyticsCategory.GAME_PHASE, AnalyticsAction.GAME_PHASE_GAME_ENDED);
                 sendAnalyticsEvent(
                     AnalyticsCategory.GAME_RESULT,
