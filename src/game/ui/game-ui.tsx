@@ -65,7 +65,7 @@ export function GameUI() {
                     AnalyticsCategory.GAME_RESULT,
                     g.results.has(GameResult.WIN_BLUE) ? `${g?.players[0].name} > ${g?.players[1].name}` : `${g?.players[1].name} > ${g?.players[0].name}`,
                 );
-                if (g.isRemoteGameReportingPlayer()) {
+                if (g.isRemoteGameCreator()) {
                     fbEndGame(g.id, g.resultStr);
                 }
             }
