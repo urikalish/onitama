@@ -37,7 +37,7 @@ export function Create() {
         const fenStr = getInitialFenStr(cardNames0, cardNames1);
         setG(new Game(gameId, playerNames[0], playerTypes[0], playerNames[1], playerTypes[1], fenStr, handleProgressCallback));
         setGameId(g!.id);
-        g!.status = GameStatus.JOINING;
+        g!.status = GameStatus.WAITING;
         fbCreateGame(g!);
         fbWaitForStatusChange(g!.id, (status: string) => {
             if (status === GameStatus.STARTED) {

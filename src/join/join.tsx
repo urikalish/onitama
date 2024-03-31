@@ -18,7 +18,7 @@ export function Join() {
             (async () => {
                 const gameId = parseFloat(gameIdStr);
                 const record = await fbGetGameRecord(parseFloat(gameIdStr));
-                if (record && record['status'] === GameStatus.JOINING) {
+                if (record && record['status'] === GameStatus.WAITING) {
                     const playerNames: string[] = ['remote', 'local'];
                     const playerTypes: PlayerType[] = [PlayerType.REMOTE, PlayerType.LOCAL];
                     const fenStr = record['cFen'];

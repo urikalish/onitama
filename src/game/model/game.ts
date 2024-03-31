@@ -13,7 +13,7 @@ import { assureTwoMasters, Position } from './position';
 
 export enum GameStatus {
     CREATED = 'created',
-    JOINING = 'joining',
+    WAITING = 'waiting',
     STARTED = 'started',
     ENDED = 'ended',
 }
@@ -93,8 +93,8 @@ export class Game {
         }
     }
 
-    isGameJoining(): boolean {
-        return this.status === GameStatus.JOINING;
+    isGameWaiting(): boolean {
+        return this.status === GameStatus.WAITING;
     }
 
     isGameGoing(): boolean {
