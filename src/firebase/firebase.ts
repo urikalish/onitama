@@ -1,10 +1,11 @@
 import { initializeApp } from 'firebase/app';
-import { Database, get, getDatabase, off, onValue, ref, remove, set } from 'firebase/database';
+import { Database, get, getDatabase, off, onValue, push, ref, remove, set } from 'firebase/database';
 
 import { getFenStr } from '../game/model/fen';
 import { Game, GameStatus } from '../game/model/game';
 import { Move } from '../game/model/move';
 import { Position } from '../game/model/position';
+import { getDateTime } from '../services/utils';
 
 let db: Database;
 
@@ -53,6 +54,15 @@ function fbSet(path: string, value: any) {
     }
 }
 
+function fbPush(path: string, value: any) {
+    try {
+        ensureDb();
+        push(ref(db, path), value).then(() => {});
+    } catch (err) {
+        alert(err);
+    }
+}
+
 function fbOnChangeValue(path: string, cb: (value: any) => void) {
     try {
         ensureDb();
@@ -86,16 +96,26 @@ function fbDetach(path: string) {
     }
 }
 
+function fbAudit(gameId: number, msg: string) {
+    fbPush(`games/${gameId}/audit`, msg);
+}
+
 export function fbCreateGame(g: Game) {
+    const p = g.getCurPosition();
+    const fenStr = getFenStr(p);
     fbSet(`games/${g.id}`, {
         id: g.id,
         cTime: g.creationTime,
         cDate: g.creationDate,
-        cFen: getFenStr(g.getCurPosition()),
+        cFen: fenStr,
         status: g.status.toString(),
     });
+    fbAudit(g.id, `Game created at ${g.creationDate}`);
+    fbAudit(g.id, fenStr);
+    fbAudit(g.id, `${g.getCurPlayer()!.index === 0 ? 'Blue' : 'Red'} will move first`);
 }
 export function fbWaitForStatusChange(gameId: number, cb: (status: string) => void) {
+    fbAudit(gameId, 'Creator waiting for opponent...');
     fbOnChangeValue(`games/${gameId}/status`, cb);
 }
 
@@ -104,6 +124,7 @@ export async function fbGetGameRecord(gameId: number): Promise<any> {
 }
 
 export function fbStartGame(gameId: number) {
+    fbAudit(gameId, `Game started at ${getDateTime(new Date())}`);
     fbSet(`games/${gameId}/status`, GameStatus.STARTED.toString());
 }
 
@@ -121,19 +142,23 @@ export function fbSetMove(gameId: number, m: Move) {
         to: m.to,
         types: Array.from(m.types).toString(),
     });
+    fbAudit(gameId, `${m.armyIndex === 0 ? 'Blue' : 'Red'} ${m.name}`);
 }
 
 export function fbSetPosition(gameId: number, p: Position) {
+    const fenStr = getFenStr(p);
     fbSet(`games/${gameId}/position`, {
         armyIndex: p.armyIndex,
-        fenStr: getFenStr(p),
+        fenStr: fenStr,
         positionNum: p.positionNum,
     });
+    fbAudit(gameId, fenStr);
 }
 
 export function fbEndGame(gameId: number, resultStr: string) {
     fbSet(`games/${gameId}/status`, GameStatus.ENDED.toString());
     fbSet(`games/${gameId}/result`, resultStr);
+    fbAudit(gameId, `Game ended. ${resultStr}`);
     setTimeout(() => {
         fbDetach(`games/${gameId}`);
     }, 5000);
