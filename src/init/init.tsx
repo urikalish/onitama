@@ -63,13 +63,13 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-local',
-                text: 'Local Player',
+                text: 'Local player',
             },
         ],
         red: [
             {
                 value: 'human-local',
-                text: 'Local Player',
+                text: 'Local player',
             },
         ],
     },
@@ -83,7 +83,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         red: [
             {
                 value: 'human-remote',
-                text: 'Remote Player',
+                text: 'Remote player',
             },
         ],
     },
@@ -91,7 +91,7 @@ const combos: Record<string, { blue: { value: string; text: string }[]; red: { v
         blue: [
             {
                 value: 'human-remote',
-                text: 'Remote Player',
+                text: 'Remote player',
             },
         ],
         red: [
