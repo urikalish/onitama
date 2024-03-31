@@ -50,7 +50,7 @@ export function Rules() {
                         </Typography>
                         <Typography variant="body1" className="page--section-text">
                             There are two ways to win the game. To win in the Way of the Stone, you must capture your opponent’s Master pawn. To win in the Way of the Stream, you
-                            must move your own Master pawn into your opponent’s blue or red Torii gate square.
+                            must move your own Master pawn into your opponent’s blue/red Torii gate square.
                         </Typography>
                     </Box>
                 </Box>
