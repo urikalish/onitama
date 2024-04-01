@@ -300,7 +300,9 @@ export function Init() {
                     <FormGroup>
                         <Box className="init--players">
                             <FormControl fullWidth>
-                                <InputLabel id="blue-select-label">Blue</InputLabel>
+                                <InputLabel id="blue-select-label" className="blue-select-label">
+                                    Blue
+                                </InputLabel>
                                 <Select
                                     labelId="blue-select-label"
                                     id="blue-select"
@@ -317,7 +319,9 @@ export function Init() {
                                 </Select>
                             </FormControl>
                             <FormControl fullWidth>
-                                <InputLabel id="red-select-label">Red</InputLabel>
+                                <InputLabel id="red-select-label" className="red-select-label">
+                                    Red
+                                </InputLabel>
                                 <Select labelId="red-select-label" id="red-select" value={redPlayer} label="Red" disabled={redCombo.length <= 1} onChange={handleChangeRedPlayer}>
                                     {redCombo.map((item) => (
                                         <MenuItem key={item.value} value={item.value}>

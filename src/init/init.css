@@ -11,3 +11,10 @@
     display: flex;
     gap: 0.5rem;
 }
+
+.MuiInputLabel-root.blue-select-label {
+    color: var(--color--blue);
+}
+.MuiInputLabel-root.red-select-label {
+    color: var(--color--red);
+}
