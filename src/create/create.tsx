@@ -60,13 +60,20 @@ export function Create() {
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4" className="page--section-header" sx={{ margin: '2rem 0 0.5rem 0' }}>
+                    <Typography variant="h4" className="page--section-header">
                         Create Game
                     </Typography>
                     {gameId && (
                         <>
                             <Typography variant="body1" className="create--text">
-                                Please ask the other player to join the game using this ID:
+                                <Box>
+                                    You will control the{' '}
+                                    <Box component="span" className="create--army-color-text">
+                                        blue
+                                    </Box>{' '}
+                                    army.
+                                </Box>
+                                <Box>Please ask the other player to join the game using this ID:</Box>
                             </Typography>
                             <Typography variant="h3" className="create--id">
                                 {gameId}

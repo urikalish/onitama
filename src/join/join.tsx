@@ -53,11 +53,18 @@ export function Join() {
             <Box className="page-cover" />
             <Box className="page--content-and-actions">
                 <Box className="page--content">
-                    <Typography variant="h4" className="page--section-header" sx={{ margin: '2rem 0 0.5rem 0' }}>
+                    <Typography variant="h4" className="page--section-header">
                         Join Game
                     </Typography>
-                    <Typography variant="body1" className="create--text">
-                        Please enter the ID provided by the game creator.
+                    <Typography variant="body1" className="join--text">
+                        <Box>
+                            You will control the{' '}
+                            <Box component="span" className="join--army-color-text">
+                                red
+                            </Box>{' '}
+                            army.
+                        </Box>
+                        <Box>Please enter the ID provided by the game creator.</Box>
                     </Typography>
                     <TextField required id="game-id" placeholder="00000" variant="outlined" className="join--game-id" value={gameIdStr} onChange={handleChangeGameId} />
                 </Box>

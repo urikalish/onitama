@@ -1,5 +1,11 @@
-.join--text {
+.MuiTypography-root.join--text {
     color: var(--color--gray--lighter);
+}
+
+.join--army-color-text {
+    color: var(--color--red);
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .join--game-id {

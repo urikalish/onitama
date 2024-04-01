@@ -1,5 +1,11 @@
-.create--text {
+.MuiTypography-root.create--text {
     color: var(--color--gray--lighter);
+}
+
+.create--army-color-text {
+    color: var(--color--blue);
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 .create--id {
